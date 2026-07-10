@@ -1,0 +1,33 @@
+{
+  "name": "gis-gis-qa-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: gis-qa-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "gis-qa-engineer",
+    "zh": "gis-qa-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from gis",
+    "zh": "来自 gis 的独立专家"
+  },
+  "categoryId": "06-GIS",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "gis-qa-engineer",
+        "zh": "gis-qa-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

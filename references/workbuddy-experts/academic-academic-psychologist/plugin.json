@@ -1,0 +1,33 @@
+{
+  "name": "academic-academic-psychologist",
+  "version": "1.0.0",
+  "description": "Individual expert: academic-psychologist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "academic-psychologist",
+    "zh": "academic-psychologist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from academic",
+    "zh": "来自 academic 的独立专家"
+  },
+  "categoryId": "01-Academic",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "academic-psychologist",
+        "zh": "academic-psychologist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

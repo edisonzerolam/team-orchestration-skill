@@ -1,0 +1,1 @@
+{"l1":{"name":"永不过期","ttl":null,"description":"load_experts_light() — teams-index.json"},"l2":{"name":"300s TTL","ttl":300,"description":"load_experts_detail() — plugin.json","key_pattern":"detail:*"},"l3":{"name":"用完即弃","ttl":0,"description":"load_agents_lazy() — agents/*.md","cache_enabled":false}}

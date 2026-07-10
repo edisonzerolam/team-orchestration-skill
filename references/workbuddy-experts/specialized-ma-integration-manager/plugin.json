@@ -1,0 +1,33 @@
+{
+  "name": "specialized-ma-integration-manager",
+  "version": "1.0.0",
+  "description": "Individual expert: ma-integration-manager",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "ma-integration-manager",
+    "zh": "ma-integration-manager"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "ma-integration-manager",
+        "zh": "ma-integration-manager"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

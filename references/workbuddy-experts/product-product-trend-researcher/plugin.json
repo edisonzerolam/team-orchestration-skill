@@ -1,0 +1,33 @@
+{
+  "name": "product-product-trend-researcher",
+  "version": "1.0.0",
+  "description": "Individual expert: product-trend-researcher",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "product-trend-researcher",
+    "zh": "product-trend-researcher"
+  },
+  "displayDescription": {
+    "en": "Individual expert from product",
+    "zh": "来自 product 的独立专家"
+  },
+  "categoryId": "11-Product",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "product-trend-researcher",
+        "zh": "product-trend-researcher"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

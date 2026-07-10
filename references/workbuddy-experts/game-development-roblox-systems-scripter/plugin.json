@@ -1,0 +1,33 @@
+{
+  "name": "game-development-roblox-systems-scripter",
+  "version": "1.0.0",
+  "description": "Individual expert: roblox-systems-scripter",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "roblox-systems-scripter",
+    "zh": "roblox-systems-scripter"
+  },
+  "displayDescription": {
+    "en": "Individual expert from game-development",
+    "zh": "来自 game-development 的独立专家"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "roblox-systems-scripter",
+        "zh": "roblox-systems-scripter"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

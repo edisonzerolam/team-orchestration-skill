@@ -1,0 +1,33 @@
+{
+  "name": "specialized-automation-governance-architect",
+  "version": "1.0.0",
+  "description": "Individual expert: automation-governance-architect",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "automation-governance-architect",
+    "zh": "automation-governance-architect"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "automation-governance-architect",
+        "zh": "automation-governance-architect"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

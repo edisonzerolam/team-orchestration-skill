@@ -1,0 +1,33 @@
+{
+  "name": "specialized-government-digital-presales-consultant",
+  "version": "1.0.0",
+  "description": "Individual expert: government-digital-presales-consultant",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "government-digital-presales-consultant",
+    "zh": "government-digital-presales-consultant"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "government-digital-presales-consultant",
+        "zh": "government-digital-presales-consultant"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

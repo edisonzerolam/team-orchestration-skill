@@ -1,0 +1,33 @@
+{
+  "name": "testing-testing-tool-evaluator",
+  "version": "1.0.0",
+  "description": "Individual expert: testing-tool-evaluator",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "testing-tool-evaluator",
+    "zh": "testing-tool-evaluator"
+  },
+  "displayDescription": {
+    "en": "Individual expert from testing",
+    "zh": "来自 testing 的独立专家"
+  },
+  "categoryId": "19-Testing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "testing-tool-evaluator",
+        "zh": "testing-tool-evaluator"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

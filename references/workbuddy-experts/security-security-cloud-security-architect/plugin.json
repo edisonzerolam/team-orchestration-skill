@@ -1,0 +1,33 @@
+{
+  "name": "security-security-cloud-security-architect",
+  "version": "1.0.0",
+  "description": "Individual expert: security-cloud-security-architect",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "security-cloud-security-architect",
+    "zh": "security-cloud-security-architect"
+  },
+  "displayDescription": {
+    "en": "Individual expert from security",
+    "zh": "来自 security 的独立专家"
+  },
+  "categoryId": "14-Security",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "security-cloud-security-architect",
+        "zh": "security-cloud-security-architect"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

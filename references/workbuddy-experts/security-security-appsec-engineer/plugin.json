@@ -1,0 +1,33 @@
+{
+  "name": "security-security-appsec-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: security-appsec-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "security-appsec-engineer",
+    "zh": "security-appsec-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from security",
+    "zh": "来自 security 的独立专家"
+  },
+  "categoryId": "14-Security",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "security-appsec-engineer",
+        "zh": "security-appsec-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

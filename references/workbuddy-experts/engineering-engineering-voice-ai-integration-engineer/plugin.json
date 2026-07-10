@@ -1,0 +1,33 @@
+{
+  "name": "engineering-engineering-voice-ai-integration-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: engineering-voice-ai-integration-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "engineering-voice-ai-integration-engineer",
+    "zh": "engineering-voice-ai-integration-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from engineering",
+    "zh": "来自 engineering 的独立专家"
+  },
+  "categoryId": "03-Engineering",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "engineering-voice-ai-integration-engineer",
+        "zh": "engineering-voice-ai-integration-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-china-market-localization-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-china-market-localization-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-china-market-localization-strategist",
+    "zh": "marketing-china-market-localization-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-china-market-localization-strategist",
+        "zh": "marketing-china-market-localization-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

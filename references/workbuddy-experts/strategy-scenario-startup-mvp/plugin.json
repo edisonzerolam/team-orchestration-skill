@@ -1,0 +1,33 @@
+{
+  "name": "strategy-scenario-startup-mvp",
+  "version": "1.0.0",
+  "description": "Individual expert: scenario-startup-mvp",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "scenario-startup-mvp",
+    "zh": "scenario-startup-mvp"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "scenario-startup-mvp",
+        "zh": "scenario-startup-mvp"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

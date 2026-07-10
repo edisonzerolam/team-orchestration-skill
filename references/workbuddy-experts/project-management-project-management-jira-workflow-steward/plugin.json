@@ -1,0 +1,33 @@
+{
+  "name": "project-management-project-management-jira-workflow-steward",
+  "version": "1.0.0",
+  "description": "Individual expert: project-management-jira-workflow-steward",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "project-management-jira-workflow-steward",
+    "zh": "project-management-jira-workflow-steward"
+  },
+  "displayDescription": {
+    "en": "Individual expert from project-management",
+    "zh": "来自 project-management 的独立专家"
+  },
+  "categoryId": "12-ProjectMgmt",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "project-management-jira-workflow-steward",
+        "zh": "project-management-jira-workflow-steward"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

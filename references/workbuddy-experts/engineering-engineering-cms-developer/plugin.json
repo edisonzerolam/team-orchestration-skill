@@ -1,0 +1,33 @@
+{
+  "name": "engineering-engineering-cms-developer",
+  "version": "1.0.0",
+  "description": "Individual expert: engineering-cms-developer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "engineering-cms-developer",
+    "zh": "engineering-cms-developer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from engineering",
+    "zh": "来自 engineering 的独立专家"
+  },
+  "categoryId": "03-Engineering",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "engineering-cms-developer",
+        "zh": "engineering-cms-developer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

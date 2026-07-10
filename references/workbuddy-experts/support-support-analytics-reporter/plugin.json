@@ -1,0 +1,33 @@
+{
+  "name": "support-support-analytics-reporter",
+  "version": "1.0.0",
+  "description": "Individual expert: support-analytics-reporter",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "support-analytics-reporter",
+    "zh": "support-analytics-reporter"
+  },
+  "displayDescription": {
+    "en": "Individual expert from support",
+    "zh": "来自 support 的独立专家"
+  },
+  "categoryId": "18-Support",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "support-analytics-reporter",
+        "zh": "support-analytics-reporter"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

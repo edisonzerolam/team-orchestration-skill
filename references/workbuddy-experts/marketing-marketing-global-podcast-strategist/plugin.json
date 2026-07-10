@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-global-podcast-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-global-podcast-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-global-podcast-strategist",
+    "zh": "marketing-global-podcast-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-global-podcast-strategist",
+        "zh": "marketing-global-podcast-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

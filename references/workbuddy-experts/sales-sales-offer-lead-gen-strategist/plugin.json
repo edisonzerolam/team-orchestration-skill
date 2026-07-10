@@ -1,0 +1,33 @@
+{
+  "name": "sales-sales-offer-lead-gen-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: sales-offer-lead-gen-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "sales-offer-lead-gen-strategist",
+    "zh": "sales-offer-lead-gen-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from sales",
+    "zh": "来自 sales 的独立专家"
+  },
+  "categoryId": "13-Sales",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "sales-offer-lead-gen-strategist",
+        "zh": "sales-offer-lead-gen-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

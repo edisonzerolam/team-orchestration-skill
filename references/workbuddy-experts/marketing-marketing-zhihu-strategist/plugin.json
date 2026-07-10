@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-zhihu-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-zhihu-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-zhihu-strategist",
+    "zh": "marketing-zhihu-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-zhihu-strategist",
+        "zh": "marketing-zhihu-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

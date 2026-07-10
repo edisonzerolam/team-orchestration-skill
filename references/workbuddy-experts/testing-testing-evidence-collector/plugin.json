@@ -1,0 +1,33 @@
+{
+  "name": "testing-testing-evidence-collector",
+  "version": "1.0.0",
+  "description": "Individual expert: testing-evidence-collector",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "testing-evidence-collector",
+    "zh": "testing-evidence-collector"
+  },
+  "displayDescription": {
+    "en": "Individual expert from testing",
+    "zh": "来自 testing 的独立专家"
+  },
+  "categoryId": "19-Testing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "testing-evidence-collector",
+        "zh": "testing-evidence-collector"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

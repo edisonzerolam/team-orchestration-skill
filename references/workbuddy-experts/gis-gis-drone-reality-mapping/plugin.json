@@ -1,0 +1,33 @@
+{
+  "name": "gis-gis-drone-reality-mapping",
+  "version": "1.0.0",
+  "description": "Individual expert: gis-drone-reality-mapping",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "gis-drone-reality-mapping",
+    "zh": "gis-drone-reality-mapping"
+  },
+  "displayDescription": {
+    "en": "Individual expert from gis",
+    "zh": "来自 gis 的独立专家"
+  },
+  "categoryId": "06-GIS",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "gis-drone-reality-mapping",
+        "zh": "gis-drone-reality-mapping"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

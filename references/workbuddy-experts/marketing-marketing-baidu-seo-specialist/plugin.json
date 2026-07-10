@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-baidu-seo-specialist",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-baidu-seo-specialist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-baidu-seo-specialist",
+    "zh": "marketing-baidu-seo-specialist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-baidu-seo-specialist",
+        "zh": "marketing-baidu-seo-specialist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

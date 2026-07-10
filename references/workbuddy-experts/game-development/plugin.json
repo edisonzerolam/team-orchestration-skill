@@ -1,0 +1,93 @@
+{
+  "name": "game-development",
+  "version": "1.0.0",
+  "description": "游戏开发团队",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "team",
+  "agentName": "team-lead",
+  "teamInfo": {
+    "leadAgent": "team-lead",
+    "memberAgents": [
+      "blender-addon-engineer",
+      "game-audio-engineer",
+      "game-designer",
+      "godot-gameplay-scripter",
+      "godot-multiplayer-engineer",
+      "godot-shader-developer",
+      "level-designer",
+      "marketing-reddit-community-builder",
+      "narrative-designer",
+      "roblox-avatar-creator",
+      "roblox-experience-designer",
+      "roblox-systems-scripter",
+      "technical-artist",
+      "unity-architect",
+      "unity-editor-tool-developer",
+      "unity-multiplayer-engineer",
+      "unity-shader-graph-artist",
+      "unreal-multiplayer-architect",
+      "unreal-systems-engineer",
+      "unreal-technical-artist",
+      "unreal-world-builder"
+    ]
+  },
+  "displayName": {
+    "en": "Game Development",
+    "zh": "游戏开发团队"
+  },
+  "displayDescription": {
+    "en": "游戏开发全流程专家团队，覆盖策划、美术、程序、QA 和运营",
+    "zh": "游戏开发全流程专家团队，覆盖策划、美术、程序、QA 和运营"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "blender-addon-engineer",
+        "zh": "blender-addon-engineer"
+      },
+      "role": "member"
+    },
+    {
+      "name": {
+        "en": "game-audio-engineer",
+        "zh": "game-audio-engineer"
+      },
+      "role": "member"
+    },
+    {
+      "name": {
+        "en": "game-designer",
+        "zh": "game-designer"
+      },
+      "role": "member"
+    }
+  ],
+  "agents": [
+    "./agents/blender-addon-engineer.md",
+    "./agents/game-audio-engineer.md",
+    "./agents/game-designer.md",
+    "./agents/godot-gameplay-scripter.md",
+    "./agents/godot-multiplayer-engineer.md",
+    "./agents/godot-shader-developer.md",
+    "./agents/level-designer.md",
+    "./agents/marketing-reddit-community-builder.md",
+    "./agents/narrative-designer.md",
+    "./agents/roblox-avatar-creator.md",
+    "./agents/roblox-experience-designer.md",
+    "./agents/roblox-systems-scripter.md",
+    "./agents/technical-artist.md",
+    "./agents/unity-architect.md",
+    "./agents/unity-editor-tool-developer.md",
+    "./agents/unity-multiplayer-engineer.md",
+    "./agents/unity-shader-graph-artist.md",
+    "./agents/unreal-multiplayer-architect.md",
+    "./agents/unreal-systems-engineer.md",
+    "./agents/unreal-technical-artist.md",
+    "./agents/unreal-world-builder.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "project-management-project-management-meeting-notes-specialist",
+  "version": "1.0.0",
+  "description": "Individual expert: project-management-meeting-notes-specialist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "project-management-meeting-notes-specialist",
+    "zh": "project-management-meeting-notes-specialist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from project-management",
+    "zh": "来自 project-management 的独立专家"
+  },
+  "categoryId": "12-ProjectMgmt",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "project-management-meeting-notes-specialist",
+        "zh": "project-management-meeting-notes-specialist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

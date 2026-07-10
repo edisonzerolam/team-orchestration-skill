@@ -1,0 +1,33 @@
+{
+  "name": "game-development-narrative-designer",
+  "version": "1.0.0",
+  "description": "Individual expert: narrative-designer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "narrative-designer",
+    "zh": "narrative-designer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from game-development",
+    "zh": "来自 game-development 的独立专家"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "narrative-designer",
+        "zh": "narrative-designer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

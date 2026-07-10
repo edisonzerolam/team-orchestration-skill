@@ -1,0 +1,33 @@
+{
+  "name": "specialized-agentic-identity-trust",
+  "version": "1.0.0",
+  "description": "Individual expert: agentic-identity-trust",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "agentic-identity-trust",
+    "zh": "agentic-identity-trust"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "agentic-identity-trust",
+        "zh": "agentic-identity-trust"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

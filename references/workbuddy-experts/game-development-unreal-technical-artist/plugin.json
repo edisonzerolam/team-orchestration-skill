@@ -1,0 +1,33 @@
+{
+  "name": "game-development-unreal-technical-artist",
+  "version": "1.0.0",
+  "description": "Individual expert: unreal-technical-artist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "unreal-technical-artist",
+    "zh": "unreal-technical-artist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from game-development",
+    "zh": "来自 game-development 的独立专家"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "unreal-technical-artist",
+        "zh": "unreal-technical-artist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

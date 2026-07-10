@@ -1,0 +1,33 @@
+{
+  "name": "design-design-ui-designer",
+  "version": "1.0.0",
+  "description": "Individual expert: design-ui-designer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "design-ui-designer",
+    "zh": "design-ui-designer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from design",
+    "zh": "来自 design 的独立专家"
+  },
+  "categoryId": "02-Design",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "design-ui-designer",
+        "zh": "design-ui-designer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

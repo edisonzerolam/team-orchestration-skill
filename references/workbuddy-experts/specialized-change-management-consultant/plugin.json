@@ -1,0 +1,33 @@
+{
+  "name": "specialized-change-management-consultant",
+  "version": "1.0.0",
+  "description": "Individual expert: change-management-consultant",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "change-management-consultant",
+    "zh": "change-management-consultant"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "change-management-consultant",
+        "zh": "change-management-consultant"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

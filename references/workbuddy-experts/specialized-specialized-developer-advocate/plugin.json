@@ -1,0 +1,33 @@
+{
+  "name": "specialized-specialized-developer-advocate",
+  "version": "1.0.0",
+  "description": "Individual expert: specialized-developer-advocate",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "specialized-developer-advocate",
+    "zh": "specialized-developer-advocate"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "specialized-developer-advocate",
+        "zh": "specialized-developer-advocate"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

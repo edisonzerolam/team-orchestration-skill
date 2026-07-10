@@ -1,0 +1,33 @@
+{
+  "name": "design-design-persona-walkthrough",
+  "version": "1.0.0",
+  "description": "Individual expert: design-persona-walkthrough",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "design-persona-walkthrough",
+    "zh": "design-persona-walkthrough"
+  },
+  "displayDescription": {
+    "en": "Individual expert from design",
+    "zh": "来自 design 的独立专家"
+  },
+  "categoryId": "02-Design",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "design-persona-walkthrough",
+        "zh": "design-persona-walkthrough"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "product-product-behavioral-nudge-engine",
+  "version": "1.0.0",
+  "description": "Individual expert: product-behavioral-nudge-engine",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "product-behavioral-nudge-engine",
+    "zh": "product-behavioral-nudge-engine"
+  },
+  "displayDescription": {
+    "en": "Individual expert from product",
+    "zh": "来自 product 的独立专家"
+  },
+  "categoryId": "11-Product",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "product-behavioral-nudge-engine",
+        "zh": "product-behavioral-nudge-engine"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

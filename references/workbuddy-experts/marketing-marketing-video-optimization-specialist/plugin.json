@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-video-optimization-specialist",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-video-optimization-specialist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-video-optimization-specialist",
+    "zh": "marketing-video-optimization-specialist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-video-optimization-specialist",
+        "zh": "marketing-video-optimization-specialist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

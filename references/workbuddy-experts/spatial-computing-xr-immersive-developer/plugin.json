@@ -1,0 +1,33 @@
+{
+  "name": "spatial-computing-xr-immersive-developer",
+  "version": "1.0.0",
+  "description": "Individual expert: xr-immersive-developer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "xr-immersive-developer",
+    "zh": "xr-immersive-developer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from spatial-computing",
+    "zh": "来自 spatial-computing 的独立专家"
+  },
+  "categoryId": "15-Spatial",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "xr-immersive-developer",
+        "zh": "xr-immersive-developer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

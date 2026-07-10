@@ -1,0 +1,2445 @@
+{
+  "version": "2.0",
+  "generated": "2026-07-10T08:16:33.068057+00:00",
+  "files": [
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\academic\\academic-anthropologist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\academic-academic-anthropologist",
+      "agent_name": "academic-anthropologist",
+      "agent_slug": "academic-anthropologist",
+      "category": "academic",
+      "category_id": "01-Academic",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\academic\\academic-geographer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\academic-academic-geographer",
+      "agent_name": "academic-geographer",
+      "agent_slug": "academic-geographer",
+      "category": "academic",
+      "category_id": "01-Academic",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\academic\\academic-historian.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\academic-academic-historian",
+      "agent_name": "academic-historian",
+      "agent_slug": "academic-historian",
+      "category": "academic",
+      "category_id": "01-Academic",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\academic\\academic-narratologist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\academic-academic-narratologist",
+      "agent_name": "academic-narratologist",
+      "agent_slug": "academic-narratologist",
+      "category": "academic",
+      "category_id": "01-Academic",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\academic\\academic-psychologist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\academic-academic-psychologist",
+      "agent_name": "academic-psychologist",
+      "agent_slug": "academic-psychologist",
+      "category": "academic",
+      "category_id": "01-Academic",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\academic\\academic-statistician.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\academic-academic-statistician",
+      "agent_name": "academic-statistician",
+      "agent_slug": "academic-statistician",
+      "category": "academic",
+      "category_id": "01-Academic",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-brand-guardian.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-brand-guardian",
+      "agent_name": "design-brand-guardian",
+      "agent_slug": "design-brand-guardian",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-image-prompt-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-image-prompt-engineer",
+      "agent_name": "design-image-prompt-engineer",
+      "agent_slug": "design-image-prompt-engineer",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-inclusive-visuals-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-inclusive-visuals-specialist",
+      "agent_name": "design-inclusive-visuals-specialist",
+      "agent_slug": "design-inclusive-visuals-specialist",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-persona-walkthrough.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-persona-walkthrough",
+      "agent_name": "design-persona-walkthrough",
+      "agent_slug": "design-persona-walkthrough",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-ui-designer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-ui-designer",
+      "agent_name": "design-ui-designer",
+      "agent_slug": "design-ui-designer",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-ux-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-ux-architect",
+      "agent_name": "design-ux-architect",
+      "agent_slug": "design-ux-architect",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-ux-researcher.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-ux-researcher",
+      "agent_name": "design-ux-researcher",
+      "agent_slug": "design-ux-researcher",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-visual-storyteller.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-visual-storyteller",
+      "agent_name": "design-visual-storyteller",
+      "agent_slug": "design-visual-storyteller",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\design\\design-whimsy-injector.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\design-design-whimsy-injector",
+      "agent_name": "design-whimsy-injector",
+      "agent_slug": "design-whimsy-injector",
+      "category": "design",
+      "category_id": "02-Design",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-ai-data-remediation-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-ai-data-remediation-engineer",
+      "agent_name": "engineering-ai-data-remediation-engineer",
+      "agent_slug": "engineering-ai-data-remediation-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-ai-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-ai-engineer",
+      "agent_name": "engineering-ai-engineer",
+      "agent_slug": "engineering-ai-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-api-platform-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-api-platform-engineer",
+      "agent_name": "engineering-api-platform-engineer",
+      "agent_slug": "engineering-api-platform-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-autonomous-optimization-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-autonomous-optimization-architect",
+      "agent_name": "engineering-autonomous-optimization-architect",
+      "agent_slug": "engineering-autonomous-optimization-architect",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-backend-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-backend-architect",
+      "agent_name": "engineering-backend-architect",
+      "agent_slug": "engineering-backend-architect",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-cms-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-cms-developer",
+      "agent_name": "engineering-cms-developer",
+      "agent_slug": "engineering-cms-developer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-code-reviewer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-code-reviewer",
+      "agent_name": "engineering-code-reviewer",
+      "agent_slug": "engineering-code-reviewer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-codebase-onboarding-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-codebase-onboarding-engineer",
+      "agent_name": "engineering-codebase-onboarding-engineer",
+      "agent_slug": "engineering-codebase-onboarding-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-data-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-data-engineer",
+      "agent_name": "engineering-data-engineer",
+      "agent_slug": "engineering-data-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-database-optimizer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-database-optimizer",
+      "agent_name": "engineering-database-optimizer",
+      "agent_slug": "engineering-database-optimizer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-desktop-app-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-desktop-app-engineer",
+      "agent_name": "engineering-desktop-app-engineer",
+      "agent_slug": "engineering-desktop-app-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-devops-automator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-devops-automator",
+      "agent_name": "engineering-devops-automator",
+      "agent_slug": "engineering-devops-automator",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-drupal-performance.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-drupal-performance",
+      "agent_name": "engineering-drupal-performance",
+      "agent_slug": "engineering-drupal-performance",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-drupal-shopping-cart.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-drupal-shopping-cart",
+      "agent_name": "engineering-drupal-shopping-cart",
+      "agent_slug": "engineering-drupal-shopping-cart",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-email-intelligence-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-email-intelligence-engineer",
+      "agent_name": "engineering-email-intelligence-engineer",
+      "agent_slug": "engineering-email-intelligence-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-embedded-firmware-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-embedded-firmware-engineer",
+      "agent_name": "engineering-embedded-firmware-engineer",
+      "agent_slug": "engineering-embedded-firmware-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-feishu-integration-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-feishu-integration-developer",
+      "agent_name": "engineering-feishu-integration-developer",
+      "agent_slug": "engineering-feishu-integration-developer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-filament-optimization-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-filament-optimization-specialist",
+      "agent_name": "engineering-filament-optimization-specialist",
+      "agent_slug": "engineering-filament-optimization-specialist",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-finops-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-finops-engineer",
+      "agent_name": "engineering-finops-engineer",
+      "agent_slug": "engineering-finops-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-frontend-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-frontend-developer",
+      "agent_name": "engineering-frontend-developer",
+      "agent_slug": "engineering-frontend-developer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-git-workflow-master.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-git-workflow-master",
+      "agent_name": "engineering-git-workflow-master",
+      "agent_slug": "engineering-git-workflow-master",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-i18n-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-i18n-engineer",
+      "agent_name": "engineering-i18n-engineer",
+      "agent_slug": "engineering-i18n-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-identity-access-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-identity-access-engineer",
+      "agent_name": "engineering-identity-access-engineer",
+      "agent_slug": "engineering-identity-access-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-incident-response-commander.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-incident-response-commander",
+      "agent_name": "engineering-incident-response-commander",
+      "agent_slug": "engineering-incident-response-commander",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-it-service-manager.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-it-service-manager",
+      "agent_name": "engineering-it-service-manager",
+      "agent_slug": "engineering-it-service-manager",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-minimal-change-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-minimal-change-engineer",
+      "agent_name": "engineering-minimal-change-engineer",
+      "agent_slug": "engineering-minimal-change-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-mobile-app-builder.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-mobile-app-builder",
+      "agent_name": "engineering-mobile-app-builder",
+      "agent_slug": "engineering-mobile-app-builder",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-mobile-release-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-mobile-release-engineer",
+      "agent_name": "engineering-mobile-release-engineer",
+      "agent_slug": "engineering-mobile-release-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-multi-agent-systems-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-multi-agent-systems-architect",
+      "agent_name": "engineering-multi-agent-systems-architect",
+      "agent_slug": "engineering-multi-agent-systems-architect",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-network-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-network-engineer",
+      "agent_name": "engineering-network-engineer",
+      "agent_slug": "engineering-network-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-orgscript-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-orgscript-engineer",
+      "agent_name": "engineering-orgscript-engineer",
+      "agent_slug": "engineering-orgscript-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-payments-billing-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-payments-billing-engineer",
+      "agent_name": "engineering-payments-billing-engineer",
+      "agent_slug": "engineering-payments-billing-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-prompt-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-prompt-engineer",
+      "agent_name": "engineering-prompt-engineer",
+      "agent_slug": "engineering-prompt-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-rapid-prototyper.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-rapid-prototyper",
+      "agent_name": "engineering-rapid-prototyper",
+      "agent_slug": "engineering-rapid-prototyper",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-realtime-collaboration-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-realtime-collaboration-engineer",
+      "agent_name": "engineering-realtime-collaboration-engineer",
+      "agent_slug": "engineering-realtime-collaboration-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-search-relevance-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-search-relevance-engineer",
+      "agent_name": "engineering-search-relevance-engineer",
+      "agent_slug": "engineering-search-relevance-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-section-508-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-section-508-specialist",
+      "agent_name": "engineering-section-508-specialist",
+      "agent_slug": "engineering-section-508-specialist",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-senior-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-senior-developer",
+      "agent_name": "engineering-senior-developer",
+      "agent_slug": "engineering-senior-developer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-software-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-software-architect",
+      "agent_name": "engineering-software-architect",
+      "agent_slug": "engineering-software-architect",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-solidity-smart-contract-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-solidity-smart-contract-engineer",
+      "agent_name": "engineering-solidity-smart-contract-engineer",
+      "agent_slug": "engineering-solidity-smart-contract-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-sre.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-sre",
+      "agent_name": "engineering-sre",
+      "agent_slug": "engineering-sre",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-technical-writer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-technical-writer",
+      "agent_name": "engineering-technical-writer",
+      "agent_slug": "engineering-technical-writer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-uswds-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-uswds-developer",
+      "agent_name": "engineering-uswds-developer",
+      "agent_slug": "engineering-uswds-developer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-video-streaming-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-video-streaming-engineer",
+      "agent_name": "engineering-video-streaming-engineer",
+      "agent_slug": "engineering-video-streaming-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-voice-ai-integration-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-voice-ai-integration-engineer",
+      "agent_name": "engineering-voice-ai-integration-engineer",
+      "agent_slug": "engineering-voice-ai-integration-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-webassembly-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-webassembly-engineer",
+      "agent_name": "engineering-webassembly-engineer",
+      "agent_slug": "engineering-webassembly-engineer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-wechat-mini-program-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-wechat-mini-program-developer",
+      "agent_name": "engineering-wechat-mini-program-developer",
+      "agent_slug": "engineering-wechat-mini-program-developer",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "tencent-ecosystem"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-wordpress-performance.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-wordpress-performance",
+      "agent_name": "engineering-wordpress-performance",
+      "agent_slug": "engineering-wordpress-performance",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\engineering\\engineering-wordpress-shopping-cart.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\engineering-engineering-wordpress-shopping-cart",
+      "agent_name": "engineering-wordpress-shopping-cart",
+      "agent_slug": "engineering-wordpress-shopping-cart",
+      "category": "engineering",
+      "category_id": "03-Engineering",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\finance\\finance-bookkeeper-controller.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\finance-finance-bookkeeper-controller",
+      "agent_name": "finance-bookkeeper-controller",
+      "agent_slug": "finance-bookkeeper-controller",
+      "category": "finance",
+      "category_id": "04-Finance",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\finance\\finance-financial-analyst.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\finance-finance-financial-analyst",
+      "agent_name": "finance-financial-analyst",
+      "agent_slug": "finance-financial-analyst",
+      "category": "finance",
+      "category_id": "04-Finance",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\finance\\finance-fpa-analyst.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\finance-finance-fpa-analyst",
+      "agent_name": "finance-fpa-analyst",
+      "agent_slug": "finance-fpa-analyst",
+      "category": "finance",
+      "category_id": "04-Finance",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\finance\\finance-investment-researcher.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\finance-finance-investment-researcher",
+      "agent_name": "finance-investment-researcher",
+      "agent_slug": "finance-investment-researcher",
+      "category": "finance",
+      "category_id": "04-Finance",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\finance\\finance-tax-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\finance-finance-tax-strategist",
+      "agent_name": "finance-tax-strategist",
+      "agent_slug": "finance-tax-strategist",
+      "category": "finance",
+      "category_id": "04-Finance",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\blender\\blender-addon-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-blender-addon-engineer",
+      "agent_name": "blender-addon-engineer",
+      "agent_slug": "blender-addon-engineer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\game-audio-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-game-audio-engineer",
+      "agent_name": "game-audio-engineer",
+      "agent_slug": "game-audio-engineer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\game-designer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-game-designer",
+      "agent_name": "game-designer",
+      "agent_slug": "game-designer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\godot\\godot-gameplay-scripter.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-godot-gameplay-scripter",
+      "agent_name": "godot-gameplay-scripter",
+      "agent_slug": "godot-gameplay-scripter",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\godot\\godot-multiplayer-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-godot-multiplayer-engineer",
+      "agent_name": "godot-multiplayer-engineer",
+      "agent_slug": "godot-multiplayer-engineer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\godot\\godot-shader-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-godot-shader-developer",
+      "agent_name": "godot-shader-developer",
+      "agent_slug": "godot-shader-developer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\level-designer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-level-designer",
+      "agent_name": "level-designer",
+      "agent_slug": "level-designer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\narrative-designer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-narrative-designer",
+      "agent_name": "narrative-designer",
+      "agent_slug": "narrative-designer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\roblox-studio\\roblox-avatar-creator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-roblox-avatar-creator",
+      "agent_name": "roblox-avatar-creator",
+      "agent_slug": "roblox-avatar-creator",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\roblox-studio\\roblox-experience-designer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-roblox-experience-designer",
+      "agent_name": "roblox-experience-designer",
+      "agent_slug": "roblox-experience-designer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\roblox-studio\\roblox-systems-scripter.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-roblox-systems-scripter",
+      "agent_name": "roblox-systems-scripter",
+      "agent_slug": "roblox-systems-scripter",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\technical-artist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-technical-artist",
+      "agent_name": "technical-artist",
+      "agent_slug": "technical-artist",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\unity\\unity-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-unity-architect",
+      "agent_name": "unity-architect",
+      "agent_slug": "unity-architect",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\unity\\unity-editor-tool-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-unity-editor-tool-developer",
+      "agent_name": "unity-editor-tool-developer",
+      "agent_slug": "unity-editor-tool-developer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\unity\\unity-multiplayer-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-unity-multiplayer-engineer",
+      "agent_name": "unity-multiplayer-engineer",
+      "agent_slug": "unity-multiplayer-engineer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\unity\\unity-shader-graph-artist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-unity-shader-graph-artist",
+      "agent_name": "unity-shader-graph-artist",
+      "agent_slug": "unity-shader-graph-artist",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\unreal-engine\\unreal-multiplayer-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-unreal-multiplayer-architect",
+      "agent_name": "unreal-multiplayer-architect",
+      "agent_slug": "unreal-multiplayer-architect",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\unreal-engine\\unreal-systems-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-unreal-systems-engineer",
+      "agent_name": "unreal-systems-engineer",
+      "agent_slug": "unreal-systems-engineer",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\unreal-engine\\unreal-technical-artist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-unreal-technical-artist",
+      "agent_name": "unreal-technical-artist",
+      "agent_slug": "unreal-technical-artist",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\game-development\\unreal-engine\\unreal-world-builder.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\game-development-unreal-world-builder",
+      "agent_name": "unreal-world-builder",
+      "agent_slug": "unreal-world-builder",
+      "category": "game-development",
+      "category_id": "05-GameDev",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-3d-scene-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-3d-scene-developer",
+      "agent_name": "gis-3d-scene-developer",
+      "agent_slug": "gis-3d-scene-developer",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-analyst.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-analyst",
+      "agent_name": "gis-analyst",
+      "agent_slug": "gis-analyst",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-bim-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-bim-specialist",
+      "agent_name": "gis-bim-specialist",
+      "agent_slug": "gis-bim-specialist",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-cartography-designer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-cartography-designer",
+      "agent_name": "gis-cartography-designer",
+      "agent_slug": "gis-cartography-designer",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-drone-reality-mapping.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-drone-reality-mapping",
+      "agent_name": "gis-drone-reality-mapping",
+      "agent_slug": "gis-drone-reality-mapping",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-geoai-ml-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-geoai-ml-engineer",
+      "agent_name": "gis-geoai-ml-engineer",
+      "agent_slug": "gis-geoai-ml-engineer",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-geoprocessing-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-geoprocessing-specialist",
+      "agent_name": "gis-geoprocessing-specialist",
+      "agent_slug": "gis-geoprocessing-specialist",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-qa-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-qa-engineer",
+      "agent_name": "gis-qa-engineer",
+      "agent_slug": "gis-qa-engineer",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-solution-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-solution-engineer",
+      "agent_name": "gis-solution-engineer",
+      "agent_slug": "gis-solution-engineer",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-spatial-data-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-spatial-data-engineer",
+      "agent_name": "gis-spatial-data-engineer",
+      "agent_slug": "gis-spatial-data-engineer",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-spatial-data-scientist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-spatial-data-scientist",
+      "agent_name": "gis-spatial-data-scientist",
+      "agent_slug": "gis-spatial-data-scientist",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-technical-consultant.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-technical-consultant",
+      "agent_name": "gis-technical-consultant",
+      "agent_slug": "gis-technical-consultant",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\gis\\gis-web-gis-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\gis-gis-web-gis-developer",
+      "agent_name": "gis-web-gis-developer",
+      "agent_slug": "gis-web-gis-developer",
+      "category": "gis",
+      "category_id": "06-GIS",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\healthcare\\healthcare-clinical-evidence-agent.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\healthcare-healthcare-clinical-evidence-agent",
+      "agent_name": "healthcare-clinical-evidence-agent",
+      "agent_slug": "healthcare-clinical-evidence-agent",
+      "category": "healthcare",
+      "category_id": "07-Healthcare",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\healthcare\\healthcare-innovation-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\healthcare-healthcare-innovation-strategist",
+      "agent_name": "healthcare-innovation-strategist",
+      "agent_slug": "healthcare-innovation-strategist",
+      "category": "healthcare",
+      "category_id": "07-Healthcare",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\healthcare\\healthcare-sovereign-health-systems-agent.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\healthcare-healthcare-sovereign-health-systems-agent",
+      "agent_name": "healthcare-sovereign-health-systems-agent",
+      "agent_slug": "healthcare-sovereign-health-systems-agent",
+      "category": "healthcare",
+      "category_id": "07-Healthcare",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\integrations\\mcp-memory\\backend-architect-with-memory.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\integrations-backend-architect-with-memory",
+      "agent_name": "backend-architect-with-memory",
+      "agent_slug": "backend-architect-with-memory",
+      "category": "integrations",
+      "category_id": "08-Integrations",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-aeo-foundations.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-aeo-foundations",
+      "agent_name": "marketing-aeo-foundations",
+      "agent_slug": "marketing-aeo-foundations",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-agentic-search-optimizer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-agentic-search-optimizer",
+      "agent_name": "marketing-agentic-search-optimizer",
+      "agent_slug": "marketing-agentic-search-optimizer",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-ai-citation-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-ai-citation-strategist",
+      "agent_name": "marketing-ai-citation-strategist",
+      "agent_slug": "marketing-ai-citation-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-app-store-optimizer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-app-store-optimizer",
+      "agent_name": "marketing-app-store-optimizer",
+      "agent_slug": "marketing-app-store-optimizer",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-baidu-seo-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-baidu-seo-specialist",
+      "agent_name": "marketing-baidu-seo-specialist",
+      "agent_slug": "marketing-baidu-seo-specialist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-bilibili-content-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-bilibili-content-strategist",
+      "agent_name": "marketing-bilibili-content-strategist",
+      "agent_slug": "marketing-bilibili-content-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-book-co-author.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-book-co-author",
+      "agent_name": "marketing-book-co-author",
+      "agent_slug": "marketing-book-co-author",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-carousel-growth-engine.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-carousel-growth-engine",
+      "agent_name": "marketing-carousel-growth-engine",
+      "agent_slug": "marketing-carousel-growth-engine",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-china-ecommerce-operator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-china-ecommerce-operator",
+      "agent_name": "marketing-china-ecommerce-operator",
+      "agent_slug": "marketing-china-ecommerce-operator",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-china-market-localization-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-china-market-localization-strategist",
+      "agent_name": "marketing-china-market-localization-strategist",
+      "agent_slug": "marketing-china-market-localization-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-content-creator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-content-creator",
+      "agent_name": "marketing-content-creator",
+      "agent_slug": "marketing-content-creator",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-cross-border-ecommerce.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-cross-border-ecommerce",
+      "agent_name": "marketing-cross-border-ecommerce",
+      "agent_slug": "marketing-cross-border-ecommerce",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-douyin-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-douyin-strategist",
+      "agent_name": "marketing-douyin-strategist",
+      "agent_slug": "marketing-douyin-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-email-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-email-strategist",
+      "agent_name": "marketing-email-strategist",
+      "agent_slug": "marketing-email-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-global-podcast-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-global-podcast-strategist",
+      "agent_name": "marketing-global-podcast-strategist",
+      "agent_slug": "marketing-global-podcast-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-growth-hacker.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-growth-hacker",
+      "agent_name": "marketing-growth-hacker",
+      "agent_slug": "marketing-growth-hacker",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-instagram-curator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-instagram-curator",
+      "agent_name": "marketing-instagram-curator",
+      "agent_slug": "marketing-instagram-curator",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-kuaishou-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-kuaishou-strategist",
+      "agent_name": "marketing-kuaishou-strategist",
+      "agent_slug": "marketing-kuaishou-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-linkedin-content-creator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-linkedin-content-creator",
+      "agent_name": "marketing-linkedin-content-creator",
+      "agent_slug": "marketing-linkedin-content-creator",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-livestream-commerce-coach.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-livestream-commerce-coach",
+      "agent_name": "marketing-livestream-commerce-coach",
+      "agent_slug": "marketing-livestream-commerce-coach",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-multi-platform-publisher.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-multi-platform-publisher",
+      "agent_name": "marketing-multi-platform-publisher",
+      "agent_slug": "marketing-multi-platform-publisher",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-podcast-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-podcast-strategist",
+      "agent_name": "marketing-podcast-strategist",
+      "agent_slug": "marketing-podcast-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-pr-communications-manager.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-pr-communications-manager",
+      "agent_name": "marketing-pr-communications-manager",
+      "agent_slug": "marketing-pr-communications-manager",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-private-domain-operator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-private-domain-operator",
+      "agent_name": "marketing-private-domain-operator",
+      "agent_slug": "marketing-private-domain-operator",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-reddit-community-builder.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-reddit-community-builder",
+      "agent_name": "marketing-reddit-community-builder",
+      "agent_slug": "marketing-reddit-community-builder",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "game-development"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-seo-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-seo-specialist",
+      "agent_name": "marketing-seo-specialist",
+      "agent_slug": "marketing-seo-specialist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-short-video-editing-coach.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-short-video-editing-coach",
+      "agent_name": "marketing-short-video-editing-coach",
+      "agent_slug": "marketing-short-video-editing-coach",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-social-media-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-social-media-strategist",
+      "agent_name": "marketing-social-media-strategist",
+      "agent_slug": "marketing-social-media-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-tiktok-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-tiktok-strategist",
+      "agent_name": "marketing-tiktok-strategist",
+      "agent_slug": "marketing-tiktok-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-twitter-engager.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-twitter-engager",
+      "agent_name": "marketing-twitter-engager",
+      "agent_slug": "marketing-twitter-engager",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-video-optimization-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-video-optimization-specialist",
+      "agent_name": "marketing-video-optimization-specialist",
+      "agent_slug": "marketing-video-optimization-specialist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-wechat-official-account.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-wechat-official-account",
+      "agent_name": "marketing-wechat-official-account",
+      "agent_slug": "marketing-wechat-official-account",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "tencent-ecosystem"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-weibo-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-weibo-strategist",
+      "agent_name": "marketing-weibo-strategist",
+      "agent_slug": "marketing-weibo-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-x-twitter-intelligence-analyst.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-x-twitter-intelligence-analyst",
+      "agent_name": "marketing-x-twitter-intelligence-analyst",
+      "agent_slug": "marketing-x-twitter-intelligence-analyst",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-xiaohongshu-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-xiaohongshu-specialist",
+      "agent_name": "marketing-xiaohongshu-specialist",
+      "agent_slug": "marketing-xiaohongshu-specialist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\marketing\\marketing-zhihu-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\marketing-marketing-zhihu-strategist",
+      "agent_name": "marketing-zhihu-strategist",
+      "agent_slug": "marketing-zhihu-strategist",
+      "category": "marketing",
+      "category_id": "09-Marketing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\paid-media\\paid-media-auditor.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\paid-media-paid-media-auditor",
+      "agent_name": "paid-media-auditor",
+      "agent_slug": "paid-media-auditor",
+      "category": "paid-media",
+      "category_id": "10-PaidMedia",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\paid-media\\paid-media-creative-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\paid-media-paid-media-creative-strategist",
+      "agent_name": "paid-media-creative-strategist",
+      "agent_slug": "paid-media-creative-strategist",
+      "category": "paid-media",
+      "category_id": "10-PaidMedia",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\paid-media\\paid-media-paid-social-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\paid-media-paid-media-paid-social-strategist",
+      "agent_name": "paid-media-paid-social-strategist",
+      "agent_slug": "paid-media-paid-social-strategist",
+      "category": "paid-media",
+      "category_id": "10-PaidMedia",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\paid-media\\paid-media-ppc-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\paid-media-paid-media-ppc-strategist",
+      "agent_name": "paid-media-ppc-strategist",
+      "agent_slug": "paid-media-ppc-strategist",
+      "category": "paid-media",
+      "category_id": "10-PaidMedia",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\paid-media\\paid-media-programmatic-buyer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\paid-media-paid-media-programmatic-buyer",
+      "agent_name": "paid-media-programmatic-buyer",
+      "agent_slug": "paid-media-programmatic-buyer",
+      "category": "paid-media",
+      "category_id": "10-PaidMedia",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\paid-media\\paid-media-search-query-analyst.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\paid-media-paid-media-search-query-analyst",
+      "agent_name": "paid-media-search-query-analyst",
+      "agent_slug": "paid-media-search-query-analyst",
+      "category": "paid-media",
+      "category_id": "10-PaidMedia",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\paid-media\\paid-media-tracking-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\paid-media-paid-media-tracking-specialist",
+      "agent_name": "paid-media-tracking-specialist",
+      "agent_slug": "paid-media-tracking-specialist",
+      "category": "paid-media",
+      "category_id": "10-PaidMedia",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\product\\product-behavioral-nudge-engine.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\product-product-behavioral-nudge-engine",
+      "agent_name": "product-behavioral-nudge-engine",
+      "agent_slug": "product-behavioral-nudge-engine",
+      "category": "product",
+      "category_id": "11-Product",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\product\\product-feedback-synthesizer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\product-product-feedback-synthesizer",
+      "agent_name": "product-feedback-synthesizer",
+      "agent_slug": "product-feedback-synthesizer",
+      "category": "product",
+      "category_id": "11-Product",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\product\\product-manager.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\product-product-manager",
+      "agent_name": "product-manager",
+      "agent_slug": "product-manager",
+      "category": "product",
+      "category_id": "11-Product",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\product\\product-sprint-prioritizer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\product-product-sprint-prioritizer",
+      "agent_name": "product-sprint-prioritizer",
+      "agent_slug": "product-sprint-prioritizer",
+      "category": "product",
+      "category_id": "11-Product",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\product\\product-trend-researcher.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\product-product-trend-researcher",
+      "agent_name": "product-trend-researcher",
+      "agent_slug": "product-trend-researcher",
+      "category": "product",
+      "category_id": "11-Product",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\project-management\\project-management-experiment-tracker.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\project-management-project-management-experiment-tracker",
+      "agent_name": "project-management-experiment-tracker",
+      "agent_slug": "project-management-experiment-tracker",
+      "category": "project-management",
+      "category_id": "12-ProjectMgmt",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\project-management\\project-management-jira-workflow-steward.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\project-management-project-management-jira-workflow-steward",
+      "agent_name": "project-management-jira-workflow-steward",
+      "agent_slug": "project-management-jira-workflow-steward",
+      "category": "project-management",
+      "category_id": "12-ProjectMgmt",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\project-management\\project-management-meeting-notes-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\project-management-project-management-meeting-notes-specialist",
+      "agent_name": "project-management-meeting-notes-specialist",
+      "agent_slug": "project-management-meeting-notes-specialist",
+      "category": "project-management",
+      "category_id": "12-ProjectMgmt",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\project-management\\project-management-project-shepherd.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\project-management-project-management-project-shepherd",
+      "agent_name": "project-management-project-shepherd",
+      "agent_slug": "project-management-project-shepherd",
+      "category": "project-management",
+      "category_id": "12-ProjectMgmt",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\project-management\\project-management-studio-operations.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\project-management-project-management-studio-operations",
+      "agent_name": "project-management-studio-operations",
+      "agent_slug": "project-management-studio-operations",
+      "category": "project-management",
+      "category_id": "12-ProjectMgmt",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\project-management\\project-management-studio-producer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\project-management-project-management-studio-producer",
+      "agent_name": "project-management-studio-producer",
+      "agent_slug": "project-management-studio-producer",
+      "category": "project-management",
+      "category_id": "12-ProjectMgmt",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\project-management\\project-manager-senior.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\project-management-project-manager-senior",
+      "agent_name": "project-manager-senior",
+      "agent_slug": "project-manager-senior",
+      "category": "project-management",
+      "category_id": "12-ProjectMgmt",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-account-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-account-strategist",
+      "agent_name": "sales-account-strategist",
+      "agent_slug": "sales-account-strategist",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-coach.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-coach",
+      "agent_name": "sales-coach",
+      "agent_slug": "sales-coach",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-deal-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-deal-strategist",
+      "agent_name": "sales-deal-strategist",
+      "agent_slug": "sales-deal-strategist",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-discovery-coach.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-discovery-coach",
+      "agent_name": "sales-discovery-coach",
+      "agent_slug": "sales-discovery-coach",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-engineer",
+      "agent_name": "sales-engineer",
+      "agent_slug": "sales-engineer",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-offer-lead-gen-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-offer-lead-gen-strategist",
+      "agent_name": "sales-offer-lead-gen-strategist",
+      "agent_slug": "sales-offer-lead-gen-strategist",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-outbound-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-outbound-strategist",
+      "agent_name": "sales-outbound-strategist",
+      "agent_slug": "sales-outbound-strategist",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-pipeline-analyst.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-pipeline-analyst",
+      "agent_name": "sales-pipeline-analyst",
+      "agent_slug": "sales-pipeline-analyst",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\sales\\sales-proposal-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\sales-sales-proposal-strategist",
+      "agent_name": "sales-proposal-strategist",
+      "agent_slug": "sales-proposal-strategist",
+      "category": "sales",
+      "category_id": "13-Sales",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-appsec-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-appsec-engineer",
+      "agent_name": "security-appsec-engineer",
+      "agent_slug": "security-appsec-engineer",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-architect",
+      "agent_name": "security-architect",
+      "agent_slug": "security-architect",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-blockchain-security-auditor.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-blockchain-security-auditor",
+      "agent_name": "security-blockchain-security-auditor",
+      "agent_slug": "security-blockchain-security-auditor",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-cloud-security-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-cloud-security-architect",
+      "agent_name": "security-cloud-security-architect",
+      "agent_slug": "security-cloud-security-architect",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-compliance-auditor.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-compliance-auditor",
+      "agent_name": "security-compliance-auditor",
+      "agent_slug": "security-compliance-auditor",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-incident-responder.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-incident-responder",
+      "agent_name": "security-incident-responder",
+      "agent_slug": "security-incident-responder",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-penetration-tester.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-penetration-tester",
+      "agent_name": "security-penetration-tester",
+      "agent_slug": "security-penetration-tester",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-senior-secops.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-senior-secops",
+      "agent_name": "security-senior-secops",
+      "agent_slug": "security-senior-secops",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-threat-detection-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-threat-detection-engineer",
+      "agent_name": "security-threat-detection-engineer",
+      "agent_slug": "security-threat-detection-engineer",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\security\\security-threat-intelligence-analyst.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\security-security-threat-intelligence-analyst",
+      "agent_name": "security-threat-intelligence-analyst",
+      "agent_slug": "security-threat-intelligence-analyst",
+      "category": "security",
+      "category_id": "14-Security",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\spatial-computing\\macos-spatial-metal-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\spatial-computing-macos-spatial-metal-engineer",
+      "agent_name": "macos-spatial-metal-engineer",
+      "agent_slug": "macos-spatial-metal-engineer",
+      "category": "spatial-computing",
+      "category_id": "15-Spatial",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\spatial-computing\\terminal-integration-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\spatial-computing-terminal-integration-specialist",
+      "agent_name": "terminal-integration-specialist",
+      "agent_slug": "terminal-integration-specialist",
+      "category": "spatial-computing",
+      "category_id": "15-Spatial",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\spatial-computing\\visionos-spatial-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\spatial-computing-visionos-spatial-engineer",
+      "agent_name": "visionos-spatial-engineer",
+      "agent_slug": "visionos-spatial-engineer",
+      "category": "spatial-computing",
+      "category_id": "15-Spatial",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\spatial-computing\\xr-cockpit-interaction-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\spatial-computing-xr-cockpit-interaction-specialist",
+      "agent_name": "xr-cockpit-interaction-specialist",
+      "agent_slug": "xr-cockpit-interaction-specialist",
+      "category": "spatial-computing",
+      "category_id": "15-Spatial",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\spatial-computing\\xr-immersive-developer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\spatial-computing-xr-immersive-developer",
+      "agent_name": "xr-immersive-developer",
+      "agent_slug": "xr-immersive-developer",
+      "category": "spatial-computing",
+      "category_id": "15-Spatial",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\spatial-computing\\xr-interface-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\spatial-computing-xr-interface-architect",
+      "agent_name": "xr-interface-architect",
+      "agent_slug": "xr-interface-architect",
+      "category": "spatial-computing",
+      "category_id": "15-Spatial",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\accounts-payable-agent.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-accounts-payable-agent",
+      "agent_name": "accounts-payable-agent",
+      "agent_slug": "accounts-payable-agent",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\agentic-identity-trust.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-agentic-identity-trust",
+      "agent_name": "agentic-identity-trust",
+      "agent_slug": "agentic-identity-trust",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\agents-orchestrator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-agents-orchestrator",
+      "agent_name": "agents-orchestrator",
+      "agent_slug": "agents-orchestrator",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\automation-governance-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-automation-governance-architect",
+      "agent_name": "automation-governance-architect",
+      "agent_slug": "automation-governance-architect",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\business-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-business-strategist",
+      "agent_name": "business-strategist",
+      "agent_slug": "business-strategist",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\change-management-consultant.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-change-management-consultant",
+      "agent_name": "change-management-consultant",
+      "agent_slug": "change-management-consultant",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\chief-financial-officer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-chief-financial-officer",
+      "agent_name": "chief-financial-officer",
+      "agent_slug": "chief-financial-officer",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\corporate-training-designer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-corporate-training-designer",
+      "agent_name": "corporate-training-designer",
+      "agent_slug": "corporate-training-designer",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\customer-service.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-customer-service",
+      "agent_name": "customer-service",
+      "agent_slug": "customer-service",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\customer-success-manager.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-customer-success-manager",
+      "agent_name": "customer-success-manager",
+      "agent_slug": "customer-success-manager",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\data-consolidation-agent.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-data-consolidation-agent",
+      "agent_name": "data-consolidation-agent",
+      "agent_slug": "data-consolidation-agent",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\data-privacy-officer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-data-privacy-officer",
+      "agent_name": "data-privacy-officer",
+      "agent_slug": "data-privacy-officer",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\esg-sustainability-officer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-esg-sustainability-officer",
+      "agent_name": "esg-sustainability-officer",
+      "agent_slug": "esg-sustainability-officer",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\government-digital-presales-consultant.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-government-digital-presales-consultant",
+      "agent_name": "government-digital-presales-consultant",
+      "agent_slug": "government-digital-presales-consultant",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\grant-writer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-grant-writer",
+      "agent_name": "grant-writer",
+      "agent_slug": "grant-writer",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\healthcare-customer-service.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-healthcare-customer-service",
+      "agent_name": "healthcare-customer-service",
+      "agent_slug": "healthcare-customer-service",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\healthcare-marketing-compliance.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-healthcare-marketing-compliance",
+      "agent_name": "healthcare-marketing-compliance",
+      "agent_slug": "healthcare-marketing-compliance",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\hospitality-guest-services.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-hospitality-guest-services",
+      "agent_name": "hospitality-guest-services",
+      "agent_slug": "hospitality-guest-services",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\hr-onboarding.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-hr-onboarding",
+      "agent_name": "hr-onboarding",
+      "agent_slug": "hr-onboarding",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\identity-graph-operator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-identity-graph-operator",
+      "agent_name": "identity-graph-operator",
+      "agent_slug": "identity-graph-operator",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\language-translator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-language-translator",
+      "agent_name": "language-translator",
+      "agent_slug": "language-translator",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\legal-billing-time-tracking.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-legal-billing-time-tracking",
+      "agent_name": "legal-billing-time-tracking",
+      "agent_slug": "legal-billing-time-tracking",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\legal-client-intake.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-legal-client-intake",
+      "agent_name": "legal-client-intake",
+      "agent_slug": "legal-client-intake",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\legal-document-review.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-legal-document-review",
+      "agent_name": "legal-document-review",
+      "agent_slug": "legal-document-review",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\loan-officer-assistant.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-loan-officer-assistant",
+      "agent_name": "loan-officer-assistant",
+      "agent_slug": "loan-officer-assistant",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\lsp-index-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-lsp-index-engineer",
+      "agent_name": "lsp-index-engineer",
+      "agent_slug": "lsp-index-engineer",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\ma-integration-manager.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-ma-integration-manager",
+      "agent_name": "ma-integration-manager",
+      "agent_slug": "ma-integration-manager",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\medical-billing-coding-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-medical-billing-coding-specialist",
+      "agent_name": "medical-billing-coding-specialist",
+      "agent_slug": "medical-billing-coding-specialist",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\operations-manager.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-operations-manager",
+      "agent_name": "operations-manager",
+      "agent_slug": "operations-manager",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\organizational-psychologist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-organizational-psychologist",
+      "agent_name": "organizational-psychologist",
+      "agent_slug": "organizational-psychologist",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\personal-growth-mentor.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-personal-growth-mentor",
+      "agent_name": "personal-growth-mentor",
+      "agent_slug": "personal-growth-mentor",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\real-estate-buyer-seller.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-real-estate-buyer-seller",
+      "agent_name": "real-estate-buyer-seller",
+      "agent_slug": "real-estate-buyer-seller",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\recruitment-specialist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-recruitment-specialist",
+      "agent_name": "recruitment-specialist",
+      "agent_slug": "recruitment-specialist",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\report-distribution-agent.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-report-distribution-agent",
+      "agent_name": "report-distribution-agent",
+      "agent_slug": "report-distribution-agent",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\retail-customer-returns.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-retail-customer-returns",
+      "agent_name": "retail-customer-returns",
+      "agent_slug": "retail-customer-returns",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\sales-data-extraction-agent.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-sales-data-extraction-agent",
+      "agent_name": "sales-data-extraction-agent",
+      "agent_slug": "sales-data-extraction-agent",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\sales-outreach.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-sales-outreach",
+      "agent_name": "sales-outreach",
+      "agent_slug": "sales-outreach",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-chief-of-staff.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-chief-of-staff",
+      "agent_name": "specialized-chief-of-staff",
+      "agent_slug": "specialized-chief-of-staff",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-civil-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-civil-engineer",
+      "agent_name": "specialized-civil-engineer",
+      "agent_slug": "specialized-civil-engineer",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-cultural-intelligence-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-cultural-intelligence-strategist",
+      "agent_name": "specialized-cultural-intelligence-strategist",
+      "agent_slug": "specialized-cultural-intelligence-strategist",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-developer-advocate.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-developer-advocate",
+      "agent_name": "specialized-developer-advocate",
+      "agent_slug": "specialized-developer-advocate",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-document-generator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-document-generator",
+      "agent_name": "specialized-document-generator",
+      "agent_slug": "specialized-document-generator",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-fedramp-rmf-compliance.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-fedramp-rmf-compliance",
+      "agent_name": "specialized-fedramp-rmf-compliance",
+      "agent_slug": "specialized-fedramp-rmf-compliance",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-french-consulting-market.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-french-consulting-market",
+      "agent_name": "specialized-french-consulting-market",
+      "agent_slug": "specialized-french-consulting-market",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-korean-business-navigator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-korean-business-navigator",
+      "agent_name": "specialized-korean-business-navigator",
+      "agent_slug": "specialized-korean-business-navigator",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-mcp-builder.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-mcp-builder",
+      "agent_name": "specialized-mcp-builder",
+      "agent_slug": "specialized-mcp-builder",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-model-qa.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-model-qa",
+      "agent_name": "specialized-model-qa",
+      "agent_slug": "specialized-model-qa",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-pricing-analyst.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-pricing-analyst",
+      "agent_name": "specialized-pricing-analyst",
+      "agent_slug": "specialized-pricing-analyst",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-salesforce-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-salesforce-architect",
+      "agent_name": "specialized-salesforce-architect",
+      "agent_slug": "specialized-salesforce-architect",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-strategy-duel-agent.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-strategy-duel-agent",
+      "agent_name": "specialized-strategy-duel-agent",
+      "agent_slug": "specialized-strategy-duel-agent",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\specialized-workflow-architect.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-specialized-workflow-architect",
+      "agent_name": "specialized-workflow-architect",
+      "agent_slug": "specialized-workflow-architect",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\study-abroad-advisor.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-study-abroad-advisor",
+      "agent_name": "study-abroad-advisor",
+      "agent_slug": "study-abroad-advisor",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\supply-chain-strategist.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-supply-chain-strategist",
+      "agent_name": "supply-chain-strategist",
+      "agent_slug": "supply-chain-strategist",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\specialized\\zk-steward.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\specialized-zk-steward",
+      "agent_name": "zk-steward",
+      "agent_slug": "zk-steward",
+      "category": "specialized",
+      "category_id": "16-Specialized",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\coordination\\agent-activation-prompts.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-agent-activation-prompts",
+      "agent_name": "agent-activation-prompts",
+      "agent_slug": "agent-activation-prompts",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\coordination\\handoff-templates.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-handoff-templates",
+      "agent_name": "handoff-templates",
+      "agent_slug": "handoff-templates",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\EXECUTIVE-BRIEF.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-executive-brief",
+      "agent_name": "EXECUTIVE-BRIEF",
+      "agent_slug": "executive-brief",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\nexus-strategy.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-nexus-strategy",
+      "agent_name": "nexus-strategy",
+      "agent_slug": "nexus-strategy",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\playbooks\\phase-0-discovery.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-phase-0-discovery",
+      "agent_name": "phase-0-discovery",
+      "agent_slug": "phase-0-discovery",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\playbooks\\phase-1-strategy.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-phase-1-strategy",
+      "agent_name": "phase-1-strategy",
+      "agent_slug": "phase-1-strategy",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\playbooks\\phase-2-foundation.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-phase-2-foundation",
+      "agent_name": "phase-2-foundation",
+      "agent_slug": "phase-2-foundation",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\playbooks\\phase-3-build.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-phase-3-build",
+      "agent_name": "phase-3-build",
+      "agent_slug": "phase-3-build",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\playbooks\\phase-4-hardening.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-phase-4-hardening",
+      "agent_name": "phase-4-hardening",
+      "agent_slug": "phase-4-hardening",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\playbooks\\phase-5-launch.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-phase-5-launch",
+      "agent_name": "phase-5-launch",
+      "agent_slug": "phase-5-launch",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\playbooks\\phase-6-operate.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-phase-6-operate",
+      "agent_name": "phase-6-operate",
+      "agent_slug": "phase-6-operate",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\QUICKSTART.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-quickstart",
+      "agent_name": "QUICKSTART",
+      "agent_slug": "quickstart",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\runbooks\\scenario-enterprise-feature.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-scenario-enterprise-feature",
+      "agent_name": "scenario-enterprise-feature",
+      "agent_slug": "scenario-enterprise-feature",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\runbooks\\scenario-incident-response.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-scenario-incident-response",
+      "agent_name": "scenario-incident-response",
+      "agent_slug": "scenario-incident-response",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\runbooks\\scenario-marketing-campaign.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-scenario-marketing-campaign",
+      "agent_name": "scenario-marketing-campaign",
+      "agent_slug": "scenario-marketing-campaign",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\strategy\\runbooks\\scenario-startup-mvp.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\strategy-scenario-startup-mvp",
+      "agent_name": "scenario-startup-mvp",
+      "agent_slug": "scenario-startup-mvp",
+      "category": "strategy",
+      "category_id": "17-Strategy",
+      "virtual_team": "industry-consulting"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\support\\support-analytics-reporter.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\support-support-analytics-reporter",
+      "agent_name": "support-analytics-reporter",
+      "agent_slug": "support-analytics-reporter",
+      "category": "support",
+      "category_id": "18-Support",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\support\\support-executive-summary-generator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\support-support-executive-summary-generator",
+      "agent_name": "support-executive-summary-generator",
+      "agent_slug": "support-executive-summary-generator",
+      "category": "support",
+      "category_id": "18-Support",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\support\\support-finance-tracker.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\support-support-finance-tracker",
+      "agent_name": "support-finance-tracker",
+      "agent_slug": "support-finance-tracker",
+      "category": "support",
+      "category_id": "18-Support",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\support\\support-infrastructure-maintainer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\support-support-infrastructure-maintainer",
+      "agent_name": "support-infrastructure-maintainer",
+      "agent_slug": "support-infrastructure-maintainer",
+      "category": "support",
+      "category_id": "18-Support",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\support\\support-legal-compliance-checker.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\support-support-legal-compliance-checker",
+      "agent_name": "support-legal-compliance-checker",
+      "agent_slug": "support-legal-compliance-checker",
+      "category": "support",
+      "category_id": "18-Support",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\support\\support-support-responder.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\support-support-support-responder",
+      "agent_name": "support-support-responder",
+      "agent_slug": "support-support-responder",
+      "category": "support",
+      "category_id": "18-Support",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-accessibility-auditor.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-accessibility-auditor",
+      "agent_name": "testing-accessibility-auditor",
+      "agent_slug": "testing-accessibility-auditor",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-api-tester.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-api-tester",
+      "agent_name": "testing-api-tester",
+      "agent_slug": "testing-api-tester",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-evidence-collector.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-evidence-collector",
+      "agent_name": "testing-evidence-collector",
+      "agent_slug": "testing-evidence-collector",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-performance-benchmarker.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-performance-benchmarker",
+      "agent_name": "testing-performance-benchmarker",
+      "agent_slug": "testing-performance-benchmarker",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-reality-checker.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-reality-checker",
+      "agent_name": "testing-reality-checker",
+      "agent_slug": "testing-reality-checker",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-test-automation-engineer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-test-automation-engineer",
+      "agent_name": "testing-test-automation-engineer",
+      "agent_slug": "testing-test-automation-engineer",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-test-results-analyzer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-test-results-analyzer",
+      "agent_name": "testing-test-results-analyzer",
+      "agent_slug": "testing-test-results-analyzer",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-tool-evaluator.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-tool-evaluator",
+      "agent_name": "testing-tool-evaluator",
+      "agent_slug": "testing-tool-evaluator",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    },
+    {
+      "source": "C:\\Users\\林昌\\WorkBuddy\\2026-07-10-04-14-17\\agency-agents\\testing\\testing-workflow-optimizer.md",
+      "target_dir": "C:\\Users\\林昌\\.config\\opencode\\skills\\team-orchestration\\references\\workbuddy-experts\\testing-testing-workflow-optimizer",
+      "agent_name": "testing-workflow-optimizer",
+      "agent_slug": "testing-workflow-optimizer",
+      "category": "testing",
+      "category_id": "19-Testing",
+      "virtual_team": "ungrouped"
+    }
+  ]
+}

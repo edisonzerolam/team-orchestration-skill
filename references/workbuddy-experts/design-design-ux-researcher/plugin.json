@@ -1,0 +1,33 @@
+{
+  "name": "design-design-ux-researcher",
+  "version": "1.0.0",
+  "description": "Individual expert: design-ux-researcher",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "design-ux-researcher",
+    "zh": "design-ux-researcher"
+  },
+  "displayDescription": {
+    "en": "Individual expert from design",
+    "zh": "来自 design 的独立专家"
+  },
+  "categoryId": "02-Design",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "design-ux-researcher",
+        "zh": "design-ux-researcher"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

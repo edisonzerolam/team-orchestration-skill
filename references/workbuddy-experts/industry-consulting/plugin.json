@@ -1,0 +1,101 @@
+{
+  "name": "industry-consulting",
+  "version": "1.0.0",
+  "description": "行业咨询团队",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "team",
+  "agentName": "team-lead",
+  "teamInfo": {
+    "leadAgent": "team-lead",
+    "memberAgents": [
+      "business-strategist",
+      "change-management-consultant",
+      "finance-financial-analyst",
+      "finance-fpa-analyst",
+      "gis-analyst",
+      "gis-technical-consultant",
+      "government-digital-presales-consultant",
+      "paid-media-search-query-analyst",
+      "sales-pipeline-analyst",
+      "security-threat-intelligence-analyst",
+      "specialized-french-consulting-market",
+      "specialized-korean-business-navigator",
+      "specialized-pricing-analyst",
+      "study-abroad-advisor",
+      "academic-anthropologist",
+      "academic-geographer",
+      "academic-historian",
+      "academic-psychologist",
+      "academic-statistician",
+      "marketing-x-twitter-intelligence-analyst",
+      "specialized-chief-of-staff",
+      "specialized-cultural-intelligence-strategist",
+      "supply-chain-strategist",
+      "operations-manager",
+      "organizational-psychologist"
+    ]
+  },
+  "displayName": {
+    "en": "Industry Consulting",
+    "zh": "行业咨询团队"
+  },
+  "displayDescription": {
+    "en": "行业研究与战略咨询专家团队，覆盖行业分析、市场调研、战略规划",
+    "zh": "行业研究与战略咨询专家团队，覆盖行业分析、市场调研、战略规划"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "business-strategist",
+        "zh": "business-strategist"
+      },
+      "role": "member"
+    },
+    {
+      "name": {
+        "en": "change-management-consultant",
+        "zh": "change-management-consultant"
+      },
+      "role": "member"
+    },
+    {
+      "name": {
+        "en": "finance-financial-analyst",
+        "zh": "finance-financial-analyst"
+      },
+      "role": "member"
+    }
+  ],
+  "agents": [
+    "./agents/business-strategist.md",
+    "./agents/change-management-consultant.md",
+    "./agents/finance-financial-analyst.md",
+    "./agents/finance-fpa-analyst.md",
+    "./agents/gis-analyst.md",
+    "./agents/gis-technical-consultant.md",
+    "./agents/government-digital-presales-consultant.md",
+    "./agents/paid-media-search-query-analyst.md",
+    "./agents/sales-pipeline-analyst.md",
+    "./agents/security-threat-intelligence-analyst.md",
+    "./agents/specialized-french-consulting-market.md",
+    "./agents/specialized-korean-business-navigator.md",
+    "./agents/specialized-pricing-analyst.md",
+    "./agents/study-abroad-advisor.md",
+    "./agents/academic-anthropologist.md",
+    "./agents/academic-geographer.md",
+    "./agents/academic-historian.md",
+    "./agents/academic-psychologist.md",
+    "./agents/academic-statistician.md",
+    "./agents/marketing-x-twitter-intelligence-analyst.md",
+    "./agents/specialized-chief-of-staff.md",
+    "./agents/specialized-cultural-intelligence-strategist.md",
+    "./agents/supply-chain-strategist.md",
+    "./agents/operations-manager.md",
+    "./agents/organizational-psychologist.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "specialized-data-consolidation-agent",
+  "version": "1.0.0",
+  "description": "Individual expert: data-consolidation-agent",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "data-consolidation-agent",
+    "zh": "data-consolidation-agent"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "data-consolidation-agent",
+        "zh": "data-consolidation-agent"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

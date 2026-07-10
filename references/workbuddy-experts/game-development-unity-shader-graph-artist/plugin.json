@@ -1,0 +1,33 @@
+{
+  "name": "game-development-unity-shader-graph-artist",
+  "version": "1.0.0",
+  "description": "Individual expert: unity-shader-graph-artist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "unity-shader-graph-artist",
+    "zh": "unity-shader-graph-artist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from game-development",
+    "zh": "来自 game-development 的独立专家"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "unity-shader-graph-artist",
+        "zh": "unity-shader-graph-artist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

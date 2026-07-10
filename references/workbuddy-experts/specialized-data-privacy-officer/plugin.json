@@ -1,0 +1,33 @@
+{
+  "name": "specialized-data-privacy-officer",
+  "version": "1.0.0",
+  "description": "Individual expert: data-privacy-officer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "data-privacy-officer",
+    "zh": "data-privacy-officer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "data-privacy-officer",
+        "zh": "data-privacy-officer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "strategy-phase-2-foundation",
+  "version": "1.0.0",
+  "description": "Individual expert: phase-2-foundation",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "phase-2-foundation",
+    "zh": "phase-2-foundation"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "phase-2-foundation",
+        "zh": "phase-2-foundation"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

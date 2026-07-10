@@ -1,0 +1,33 @@
+{
+  "name": "support-support-legal-compliance-checker",
+  "version": "1.0.0",
+  "description": "Individual expert: support-legal-compliance-checker",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "support-legal-compliance-checker",
+    "zh": "support-legal-compliance-checker"
+  },
+  "displayDescription": {
+    "en": "Individual expert from support",
+    "zh": "来自 support 的独立专家"
+  },
+  "categoryId": "18-Support",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "support-legal-compliance-checker",
+        "zh": "support-legal-compliance-checker"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

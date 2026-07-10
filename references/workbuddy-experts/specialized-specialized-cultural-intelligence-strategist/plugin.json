@@ -1,0 +1,33 @@
+{
+  "name": "specialized-specialized-cultural-intelligence-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: specialized-cultural-intelligence-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "specialized-cultural-intelligence-strategist",
+    "zh": "specialized-cultural-intelligence-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "specialized-cultural-intelligence-strategist",
+        "zh": "specialized-cultural-intelligence-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

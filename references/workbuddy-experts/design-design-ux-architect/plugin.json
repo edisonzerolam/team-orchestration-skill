@@ -1,0 +1,33 @@
+{
+  "name": "design-design-ux-architect",
+  "version": "1.0.0",
+  "description": "Individual expert: design-ux-architect",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "design-ux-architect",
+    "zh": "design-ux-architect"
+  },
+  "displayDescription": {
+    "en": "Individual expert from design",
+    "zh": "来自 design 的独立专家"
+  },
+  "categoryId": "02-Design",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "design-ux-architect",
+        "zh": "design-ux-architect"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

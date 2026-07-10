@@ -1,0 +1,33 @@
+{
+  "name": "strategy-scenario-marketing-campaign",
+  "version": "1.0.0",
+  "description": "Individual expert: scenario-marketing-campaign",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "scenario-marketing-campaign",
+    "zh": "scenario-marketing-campaign"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "scenario-marketing-campaign",
+        "zh": "scenario-marketing-campaign"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

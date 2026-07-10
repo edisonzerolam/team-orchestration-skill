@@ -1,0 +1,33 @@
+{
+  "name": "finance-finance-bookkeeper-controller",
+  "version": "1.0.0",
+  "description": "Individual expert: finance-bookkeeper-controller",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "finance-bookkeeper-controller",
+    "zh": "finance-bookkeeper-controller"
+  },
+  "displayDescription": {
+    "en": "Individual expert from finance",
+    "zh": "来自 finance 的独立专家"
+  },
+  "categoryId": "04-Finance",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "finance-bookkeeper-controller",
+        "zh": "finance-bookkeeper-controller"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

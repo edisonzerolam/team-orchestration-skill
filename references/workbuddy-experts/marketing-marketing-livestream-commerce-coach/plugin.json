@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-livestream-commerce-coach",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-livestream-commerce-coach",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-livestream-commerce-coach",
+    "zh": "marketing-livestream-commerce-coach"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-livestream-commerce-coach",
+        "zh": "marketing-livestream-commerce-coach"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

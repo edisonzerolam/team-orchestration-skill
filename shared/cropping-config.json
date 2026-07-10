@@ -1,0 +1,68 @@
+{
+  "version": "1.0",
+  "_comment": "大团裁剪配置。agent_count <= 3 的团队自动跳过裁剪。",
+  "teams": {
+    "investment-masters-team": {
+      "base_size": 8,
+      "elastic_ratio": 0.2,
+      "min_size": 3,
+      "role_priority": ["oracle-of-omaha", "charlie-munger", "dean-of-valuation",
+                        "hedge-fund-lead", "risk-manager", "macro-king",
+                        "growth-analyst", "fundamentals-analyst"]
+    },
+    "trading-agent": {
+      "base_size": 6,
+      "elastic_ratio": 0.2,
+      "min_size": 3,
+      "role_priority": ["trading-team-lead", "trader", "risk-manager",
+                        "market-analyst", "research-manager", "sentiment-analyst"]
+    },
+    "stock-partner-team": {
+      "base_size": 5,
+      "elastic_ratio": 0.2,
+      "min_size": 3,
+      "role_priority": ["signal-chief", "stock-partner-lead", "valuation-analyst",
+                        "fundamental-researcher", "industry-strategist"]
+    },
+    "enterprise-legal-team": {
+      "base_size": 5,
+      "elastic_ratio": 0.2,
+      "min_size": 3,
+      "role_priority": ["enterprise-legal-lead", "commercial-contracts-counsel",
+                        "regulatory-compliance-counsel", "privacy-data-counsel",
+                        "ai-governance-counsel"]
+    },
+    "a-share-analysis": {
+      "base_size": 5,
+      "elastic_ratio": 0.2,
+      "min_size": 3,
+      "role_priority": ["a-share-advisor", "macro-strategist", "stock-researcher",
+                        "valuation-pricer", "risk-doctor"]
+    },
+    "game-development": {
+      "base_size": 7,
+      "elastic_ratio": 0.2,
+      "min_size": 3,
+      "role_priority": ["game-designer", "technical-artist", "unity-architect",
+                        "level-designer", "unreal-world-builder"]
+    },
+    "industry-consulting": {
+      "base_size": 7,
+      "elastic_ratio": 0.2,
+      "min_size": 3,
+      "role_priority": ["business-strategist", "change-management-consultant",
+                        "finance-financial-analyst", "supply-chain-strategist",
+                        "operations-manager"]
+    },
+    "tencent-ecosystem": {
+      "base_size": 6,
+      "elastic_ratio": 0.2,
+      "min_size": 3,
+      "role_priority": ["engineering-wechat-mini-program-developer",
+                        "engineering-backend-architect",
+                        "marketing-wechat-official-account",
+                        "engineering-sre",
+                        "security-compliance-auditor"]
+    }
+  }
+}

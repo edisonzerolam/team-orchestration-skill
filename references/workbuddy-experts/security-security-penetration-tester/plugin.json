@@ -1,0 +1,33 @@
+{
+  "name": "security-security-penetration-tester",
+  "version": "1.0.0",
+  "description": "Individual expert: security-penetration-tester",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "security-penetration-tester",
+    "zh": "security-penetration-tester"
+  },
+  "displayDescription": {
+    "en": "Individual expert from security",
+    "zh": "来自 security 的独立专家"
+  },
+  "categoryId": "14-Security",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "security-penetration-tester",
+        "zh": "security-penetration-tester"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

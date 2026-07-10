@@ -1,0 +1,33 @@
+{
+  "name": "strategy-phase-5-launch",
+  "version": "1.0.0",
+  "description": "Individual expert: phase-5-launch",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "phase-5-launch",
+    "zh": "phase-5-launch"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "phase-5-launch",
+        "zh": "phase-5-launch"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

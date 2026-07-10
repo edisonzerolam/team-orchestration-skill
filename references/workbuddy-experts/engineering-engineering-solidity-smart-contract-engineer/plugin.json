@@ -1,0 +1,33 @@
+{
+  "name": "engineering-engineering-solidity-smart-contract-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: engineering-solidity-smart-contract-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "engineering-solidity-smart-contract-engineer",
+    "zh": "engineering-solidity-smart-contract-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from engineering",
+    "zh": "来自 engineering 的独立专家"
+  },
+  "categoryId": "03-Engineering",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "engineering-solidity-smart-contract-engineer",
+        "zh": "engineering-solidity-smart-contract-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

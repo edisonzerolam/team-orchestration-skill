@@ -1,0 +1,33 @@
+{
+  "name": "finance-finance-financial-analyst",
+  "version": "1.0.0",
+  "description": "Individual expert: finance-financial-analyst",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "finance-financial-analyst",
+    "zh": "finance-financial-analyst"
+  },
+  "displayDescription": {
+    "en": "Individual expert from finance",
+    "zh": "来自 finance 的独立专家"
+  },
+  "categoryId": "04-Finance",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "finance-financial-analyst",
+        "zh": "finance-financial-analyst"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

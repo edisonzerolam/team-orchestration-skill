@@ -1,0 +1,33 @@
+{
+  "name": "gis-gis-analyst",
+  "version": "1.0.0",
+  "description": "Individual expert: gis-analyst",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "gis-analyst",
+    "zh": "gis-analyst"
+  },
+  "displayDescription": {
+    "en": "Individual expert from gis",
+    "zh": "来自 gis 的独立专家"
+  },
+  "categoryId": "06-GIS",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "gis-analyst",
+        "zh": "gis-analyst"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

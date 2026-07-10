@@ -1,0 +1,33 @@
+{
+  "name": "support-support-support-responder",
+  "version": "1.0.0",
+  "description": "Individual expert: support-support-responder",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "support-support-responder",
+    "zh": "support-support-responder"
+  },
+  "displayDescription": {
+    "en": "Individual expert from support",
+    "zh": "来自 support 的独立专家"
+  },
+  "categoryId": "18-Support",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "support-support-responder",
+        "zh": "support-support-responder"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

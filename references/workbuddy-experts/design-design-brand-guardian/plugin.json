@@ -1,0 +1,33 @@
+{
+  "name": "design-design-brand-guardian",
+  "version": "1.0.0",
+  "description": "Individual expert: design-brand-guardian",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "design-brand-guardian",
+    "zh": "design-brand-guardian"
+  },
+  "displayDescription": {
+    "en": "Individual expert from design",
+    "zh": "来自 design 的独立专家"
+  },
+  "categoryId": "02-Design",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "design-brand-guardian",
+        "zh": "design-brand-guardian"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

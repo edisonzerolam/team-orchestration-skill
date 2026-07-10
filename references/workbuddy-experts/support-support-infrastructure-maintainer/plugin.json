@@ -1,0 +1,33 @@
+{
+  "name": "support-support-infrastructure-maintainer",
+  "version": "1.0.0",
+  "description": "Individual expert: support-infrastructure-maintainer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "support-infrastructure-maintainer",
+    "zh": "support-infrastructure-maintainer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from support",
+    "zh": "来自 support 的独立专家"
+  },
+  "categoryId": "18-Support",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "support-infrastructure-maintainer",
+        "zh": "support-infrastructure-maintainer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

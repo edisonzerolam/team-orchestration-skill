@@ -1,0 +1,33 @@
+{
+  "name": "strategy-phase-1-strategy",
+  "version": "1.0.0",
+  "description": "Individual expert: phase-1-strategy",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "phase-1-strategy",
+    "zh": "phase-1-strategy"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "phase-1-strategy",
+        "zh": "phase-1-strategy"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

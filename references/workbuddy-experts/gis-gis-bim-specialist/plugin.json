@@ -1,0 +1,33 @@
+{
+  "name": "gis-gis-bim-specialist",
+  "version": "1.0.0",
+  "description": "Individual expert: gis-bim-specialist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "gis-bim-specialist",
+    "zh": "gis-bim-specialist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from gis",
+    "zh": "来自 gis 的独立专家"
+  },
+  "categoryId": "06-GIS",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "gis-bim-specialist",
+        "zh": "gis-bim-specialist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

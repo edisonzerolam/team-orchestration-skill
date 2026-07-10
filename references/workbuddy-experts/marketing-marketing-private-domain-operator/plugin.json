@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-private-domain-operator",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-private-domain-operator",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-private-domain-operator",
+    "zh": "marketing-private-domain-operator"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-private-domain-operator",
+        "zh": "marketing-private-domain-operator"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

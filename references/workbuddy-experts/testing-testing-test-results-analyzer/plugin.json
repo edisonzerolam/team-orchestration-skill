@@ -1,0 +1,33 @@
+{
+  "name": "testing-testing-test-results-analyzer",
+  "version": "1.0.0",
+  "description": "Individual expert: testing-test-results-analyzer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "testing-test-results-analyzer",
+    "zh": "testing-test-results-analyzer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from testing",
+    "zh": "来自 testing 的独立专家"
+  },
+  "categoryId": "19-Testing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "testing-test-results-analyzer",
+        "zh": "testing-test-results-analyzer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

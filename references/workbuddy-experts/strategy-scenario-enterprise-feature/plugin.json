@@ -1,0 +1,33 @@
+{
+  "name": "strategy-scenario-enterprise-feature",
+  "version": "1.0.0",
+  "description": "Individual expert: scenario-enterprise-feature",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "scenario-enterprise-feature",
+    "zh": "scenario-enterprise-feature"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "scenario-enterprise-feature",
+        "zh": "scenario-enterprise-feature"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

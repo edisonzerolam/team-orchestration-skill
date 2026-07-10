@@ -1,0 +1,33 @@
+{
+  "name": "specialized-specialized-chief-of-staff",
+  "version": "1.0.0",
+  "description": "Individual expert: specialized-chief-of-staff",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "specialized-chief-of-staff",
+    "zh": "specialized-chief-of-staff"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "specialized-chief-of-staff",
+        "zh": "specialized-chief-of-staff"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

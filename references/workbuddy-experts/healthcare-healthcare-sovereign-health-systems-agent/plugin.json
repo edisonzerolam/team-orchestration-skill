@@ -1,0 +1,33 @@
+{
+  "name": "healthcare-healthcare-sovereign-health-systems-agent",
+  "version": "1.0.0",
+  "description": "Individual expert: healthcare-sovereign-health-systems-agent",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "healthcare-sovereign-health-systems-agent",
+    "zh": "healthcare-sovereign-health-systems-agent"
+  },
+  "displayDescription": {
+    "en": "Individual expert from healthcare",
+    "zh": "来自 healthcare 的独立专家"
+  },
+  "categoryId": "07-Healthcare",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "healthcare-sovereign-health-systems-agent",
+        "zh": "healthcare-sovereign-health-systems-agent"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

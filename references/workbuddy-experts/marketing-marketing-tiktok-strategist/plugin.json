@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-tiktok-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-tiktok-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-tiktok-strategist",
+    "zh": "marketing-tiktok-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-tiktok-strategist",
+        "zh": "marketing-tiktok-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

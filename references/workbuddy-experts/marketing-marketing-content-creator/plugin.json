@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-content-creator",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-content-creator",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-content-creator",
+    "zh": "marketing-content-creator"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-content-creator",
+        "zh": "marketing-content-creator"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

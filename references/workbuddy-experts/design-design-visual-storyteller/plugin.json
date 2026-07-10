@@ -1,0 +1,33 @@
+{
+  "name": "design-design-visual-storyteller",
+  "version": "1.0.0",
+  "description": "Individual expert: design-visual-storyteller",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "design-visual-storyteller",
+    "zh": "design-visual-storyteller"
+  },
+  "displayDescription": {
+    "en": "Individual expert from design",
+    "zh": "来自 design 的独立专家"
+  },
+  "categoryId": "02-Design",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "design-visual-storyteller",
+        "zh": "design-visual-storyteller"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

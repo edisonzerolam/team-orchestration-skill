@@ -1,0 +1,33 @@
+{
+  "name": "design-design-image-prompt-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: design-image-prompt-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "design-image-prompt-engineer",
+    "zh": "design-image-prompt-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from design",
+    "zh": "来自 design 的独立专家"
+  },
+  "categoryId": "02-Design",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "design-image-prompt-engineer",
+        "zh": "design-image-prompt-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

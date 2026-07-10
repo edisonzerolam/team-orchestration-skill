@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-carousel-growth-engine",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-carousel-growth-engine",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-carousel-growth-engine",
+    "zh": "marketing-carousel-growth-engine"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-carousel-growth-engine",
+        "zh": "marketing-carousel-growth-engine"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

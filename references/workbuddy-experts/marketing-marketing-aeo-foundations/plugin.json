@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-aeo-foundations",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-aeo-foundations",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-aeo-foundations",
+    "zh": "marketing-aeo-foundations"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-aeo-foundations",
+        "zh": "marketing-aeo-foundations"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

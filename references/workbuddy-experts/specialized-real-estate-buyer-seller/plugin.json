@@ -1,0 +1,33 @@
+{
+  "name": "specialized-real-estate-buyer-seller",
+  "version": "1.0.0",
+  "description": "Individual expert: real-estate-buyer-seller",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "real-estate-buyer-seller",
+    "zh": "real-estate-buyer-seller"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "real-estate-buyer-seller",
+        "zh": "real-estate-buyer-seller"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

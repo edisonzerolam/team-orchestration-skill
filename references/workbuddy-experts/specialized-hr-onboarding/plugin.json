@@ -1,0 +1,33 @@
+{
+  "name": "specialized-hr-onboarding",
+  "version": "1.0.0",
+  "description": "Individual expert: hr-onboarding",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "hr-onboarding",
+    "zh": "hr-onboarding"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "hr-onboarding",
+        "zh": "hr-onboarding"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

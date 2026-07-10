@@ -1,0 +1,1 @@
+{"budget_type":"standard","max_tokens_per_task":32000,"downgrade_threshold":0.85,"economy_max_agents":5,"standby_mode":"metadata_only"}

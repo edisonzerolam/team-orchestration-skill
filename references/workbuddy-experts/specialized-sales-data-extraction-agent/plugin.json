@@ -1,0 +1,33 @@
+{
+  "name": "specialized-sales-data-extraction-agent",
+  "version": "1.0.0",
+  "description": "Individual expert: sales-data-extraction-agent",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "sales-data-extraction-agent",
+    "zh": "sales-data-extraction-agent"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "sales-data-extraction-agent",
+        "zh": "sales-data-extraction-agent"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

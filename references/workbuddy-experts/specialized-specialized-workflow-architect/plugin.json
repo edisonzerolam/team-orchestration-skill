@@ -1,0 +1,33 @@
+{
+  "name": "specialized-specialized-workflow-architect",
+  "version": "1.0.0",
+  "description": "Individual expert: specialized-workflow-architect",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "specialized-workflow-architect",
+    "zh": "specialized-workflow-architect"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "specialized-workflow-architect",
+        "zh": "specialized-workflow-architect"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

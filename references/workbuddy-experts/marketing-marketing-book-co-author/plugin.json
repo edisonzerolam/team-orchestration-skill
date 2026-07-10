@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-book-co-author",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-book-co-author",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-book-co-author",
+    "zh": "marketing-book-co-author"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-book-co-author",
+        "zh": "marketing-book-co-author"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

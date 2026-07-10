@@ -1,0 +1,33 @@
+{
+  "name": "design-design-inclusive-visuals-specialist",
+  "version": "1.0.0",
+  "description": "Individual expert: design-inclusive-visuals-specialist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "design-inclusive-visuals-specialist",
+    "zh": "design-inclusive-visuals-specialist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from design",
+    "zh": "来自 design 的独立专家"
+  },
+  "categoryId": "02-Design",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "design-inclusive-visuals-specialist",
+        "zh": "design-inclusive-visuals-specialist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

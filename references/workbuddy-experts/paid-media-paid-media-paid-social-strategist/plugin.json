@@ -1,0 +1,33 @@
+{
+  "name": "paid-media-paid-media-paid-social-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: paid-media-paid-social-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "paid-media-paid-social-strategist",
+    "zh": "paid-media-paid-social-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from paid-media",
+    "zh": "来自 paid-media 的独立专家"
+  },
+  "categoryId": "10-PaidMedia",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "paid-media-paid-social-strategist",
+        "zh": "paid-media-paid-social-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "testing-testing-performance-benchmarker",
+  "version": "1.0.0",
+  "description": "Individual expert: testing-performance-benchmarker",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "testing-performance-benchmarker",
+    "zh": "testing-performance-benchmarker"
+  },
+  "displayDescription": {
+    "en": "Individual expert from testing",
+    "zh": "来自 testing 的独立专家"
+  },
+  "categoryId": "19-Testing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "testing-performance-benchmarker",
+        "zh": "testing-performance-benchmarker"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

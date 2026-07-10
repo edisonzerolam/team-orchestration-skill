@@ -1,0 +1,33 @@
+{
+  "name": "spatial-computing-xr-interface-architect",
+  "version": "1.0.0",
+  "description": "Individual expert: xr-interface-architect",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "xr-interface-architect",
+    "zh": "xr-interface-architect"
+  },
+  "displayDescription": {
+    "en": "Individual expert from spatial-computing",
+    "zh": "来自 spatial-computing 的独立专家"
+  },
+  "categoryId": "15-Spatial",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "xr-interface-architect",
+        "zh": "xr-interface-architect"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

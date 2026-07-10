@@ -1,0 +1,33 @@
+{
+  "name": "testing-testing-api-tester",
+  "version": "1.0.0",
+  "description": "Individual expert: testing-api-tester",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "testing-api-tester",
+    "zh": "testing-api-tester"
+  },
+  "displayDescription": {
+    "en": "Individual expert from testing",
+    "zh": "来自 testing 的独立专家"
+  },
+  "categoryId": "19-Testing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "testing-api-tester",
+        "zh": "testing-api-tester"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

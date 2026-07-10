@@ -1,0 +1,33 @@
+{
+  "name": "engineering-engineering-prompt-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: engineering-prompt-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "engineering-prompt-engineer",
+    "zh": "engineering-prompt-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from engineering",
+    "zh": "来自 engineering 的独立专家"
+  },
+  "categoryId": "03-Engineering",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "engineering-prompt-engineer",
+        "zh": "engineering-prompt-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

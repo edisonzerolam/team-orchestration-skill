@@ -1,0 +1,33 @@
+{
+  "name": "security-security-senior-secops",
+  "version": "1.0.0",
+  "description": "Individual expert: security-senior-secops",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "security-senior-secops",
+    "zh": "security-senior-secops"
+  },
+  "displayDescription": {
+    "en": "Individual expert from security",
+    "zh": "来自 security 的独立专家"
+  },
+  "categoryId": "14-Security",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "security-senior-secops",
+        "zh": "security-senior-secops"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

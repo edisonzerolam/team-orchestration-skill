@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-seo-specialist",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-seo-specialist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-seo-specialist",
+    "zh": "marketing-seo-specialist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-seo-specialist",
+        "zh": "marketing-seo-specialist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

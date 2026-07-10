@@ -1,0 +1,33 @@
+{
+  "name": "spatial-computing-macos-spatial-metal-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: macos-spatial-metal-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "macos-spatial-metal-engineer",
+    "zh": "macos-spatial-metal-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from spatial-computing",
+    "zh": "来自 spatial-computing 的独立专家"
+  },
+  "categoryId": "15-Spatial",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "macos-spatial-metal-engineer",
+        "zh": "macos-spatial-metal-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

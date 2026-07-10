@@ -1,0 +1,33 @@
+{
+  "name": "testing-testing-accessibility-auditor",
+  "version": "1.0.0",
+  "description": "Individual expert: testing-accessibility-auditor",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "testing-accessibility-auditor",
+    "zh": "testing-accessibility-auditor"
+  },
+  "displayDescription": {
+    "en": "Individual expert from testing",
+    "zh": "来自 testing 的独立专家"
+  },
+  "categoryId": "19-Testing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "testing-accessibility-auditor",
+        "zh": "testing-accessibility-auditor"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

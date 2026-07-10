@@ -1,0 +1,33 @@
+{
+  "name": "specialized-legal-billing-time-tracking",
+  "version": "1.0.0",
+  "description": "Individual expert: legal-billing-time-tracking",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "legal-billing-time-tracking",
+    "zh": "legal-billing-time-tracking"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "legal-billing-time-tracking",
+        "zh": "legal-billing-time-tracking"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

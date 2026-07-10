@@ -1,0 +1,33 @@
+{
+  "name": "game-development-godot-multiplayer-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: godot-multiplayer-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "godot-multiplayer-engineer",
+    "zh": "godot-multiplayer-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from game-development",
+    "zh": "来自 game-development 的独立专家"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "godot-multiplayer-engineer",
+        "zh": "godot-multiplayer-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "gis-gis-cartography-designer",
+  "version": "1.0.0",
+  "description": "Individual expert: gis-cartography-designer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "gis-cartography-designer",
+    "zh": "gis-cartography-designer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from gis",
+    "zh": "来自 gis 的独立专家"
+  },
+  "categoryId": "06-GIS",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "gis-cartography-designer",
+        "zh": "gis-cartography-designer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

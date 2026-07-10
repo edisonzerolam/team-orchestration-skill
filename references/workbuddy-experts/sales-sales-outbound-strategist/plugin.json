@@ -1,0 +1,33 @@
+{
+  "name": "sales-sales-outbound-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: sales-outbound-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "sales-outbound-strategist",
+    "zh": "sales-outbound-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from sales",
+    "zh": "来自 sales 的独立专家"
+  },
+  "categoryId": "13-Sales",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "sales-outbound-strategist",
+        "zh": "sales-outbound-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "academic-academic-historian",
+  "version": "1.0.0",
+  "description": "Individual expert: academic-historian",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "academic-historian",
+    "zh": "academic-historian"
+  },
+  "displayDescription": {
+    "en": "Individual expert from academic",
+    "zh": "来自 academic 的独立专家"
+  },
+  "categoryId": "01-Academic",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "academic-historian",
+        "zh": "academic-historian"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

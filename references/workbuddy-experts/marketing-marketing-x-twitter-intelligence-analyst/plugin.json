@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-x-twitter-intelligence-analyst",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-x-twitter-intelligence-analyst",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-x-twitter-intelligence-analyst",
+    "zh": "marketing-x-twitter-intelligence-analyst"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-x-twitter-intelligence-analyst",
+        "zh": "marketing-x-twitter-intelligence-analyst"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

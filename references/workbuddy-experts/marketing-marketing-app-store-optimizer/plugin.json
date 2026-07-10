@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-app-store-optimizer",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-app-store-optimizer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-app-store-optimizer",
+    "zh": "marketing-app-store-optimizer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-app-store-optimizer",
+        "zh": "marketing-app-store-optimizer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

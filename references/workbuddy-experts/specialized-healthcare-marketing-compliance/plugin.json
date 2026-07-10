@@ -1,0 +1,33 @@
+{
+  "name": "specialized-healthcare-marketing-compliance",
+  "version": "1.0.0",
+  "description": "Individual expert: healthcare-marketing-compliance",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "healthcare-marketing-compliance",
+    "zh": "healthcare-marketing-compliance"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "healthcare-marketing-compliance",
+        "zh": "healthcare-marketing-compliance"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

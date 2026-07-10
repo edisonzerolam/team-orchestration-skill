@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-china-ecommerce-operator",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-china-ecommerce-operator",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-china-ecommerce-operator",
+    "zh": "marketing-china-ecommerce-operator"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-china-ecommerce-operator",
+        "zh": "marketing-china-ecommerce-operator"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

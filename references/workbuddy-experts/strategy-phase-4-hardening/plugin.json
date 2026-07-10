@@ -1,0 +1,33 @@
+{
+  "name": "strategy-phase-4-hardening",
+  "version": "1.0.0",
+  "description": "Individual expert: phase-4-hardening",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "phase-4-hardening",
+    "zh": "phase-4-hardening"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "phase-4-hardening",
+        "zh": "phase-4-hardening"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "name": "ai-content-creator-team",
+  "version": "1.0.0",
+  "description": "AI-powered multimodal content production team covering video generation, image creation, smart editing, and content adaptation",
+  "author": {
+    "name": "CodeBuddy Teams"
+  },
+  "agents": [
+    "./agents/ai-content-creator-team-lead.md",
+    "./agents/video-generator.md",
+    "./agents/image-creator.md",
+    "./agents/video-editor.md",
+    "./agents/content-adapter.md"
+  ],
+  "skills": [
+    "./skills/ai-content-production"
+  ],
+
+  "expertType": "team",
+  "agentName": "ai-content-creator-team-lead",
+  "teamInfo": {
+    "leadAgent": "ai-content-creator-team-lead",
+    "memberAgents": [
+      "video-generator",
+      "image-creator",
+      "video-editor",
+      "content-adapter"
+    ]
+  },
+
+  "displayName": {
+    "en": "Content Creator Team",
+    "zh": "内容创作专家团"
+  },
+  "profession": {
+    "en": "Content Creator Team",
+    "zh": "内容创作专家团"
+  },
+  "_note_profession": "Team 型 profession 与 displayName 保持一致（规范要求）",
+  "displayDescription": {
+    "en": "AI-driven multimodal content production team providing end-to-end creative solutions across video generation, image creation, smart editing, and cross-language content adaptation.",
+    "zh": "AI驱动的多模态内容生产团队，覆盖视频生成、图文创作、智能剪辑和跨语言素材改编，提供端到端创意解决方案。"
+  },
+  "avatar": "avatars/team.png",
+  "categoryId": "06-ContentCreative",
+  "defaultInitPrompt": {
+    "en": "Help me generate a 15-second product promotional short video with AI",
+    "zh": "帮我用 AI 生成一段 15 秒的产品宣传短视频"
+  },
+  "tags": [
+    { "en": "AI Video Generation", "zh": "AI视频生成" },
+    { "en": "Image Creation", "zh": "图文创作" },
+    { "en": "Smart Editing", "zh": "智能剪辑" }
+  ],
+  "quickPrompts": [
+    { "en": "Help me generate a 15-second product promotional short video with AI", "zh": "帮我用 AI 生成一段 15 秒的产品宣传短视频" },
+    { "en": "Generate a set of Xiaohongshu-style lifestyle images with matching copy for my new product launch", "zh": "为我的新品上市生成一组小红书风格的种草图文，包含配图和文案" },
+    { "en": "Batch generate a set of product images for my social media accounts", "zh": "为我的社交媒体账号批量生成一组产品图" }
+  ],
+  "members": [
+    {
+      "id": "ai-content-creator-team-lead",
+      "name": { "en": "Soren", "zh": "司远" },
+      "profession": { "en": "Creative Director", "zh": "创意总监" },
+      "avatar": "avatars/ai-content-creator-team-lead.png",
+      "role": "lead"
+    },
+    {
+      "id": "video-generator",
+      "name": { "en": "Veo", "zh": "维欧" },
+      "profession": { "en": "Video Generation Expert", "zh": "视频生成专家" },
+      "avatar": "avatars/video-generator.png",
+      "role": "member"
+    },
+    {
+      "id": "image-creator",
+      "name": { "en": "Percy", "zh": "珀西" },
+      "profession": { "en": "Image & Text Creator", "zh": "图文创作专家" },
+      "avatar": "avatars/image-creator.png",
+      "role": "member"
+    },
+    {
+      "id": "video-editor",
+      "name": { "en": "Clip", "zh": "柯立" },
+      "profession": { "en": "Video Editing Expert", "zh": "视频编辑专家" },
+      "avatar": "avatars/video-editor.png",
+      "role": "member"
+    },
+    {
+      "id": "content-adapter",
+      "name": { "en": "Ada", "zh": "艾达" },
+      "profession": { "en": "Content Adaptation Expert", "zh": "素材改编专家" },
+      "avatar": "avatars/content-adapter.png",
+      "role": "member"
+    }
+  ]
+}

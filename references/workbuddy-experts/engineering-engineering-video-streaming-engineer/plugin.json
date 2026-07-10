@@ -1,0 +1,33 @@
+{
+  "name": "engineering-engineering-video-streaming-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: engineering-video-streaming-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "engineering-video-streaming-engineer",
+    "zh": "engineering-video-streaming-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from engineering",
+    "zh": "来自 engineering 的独立专家"
+  },
+  "categoryId": "03-Engineering",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "engineering-video-streaming-engineer",
+        "zh": "engineering-video-streaming-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

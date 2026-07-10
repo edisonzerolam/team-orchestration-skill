@@ -1,0 +1,33 @@
+{
+  "name": "product-product-feedback-synthesizer",
+  "version": "1.0.0",
+  "description": "Individual expert: product-feedback-synthesizer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "product-feedback-synthesizer",
+    "zh": "product-feedback-synthesizer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from product",
+    "zh": "来自 product 的独立专家"
+  },
+  "categoryId": "11-Product",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "product-feedback-synthesizer",
+        "zh": "product-feedback-synthesizer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

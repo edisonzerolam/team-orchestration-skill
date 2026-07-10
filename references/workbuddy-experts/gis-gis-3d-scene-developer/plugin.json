@@ -1,0 +1,33 @@
+{
+  "name": "gis-gis-3d-scene-developer",
+  "version": "1.0.0",
+  "description": "Individual expert: gis-3d-scene-developer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "gis-3d-scene-developer",
+    "zh": "gis-3d-scene-developer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from gis",
+    "zh": "来自 gis 的独立专家"
+  },
+  "categoryId": "06-GIS",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "gis-3d-scene-developer",
+        "zh": "gis-3d-scene-developer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

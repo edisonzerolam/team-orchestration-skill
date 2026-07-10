@@ -1,0 +1,33 @@
+{
+  "name": "finance-finance-tax-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: finance-tax-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "finance-tax-strategist",
+    "zh": "finance-tax-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from finance",
+    "zh": "来自 finance 的独立专家"
+  },
+  "categoryId": "04-Finance",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "finance-tax-strategist",
+        "zh": "finance-tax-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

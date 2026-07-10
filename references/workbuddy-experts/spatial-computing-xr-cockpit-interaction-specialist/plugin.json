@@ -1,0 +1,33 @@
+{
+  "name": "spatial-computing-xr-cockpit-interaction-specialist",
+  "version": "1.0.0",
+  "description": "Individual expert: xr-cockpit-interaction-specialist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "xr-cockpit-interaction-specialist",
+    "zh": "xr-cockpit-interaction-specialist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from spatial-computing",
+    "zh": "来自 spatial-computing 的独立专家"
+  },
+  "categoryId": "15-Spatial",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "xr-cockpit-interaction-specialist",
+        "zh": "xr-cockpit-interaction-specialist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

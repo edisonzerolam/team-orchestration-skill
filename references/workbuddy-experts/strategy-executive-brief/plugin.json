@@ -1,0 +1,33 @@
+{
+  "name": "strategy-executive-brief",
+  "version": "1.0.0",
+  "description": "Individual expert: EXECUTIVE-BRIEF",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "EXECUTIVE-BRIEF",
+    "zh": "EXECUTIVE-BRIEF"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "EXECUTIVE-BRIEF",
+        "zh": "EXECUTIVE-BRIEF"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

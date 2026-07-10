@@ -1,0 +1,33 @@
+{
+  "name": "strategy-phase-0-discovery",
+  "version": "1.0.0",
+  "description": "Individual expert: phase-0-discovery",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "phase-0-discovery",
+    "zh": "phase-0-discovery"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "phase-0-discovery",
+        "zh": "phase-0-discovery"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

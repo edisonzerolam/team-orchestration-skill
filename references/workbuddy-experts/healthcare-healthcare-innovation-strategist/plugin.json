@@ -1,0 +1,33 @@
+{
+  "name": "healthcare-healthcare-innovation-strategist",
+  "version": "1.0.0",
+  "description": "Individual expert: healthcare-innovation-strategist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "healthcare-innovation-strategist",
+    "zh": "healthcare-innovation-strategist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from healthcare",
+    "zh": "来自 healthcare 的独立专家"
+  },
+  "categoryId": "07-Healthcare",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "healthcare-innovation-strategist",
+        "zh": "healthcare-innovation-strategist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

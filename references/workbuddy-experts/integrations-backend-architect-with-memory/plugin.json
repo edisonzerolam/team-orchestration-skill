@@ -1,0 +1,33 @@
+{
+  "name": "integrations-backend-architect-with-memory",
+  "version": "1.0.0",
+  "description": "Individual expert: backend-architect-with-memory",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "backend-architect-with-memory",
+    "zh": "backend-architect-with-memory"
+  },
+  "displayDescription": {
+    "en": "Individual expert from integrations",
+    "zh": "来自 integrations 的独立专家"
+  },
+  "categoryId": "08-Integrations",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "backend-architect-with-memory",
+        "zh": "backend-architect-with-memory"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

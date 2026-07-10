@@ -1,0 +1,33 @@
+{
+  "name": "project-management-project-management-studio-operations",
+  "version": "1.0.0",
+  "description": "Individual expert: project-management-studio-operations",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "project-management-studio-operations",
+    "zh": "project-management-studio-operations"
+  },
+  "displayDescription": {
+    "en": "Individual expert from project-management",
+    "zh": "来自 project-management 的独立专家"
+  },
+  "categoryId": "12-ProjectMgmt",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "project-management-studio-operations",
+        "zh": "project-management-studio-operations"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

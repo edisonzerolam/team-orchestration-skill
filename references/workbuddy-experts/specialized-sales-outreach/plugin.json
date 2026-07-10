@@ -1,0 +1,33 @@
+{
+  "name": "specialized-sales-outreach",
+  "version": "1.0.0",
+  "description": "Individual expert: sales-outreach",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "sales-outreach",
+    "zh": "sales-outreach"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "sales-outreach",
+        "zh": "sales-outreach"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

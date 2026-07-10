@@ -1,0 +1,33 @@
+{
+  "name": "strategy-handoff-templates",
+  "version": "1.0.0",
+  "description": "Individual expert: handoff-templates",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "handoff-templates",
+    "zh": "handoff-templates"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "handoff-templates",
+        "zh": "handoff-templates"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

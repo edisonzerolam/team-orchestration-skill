@@ -1,0 +1,81 @@
+{
+  "name": "tencent-ecosystem",
+  "version": "1.0.0",
+  "description": "腾讯生态集成团队",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "team",
+  "agentName": "team-lead",
+  "teamInfo": {
+    "leadAgent": "team-lead",
+    "memberAgents": [
+      "engineering-wechat-mini-program-developer",
+      "marketing-wechat-official-account",
+      "engineering-webassembly-engineer",
+      "engineering-voice-ai-integration-engineer",
+      "engineering-video-streaming-engineer",
+      "engineering-frontend-developer",
+      "engineering-backend-architect",
+      "engineering-api-platform-engineer",
+      "engineering-mobile-app-builder",
+      "engineering-sre",
+      "security-compliance-auditor",
+      "data-privacy-officer",
+      "legal-document-review",
+      "marketing-social-media-strategist",
+      "marketing-content-creator"
+    ]
+  },
+  "displayName": {
+    "en": "Tencent Ecosystem",
+    "zh": "腾讯生态集成团队"
+  },
+  "displayDescription": {
+    "en": "腾讯云生态集成专家团队，覆盖云架构、营销、合规、技术",
+    "zh": "腾讯云生态集成专家团队，覆盖云架构、营销、合规、技术"
+  },
+  "categoryId": "08-Integrations",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "engineering-wechat-mini-program-developer",
+        "zh": "engineering-wechat-mini-program-developer"
+      },
+      "role": "member"
+    },
+    {
+      "name": {
+        "en": "marketing-wechat-official-account",
+        "zh": "marketing-wechat-official-account"
+      },
+      "role": "member"
+    },
+    {
+      "name": {
+        "en": "engineering-webassembly-engineer",
+        "zh": "engineering-webassembly-engineer"
+      },
+      "role": "member"
+    }
+  ],
+  "agents": [
+    "./agents/engineering-wechat-mini-program-developer.md",
+    "./agents/marketing-wechat-official-account.md",
+    "./agents/engineering-webassembly-engineer.md",
+    "./agents/engineering-voice-ai-integration-engineer.md",
+    "./agents/engineering-video-streaming-engineer.md",
+    "./agents/engineering-frontend-developer.md",
+    "./agents/engineering-backend-architect.md",
+    "./agents/engineering-api-platform-engineer.md",
+    "./agents/engineering-mobile-app-builder.md",
+    "./agents/engineering-sre.md",
+    "./agents/security-compliance-auditor.md",
+    "./agents/data-privacy-officer.md",
+    "./agents/legal-document-review.md",
+    "./agents/marketing-social-media-strategist.md",
+    "./agents/marketing-content-creator.md"
+  ]
+}

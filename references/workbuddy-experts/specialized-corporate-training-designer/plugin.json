@@ -1,0 +1,33 @@
+{
+  "name": "specialized-corporate-training-designer",
+  "version": "1.0.0",
+  "description": "Individual expert: corporate-training-designer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "corporate-training-designer",
+    "zh": "corporate-training-designer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "corporate-training-designer",
+        "zh": "corporate-training-designer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

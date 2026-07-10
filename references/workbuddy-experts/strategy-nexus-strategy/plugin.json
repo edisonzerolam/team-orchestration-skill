@@ -1,0 +1,33 @@
+{
+  "name": "strategy-nexus-strategy",
+  "version": "1.0.0",
+  "description": "Individual expert: nexus-strategy",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "nexus-strategy",
+    "zh": "nexus-strategy"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "nexus-strategy",
+        "zh": "nexus-strategy"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

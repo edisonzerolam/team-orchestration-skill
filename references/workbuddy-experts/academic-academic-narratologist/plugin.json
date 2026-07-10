@@ -1,0 +1,33 @@
+{
+  "name": "academic-academic-narratologist",
+  "version": "1.0.0",
+  "description": "Individual expert: academic-narratologist",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "academic-narratologist",
+    "zh": "academic-narratologist"
+  },
+  "displayDescription": {
+    "en": "Individual expert from academic",
+    "zh": "来自 academic 的独立专家"
+  },
+  "categoryId": "01-Academic",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "academic-narratologist",
+        "zh": "academic-narratologist"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

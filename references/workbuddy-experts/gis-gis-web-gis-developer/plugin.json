@@ -1,0 +1,33 @@
+{
+  "name": "gis-gis-web-gis-developer",
+  "version": "1.0.0",
+  "description": "Individual expert: gis-web-gis-developer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "gis-web-gis-developer",
+    "zh": "gis-web-gis-developer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from gis",
+    "zh": "来自 gis 的独立专家"
+  },
+  "categoryId": "06-GIS",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "gis-web-gis-developer",
+        "zh": "gis-web-gis-developer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

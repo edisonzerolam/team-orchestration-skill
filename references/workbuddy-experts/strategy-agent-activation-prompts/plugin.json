@@ -1,0 +1,33 @@
+{
+  "name": "strategy-agent-activation-prompts",
+  "version": "1.0.0",
+  "description": "Individual expert: agent-activation-prompts",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "agent-activation-prompts",
+    "zh": "agent-activation-prompts"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "agent-activation-prompts",
+        "zh": "agent-activation-prompts"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

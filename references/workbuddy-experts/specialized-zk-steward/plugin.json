@@ -1,0 +1,33 @@
+{
+  "name": "specialized-zk-steward",
+  "version": "1.0.0",
+  "description": "Individual expert: zk-steward",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "zk-steward",
+    "zh": "zk-steward"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "zk-steward",
+        "zh": "zk-steward"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

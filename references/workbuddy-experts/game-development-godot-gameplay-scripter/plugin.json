@@ -1,0 +1,33 @@
+{
+  "name": "game-development-godot-gameplay-scripter",
+  "version": "1.0.0",
+  "description": "Individual expert: godot-gameplay-scripter",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "godot-gameplay-scripter",
+    "zh": "godot-gameplay-scripter"
+  },
+  "displayDescription": {
+    "en": "Individual expert from game-development",
+    "zh": "来自 game-development 的独立专家"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "godot-gameplay-scripter",
+        "zh": "godot-gameplay-scripter"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

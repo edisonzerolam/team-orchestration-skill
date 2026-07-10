@@ -1,0 +1,33 @@
+{
+  "name": "specialized-operations-manager",
+  "version": "1.0.0",
+  "description": "Individual expert: operations-manager",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "operations-manager",
+    "zh": "operations-manager"
+  },
+  "displayDescription": {
+    "en": "Individual expert from specialized",
+    "zh": "来自 specialized 的独立专家"
+  },
+  "categoryId": "16-Specialized",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "operations-manager",
+        "zh": "operations-manager"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

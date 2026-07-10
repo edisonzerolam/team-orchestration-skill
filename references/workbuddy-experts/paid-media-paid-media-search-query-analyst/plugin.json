@@ -1,0 +1,33 @@
+{
+  "name": "paid-media-paid-media-search-query-analyst",
+  "version": "1.0.0",
+  "description": "Individual expert: paid-media-search-query-analyst",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "paid-media-search-query-analyst",
+    "zh": "paid-media-search-query-analyst"
+  },
+  "displayDescription": {
+    "en": "Individual expert from paid-media",
+    "zh": "来自 paid-media 的独立专家"
+  },
+  "categoryId": "10-PaidMedia",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "paid-media-search-query-analyst",
+        "zh": "paid-media-search-query-analyst"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

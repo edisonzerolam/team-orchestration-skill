@@ -1,0 +1,33 @@
+{
+  "name": "security-security-compliance-auditor",
+  "version": "1.0.0",
+  "description": "Individual expert: security-compliance-auditor",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "security-compliance-auditor",
+    "zh": "security-compliance-auditor"
+  },
+  "displayDescription": {
+    "en": "Individual expert from security",
+    "zh": "来自 security 的独立专家"
+  },
+  "categoryId": "14-Security",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "security-compliance-auditor",
+        "zh": "security-compliance-auditor"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

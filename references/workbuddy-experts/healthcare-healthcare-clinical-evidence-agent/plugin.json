@@ -1,0 +1,33 @@
+{
+  "name": "healthcare-healthcare-clinical-evidence-agent",
+  "version": "1.0.0",
+  "description": "Individual expert: healthcare-clinical-evidence-agent",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "healthcare-clinical-evidence-agent",
+    "zh": "healthcare-clinical-evidence-agent"
+  },
+  "displayDescription": {
+    "en": "Individual expert from healthcare",
+    "zh": "来自 healthcare 的独立专家"
+  },
+  "categoryId": "07-Healthcare",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "healthcare-clinical-evidence-agent",
+        "zh": "healthcare-clinical-evidence-agent"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

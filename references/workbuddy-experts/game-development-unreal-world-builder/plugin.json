@@ -1,0 +1,33 @@
+{
+  "name": "game-development-unreal-world-builder",
+  "version": "1.0.0",
+  "description": "Individual expert: unreal-world-builder",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "unreal-world-builder",
+    "zh": "unreal-world-builder"
+  },
+  "displayDescription": {
+    "en": "Individual expert from game-development",
+    "zh": "来自 game-development 的独立专家"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "unreal-world-builder",
+        "zh": "unreal-world-builder"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

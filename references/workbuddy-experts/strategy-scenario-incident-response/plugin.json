@@ -1,0 +1,33 @@
+{
+  "name": "strategy-scenario-incident-response",
+  "version": "1.0.0",
+  "description": "Individual expert: scenario-incident-response",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "scenario-incident-response",
+    "zh": "scenario-incident-response"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "scenario-incident-response",
+        "zh": "scenario-incident-response"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

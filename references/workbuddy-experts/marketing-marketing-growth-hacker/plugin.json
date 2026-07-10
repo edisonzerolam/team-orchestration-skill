@@ -1,0 +1,33 @@
+{
+  "name": "marketing-marketing-growth-hacker",
+  "version": "1.0.0",
+  "description": "Individual expert: marketing-growth-hacker",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "marketing-growth-hacker",
+    "zh": "marketing-growth-hacker"
+  },
+  "displayDescription": {
+    "en": "Individual expert from marketing",
+    "zh": "来自 marketing 的独立专家"
+  },
+  "categoryId": "09-Marketing",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "marketing-growth-hacker",
+        "zh": "marketing-growth-hacker"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

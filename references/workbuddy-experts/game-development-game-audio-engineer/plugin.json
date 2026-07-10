@@ -1,0 +1,33 @@
+{
+  "name": "game-development-game-audio-engineer",
+  "version": "1.0.0",
+  "description": "Individual expert: game-audio-engineer",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "game-audio-engineer",
+    "zh": "game-audio-engineer"
+  },
+  "displayDescription": {
+    "en": "Individual expert from game-development",
+    "zh": "来自 game-development 的独立专家"
+  },
+  "categoryId": "05-GameDev",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "game-audio-engineer",
+        "zh": "game-audio-engineer"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

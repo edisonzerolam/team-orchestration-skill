@@ -1,0 +1,33 @@
+{
+  "name": "support-support-executive-summary-generator",
+  "version": "1.0.0",
+  "description": "Individual expert: support-executive-summary-generator",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "support-executive-summary-generator",
+    "zh": "support-executive-summary-generator"
+  },
+  "displayDescription": {
+    "en": "Individual expert from support",
+    "zh": "来自 support 的独立专家"
+  },
+  "categoryId": "18-Support",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "support-executive-summary-generator",
+        "zh": "support-executive-summary-generator"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}

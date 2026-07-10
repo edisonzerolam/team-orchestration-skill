@@ -1,0 +1,33 @@
+{
+  "name": "strategy-quickstart",
+  "version": "1.0.0",
+  "description": "Individual expert: QUICKSTART",
+  "author": {
+    "name": "Expert Marketplace"
+  },
+  "license": "MIT",
+  "expertType": "individual",
+  "agentName": "expert",
+  "displayName": {
+    "en": "QUICKSTART",
+    "zh": "QUICKSTART"
+  },
+  "displayDescription": {
+    "en": "Individual expert from strategy",
+    "zh": "来自 strategy 的独立专家"
+  },
+  "categoryId": "17-Strategy",
+  "avatar": "",
+  "members": [
+    {
+      "name": {
+        "en": "QUICKSTART",
+        "zh": "QUICKSTART"
+      },
+      "role": "expert"
+    }
+  ],
+  "agents": [
+    "./agents/expert.md"
+  ]
+}
