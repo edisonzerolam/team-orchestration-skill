@@ -86,7 +86,7 @@
   - 只读 plugin.json 的 displayName/displayDescription/categoryId/expertType/agent_count
   - 从 description 提取能力关键词（不读 agent .md）
   - 输出到 `shared/teams-index.json`
-- **验收**: 运行构建脚本 → 49 个团全部在索引中，总大小 < 10KB
+- **验收**: 运行构建脚本 → 全部 31 个团在索引中，总大小 ~9KB
 - **回滚**: 删除 shared/teams-index.json，load_all_experts() 自动回退
 
 ### S0.2 实现 load_experts_light() — Tier 1
@@ -242,10 +242,11 @@
 - **改动**: 更新评分公式、权重矩阵说明、冷启动策略
 - **验收**: 文档与代码一致
 
-### T1.6 更新 orchestrator.py 调用链
-- **文件**: `scripts/orchestrator.py`
-- **改动**: `match_experts(domains, abilities)` → `match_experts(domains, abilities, task_type=...)`
-- **验收**: 集成测试通过
+### T1.6 确认 orchestrator.py 调用链（已由 T3.4 完成）
+- **文件**: `scripts/orchestrator.py` — **无需改动，T3.4 已完成**
+- **说明**: orchestrator 不直接调用 `match_experts()`，而是通过 `team_builder.build_and_run()` facade 封装 match→crop 链路
+- **实际调用链**: `orchestrator.run()` → `team_builder.build_and_run()` → `build_team()` → `match(domains, abilities, task_type=...)`
+- **验收**: 确认 orchestrator.py L218-226 已调用 `build_and_run()`，team_builder.py L51-54 已透传 `task_type` 参数
 
 ### T1.7 更新 path-selector.py 调用链
 - **文件**: `scripts/path-selector.py`
@@ -261,7 +262,7 @@
   - 未知 task-type 降级验证
   - 跨领域匹配验证
   - 阈值回退测试: 传入 v2.5 旧参数，确认输出退化可控
-  - S2 后追加: 49 个团完整性校验（`pytest.mark.skipif` 动态）
+  - S2 后追加: 31 个团完整性校验（`pytest.mark.skipif` 动态）
 - **验收**: `pytest tests/test_expert_matcher.py -v --no-explore` 全部通过
 
 ---
@@ -274,26 +275,35 @@
 ### T2.0 自动化移植脚本（审计建议，先做这个再手动移植）
 - **文件**: `scripts/migrate-workbuddy.py`（新建）
 - **功能**:
-  - `build_team_index()`: 从 `workbuddy-experts/*/plugin.json` 提取 Tier 1 索引（用于 S0）
-  - `import_team(source, target)`: 复制团目录到 skill
-  - `import_single_agent(source, target)`: 复制独立专家（自动推断 group_id）
+  - `build_teams_index()`: 从 `workbuddy-experts/*/plugin.json` 提取 Tier 1 索引（用于 S0）
+  - `import_individual_agents(source_dir)`: 批量复制独立专家（自动推断 group_id + 虚拟团归属）
   - `build_manifest()`: 生成 `shared/manifest-post-s2.json` 记录所有新文件路径
-  - `--undo`: 从 manifest.json 读取文件列表并删除
+  - `undo <manifest>`: 子命令，从 manifest.json 读取文件列表并删除
+  - `verify_index()`: 验证索引完整性
+- **CLI 接口**:
+  ```
+  python3 scripts/migrate-workbuddy.py build-index              # 预生成 teams-index.json
+  python3 scripts/migrate-workbuddy.py verify-index             # 验证索引完整性
+  python3 scripts/migrate-workbuddy.py import-agents <src>      # 导入独立专家
+  python3 scripts/migrate-workbuddy.py import-agents --dry-run <src>  # 试运行
+  python3 scripts/migrate-workbuddy.py build-manifest           # 生成 manifest
+  python3 scripts/migrate-workbuddy.py undo <manifest>          # 回滚导入
+  ```
 - **自动分组**: 基于 description 关键词分配 group_id：
   - 含 "游戏/策划/Unity/Unreal/美术/程序" → game-development
   - 含 "行业分析/咨询/战略/市场" → industry-consulting
   - 含 "腾讯/微信/云/企业微信/小程序" → tencent-ecosystem
   - 其余 → ungrouped
-- **验收**: 对任意源目录运行 `--undo` → 删除创建的文件；`build_manifest()` 输出 manifest.json 含全部新文件路径
+- **验收**: 对任意源目录运行 `undo` → 删除创建的文件；`build_manifest()` 输出 manifest.json 含全部新文件路径
 
 ### T2.1 移植 18 个待移植专家团
 - **方式**: 先用 T2.0 脚本批量生成，再人工审核修正
 - **源**: `C:\Users\林昌\WorkBuddy\2026-07-10-04-14-17\experts-download\plugins\` 各目录
 - **目标**: `references/workbuddy-experts/{name}/` 每个团一个目录
-- **格式**: 每个团包含 `_index.md`（团描述）+ 各 Agent `.md` 文件
+- **格式**: 每个团包含 `plugin.json`（团描述）+ `agents/*.md`（Agent 提示词）。团队描述以 `plugin.json` 的 `displayDescription` 为准，不再要求独立 `_index.md`。
 - **验收**: 18 个团全部移植，目录结构标准化，无团 categoryId 为空
 
-### T2.1b 移植 285 个独立专家（全部归集到 skill）
+### T2.1b 移植 271 个独立专家（全部归集到 skill）
 - **方式**: 用 T2.0 脚本的 `import_single_agent()` 模式，自动分组 + 自动创建单 Agent 目录
 - **源**: `C:\Users\林昌\WorkBuddy\2026-07-10-04-14-17\exported-experts\` 各 expert 目录的 agent prompt
 - **目标**: `references/workbuddy-experts/{expert-name}/` 每个独立专家一个单 Agent 目录
@@ -301,7 +311,7 @@
 - **归档**:
   - `groups/README.md` 更新分组映射
   - `shared/manifest-post-s2.json` 记录所有 570+ 新文件路径
-- **验收**: 285 个独立专家全部移植，所有 prompt 文件可读，group_id 非空
+- **验收**: 271 个独立专家全部移植，所有 prompt 文件可读，group_id 非空
 - **设计文档**: `references/expert-files-organization.md`
 
 ### T2.1c 生成 groups/README.md
@@ -310,21 +320,21 @@
 - **验收**: 映射表与 T2.2-2.4 的虚拟团角色分配一致
 
 ### T2.2 创建 game-development 虚拟团
-- **来源**: 游戏空间领域独立专家（25 人）
-- **文件**: `references/workbuddy-experts/game-development/_index.md`
-- **角色**: 策划 4 人 / 美术 4 人 / 程序 5 人 / QA 3 人 / 运营 3 人
-- **验收**: plugin.json 格式正确，可被 expert_matcher 识别
+- **来源**: 游戏空间领域独立专家（22 人）
+- **状态**: 已创建 — `references/workbuddy-experts/game-development/plugin.json` + `agents/*.md`
+- **角色**: 实际 21 agent（plugin.json memberAgents 为准），覆盖策划/美术/程序/QA/运营
+- **验收**: plugin.json 格式正确，expertType=team，可被 expert_matcher 识别
 
 ### T2.3 创建 industry-consulting 虚拟团
-- **来源**: 行业顾问领域独立专家（17 人）
-- **文件**: `references/workbuddy-experts/industry-consulting/_index.md`
-- **角色**: 分析师 5 人 / 顾问 5 人 / 报告撰写 4 人
+- **来源**: 行业顾问领域独立专家（25 人）
+- **状态**: 已创建 — `references/workbuddy-experts/industry-consulting/plugin.json` + `agents/*.md`
+- **角色**: 实际 25 agent，覆盖分析师/战略顾问/研究员/财务顾问/国际化
 - **验收**: 同上
 
 ### T2.4 创建 tencent-ecosystem 虚拟团
-- **来源**: 腾讯专区独立专家（34 人）+ 现有 RUM 团
-- **文件**: `references/workbuddy-experts/tencent-ecosystem/_index.md`
-- **角色**: 云架构 6 人 / 营销 5 人 / 合规 4 人 / 技术 6 人
+- **来源**: 腾讯专区独立专家（15 人）
+- **状态**: 已创建 — `references/workbuddy-experts/tencent-ecosystem/plugin.json` + `agents/*.md`
+- **角色**: 实际 15 agent，覆盖云架构/营销/合规/技术
 - **验收**: 同上
 
 ### T2.5 更新专家池索引
@@ -334,21 +344,21 @@
 
 ### T2.6 更新 SKILL.md 头部
 - **文件**: `SKILL.md`（第 14 行）
-- **改动**: "可用专家池：49 个 WorkBuddy 专家团 + 6 个 subagent"
+- **改动**: "可用专家池：49 个 WorkBuddy 专家团 + 6 个 subagent"（注：经实际统计，专家团为 31 个，独立专家 271 个，总计 302）
 - **验收**: 数字正确
 
 ### T2.7 测试新团匹配
 - **文件**: `tests/test_expert_matcher.py`（追加）
 - **测试**: 匹配 3 个新虚拟团的触发词时返回正确结果
-- **新增**: 遍历所有 49 个团，验证每个团 categoryId 非空、agent_count > 0
-- **验收**: 匹配 3 个新团的触发词时返回正确结果；49 个团全部通过完整性校验
+- **新增**: 遍历所有 31 个团（含 3 个虚拟团），验证每个团 categoryId 非空、agent_count > 0
+- **验收**: 匹配 3 个新团的触发词时返回正确结果；31 个团全部通过完整性校验
 
 ---
 
 ## S3: 模板动态裁剪（2-3 天）
 
 **前置依赖**: S1 能力提取接口已稳定 + T1.8 测试通过
-**回滚**: `rm scripts/template-cropper.py shared/cropping-config.json references/team-templates/dynamic-cropping.md` → `git checkout -- scripts/orchestrator.py` → 全量回归
+**回滚**: `rm scripts/template_cropper.py shared/cropping-config.json references/team-templates/dynamic-cropping.md` → `git checkout -- scripts/orchestrator.py` → 全量回归
 
 ### T3.1 设计裁剪规则文档
 - **文件**: `references/team-templates/dynamic-cropping.md`（新建）
@@ -359,12 +369,13 @@
   - 运行时增补触发条件
 - **验收**: 文档完整可执行
 
-### T3.2 实现 template-cropper.py
-- **文件**: `scripts/template-cropper.py`（新建）
+### T3.2 实现 template_cropper.py
+- **文件**: `scripts/template_cropper.py`（新建）
 - **功能**:
-  - 输入: 团队名 + 子任务列表 + 复杂度
-  - 输出: 裁剪后的角色列表（含 20% 弹性槽位）
+  - 输入: `team_name` + `subtask_types`（子任务类型列表）+ `config_override`（可选，覆盖 cropping-config.json 中的裁剪参数）
+  - 输出: 裁剪后的 agent 列表（含 20% 弹性槽位）
   - 裁剪不足 3 人时自动不裁剪
+  - `config_override` 可覆盖 `base_size`/`min_size`/`elastic_ratio`/`role_priority`
 - **验收**: 对 investment-masters 裁剪至 6-10 人
 
 ### T3.3 配置 6 个大团裁剪规则
@@ -387,7 +398,7 @@
 - **说明**: 当前 `orchestrator.py` 只是 DAG 执行器，无 `build_team()` 方法。匹配+裁剪的编排不应放在 orchestrator 中
 - **文件**: `scripts/team_builder.py`（新建）
 - **功能**:
-  - `build_team(task, task_type)`: 封装 match_experts → template-cropper → 输出裁剪后的 team
+   - `build_team(task, task_type)`: 封装 match_experts → template_cropper → 输出裁剪后的 team
   - `TeamBuildResult = {agents, token_estimate, mode}` 
   - 供 SKILL.md 工作流和 orchestrator 调用
 - **集成**: `scripts/orchestrator.py` 的 `run()` 在 `_step1_decompose` 后调用 `team_builder.build_team()`
@@ -407,7 +418,7 @@
 ## S4: 专家评分卡 v1（2-3 天）
 
 **前置依赖**: T0.2 路径统一已完成
-**回滚**: `git checkout -- shared/expert-scores.json scripts/self-evolution/post-task-evolve.py` → `rm scripts/score-collector.py` → 全量回归
+**回滚**: `git checkout -- shared/expert-scores.json scripts/self-evolution/post-task-evolve.py` → `rm scripts/score_collector.py` → 全量回归
 
 ### T4.1 扩展评分卡 schema
 - **文件**: `shared/expert-scores.json`
@@ -415,8 +426,8 @@
 - **路径确认**: `SCORES_FILE` 统一指向 `shared/expert-scores.json`（T0.2 已保证）
 - **验收**: schema 向后兼容
 
-### T4.2 实现 score-collector.py
-- **文件**: `scripts/score-collector.py`（新建）
+### T4.2 实现 score_collector.py
+- **文件**: `scripts/score_collector.py`（新建）
 - **功能**:
   - 采集 reviewer 评分 → delivery_quality
   - 采集完成时间 → response_time
@@ -428,7 +439,7 @@
 ### T4.3 集成评分触发
 - **触发时机**: 子任务完成时（非全链路完成），由 orchestrator 在 phase 回调中触发
 - **文件**: `scripts/self-evolution/post-task-evolve.py`
-- **改动**: 子任务完成后自动调用 score-collector 采集评分
+- **改动**: 子任务完成后自动调用 score_collector 采集评分
 - **验收**: 完成模拟子任务后评分被正确记录到 `shared/expert-scores.json`
 
 ### T4.4 测试评分卡
@@ -457,7 +468,7 @@
 
 ### T5.2 全量回归测试
 - **命令**: `pytest tests/ -v --no-explore`
-- **验证**: 现有用例零退化 + 新用例全部通过；慢测试（334 文件扫描）用 `@pytest.mark.slow` 标记
+- **验证**: 现有用例零退化 + 新用例全部通过；慢测试（302 文件扫描）用 `@pytest.mark.slow` 标记
 - **验收**: 回归通过率 100%
 
 ### T5.3 自动化端到端集成测试（F5 修复）
@@ -468,6 +479,85 @@
   - Token 降级路径: 预算 85%+ 自动切 economy
   - 回退路径: teams-index.json 不存在→回退 load_all_experts()
 - **验收**: `pytest tests/test_e2e_pipeline.py -v --no-explore` 全部通过
+
+---
+
+## S6: 运行时监控增强（Prometheus + CB 可视化 + 失败聚合）
+
+**前置依赖**: T0 完成
+**回滚**: `git checkout -- scripts/health-dashboard.py` → `rm scripts/failure-analyzer.py` → 全量回归
+
+### T6.1 Prometheus /metrics 端点
+- **文件**: `scripts/health-dashboard.py` (v2.0)
+- **功能**: 暴露 clawteam_team_total / clawteam_agent_alive / clawteam_circuit_breaker / clawteam_repairs_total 等指标
+- **验收**: `GET /metrics` 返回 Prometheus text 格式，label 正确转义
+
+### T6.2 熔断器状态可视化
+- **文件**: `scripts/health-dashboard.py` (v2.0)
+- **功能**: HTML Dashboard 新增"熔断器"表格 + JSON API 端点
+- **验收**: 含 CB 数据时表格渲染，无数据时显示"无熔断器数据"
+
+### T6.3 失败模式聚合报表
+- **文件**: `scripts/failure-analyzer.py`（新建）
+- **功能**: summary / by-type / by-agent / timeline 四种聚合模式
+- **验收**: 读取 repair-records/ 输出结构化报表
+
+### T6.4 测试覆盖
+- **文件**: `tests/test_health_dashboard.py`（25 tests）+ `tests/test_failure_analyzer.py`（9 tests）
+- **验收**: `pytest tests/ -q` 全部通过
+
+## S7: Agent 回滚自动化
+
+**前置依赖**: T0 完成
+**回滚**: `rm scripts/rollback_manager.py` → `git checkout -- scripts/self_heal.py scripts/orchestrator.py` → 全量回归
+
+### T7.1 快照引擎
+- **文件**: `scripts/rollback_manager.py`（新建）
+- **功能**: SnapshotManager 提供 create_snapshot/restore_snapshot/list_snapshots/cleanup_snapshots API
+- **事务**: restore 时先备份再写，异常自动回滚
+
+### T7.2 自愈集成 + 编排器集成
+- **文件**: `scripts/self_heal.py` (SelfHealPipeline) + `scripts/orchestrator.py` (_execute_with_retry)
+- **功能**: 愈合前快照 → verify FAIL → 自动回滚；重试全失败 → 快照最终状态
+- **验收**: healed 结果含 rollback_snapshot_id
+
+### T7.3 测试覆盖
+- **文件**: `tests/test_rollback_manager.py`（19 tests）
+- **验收**: 核心/自愈集成/编排器集成全部覆盖
+
+## 代码审计修复（4 并发专家审计产出）
+
+### A1: run() 依赖感知拓扑执行
+- **文件**: `scripts/orchestrator.py`
+- **修复**: 静态 phase 分组 → 动态就绪队列（get_ready()）
+
+### A2: 共享故障类型模块
+- **文件**: `scripts/_fault_types.py`（新建）
+- **修复**: FAULT_TYPES/CODE_MAP/CAUSES 提取到独立模块，消除循环导入
+
+### A4: Verifier 全分支测试
+- **文件**: `tests/test_self_heal.py`
+- **修复**: 新增 7 个测试覆盖 schema/completeness/format/confidence/trace_rate
+
+### A5: 并行断言
+- **文件**: `tests/test_orchestrator.py`
+- **修复**: 验证 ThreadPoolExecutor 实际并行（max_concurrent ≥ 2）
+
+### B1: Prometheus label 转义
+- **文件**: `scripts/health-dashboard.py`
+- **修复**: 新增 _prom_label() 转义反斜杠/引号/换行
+
+### B2: rollback 事务性
+- **文件**: `scripts/rollback_manager.py`
+- **修复**: restore_snapshot 事务性保护（.bak 备份回滚）
+
+### B3: 共享路径常量
+- **文件**: `scripts/_paths.py`（新建）
+- **修复**: 4 个模块路径硬编码统一
+
+### B4: Dashboard 端点测试
+- **文件**: `tests/test_health_dashboard.py`
+- **修复**: 直接测试函数而非启 HTTP 服务器
 
 ---
 
@@ -486,11 +576,15 @@
 | **新建** | `shared/token-ledger.json` | S0 |
 | **新建** | `shared/manifest-post-s2.json` | S2 |
 | **新建** | `scripts/budget-controller.py` | S0 |
-| **新建** | `scripts/template-cropper.py` | S3 |
+| **新建** | `scripts/template_cropper.py` | S3 |
 | **新建** | `scripts/team_builder.py` | S3 |
-| **新建** | `scripts/score-collector.py` | S4 |
+| **新建** | `scripts/score_collector.py` | S4 |
 | **新建** | `scripts/migrate-workbuddy.py` | S2 |
 | **新建** | `scripts/audit-team-counts.py` | T0 |
+| **新建** | `scripts/failure-analyzer.py` | S6 |
+| **新建** | `scripts/rollback_manager.py` | S7 |
+| **新建** | `scripts/_fault_types.py` | A2 |
+| **新建** | `scripts/_paths.py` | B3 |
 | **新建** | `references/team-templates/dynamic-cropping.md` | S3 |
 | **新建** | `references/expert-files-organization.md` | T0 |
 | **新建** | `groups/README.md` (在 workbuddy-experts 内) | S2 |
@@ -500,13 +594,23 @@
 | **新建** | `tests/test_team_builder.py` | S3 |
 | **新建** | `tests/test_score_collector.py` | S4 |
 | **新建** | `tests/test_e2e_pipeline.py` | S5 |
+| **新建** | `tests/test_health_dashboard.py` | S6 |
+| **新建** | `tests/test_failure_analyzer.py` | S6 |
+| **新建** | `tests/test_rollback_manager.py` | S7 |
 | **重写** | `scripts/expert_matcher.py` | S1 |
+| **修改** | `scripts/expert_matcher.py` | T0 |
+| **修改** | `scripts/path-selector.py` | T0 |
+| **修改** | `scripts/task_decomposer.py` | T0 |
+| **修改** | `scripts/health-dashboard.py` (v2.0: Prometheus/CB/API) | S6 |
+| **修改** | `scripts/self_heal.py` (Verifier/FT-11/锁/回滚集成) | S6/S7 |
+| **修改** | `scripts/orchestrator.py` (并行/注册表/退避/拓扑/回滚) | S6/S7 |
+| **修改** | `scripts/failure-analyzer.py` (路径+FAULT导入) | A2 |
+| **修改** | `scripts/rollback_manager.py` (共享路径+事务回滚) | B3 |
 | **修改** | `references/expert-matching.md` | S1 |
 | **修改** | `references/workbuddy-experts/_index.md` | S2 |
 | **修改** | `SKILL.md` | S2 |
-| **修改** | `scripts/orchestrator.py` | S3 |
 | **修改** | `shared/expert-scores.json` | S4 |
 | **修改** | `scripts/self-evolution/post-task-evolve.py` | S4 |
 | **修改** | `references/team-templates/index.md` | S5 |
 | **修改** | 18 个团引用 + 3 个虚拟团 | S2 |
-| **修改** | 285 个独立专家导入（脚本生成目录） | S2 |
+| **修改** | 271 个独立专家导入（脚本生成目录） | S2 |

@@ -1,0 +1,28 @@
+{
+  "fused_agent": "marketing-content",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "mode-based",
+  "merged_from": [
+    {
+      "name": "marketing-content-creator",
+      "path": "../../workbuddy-experts/_archived/marketing-content/marketing-marketing-content-creator"
+    },
+    {
+      "name": "marketing-social-media-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-content/marketing-marketing-social-media-strategist"
+    },
+    {
+      "name": "marketing-multi-platform-publisher",
+      "path": "../../workbuddy-experts/_archived/marketing-content/marketing-marketing-multi-platform-publisher"
+    }
+  ],
+  "verification": {
+    "status": "pending",
+    "validation_tests": [
+      "must_cover_content_creation",
+      "must_cover_social_media",
+      "must_cover_multi_platform_publishing"
+    ]
+  }
+}

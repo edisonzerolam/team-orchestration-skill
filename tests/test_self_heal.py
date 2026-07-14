@@ -6,18 +6,24 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from self_heal import (
     FAULT_TYPES, DiagnosisResult, HealResult, DetectionSignal,
     Detector, Diagnoser, Healer, CircuitBreaker, SelfHealPipeline,
+    Verifier,
 )
 
 
 class TestFaultTypes:
     def test_all_ft_defined(self):
-        assert len(FAULT_TYPES) == 10
+        assert len(FAULT_TYPES) >= 11
         for code, info in FAULT_TYPES.items():
             assert code.startswith("FT-")
             assert 1 <= info["severity"] <= 4
             assert isinstance(info["recoverable"], bool)
             assert info["name"]
-            assert info["desc"]
+
+    def test_ft11_exists(self):
+        assert "FT-11" in FAULT_TYPES
+        ft11 = FAULT_TYPES["FT-11"]
+        assert ft11["name"] == "ResourceLeak"
+        assert ft11["recoverable"] is True
 
 
 class TestDetectionSignal:
@@ -252,3 +258,88 @@ class TestHealResultPersistence:
         records = h._load_repair_records()
         # 只有 fallback 路径才写 repair record；clean heal 不写
         assert isinstance(records, list)
+
+    def test_repair_records_thread_safe(self):
+        import threading
+        h = Healer("test-lock", "agent-l")
+        errors = []
+        def write_record(i):
+            try:
+                d = DiagnosisResult("FT-11", 3, 0.8, "agent-l", [], "retry", {"max_retries": 1})
+                h.heal(d)
+            except Exception as e:
+                errors.append(e)
+        threads = [threading.Thread(target=write_record, args=(i,)) for i in range(10)]
+        for t in threads: t.start()
+        for t in threads: t.join()
+        assert len(errors) == 0, f"线程安全写入异常: {errors}"
+
+
+class TestVerifier:
+    def test_verify_failed_heal_returns_fail(self):
+        hr = HealResult(success=False, action="restart", target="agent-x", elapsed_ms=0, details={"error": "崩溃"})
+        v = Verifier.verify(hr)
+        assert v.verdict == "FAIL"
+
+    def test_verify_passed_heal_passes_basic_checks(self):
+        hr = HealResult(success=True, action="restart", target="agent-x", elapsed_ms=0, details={"state": "CLOSED"})
+        v = Verifier.verify(hr)
+        assert v.verdict == "PASS"
+        assert "basic" in v.checks_passed
+
+    def test_verify_does_not_fake_checks(self):
+        hr = HealResult(success=False, action="restart", target="agent-x", elapsed_ms=0, details={"error": "OOM"})
+        v = Verifier.verify(hr)
+        assert v.verdict == "FAIL"
+        assert "basic" not in v.checks_passed
+
+    def test_verify_cb_state_valid_check(self):
+        hr = HealResult(success=True, action="circuit_break", target="agent-x", elapsed_ms=0,
+                        details={"state": "CLOSED", "trace_rate": 0.95})
+        v = Verifier.verify(hr)
+        assert "cb_state_valid" in v.checks_passed
+
+    def test_verify_fails_on_invalid_cb_state(self):
+        hr = HealResult(success=True, action="circuit_break", target="agent-x", elapsed_ms=0,
+                        details={"state": "INVALID", "trace_rate": 0.95})
+        v = Verifier.verify(hr)
+        assert "cb_state_valid" in v.checks_failed
+
+    def test_verify_schema_check_passes(self):
+        hr = HealResult(success=True, action="retry", target="agent-x", elapsed_ms=0, details={"ok": 1})
+        v = Verifier.verify(hr)
+        assert "schema" in v.checks_passed
+
+    def test_verify_schema_check_fails_non_dict(self):
+        hr = HealResult(success=True, action="retry", target="agent-x", elapsed_ms=0, details=[])
+        v = Verifier.verify(hr)
+        assert "schema" in v.checks_failed
+
+    def test_verify_completeness_check_passes(self):
+        hr = HealResult(success=True, action="retry", target="agent-x", elapsed_ms=0,
+                        details={})
+        v = Verifier.verify(hr)
+        assert "completeness" in v.checks_passed
+
+    def test_verify_format_check_passes(self):
+        hr = HealResult(success=True, action="retry", target="agent-x", elapsed_ms=100, details={})
+        v = Verifier.verify(hr)
+        assert "format" in v.checks_passed
+
+    def test_verify_confidence_check_passes(self):
+        hr = HealResult(success=True, action="degrade", target="agent-x", elapsed_ms=0,
+                        details={"confidence": 0.85})
+        v = Verifier.verify(hr)
+        assert "confidence_ge_0.7" in v.checks_passed
+
+    def test_verify_confidence_check_fails(self):
+        hr = HealResult(success=True, action="degrade", target="agent-x", elapsed_ms=0,
+                        details={"confidence": 0.5})
+        v = Verifier.verify(hr)
+        assert "confidence_ge_0.7" in v.checks_failed
+
+    def test_verify_trace_rate_check_passes(self):
+        hr = HealResult(success=True, action="degrade", target="agent-x", elapsed_ms=0,
+                        details={"trace_rate": 0.9})
+        v = Verifier.verify(hr)
+        assert "trace_rate_ge_0.8" in v.checks_passed

@@ -19,7 +19,7 @@ references/workbuddy-experts/
 │       ├── {agent-2}.md
 │       └── ...
 │
-├── {expert-name}/                      # 独立型专家（285 人，每人一个目录——单 Agent 团）
+├── {expert-name}/                      # 独立型专家（271 人，每人一个目录——单 Agent 团）
 │   ├── _index.md                       # same 格式，但 agents = [{name,description}]
 │   ├── plugin.json                     # single-agent 配置
 │   └── agents/
@@ -75,13 +75,13 @@ references/workbuddy-experts/
 | 已有团 | 29 | ~15KB | 435KB |
 | 移植团 | 18 | ~15KB | 270KB |
 | 虚拟团 | 3 | ~10KB | 30KB |
-| 独立专家 | 285 | ~3KB | 855KB |
+| 独立专家 | 271 | ~3KB | 813KB |
 | 索引+配置 | ~5 | ~20KB | 20KB |
 | **总计** | **335** | | **~1.6MB** |
 
 ## 五、与三阶加载的兼容
 
 - **Tier 1** `shared/teams-index.json`: 所有 335 个专家资产的最小元数据（含独立专家和团队）
-- **Tier 2** `plugin.json`: 所有 335 个专家资产的 plugin.json（50 团 + 285 单 Agent）
+- **Tier 2** `plugin.json`: 31 团的 plugin.json；独立专家和 fused agent 的 plugin.json 按需加载
 - **Tier 3** `agent .md`: 只加载最终选中专家（无论是团内 agent 还是独立专家）
 - 独立专家调用：单 Agent 模式下 load_agents_lazy() 只读 1 个 .md 文件

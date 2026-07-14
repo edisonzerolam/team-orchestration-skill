@@ -1,0 +1,28 @@
+{
+  "fused_agent": "sales-pipeline-proposal",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "sequential",
+  "merged_from": [
+    {
+      "name": "sales-pipeline-analyst",
+      "path": "../../workbuddy-experts/_archived/sales-pipeline-proposal/sales-sales-pipeline-analyst"
+    },
+    {
+      "name": "sales-proposal-strategist",
+      "path": "../../workbuddy-experts/_archived/sales-pipeline-proposal/sales-sales-proposal-strategist"
+    },
+    {
+      "name": "sales-sales-engineer",
+      "path": "../../workbuddy-experts/sales-sales-engineer"
+    }
+  ],
+  "verification": {
+    "status": "pending",
+    "validation_tests": [
+      "must_cover_pipeline_analysis",
+      "must_cover_proposal_writing",
+      "must_cover_sales_engineering"
+    ]
+  }
+}

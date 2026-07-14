@@ -1,0 +1,47 @@
+{
+  "fused_agent": "marketing-china-social",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "multi-platform",
+  "merged_from": [
+    {
+      "name": "marketing-xiaohongshu-specialist",
+      "path": "../../workbuddy-experts/_archived/marketing-china-social/marketing-marketing-xiaohongshu-specialist"
+    },
+    {
+      "name": "marketing-douyin-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-china-social/marketing-marketing-douyin-strategist"
+    },
+    {
+      "name": "marketing-kuaishou-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-china-social/marketing-marketing-kuaishou-strategist"
+    },
+    {
+      "name": "marketing-weibo-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-china-social/marketing-marketing-weibo-strategist"
+    },
+    {
+      "name": "marketing-bilibili-content-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-china-social/marketing-marketing-bilibili-content-strategist"
+    },
+    {
+      "name": "marketing-zhihu-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-china-social/marketing-marketing-zhihu-strategist"
+    },
+    {
+      "name": "marketing-tiktok-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-china-social/marketing-marketing-tiktok-strategist"
+    }
+  ],
+  "verification": {
+    "status": "pending",
+    "validation_tests": [
+      "must_cover_xiaohongshu",
+      "must_cover_douyin",
+      "must_cover_weibo",
+      "must_cover_bilibili",
+      "must_cover_zhihu",
+      "must_cover_tiktok"
+    ]
+  }
+}

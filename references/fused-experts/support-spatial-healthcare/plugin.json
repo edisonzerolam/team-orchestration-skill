@@ -1,0 +1,1 @@
+{"name":"support-spatial-healthcare","version":"1.0.0","expertType":"fused","agentName":"expert","displayName":{"en":"Support, Spatial & Healthcare Specialist","zh":"支持、空间计算与医疗专家"},"displayDescription":{"en":"Fused from customer support, spatial computing, and healthcare specialists.","zh":"由客户支持、空间计算、医疗三个领域专家融合而成。"},"categoryId":"09-Cross","agents":["./agents/expert.md"]}

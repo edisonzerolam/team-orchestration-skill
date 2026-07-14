@@ -1,8 +1,8 @@
 {
   "a-share-analysis": {
     "first_used": 1783642942.2548418,
-    "use_count": 534,
-    "last_used": 1783706158.5684016,
+    "use_count": 1080,
+    "last_used": 1784052319.7549503,
     "last_action": "matched"
   },
   "stock-partner-team": {
@@ -13,14 +13,14 @@
   },
   "investment-masters-team": {
     "first_used": 1783642942.2548418,
-    "use_count": 289,
-    "last_used": 1783706158.5664,
+    "use_count": 995,
+    "last_used": 1784052319.7624593,
     "last_action": "matched"
   },
   "trading-agent": {
     "first_used": 1783642948.4655745,
-    "use_count": 164,
-    "last_used": 1783706158.5674014,
+    "use_count": 774,
+    "last_used": 1784052319.7549503,
     "last_action": "matched"
   },
   "ai-content-creator-team": {
@@ -235,8 +235,8 @@
   },
   "content-creator-team": {
     "first_used": 1783706129.4391308,
-    "use_count": 18,
-    "last_used": 1783706158.1940982,
+    "use_count": 299,
+    "last_used": 1784052319.7564547,
     "last_action": "matched"
   }
 }

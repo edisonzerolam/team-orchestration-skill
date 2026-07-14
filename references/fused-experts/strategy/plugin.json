@@ -1,0 +1,1 @@
+{"name":"strategy","version":"1.0.0","expertType":"fused","agentName":"expert","displayName":{"en":"Strategy & Advisory Specialist","zh":"策略与咨询专家"},"displayDescription":{"en":"Fused from NEXUS, phase playbooks, business strategy, compliance, and MCP experts.","zh":"由NEXUS编排、阶段手册、商务策略、合规、MCP等7个专家融合而成。"},"categoryId":"10-Strategy","agents":["./agents/expert.md"]}

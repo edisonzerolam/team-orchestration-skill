@@ -1,0 +1,1 @@
+{"name":"project-management","version":"1.0.0","expertType":"fused","agentName":"expert","displayName":{"en":"Project Management Specialist","zh":"项目管理专家"},"displayDescription":{"en":"Fused from 7 project management specialists covering agile, studio ops, and senior PM.","zh":"由7个项目管理专家融合而成。"},"categoryId":"11-PM","agents":["./agents/expert.md"]}

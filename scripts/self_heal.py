@@ -8,16 +8,17 @@
   python3 self_heal.py --team <team_id> --agent <agent_id> --error "<msg>"
   python3 self_heal.py daemon --team <team_id>          # 持续监控模式
 """
-import json, sys, time, random, argparse, hashlib
+import json, sys, time, random, argparse, hashlib, threading
 from pathlib import Path
 from datetime import datetime, timezone
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 
-SCRIPT_DIR = Path(__file__).parent
-SKILL_DIR = SCRIPT_DIR.parent
-STATE_DIR = SKILL_DIR / "shared" / "team-brain"
-STATE_DIR.mkdir(parents=True, exist_ok=True)
+from scripts._paths import STATE_DIR as _STATE_DIR
+from scripts._fault_types import FAULT_TYPES, RECOVERY_STRATEGIES, FAULT_CODE_MAP, FAULT_CAUSES
+import scripts._paths as _paths
+
+STATE_DIR = _STATE_DIR
 
 # ── 结构化日志 ─────────────────────────────────────────────────────────────────
 try:
@@ -25,23 +26,6 @@ try:
     _HAS_LOGGING = True
 except ImportError:
     _HAS_LOGGING = False
-
-# ── 故障分类 (FT-01 ~ FT-10) ──────────────────────────────────────────────────
-
-FAULT_TYPES = {
-    "FT-01": {"name": "AgentHang",        "severity": 1, "recoverable": True,  "desc": "Agent 僵死"},
-    "FT-02": {"name": "ToolFailure",       "severity": 2, "recoverable": True,  "desc": "工具调用失败"},
-    "FT-03": {"name": "OutputQuality",     "severity": 2, "recoverable": True,  "desc": "输出质量不合格"},
-    "FT-04": {"name": "Hallucination",     "severity": 3, "recoverable": False, "desc": "语义坍缩/幻觉"},
-    "FT-05": {"name": "DependencyFail",    "severity": 2, "recoverable": True,  "desc": "依赖 Agent 故障"},
-    "FT-06": {"name": "ContextOOM",        "severity": 3, "recoverable": True,  "desc": "上下文预算溢出"},
-    "FT-07": {"name": "Degradation",       "severity": 4, "recoverable": False, "desc": "连续退化"},
-    "FT-08": {"name": "Deadlock",          "severity": 3, "recoverable": False, "desc": "跨 Agent 死锁"},
-    "FT-09": {"name": "DataSourcePoison",  "severity": 4, "recoverable": False, "desc": "数据源污染"},
-    "FT-10": {"name": "ConfigError",       "severity": 4, "recoverable": False, "desc": "配置/环境错误"},
-}
-
-RECOVERY_STRATEGIES = ["retry", "degrade", "rollback", "switch", "circuit_break", "skip", "escalate"]
 
 # ── 数据类 ──────────────────────────────────────────────────────────────────────
 
@@ -287,6 +271,8 @@ except ImportError:
 # ── Healer: 故障恢复 ──────────────────────────────────────────────────────────
 
 class Healer:
+    _file_lock = threading.Lock()
+
     def __init__(self, team_id: str, agent_id: str):
         self.team_id = team_id
         self.agent_id = agent_id
@@ -306,8 +292,10 @@ class Healer:
 
     def _save_repair_record(self, record: dict):
         from scripts.file_utils import atomic_write
-        self._repair_records.append(record)
-        atomic_write(self._repair_path(), self._repair_records)
+        with self._file_lock:
+            self._repair_records = self._load_repair_records()
+            self._repair_records.append(record)
+            atomic_write(self._repair_path(), self._repair_records)
 
     def _backoff_delay(self, attempt: int, base_s: float = 2, multiplier: float = 2) -> float:
         delay = base_s * (multiplier ** attempt)
@@ -321,26 +309,11 @@ class Healer:
         attempts = self._retries.get(self.agent_id, 0)
         cb_state = self.cb.state
 
-        code_map = {"FT-01": "ERR-HANG", "FT-02": "ERR-TOOL", "FT-03": "ERR-QUALITY",
-                     "FT-04": "ERR-HALL", "FT-05": "ERR-DEP", "FT-06": "ERR-CTX",
-                     "FT-07": "ERR-DEGRADE", "FT-08": "ERR-DEADLOCK",
-                     "FT-09": "ERR-DATA", "FT-10": "ERR-CONFIG"}
-        code = code_map.get(ft, "ERR-UNKNOWN")
+        code = FAULT_CODE_MAP.get(ft, "ERR-UNKNOWN")
 
-        causes = {
-            "FT-01": "Agent 长时间无响应（心跳超时）",
-            "FT-02": f"工具调用失败，退出码={diagnosis.signal_chain}" if diagnosis.signal_chain else "工具调用异常",
-            "FT-03": "输出质量评分低于 0.6，可能为幻觉或不完整",
-            "FT-04": "多个信息来源产生矛盾结论，置信度均低于阈值",
-            "FT-05": "依赖的上游 Agent 故障或超时",
-            "FT-06": "上下文预算接近上限，推理质量可能下降",
-            "FT-07": "连续 3 次执行时间或质量下降",
-            "FT-08": "多个 Agent 互相等待形成死锁",
-            "FT-09": "数据源可能存在污染（与历史经验矛盾）",
-            "FT-10": "配置或环境参数异常",
-            "FT-UK": "未识别的故障类型",
-        }
-        cause = causes.get(ft, causes["FT-UK"])
+        cause = FAULT_CAUSES.get(ft, FAULT_CAUSES.get("FT-UK", "未知故障"))
+        if ft == "FT-02" and diagnosis.signal_chain:
+            cause = f"工具调用失败，退出码={diagnosis.signal_chain}"
 
         return (
             f"[{code}] {info.get('name', '未知故障')}\n"
@@ -448,15 +421,47 @@ class Verifier:
     def verify(cls, heal_result: HealResult, action: str = "") -> VerificationResult:
         action = action or heal_result.action
         vcfg = cls.VERIFIERS.get(action, {"id": "default", "checks": ["basic"]})
-        passed = [c for c in vcfg["checks"]]
-        verdict = "PASS" if heal_result.success else "FAIL"
+        passed = []
+        failed = []
+        for check in vcfg["checks"]:
+            ok = cls._run_check(check, heal_result)
+            if ok:
+                passed.append(check)
+            else:
+                failed.append(check)
+        verdict = "PASS" if (heal_result.success and not failed) else "FAIL"
         return VerificationResult(verifier_id=vcfg["id"], verdict=verdict,
-            recovery_action=action, checks_passed=passed)
+            recovery_action=action, checks_passed=passed, checks_failed=failed)
 
-# ── 自愈管道编排 ──────────────────────────────────────────────────────────────
+    @classmethod
+    def _run_check(cls, check: str, heal_result: HealResult) -> bool:
+        if check == "schema":
+            return isinstance(heal_result.details, dict)
+        if check == "completeness":
+            return bool(heal_result.action and heal_result.target)
+        if check == "format":
+            return heal_result.elapsed_ms >= 0
+        if check == "downstream_alive":
+            return heal_result.success
+        if check == "context_intact":
+            return True
+        if check == "confidence_ge_0.7":
+            return heal_result.details.get("confidence", 1.0) >= 0.7
+        if check == "trace_rate_ge_0.8":
+            return heal_result.details.get("trace_rate", 1.0) >= 0.8
+        if check == "cb_state_valid":
+            state = heal_result.details.get("state", "")
+            return state in ("CLOSED", "OPEN", "HALF_OPEN")
+        if check == "known_assertions_intact":
+            return True
+        if check == "basic":
+            return heal_result.success
+        return False
+
+# ── 自愈管道编排（含快照/回滚）───────────────────────────────────────────────
 
 class SelfHealPipeline:
-    def __init__(self, team_id: str, agent_id: str):
+    def __init__(self, team_id: str, agent_id: str, rollback_enabled: bool = True):
         self.team_id = team_id
         self.agent_id = agent_id
         self.detector = Detector()
@@ -466,6 +471,7 @@ class SelfHealPipeline:
         self.max_retries = 3
         self.trace_id = ""
         self.logger = None
+        self.rollback_enabled = rollback_enabled
 
     def _init_logging(self, ctx: dict):
         if _HAS_LOGGING:
@@ -479,6 +485,8 @@ class SelfHealPipeline:
     def run(self, ctx: dict) -> dict:
         self._init_logging(ctx)
         self._log_emit("info", "pipeline_start", signals=len(ctx))
+        from scripts.rollback_manager import SnapshotManager
+        _rm = SnapshotManager() if self.rollback_enabled else None
         timeline = []
         for attempt in range(self.max_retries + 1):
             signals = Detector.collect_all({**ctx, "agent_id": self.agent_id})
@@ -492,6 +500,12 @@ class SelfHealPipeline:
                 break
             timeline.append({"phase": "diagnose", "diagnosis": asdict(diagnosis)})
 
+            snapshot_id = ""
+            if _rm:
+                snapshot_id = _rm.snapshot_agent_state(self.team_id, self.agent_id,
+                    f"heal_attempt_{attempt}")
+                timeline[-1]["snapshot_id"] = snapshot_id
+
             heal = self.healer.heal(diagnosis)
             timeline.append({"phase": "heal", "heal": asdict(heal)})
 
@@ -500,7 +514,15 @@ class SelfHealPipeline:
 
             if verify.verdict == "PASS":
                 return {"status": "healed", "attempts": attempt + 1, "timeline": timeline,
-                    "verdict": "PASS", "recovery_action": heal.action}
+                    "verdict": "PASS", "recovery_action": heal.action,
+                    "rollback_snapshot_id": snapshot_id}
+
+            if _rm and snapshot_id:
+                try:
+                    restored = _rm.restore_snapshot(snapshot_id)
+                    timeline[-1]["rollback_files_restored"] = restored
+                except Exception:
+                    timeline[-1]["rollback_error"] = "restore failed"
 
         return {"status": "escalated" if attempt >= self.max_retries else "clean",
             "attempts": attempt, "timeline": timeline}

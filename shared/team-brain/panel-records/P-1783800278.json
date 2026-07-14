@@ -1,0 +1,72 @@
+{
+  "session_id": "P-1783800278",
+  "team_id": "test",
+  "agent_id": "a1",
+  "fault_type": "FT-04",
+  "level": "L2",
+  "solutions": [
+    {
+      "id": "S-1783800278-1",
+      "expert_id": "expert-1",
+      "name": "方案1: 基于本地资产(34条记录,0条知识)的修复",
+      "steps": [
+        "诊断根因",
+        "应用修复",
+        "验证效果"
+      ],
+      "rationale": "基于34条历史修复记录和0条领域知识",
+      "risk": "中",
+      "difficulty": "Medium",
+      "confidence": 0.9,
+      "source_count": 0,
+      "is_independent": true
+    },
+    {
+      "id": "S-1783800278-1",
+      "expert_id": "expert-0",
+      "name": "方案1: 基于本地资产(34条记录,0条知识)的修复",
+      "steps": [
+        "诊断根因",
+        "应用修复",
+        "验证效果"
+      ],
+      "rationale": "基于34条历史修复记录和0条领域知识",
+      "risk": "中",
+      "difficulty": "Medium",
+      "confidence": 0.8,
+      "source_count": 0,
+      "is_independent": true
+    }
+  ],
+  "selected_solution": {
+    "id": "S-1783800278-1",
+    "expert_id": "expert-1",
+    "name": "方案1: 基于本地资产(34条记录,0条知识)的修复",
+    "steps": [
+      "诊断根因",
+      "应用修复",
+      "验证效果"
+    ],
+    "rationale": "基于34条历史修复记录和0条领域知识",
+    "risk": "中",
+    "difficulty": "Medium",
+    "confidence": 0.9,
+    "source_count": 0,
+    "is_independent": true
+  },
+  "confidence": 0.9,
+  "verdict": "PASS",
+  "is_cached": false,
+  "duration_ms": 3,
+  "created": "2026-07-11T20:04:39.000079+00:00",
+  "details": {
+    "domain": [
+      "NLP",
+      "AI_Methodology",
+      "Reasoning"
+    ],
+    "expert_count": 2,
+    "has_sceptic": true,
+    "discussion_rounds_used": 2
+  }
+}

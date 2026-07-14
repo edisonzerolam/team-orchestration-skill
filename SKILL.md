@@ -1,7 +1,7 @@
 ---
 name: team-orchestration
-version: 2.5.0
-description: "多智能体团队编排引擎 — 目标明确、任务拆解、专家匹配、交叉验证、自愈(含专家研讨)、自进化。触发词：组建团队、团队协作、需要团队、build a team、找合伙人、组成专家小组"
+version: 2.6.0
+description: "多智能体团队编排引擎 — 目标明确、任务拆解、专家匹配、交叉验证、自愈(含专家研讨)、自进化、监控/回滚。触发词：组建团队、团队协作、需要团队、build a team、找合伙人、组成专家小组"
 tags:
   - orchestration
   - team
@@ -11,7 +11,7 @@ tags:
 
 # Team Orchestration v2 — 多智能体团队编排
 
-可用专家池：29 个 WorkBuddy 专家团（188 agents）+ 6 个 subagent + 334 独立专家（18 移植团 + 3 虚拟团 + 285 独立 agent）。
+可用专家池：31 个专家团 + 271 独立 agent = 302（WorkBuddy 专家团 + 移植团 + 虚拟团 + 独立专家）。
 完整索引：`references/workbuddy-experts/_index.md`
 
 ---
@@ -51,8 +51,9 @@ tags:
          Phase 3: 创作依赖分析 (creation_generation)
          Phase 4: 决策依赖所有前置 (decision_execution)
          同一 phase 可并行, 跨 phase 阻塞等待
-  → [交叉验证 Layer 1.5] 声明提取→来源追溯→三角测量→冲突检测→置信度校准
-   → [自愈机制] ← v2.4 贯穿所有阶段 → v2.5 含专家研讨
+   → [回滚自动化] ← v2.6 快照引擎+愈合前快照+失败自动回滚 (see 九、Agent 回滚自动化)
+   → [交叉验证 Layer 1.5] 声明提取→来源追溯→三角测量→冲突检测→置信度校准
+   → [自愈机制] ← v2.4 贯穿所有阶段 → v2.5 含专家研讨 → v2.6 监控指标暴露(Prometheus /metrics)
        故障检测(6检测器) → 诊断(10故障类型) → 恢复(7策略+熔断器+专家小组研讨) → 验证(5验证器)
        L0预设规则→L1单专家→L2多专家研讨→L3人类 escalate 四层防御
   → [自验证+审核] Layer 1(专家自验证) → Layer 2(@reviewer)
@@ -91,6 +92,14 @@ tags:
 | 能力匹配 | 30% | Agent MD 核心能力章节 |
 | 历史表现 | 20% | expert-scores.json |
 | 负载惩罚 | 15% | 当前会话已分配数 |
+
+#### v2.6 增强
+
+| 特性 | 说明 |
+|------|------|
+| 动态权重矩阵 | `references/weight-matrix.json` — 按任务类型动态调整四维权重，非固定比例 |
+| ε-greedy 冷启动探索 | 新 Agent 以概率 ε 探索分配（ε 随经验衰减），避免冷启动偏置 |
+| 三阶层次化加载 | 领域级 → 能力级 → 实体级三级过滤，大幅降低匹配延迟 |
 
 - 置信度 < 0.6 → 标记「匹配不确定性高」，建议手动确认
 - **脚本：** `python3 scripts/expert_matcher.py --domains ... --json`
@@ -216,6 +225,69 @@ CLOSED→OPEN(连续3次失败)→HALF_OPEN(冷却60s)→CLOSED(连续恢复2次
 
 ---
 
+### 八、运行时监控（v2.6）
+
+跨执行阶段的实时可观测性层，暴露 Prometheus 指标 + JSON API 端点 + 可视化仪表板。
+
+#### Prometheus /metrics 端点
+
+| 指标 | 类型 | 标签 | 说明 |
+|------|------|------|------|
+| `team_task_duration_seconds` | Histogram | team_id, phase, status | 任务执行耗时分布 |
+| `team_circuit_breaker_state` | Gauge | team_id, agent_id | 熔断器状态(0=CLOSED, 1=HALF_OPEN, 2=OPEN) |
+| `team_self_heal_attempts_total` | Counter | team_id, strategy, result | 自愈尝试次数及结果 |
+| `team_expert_match_confidence` | Gauge | team_id, agent_id | 当前匹配置信度 |
+| `team_rollback_events_total` | Counter | team_id, trigger | 回滚事件计数 |
+
+#### 熔断器实时可视化
+
+`python3 scripts/health-dashboard.py [--port 9090]` — 本地 Web 仪表板，展示各 Agent 熔断器状态、任务队列深度、失败率趋势。
+
+#### JSON API 端点
+
+| 端点 | 说明 |
+|------|------|
+| `GET /api/teams` | 当前活跃团队列表及状态 |
+| `GET /api/circuit-breakers` | 所有熔断器状态快照 |
+| `GET /api/failures` | 失败模式聚合报表 |
+
+#### 失败模式聚合报表
+
+**脚本：** `python3 scripts/failure-analyzer.py summary [--since <time>] [--team <id>]`
+
+输出 JSON：按故障类型聚合的计数、趋势、Top-N 高频 Agent 列表。支持 `--format markdown` 输出可读报告。
+
+---
+
+### 九、Agent 回滚自动化（v2.6）
+
+当自愈机制无法恢复时，自动触发 Agent 状态回滚。
+
+#### 快照引擎
+
+`python3 scripts/rollback_manager.py` — 回滚管理入口：
+
+| 命令 | 说明 |
+|------|------|
+| `rollback_manager.py snapshot <agent_id>` | 手动创建快照 |
+| `rollback_manager.py list <agent_id>` | 列出可用快照 |
+| `rollback_manager.py restore <agent_id> <snapshot_id>` | 回滚到指定快照 |
+
+#### 愈合前快照策略
+
+- 每次自愈尝试前自动创建快照（`auto_snap`）
+- 验证失败（Layer 2 审核 🔴FAIL）后自动触发回滚
+- 快照保留策略：最近 24h 全部保留，超过 24h 仅保留每日末次
+
+#### Orchestrator 回滚钩子
+
+- 失败任务 exit code ≠ 0 时自动触发 `rollback_manager.py restore <agent_id> latest`
+- 回滚后自动重试（指数退避，最多 3 次）
+- 回滚事件计入 Prometheus `team_rollback_events_total`
+- **脚本：** `python3 scripts/memory-bridge.py resume-context` — 记忆桥接，回滚后恢复 Agent 上下文状态
+
+---
+
 ## 思维方法论集成
 
 | 方法论 | 工作流位置 |
@@ -246,7 +318,8 @@ CLOSED→OPEN(连续3次失败)→HALF_OPEN(冷却60s)→CLOSED(连续恢复2次
 | 五、自愈机制-专家研讨 | `references/problem-solving-panel.md` | 专家小组研讨管道（v2.5 new） |
 | 六、反馈循环时 | `references/self-evolution-protocol.md` | 三环协议细节（v2.3 增强版） |
 | 六、反馈循环时 | `references/loop-engineering-research.md` | Loop Engineering 完整调研报告 |
-| 任意阶段 | `references/workbuddy-experts/_index.md` | 188 agents 完整索引 |
+| 任意阶段 | `references/workbuddy-experts/_index.md` | 302 agents 完整索引 |
+| 运行时监控时 | `references/health-monitoring.md` | 监控指标说明 |
 | 需要时 | `references/first-principles.md` | 第一性原理框架 |
 | 需要时 | `references/task-lifecycle.md` | 任务状态转场规范 |
 | 需要时 | `references/handoff-protocol.md` | 交接协议 |

@@ -1,1 +1,802 @@
-{"version":"1.0","entries":[{"timestamp":1783643046.8658304,"tokens":2500,"team":"a-share-analysis","type":"analysis","phase":"match"},{"timestamp":1783643046.8658304,"tokens":8000,"team":"trading-agent","type":"execution","phase":"execute"},{"timestamp":1783643046.8658304,"tokens":1200,"team":null,"type":"verification","phase":"review"}],"total_tokens_used":11700,"total_calls":3}
+[
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783954376.4657528
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1783954376.7419713
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1783954377.0277336
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783954377.0302176
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783954384.1774397
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783954384.1804447
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783954384.4903562
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783954384.492351
+  },
+  {
+    "task": "分析股票市场趋势",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 170,
+    "timestamp": 1783954389.7360463
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783978649.2195385
+  },
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978649.2225451
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1783978649.4998994
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1783978649.7598605
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783978649.7608693
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978656.9208248
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978656.923824
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978657.2325315
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978657.236534
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978657.238532
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783978762.7998087
+  },
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978762.802812
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1783978763.1001997
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1783978763.3541954
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783978763.3562758
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978770.5094643
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978770.5124633
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978770.8214474
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978770.8224485
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978770.8249576
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783978820.0570683
+  },
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978820.059046
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1783978820.3471096
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1783978820.6194112
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783978820.6214204
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978827.7733898
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978827.7763577
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978828.0860417
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783978828.0907195
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783979497.563888
+  },
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979497.5666368
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1783979497.8527691
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1783979498.1126935
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783979498.114693
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979505.2674415
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979505.2704055
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979505.5806751
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979505.5826762
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979505.5846746
+  },
+  {
+    "task": "分析股票市场趋势",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 170,
+    "timestamp": 1783979512.5122066
+  },
+  {
+    "task": "分析腾讯股票的财务数据和市场表现",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 269,
+    "timestamp": 1783979512.7801623
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783979512.9534564
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783979512.9564447
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783979524.2433114
+  },
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979524.2463112
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1783979524.529737
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1783979524.7864738
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783979524.7875097
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979531.9413805
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979531.9443862
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979532.2565157
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979532.2585166
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979532.2605183
+  },
+  {
+    "task": "分析股票市场趋势",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 170,
+    "timestamp": 1783979538.990727
+  },
+  {
+    "task": "分析腾讯股票的财务数据和市场表现",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 269,
+    "timestamp": 1783979539.257271
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783979539.3454413
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783979539.3474424
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783979572.1829593
+  },
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979572.185844
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1783979572.4707167
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1783979572.7327733
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783979572.7337723
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979579.886445
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979579.888475
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979580.1986976
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979580.2006981
+  },
+  {
+    "task": "分析股票市场趋势",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 170,
+    "timestamp": 1783979586.95505
+  },
+  {
+    "task": "分析腾讯股票的财务数据和市场表现",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 269,
+    "timestamp": 1783979587.2203567
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783979587.3145194
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783979587.3174815
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783979598.5797837
+  },
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979598.582783
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1783979598.8657265
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1783979599.127953
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783979599.129953
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979606.2849712
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979606.287758
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979606.5993507
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1783979606.60235
+  },
+  {
+    "task": "分析股票市场趋势",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 170,
+    "timestamp": 1783979613.3335516
+  },
+  {
+    "task": "分析腾讯股票的财务数据和市场表现",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 269,
+    "timestamp": 1783979613.5953665
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1783979613.6899543
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1783979613.694956
+  },
+  {
+    "task": "查一下Python文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 96,
+    "timestamp": 1784052303.9976797
+  },
+  {
+    "task": "查一下",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1784052304.001678
+  },
+  {
+    "task": "分析腾讯股票",
+    "status": "PASS",
+    "subtask_count": 2,
+    "failed_subtasks": 0,
+    "tokens_used": 158,
+    "timestamp": 1784052304.3478525
+  },
+  {
+    "task": "分析腾讯股票的财务数据",
+    "status": "PASS",
+    "subtask_count": 3,
+    "failed_subtasks": 0,
+    "tokens_used": 239,
+    "timestamp": 1784052304.6440873
+  },
+  {
+    "task": "优化一下",
+    "status": "CLARIFICATION_NEEDED",
+    "subtask_count": 0,
+    "failed_subtasks": 0,
+    "tokens_used": 2,
+    "timestamp": 1784052304.6470895
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1784052311.8006296
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1784052311.8036273
+  },
+  {
+    "task": "查文档",
+    "status": "PASS",
+    "subtask_count": 1,
+    "failed_subtasks": 0,
+    "tokens_used": 78,
+    "timestamp": 1784052312.117481
+  }
+]]

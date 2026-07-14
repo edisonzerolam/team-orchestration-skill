@@ -8,6 +8,22 @@ if str(SKILL_DIR) not in sys.path:
 
 import pytest
 
+
+def pytest_configure(config):
+    """注册自定义 markers"""
+    config.addinivalue_line("markers", "benchmark: performance benchmark test (manual timing)")
+
+def pytest_addoption(parser):
+    parser.addoption("--benchmark-only", action="store_true", default=False,
+                     help="只运行 benchmark 标记的测试")
+
+def pytest_collection_modifyitems(config, items):
+    if config.getoption("--benchmark-only"):
+        skip_bench = pytest.mark.skip(reason="已跳过（--benchmark-only 模式下只运行 benchmark 测试）")
+        for item in items:
+            if "benchmark" not in item.keywords:
+                item.add_marker(skip_bench)
+
 from scripts.score_collector import SCORES_FILE as _SCORES_FILE
 
 # D1: 三阶加载测试数据 — 分 light（无 agent_names/capabilities）和 full（含额外字段）

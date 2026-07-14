@@ -1,0 +1,1 @@
+{"name":"marketing-growth","version":"1.0.0","expertType":"fused","agentName":"expert","displayName":{"en":"Growth & Operations Strategist","zh":"增长与运营策略师"},"displayDescription":{"en":"Fused from growth hacker, email, PR, ecommerce, private domain, and WeChat experts.","zh":"由增长黑客、邮件、公关、电商、私域、公众号等7个专家融合而成。"},"categoryId":"04-Marketing","agents":["./agents/expert.md"]}

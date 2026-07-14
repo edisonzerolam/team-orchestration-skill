@@ -1,7 +1,7 @@
 {
   "state": "HALF_OPEN",
-  "failure_count": 26,
+  "failure_count": 60,
   "success_count": 0,
-  "last_failure": 1783706154.9123187,
-  "updated": "2026-07-10T17:55:54.913318+00:00"
+  "last_failure": 1784052312.1435173,
+  "updated": "2026-07-14T18:05:12.144516+00:00"
 }

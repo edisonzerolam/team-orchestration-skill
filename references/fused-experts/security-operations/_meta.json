@@ -1,0 +1,23 @@
+{
+  "fused_agent": "security-operations",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "mode-based",
+  "merged_from": [
+    {
+      "name": "security-cloud-security-architect",
+      "path": "../../workbuddy-experts/_archived/security-operations/security-security-cloud-security-architect"
+    },
+    {
+      "name": "security-senior-secops",
+      "path": "../../workbuddy-experts/_archived/security-operations/security-security-senior-secops"
+    },
+    {
+      "name": "security-incident-responder",
+      "path": "../../workbuddy-experts/_archived/security-operations/security-security-incident-responder"
+    }
+  ],
+  "verification": {
+    "status": "pending"
+  }
+}

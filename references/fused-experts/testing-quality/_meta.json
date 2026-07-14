@@ -1,0 +1,35 @@
+{
+  "fused_agent": "testing-quality",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "mode-based",
+  "merged_from": [
+    {
+      "name": "testing-accessibility-auditor",
+      "path": "../../workbuddy-experts/_archived/testing-quality/testing-testing-accessibility-auditor"
+    },
+    {
+      "name": "testing-reality-checker",
+      "path": "../../workbuddy-experts/_archived/testing-quality/testing-testing-reality-checker"
+    },
+    {
+      "name": "testing-evidence-collector",
+      "path": "../../workbuddy-experts/_archived/testing-quality/testing-testing-evidence-collector"
+    },
+    {
+      "name": "testing-test-results-analyzer",
+      "path": "../../workbuddy-experts/_archived/testing-quality/testing-testing-test-results-analyzer"
+    },
+    {
+      "name": "testing-tool-evaluator",
+      "path": "../../workbuddy-experts/_archived/testing-quality/testing-testing-tool-evaluator"
+    },
+    {
+      "name": "testing-workflow-optimizer",
+      "path": "../../workbuddy-experts/_archived/testing-quality/testing-testing-workflow-optimizer"
+    }
+  ],
+  "verification": {
+    "status": "pending"
+  }
+}

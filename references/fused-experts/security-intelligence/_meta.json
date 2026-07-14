@@ -1,0 +1,27 @@
+{
+  "fused_agent": "security-intelligence",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "mode-based",
+  "merged_from": [
+    {
+      "name": "security-compliance-auditor",
+      "path": "../../workbuddy-experts/_archived/security-intelligence/security-security-compliance-auditor"
+    },
+    {
+      "name": "security-threat-detection-engineer",
+      "path": "../../workbuddy-experts/_archived/security-intelligence/security-security-threat-detection-engineer"
+    },
+    {
+      "name": "security-threat-intelligence-analyst",
+      "path": "../../workbuddy-experts/_archived/security-intelligence/security-security-threat-intelligence-analyst"
+    },
+    {
+      "name": "security-blockchain-security-auditor",
+      "path": "../../workbuddy-experts/_archived/security-intelligence/security-security-blockchain-security-auditor"
+    }
+  ],
+  "verification": {
+    "status": "pending"
+  }
+}

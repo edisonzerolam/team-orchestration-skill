@@ -1,0 +1,28 @@
+{
+  "fused_agent": "sales-outbound-account",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "complementary",
+  "merged_from": [
+    {
+      "name": "sales-outbound-strategist",
+      "path": "../../workbuddy-experts/_archived/sales-outbound-account/sales-sales-outbound-strategist"
+    },
+    {
+      "name": "sales-account-strategist",
+      "path": "../../workbuddy-experts/_archived/sales-outbound-account/sales-sales-account-strategist"
+    },
+    {
+      "name": "sales-offer-lead-gen-strategist",
+      "path": "../../workbuddy-experts/_archived/sales-outbound-account/sales-sales-offer-lead-gen-strategist"
+    }
+  ],
+  "verification": {
+    "status": "pending",
+    "validation_tests": [
+      "must_cover_outbound",
+      "must_cover_account_expansion",
+      "must_cover_lead_generation"
+    ]
+  }
+}

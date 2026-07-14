@@ -1,0 +1,88 @@
+{
+  "session_id": "P-1783887844",
+  "team_id": "test",
+  "agent_id": "a1",
+  "fault_type": "FT-09",
+  "level": "L2",
+  "solutions": [
+    {
+      "id": "S-1783887844-1",
+      "expert_id": "expert-2",
+      "name": "方案1: 基于本地资产(10条记录,1条知识)的修复",
+      "steps": [
+        "诊断根因",
+        "应用修复",
+        "验证效果"
+      ],
+      "rationale": "基于10条历史修复记录和1条领域知识",
+      "risk": "中",
+      "difficulty": "Medium",
+      "confidence": 0.9333333333333333,
+      "source_count": 0,
+      "is_independent": true
+    },
+    {
+      "id": "S-1783887844-1",
+      "expert_id": "expert-1",
+      "name": "方案1: 基于本地资产(10条记录,1条知识)的修复",
+      "steps": [
+        "诊断根因",
+        "应用修复",
+        "验证效果"
+      ],
+      "rationale": "基于10条历史修复记录和1条领域知识",
+      "risk": "中",
+      "difficulty": "Medium",
+      "confidence": 0.8666666666666667,
+      "source_count": 0,
+      "is_independent": true
+    },
+    {
+      "id": "S-1783887844-1",
+      "expert_id": "expert-0",
+      "name": "方案1: 基于本地资产(10条记录,1条知识)的修复",
+      "steps": [
+        "诊断根因",
+        "应用修复",
+        "验证效果"
+      ],
+      "rationale": "基于10条历史修复记录和1条领域知识",
+      "risk": "中",
+      "difficulty": "Medium",
+      "confidence": 0.8,
+      "source_count": 0,
+      "is_independent": true
+    }
+  ],
+  "selected_solution": {
+    "id": "S-1783887844-1",
+    "expert_id": "expert-2",
+    "name": "方案1: 基于本地资产(10条记录,1条知识)的修复",
+    "steps": [
+      "诊断根因",
+      "应用修复",
+      "验证效果"
+    ],
+    "rationale": "基于10条历史修复记录和1条领域知识",
+    "risk": "中",
+    "difficulty": "Medium",
+    "confidence": 0.9333333333333333,
+    "source_count": 0,
+    "is_independent": true
+  },
+  "confidence": 0.9333333333333333,
+  "verdict": "PASS",
+  "is_cached": false,
+  "duration_ms": 4,
+  "created": "2026-07-12T20:24:04.259900+00:00",
+  "details": {
+    "domain": [
+      "Data_Engineering",
+      "Security",
+      "System"
+    ],
+    "expert_count": 3,
+    "has_sceptic": true,
+    "discussion_rounds_used": 2
+  }
+}

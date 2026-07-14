@@ -1,0 +1,1955 @@
+[
+  {
+    "id": "F12",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.466435+00:00"
+  },
+  {
+    "id": "F13",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.466435+00:00"
+  },
+  {
+    "id": "F13",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.466435+00:00"
+  },
+  {
+    "id": "F13",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.467435+00:00"
+  },
+  {
+    "id": "F13",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.467435+00:00"
+  },
+  {
+    "id": "F13",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.467435+00:00"
+  },
+  {
+    "id": "F13",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.467435+00:00"
+  },
+  {
+    "id": "F13",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.467435+00:00"
+  },
+  {
+    "id": "F13",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T19:41:38.467435+00:00"
+  },
+  {
+    "id": "F21",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.404536+00:00"
+  },
+  {
+    "id": "F22",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.405537+00:00"
+  },
+  {
+    "id": "F22",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.405537+00:00"
+  },
+  {
+    "id": "F22",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.405537+00:00"
+  },
+  {
+    "id": "F22",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.405537+00:00"
+  },
+  {
+    "id": "F22",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.406537+00:00"
+  },
+  {
+    "id": "F22",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.406537+00:00"
+  },
+  {
+    "id": "F22",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.406537+00:00"
+  },
+  {
+    "id": "F22",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:26.406537+00:00"
+  },
+  {
+    "id": "F30",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.522936+00:00"
+  },
+  {
+    "id": "F30",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.522936+00:00"
+  },
+  {
+    "id": "F31",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.522936+00:00"
+  },
+  {
+    "id": "F31",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.523913+00:00"
+  },
+  {
+    "id": "F31",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.523913+00:00"
+  },
+  {
+    "id": "F31",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.523913+00:00"
+  },
+  {
+    "id": "F31",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.524912+00:00"
+  },
+  {
+    "id": "F31",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.524912+00:00"
+  },
+  {
+    "id": "F31",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:02:52.524912+00:00"
+  },
+  {
+    "id": "F39",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.613362+00:00"
+  },
+  {
+    "id": "F39",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.613362+00:00"
+  },
+  {
+    "id": "F40",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.613362+00:00"
+  },
+  {
+    "id": "F40",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.614358+00:00"
+  },
+  {
+    "id": "F40",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.614358+00:00"
+  },
+  {
+    "id": "F40",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.614358+00:00"
+  },
+  {
+    "id": "F40",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.614358+00:00"
+  },
+  {
+    "id": "F40",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.614358+00:00"
+  },
+  {
+    "id": "F40",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:18.614358+00:00"
+  },
+  {
+    "id": "F48",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.992879+00:00"
+  },
+  {
+    "id": "F48",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.993877+00:00"
+  },
+  {
+    "id": "F48",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.993877+00:00"
+  },
+  {
+    "id": "F49",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.994877+00:00"
+  },
+  {
+    "id": "F49",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.994877+00:00"
+  },
+  {
+    "id": "F49",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.994877+00:00"
+  },
+  {
+    "id": "F49",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.994877+00:00"
+  },
+  {
+    "id": "F49",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.995877+00:00"
+  },
+  {
+    "id": "F49",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:03:44.995877+00:00"
+  },
+  {
+    "id": "F57",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.264814+00:00"
+  },
+  {
+    "id": "F57",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.264814+00:00"
+  },
+  {
+    "id": "F58",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.265787+00:00"
+  },
+  {
+    "id": "F58",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.265787+00:00"
+  },
+  {
+    "id": "F58",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.265787+00:00"
+  },
+  {
+    "id": "F58",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.265787+00:00"
+  },
+  {
+    "id": "F58",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.266786+00:00"
+  },
+  {
+    "id": "F59",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.266786+00:00"
+  },
+  {
+    "id": "F59",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:12.266786+00:00"
+  },
+  {
+    "id": "F66",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.064748+00:00"
+  },
+  {
+    "id": "F66",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.065748+00:00"
+  },
+  {
+    "id": "F67",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.065748+00:00"
+  },
+  {
+    "id": "F67",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.065748+00:00"
+  },
+  {
+    "id": "F67",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.065748+00:00"
+  },
+  {
+    "id": "F67",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.065748+00:00"
+  },
+  {
+    "id": "F67",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.066916+00:00"
+  },
+  {
+    "id": "F67",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.066916+00:00"
+  },
+  {
+    "id": "F67",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:04:39.066916+00:00"
+  },
+  {
+    "id": "F75",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.406061+00:00"
+  },
+  {
+    "id": "F75",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.407064+00:00"
+  },
+  {
+    "id": "F76",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.407064+00:00"
+  },
+  {
+    "id": "F76",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.407064+00:00"
+  },
+  {
+    "id": "F76",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.407064+00:00"
+  },
+  {
+    "id": "F76",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.408062+00:00"
+  },
+  {
+    "id": "F76",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.408062+00:00"
+  },
+  {
+    "id": "F76",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.408062+00:00"
+  },
+  {
+    "id": "F76",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:05:11.408062+00:00"
+  },
+  {
+    "id": "F84",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.619062+00:00"
+  },
+  {
+    "id": "F85",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.619062+00:00"
+  },
+  {
+    "id": "F85",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.620058+00:00"
+  },
+  {
+    "id": "F85",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.620058+00:00"
+  },
+  {
+    "id": "F85",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.620058+00:00"
+  },
+  {
+    "id": "F85",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.620058+00:00"
+  },
+  {
+    "id": "F85",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.620058+00:00"
+  },
+  {
+    "id": "F85",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.620058+00:00"
+  },
+  {
+    "id": "F85",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:12:11.620058+00:00"
+  },
+  {
+    "id": "F93",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.926344+00:00"
+  },
+  {
+    "id": "F93",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.927850+00:00"
+  },
+  {
+    "id": "F93",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.927850+00:00"
+  },
+  {
+    "id": "F94",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.927850+00:00"
+  },
+  {
+    "id": "F94",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.927850+00:00"
+  },
+  {
+    "id": "F94",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.928856+00:00"
+  },
+  {
+    "id": "F94",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.928856+00:00"
+  },
+  {
+    "id": "F94",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.928856+00:00"
+  },
+  {
+    "id": "F94",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:40.928856+00:00"
+  },
+  {
+    "id": "F102",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.743255+00:00"
+  },
+  {
+    "id": "F102",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.743255+00:00"
+  },
+  {
+    "id": "F103",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.744255+00:00"
+  },
+  {
+    "id": "F103",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.744255+00:00"
+  },
+  {
+    "id": "F103",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.745255+00:00"
+  },
+  {
+    "id": "F103",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.745255+00:00"
+  },
+  {
+    "id": "F103",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.745255+00:00"
+  },
+  {
+    "id": "F103",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.745255+00:00"
+  },
+  {
+    "id": "F103",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:15:42.745255+00:00"
+  },
+  {
+    "id": "F111",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.819678+00:00"
+  },
+  {
+    "id": "F111",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.819678+00:00"
+  },
+  {
+    "id": "F111",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.819678+00:00"
+  },
+  {
+    "id": "F112",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.820679+00:00"
+  },
+  {
+    "id": "F112",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.820679+00:00"
+  },
+  {
+    "id": "F112",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.820679+00:00"
+  },
+  {
+    "id": "F112",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.820679+00:00"
+  },
+  {
+    "id": "F112",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.820679+00:00"
+  },
+  {
+    "id": "F112",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-11T20:45:48.821679+00:00"
+  },
+  {
+    "id": "F120",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.343237+00:00"
+  },
+  {
+    "id": "F121",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.344774+00:00"
+  },
+  {
+    "id": "F121",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.344774+00:00"
+  },
+  {
+    "id": "F121",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.344774+00:00"
+  },
+  {
+    "id": "F121",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.344774+00:00"
+  },
+  {
+    "id": "F121",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.344774+00:00"
+  },
+  {
+    "id": "F121",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.344774+00:00"
+  },
+  {
+    "id": "F121",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.345779+00:00"
+  },
+  {
+    "id": "F121",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:06:28.345779+00:00"
+  },
+  {
+    "id": "F129",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.439674+00:00"
+  },
+  {
+    "id": "F129",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.439674+00:00"
+  },
+  {
+    "id": "F130",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.440678+00:00"
+  },
+  {
+    "id": "F130",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.440678+00:00"
+  },
+  {
+    "id": "F130",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.441678+00:00"
+  },
+  {
+    "id": "F130",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.441678+00:00"
+  },
+  {
+    "id": "F130",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.441678+00:00"
+  },
+  {
+    "id": "F130",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.441678+00:00"
+  },
+  {
+    "id": "F130",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:08:08.441678+00:00"
+  },
+  {
+    "id": "F138",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.778035+00:00"
+  },
+  {
+    "id": "F138",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.778035+00:00"
+  },
+  {
+    "id": "F138",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.779036+00:00"
+  },
+  {
+    "id": "F139",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.779036+00:00"
+  },
+  {
+    "id": "F139",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.779036+00:00"
+  },
+  {
+    "id": "F139",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.780043+00:00"
+  },
+  {
+    "id": "F139",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.780043+00:00"
+  },
+  {
+    "id": "F139",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.780043+00:00"
+  },
+  {
+    "id": "F139",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:06.780043+00:00"
+  },
+  {
+    "id": "F147",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.806186+00:00"
+  },
+  {
+    "id": "F147",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.807187+00:00"
+  },
+  {
+    "id": "F147",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.807187+00:00"
+  },
+  {
+    "id": "F148",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.807187+00:00"
+  },
+  {
+    "id": "F148",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.808455+00:00"
+  },
+  {
+    "id": "F148",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.808455+00:00"
+  },
+  {
+    "id": "F148",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.808455+00:00"
+  },
+  {
+    "id": "F148",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.808455+00:00"
+  },
+  {
+    "id": "F148",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:24:53.808455+00:00"
+  },
+  {
+    "id": "F156",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.735835+00:00"
+  },
+  {
+    "id": "F156",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.735835+00:00"
+  },
+  {
+    "id": "F157",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.735835+00:00"
+  },
+  {
+    "id": "F157",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.735835+00:00"
+  },
+  {
+    "id": "F157",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.737340+00:00"
+  },
+  {
+    "id": "F157",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.737340+00:00"
+  },
+  {
+    "id": "F157",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.737340+00:00"
+  },
+  {
+    "id": "F157",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.737340+00:00"
+  },
+  {
+    "id": "F157",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-12T20:27:58.737340+00:00"
+  },
+  {
+    "id": "F165",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.948790+00:00"
+  },
+  {
+    "id": "F165",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.950016+00:00"
+  },
+  {
+    "id": "F165",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.950016+00:00"
+  },
+  {
+    "id": "F166",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.950016+00:00"
+  },
+  {
+    "id": "F166",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.951521+00:00"
+  },
+  {
+    "id": "F166",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.951521+00:00"
+  },
+  {
+    "id": "F166",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.951521+00:00"
+  },
+  {
+    "id": "F166",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.951521+00:00"
+  },
+  {
+    "id": "F166",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:55:43.951521+00:00"
+  },
+  {
+    "id": "F174",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.088817+00:00"
+  },
+  {
+    "id": "F174",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.088817+00:00"
+  },
+  {
+    "id": "F174",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.088817+00:00"
+  },
+  {
+    "id": "F175",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.089817+00:00"
+  },
+  {
+    "id": "F175",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.090817+00:00"
+  },
+  {
+    "id": "F175",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.090817+00:00"
+  },
+  {
+    "id": "F175",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.090817+00:00"
+  },
+  {
+    "id": "F175",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.090817+00:00"
+  },
+  {
+    "id": "F175",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:56:12.090817+00:00"
+  },
+  {
+    "id": "F183",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.818024+00:00"
+  },
+  {
+    "id": "F183",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.818024+00:00"
+  },
+  {
+    "id": "F184",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.819024+00:00"
+  },
+  {
+    "id": "F184",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.819024+00:00"
+  },
+  {
+    "id": "F184",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.819024+00:00"
+  },
+  {
+    "id": "F184",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.819024+00:00"
+  },
+  {
+    "id": "F184",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.820022+00:00"
+  },
+  {
+    "id": "F184",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.820022+00:00"
+  },
+  {
+    "id": "F184",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T04:58:51.820022+00:00"
+  },
+  {
+    "id": "F192",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.284177+00:00"
+  },
+  {
+    "id": "F192",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.284177+00:00"
+  },
+  {
+    "id": "F192",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.284177+00:00"
+  },
+  {
+    "id": "F193",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.285177+00:00"
+  },
+  {
+    "id": "F193",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.285177+00:00"
+  },
+  {
+    "id": "F193",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.286178+00:00"
+  },
+  {
+    "id": "F193",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.286178+00:00"
+  },
+  {
+    "id": "F193",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.286178+00:00"
+  },
+  {
+    "id": "F193",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:41:55.286178+00:00"
+  },
+  {
+    "id": "F201",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.415935+00:00"
+  },
+  {
+    "id": "F201",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.416932+00:00"
+  },
+  {
+    "id": "F202",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.416932+00:00"
+  },
+  {
+    "id": "F202",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.417933+00:00"
+  },
+  {
+    "id": "F202",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.418933+00:00"
+  },
+  {
+    "id": "F202",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.418933+00:00"
+  },
+  {
+    "id": "F202",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.418933+00:00"
+  },
+  {
+    "id": "F202",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.418933+00:00"
+  },
+  {
+    "id": "F202",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T09:42:51.418933+00:00"
+  },
+  {
+    "id": "F210",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.440458+00:00"
+  },
+  {
+    "id": "F210",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.441456+00:00"
+  },
+  {
+    "id": "F211",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.441456+00:00"
+  },
+  {
+    "id": "F211",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.442452+00:00"
+  },
+  {
+    "id": "F211",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.443452+00:00"
+  },
+  {
+    "id": "F211",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.443452+00:00"
+  },
+  {
+    "id": "F211",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.443452+00:00"
+  },
+  {
+    "id": "F211",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.443452+00:00"
+  },
+  {
+    "id": "F211",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:52:03.443452+00:00"
+  },
+  {
+    "id": "F219",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.059692+00:00"
+  },
+  {
+    "id": "F219",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.059692+00:00"
+  },
+  {
+    "id": "F220",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.060692+00:00"
+  },
+  {
+    "id": "F220",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.061695+00:00"
+  },
+  {
+    "id": "F220",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.061695+00:00"
+  },
+  {
+    "id": "F220",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.061695+00:00"
+  },
+  {
+    "id": "F220",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.062693+00:00"
+  },
+  {
+    "id": "F220",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.062693+00:00"
+  },
+  {
+    "id": "F220",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T14:53:07.062693+00:00"
+  },
+  {
+    "id": "F228",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.908181+00:00"
+  },
+  {
+    "id": "F228",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.908181+00:00"
+  },
+  {
+    "id": "F229",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.909238+00:00"
+  },
+  {
+    "id": "F229",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.909238+00:00"
+  },
+  {
+    "id": "F229",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.909790+00:00"
+  },
+  {
+    "id": "F229",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.909790+00:00"
+  },
+  {
+    "id": "F229",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.909790+00:00"
+  },
+  {
+    "id": "F229",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.909790+00:00"
+  },
+  {
+    "id": "F229",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:08.910318+00:00"
+  },
+  {
+    "id": "F237",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.082625+00:00"
+  },
+  {
+    "id": "F238",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.083620+00:00"
+  },
+  {
+    "id": "F238",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.084623+00:00"
+  },
+  {
+    "id": "F238",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.084623+00:00"
+  },
+  {
+    "id": "F238",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.084623+00:00"
+  },
+  {
+    "id": "F238",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.084623+00:00"
+  },
+  {
+    "id": "F238",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.084623+00:00"
+  },
+  {
+    "id": "F238",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.084623+00:00"
+  },
+  {
+    "id": "F238",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:41:20.085621+00:00"
+  },
+  {
+    "id": "F246",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.631706+00:00"
+  },
+  {
+    "id": "F246",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.631706+00:00"
+  },
+  {
+    "id": "F246",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.631706+00:00"
+  },
+  {
+    "id": "F247",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.632708+00:00"
+  },
+  {
+    "id": "F247",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.633835+00:00"
+  },
+  {
+    "id": "F247",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.633835+00:00"
+  },
+  {
+    "id": "F247",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.633835+00:00"
+  },
+  {
+    "id": "F247",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.633835+00:00"
+  },
+  {
+    "id": "F247",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:51:45.633835+00:00"
+  },
+  {
+    "id": "F255",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.303132+00:00"
+  },
+  {
+    "id": "F255",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.303132+00:00"
+  },
+  {
+    "id": "F256",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.304146+00:00"
+  },
+  {
+    "id": "F256",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.304146+00:00"
+  },
+  {
+    "id": "F256",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.305142+00:00"
+  },
+  {
+    "id": "F256",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.305142+00:00"
+  },
+  {
+    "id": "F256",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.305142+00:00"
+  },
+  {
+    "id": "F256",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.305142+00:00"
+  },
+  {
+    "id": "F256",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:52:12.305142+00:00"
+  },
+  {
+    "id": "F264",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.249695+00:00"
+  },
+  {
+    "id": "F264",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.249695+00:00"
+  },
+  {
+    "id": "F264",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.249695+00:00"
+  },
+  {
+    "id": "F265",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.250697+00:00"
+  },
+  {
+    "id": "F265",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.251698+00:00"
+  },
+  {
+    "id": "F265",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.251698+00:00"
+  },
+  {
+    "id": "F265",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.251698+00:00"
+  },
+  {
+    "id": "F265",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.251698+00:00"
+  },
+  {
+    "id": "F265",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:00.251698+00:00"
+  },
+  {
+    "id": "F273",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.646828+00:00"
+  },
+  {
+    "id": "F274",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.646828+00:00"
+  },
+  {
+    "id": "F274",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.647830+00:00"
+  },
+  {
+    "id": "F274",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.648830+00:00"
+  },
+  {
+    "id": "F274",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.648830+00:00"
+  },
+  {
+    "id": "F274",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.648830+00:00"
+  },
+  {
+    "id": "F274",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.648830+00:00"
+  },
+  {
+    "id": "F274",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.648830+00:00"
+  },
+  {
+    "id": "F274",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-13T21:53:26.649830+00:00"
+  },
+  {
+    "id": "F282",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.182116+00:00"
+  },
+  {
+    "id": "F282",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.182116+00:00"
+  },
+  {
+    "id": "F282",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.182116+00:00"
+  },
+  {
+    "id": "F283",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.183621+00:00"
+  },
+  {
+    "id": "F283",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.184628+00:00"
+  },
+  {
+    "id": "F283",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.184628+00:00"
+  },
+  {
+    "id": "F283",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.184628+00:00"
+  },
+  {
+    "id": "F283",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.184628+00:00"
+  },
+  {
+    "id": "F283",
+    "fault_type": "FT-11",
+    "strategy": "skip",
+    "effectiveness": 0.5,
+    "created": "2026-07-14T18:05:12.184628+00:00"
+  }
+]

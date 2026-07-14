@@ -14,7 +14,7 @@ spec_em = importlib.util.spec_from_file_location("expert_matcher", str(SCRIPTS_D
 em = importlib.util.module_from_spec(spec_em)
 spec_em.loader.exec_module(em)
 
-spec_bc = importlib.util.spec_from_file_location("budget_controller", str(SCRIPTS_DIR / "budget-controller.py"))
+spec_bc = importlib.util.spec_from_file_location("budget_controller", str(SCRIPTS_DIR.parent / "archive" / "configs" / "budget-controller.py"))
 bc = importlib.util.module_from_spec(spec_bc)
 spec_bc.loader.exec_module(bc)
 

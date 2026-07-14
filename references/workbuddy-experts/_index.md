@@ -2,7 +2,7 @@
 
 > 来源: WorkBuddy (Tencent CodeBuddy) Expert Marketplace
 > 移植日期: 2026-07-10
-> 总数: 302 个专家团, 520 个子 Agent
+> 总数: 31 个专家团 + 271 独立专家 = 302 个专家条目
 
 ## 分类索引
 

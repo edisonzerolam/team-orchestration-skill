@@ -1,1 +1,29 @@
-{}
+{
+  "investment-masters-team": {
+    "score": 0.7625,
+    "count": 5,
+    "last_updated": "2026-07-15T02:05:19.764461",
+    "dimensions": {
+      "task_completion": {
+        "avg": 0.8,
+        "n": 1
+      },
+      "delivery_quality": {
+        "avg": 0.75,
+        "n": 2
+      },
+      "response_time": {
+        "avg": 0.6,
+        "n": 1
+      },
+      "user_feedback": {
+        "avg": 0.9,
+        "n": 1
+      },
+      "collaboration": {
+        "avg": 0.0,
+        "n": 0
+      }
+    }
+  }
+}

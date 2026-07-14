@@ -10,7 +10,7 @@
 
 | 维度 | 现状 | 问题 |
 |------|------|------|
-| 专家池 | 29/46 专家团(188 agents) + 6 subagent | 18 团未移植（含 openspec-doc 实际已移植），285 独立专家未利用 |
+| 专家池 | 29/46 专家团(188 agents) + 6 subagent | 18 团未移植（含 openspec-doc 实际已移植），271 独立专家未利用 |
 | 匹配算法 | 4 维固定权重(35/30/20/15) | 无动态调整，无冷启动，无跨领域 |
 | 模板 | 15 个快速路径 | 缺口领域无模板，大团无裁剪 |
 | 自愈 | L0-L3 四层防御 + 熔断器 | 缺乏专家替换链和回滚自动化 |
@@ -61,11 +61,11 @@
 **归集策略（用户决策：全部归集到 skill）**:
 - 28 个已有团：维持现有 `references/workbuddy-experts/` 不变
 - 18 个待移植团：完整复制到 `references/workbuddy-experts/{name}/`
-- 285 个独立专家：每个独立专家在 `references/workbuddy-experts/{name}/` 下创建单 Agent 目录（含 plugin.json + prompt.md）
-- **总计**: skill 文件夹内管理 28+18+3 = 49 个专家团 + 285 个独立专家 = 334 个专家
+- 271 个独立专家：每个独立专家在 `references/workbuddy-experts/{name}/` 下创建单 Agent 目录（含 plugin.json + prompt.md）
+- **总计**: skill 文件夹内管理 28+3 = 31 个专家团 + 271 个独立专家 = 302 个专家
 - **设计文档**: `references/expert-files-organization.md`
 
-**新增 3 个虚拟专家团（从 285 个独立专家中组合）**:
+**新增 3 个虚拟专家团（从 271 个独立专家中组合）**:
 
 **1. game-development (游戏开发专家团)**
 - 来源: 25 个游戏空间领域独立专家
@@ -113,13 +113,13 @@
 
 ### P0-6: 三阶层次化加载 + 热/温/冷分级 + Token 预算管理
 
-**问题**: `load_all_experts()` 每次匹配全量扫描 49 团（~300 文件 I/O, 5-10MB），实际只用 Top-3。无分级缓存，无 Token 预算上限。
+**问题**: `load_all_experts()` 每次匹配全量扫描 31 团（~300 文件 I/O, 5-10MB），实际只用 Top-3。无分级缓存，无 Token 预算上限。
 
 **方案**: 将加载拆为三阶，匹配阶段 I/O 从 300+ 次降至 1~12 次：
 
 | 层级 | 数据源 | 大小 | I/O | 加载时机 | 缓存 |
 |------|--------|------|-----|---------|------|
-| Tier 1 | `shared/teams-index.json` | ~7KB | 1 | 技能启动时 | 永不过期 |
+| Tier 1 | `shared/teams-index.json` | ~9KB | 1 | 技能启动时 | 永不过期 |
 | Tier 2 | 候选团 `plugin.json` × 5-10 | ~100KB | 5-10 | 粗筛命中时 | 5min TTL |
 | Tier 3 | 选中团 `agents/*.md` × 1 | ~200KB | ~10 | orchestrator 执行前 | 用完即弃 |
 
@@ -160,12 +160,12 @@
 
 ### File 3: 模板动态裁剪
 - [ ] 新增 `references/team-templates/dynamic-cropping.md`
-- [ ] 新增 `scripts/template-cropper.py` — 裁剪计算
+- [ ] 新增 `scripts/template_cropper.py` — 裁剪计算
 - [ ] 为 6 个大团队设置裁剪配置
 
 ### File 4: 专家评分卡
 - [ ] 扩展 `shared/expert-scores.json` schema
-- [ ] 新增 `scripts/score-collector.py` — 评分采集
+- [ ] 新增 `scripts/score_collector.py` — 评分采集
 - [ ] 集成到 `scripts/self-evolution/post-task-evolve.py`（子任务完成后自动触发）
 
 ### File 5: 主工作流集成

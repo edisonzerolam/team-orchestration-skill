@@ -1,0 +1,42 @@
+{
+  "fused_agent": "marketing-paid-media",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "mode-based",
+  "merged_from": [
+    {
+      "name": "paid-media-ppc-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-paid-media/paid-media-paid-media-ppc-strategist"
+    },
+    {
+      "name": "paid-media-creative-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-paid-media/paid-media-paid-media-creative-strategist"
+    },
+    {
+      "name": "paid-media-programmatic-buyer",
+      "path": "../../workbuddy-experts/_archived/marketing-paid-media/paid-media-paid-media-programmatic-buyer"
+    },
+    {
+      "name": "paid-media-paid-social-strategist",
+      "path": "../../workbuddy-experts/_archived/marketing-paid-media/paid-media-paid-media-paid-social-strategist"
+    },
+    {
+      "name": "paid-media-tracking-specialist",
+      "path": "../../workbuddy-experts/_archived/marketing-paid-media/paid-media-paid-media-tracking-specialist"
+    },
+    {
+      "name": "paid-media-auditor",
+      "path": "../../workbuddy-experts/_archived/marketing-paid-media/paid-media-paid-media-auditor"
+    }
+  ],
+  "verification": {
+    "status": "pending",
+    "validation_tests": [
+      "must_cover_ppc",
+      "must_cover_creative",
+      "must_cover_programmatic",
+      "must_cover_tracking",
+      "must_cover_auditing"
+    ]
+  }
+}

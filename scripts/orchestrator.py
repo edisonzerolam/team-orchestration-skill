@@ -16,9 +16,10 @@
   python orchestrator.py --task "分析茅台股票"
   python orchestrator.py --task "查一下Python文档"
 """
-import json, sys, time, hashlib, argparse
+import json, sys, time, hashlib, argparse, threading
 from pathlib import Path
 from collections import deque
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 SKILL_DIR = Path(__file__).parent.parent
 sys.path.insert(0, str(SKILL_DIR))
@@ -93,8 +94,13 @@ class DependencyManager:
         return [phases[k] for k in sorted(phases)]
 
 
+_GLOBAL_REGISTRY: dict = {}
+_registry_lock = threading.Lock()
+
+
 class NexusOrchestrator:
     def __init__(self):
+        self.instance_id = hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
         self.task_registry = {}
         self.results = {}
         self.fingerprints = {}
@@ -122,17 +128,40 @@ class NexusOrchestrator:
             return None
         return fields
 
+    @staticmethod
+    def _backoff_delay(attempt: int, base_s: float = 1.0) -> float:
+        delay = base_s * (2 ** (attempt - 1))
+        import random
+        return delay + random.uniform(0, 0.5 * delay)
+
+    @staticmethod
+    def _rollback_after_failure(task_spec: dict):
+        """重试全部失败后回滚 agent 状态"""
+        try:
+            from scripts.rollback_manager import SnapshotManager
+            rm = SnapshotManager()
+            team_id = task_spec.get("team_id", "default")
+            agent_id = task_spec.get("agent_type", task_spec.get("task_id", "unknown"))
+            rm.snapshot_agent_state(team_id, f"{agent_id}_post_failure")
+        except Exception:
+            pass
+
     def _execute_with_retry(self, task_spec: dict, max_retries: int = 3) -> dict:
-        """带重试的 `_execute_single` 封装"""
+        """带指数退避重试 + 失败回滚的 `_execute_single` 封装"""
         fingerprint = self._fingerprint(task_spec)
         self.fingerprints[fingerprint] = self.fingerprints.get(fingerprint, 0) + 1
-        for attempt in range(max_retries):
+        for attempt in range(1, max_retries + 1):
             result = self._execute_single(task_spec)
             if result.get("status") != "FAILED":
                 result["retry_attempts"] = attempt
                 return result
-        result["retry_attempts"] = max_retries
-        return result
+            if attempt < max_retries:
+                delay = self._backoff_delay(attempt)
+                time.sleep(delay)
+        self._rollback_after_failure(task_spec)
+        return {"status": "FAILED", "retry_attempts": max_retries,
+                "output": f"重试 {max_retries} 次均失败: {task_spec.get('name', '')}",
+                "rollback_triggered": True}
 
     @staticmethod
     def _fingerprint(spec: dict) -> str:
@@ -140,10 +169,40 @@ class NexusOrchestrator:
                  spec.get("task_id", "")]
         return hashlib.md5("|".join(parts).encode()).hexdigest()
 
+    def _remember_execution(self, task: str, result: dict):
+        """记录执行结果到 token-ledger（记忆桥接用）"""
+        try:
+            ledger_file = Path(__file__).parent.parent / "shared" / "token-ledger.json"
+            ledger = []
+            if ledger_file.exists():
+                ledger = json.loads(ledger_file.read_text(encoding="utf-8"))
+            if not isinstance(ledger, list):
+                ledger = []
+            ledger.append({
+                "task": task,
+                "status": result.get("status", ""),
+                "subtask_count": len(self.results),
+                "failed_subtasks": len(self.failed_subtasks),
+                "tokens_used": len(json.dumps(self.results)),
+                "timestamp": time.time(),
+            })
+            if len(ledger) > 100:
+                ledger = ledger[-100:]
+            ledger_file.parent.mkdir(parents=True, exist_ok=True)
+            ledger_file.write_text(json.dumps(ledger, ensure_ascii=False, indent=2), encoding="utf-8")
+        except Exception:
+            pass
+
     def run(self, task: str) -> dict:
         # 0. 检查模糊任务
         ambiguous = self._detect_ambiguous(task)
+        # 0a. 注册到全局实例池
+        with _registry_lock:
+            _GLOBAL_REGISTRY[self.instance_id] = {
+                "task": task, "started": time.time(), "task_registry": self.task_registry
+            }
         if ambiguous:
+            self._remember_execution(task, {"status": "CLARIFICATION_NEEDED"})
             return {"status": "CLARIFICATION_NEEDED", "question": ambiguous}
 
         # 1. 分解任务（含依赖排序的子任务列表）
@@ -171,34 +230,50 @@ class NexusOrchestrator:
         # 2. 依赖管理器
         dm = DependencyManager(subtasks)
 
-        # 3. 按 phase 顺序执行（同 phase 并行）
-        plan = dm.get_execution_plan()
-        for phase_idx, phase_group in enumerate(plan):
-            phase_num = phase_idx + 1
-            print(f"  [ORCH] Phase {phase_num}/{total_phases}: {phase_group}")
+        # 3. 拓扑感知执行（动态就绪队列，而非静态 phase 分组）
+        already_printed = set()
+        while dm.has_pending():
+            ready_tasks = dm.get_ready()
+            if not ready_tasks:
+                remaining = [sid for sid, st in dm.states.items() if st == dm.STATE_PENDING]
+                for sid in remaining:
+                    dm.mark_failed(sid)
+                    self.failed_subtasks.append(sid)
+                break
 
-            for sid in phase_group:
-                task_spec = dm.subtasks[sid]
-                deps = task_spec.get("dependency_ids", [])
-                dep_phase = " (依赖未完成!)" if any(dm.states.get(d) not in (dm.STATE_COMPLETED, dm.STATE_SKIPPED) for d in deps) else ""
-                print(f"    → {task_spec['type']}: {task_spec['name']}{dep_phase}")
+            futures = {}
+            with ThreadPoolExecutor(max_workers=len(ready_tasks)) as pool:
+                for t in ready_tasks:
+                    sid = t["id"]
+                    dm.mark_running(sid)
+                    task_name = t.get("name", sid)
+                    if sid not in already_printed:
+                        already_printed.add(sid)
+                        print(f"    → {t.get('type', '?')}: {task_name}")
+                    futures[pool.submit(self._execute_with_retry, t)] = sid
 
-                dm.mark_running(sid)
-                result = self._execute_with_retry(task_spec)
-                dm.mark_completed(sid, result)
-                self.results[sid] = result.get("output", "")
+                for future in as_completed(futures):
+                    sid = futures[future]
+                    result = future.result()
+                    dm.mark_completed(sid, result)
+                    self.results[sid] = result.get("output", "")
+                    self.task_registry[sid] = {"task": dm.subtasks[sid].get("name", sid),
+                                               "status": result.get("status"),
+                                               "output": result.get("output", "")[:200]}
 
         failed = [sid for sid, st in dm.states.items() if st == dm.STATE_FAILED]
         if failed:
             print(f"  [ORCH] 子任务失败: {failed}")
 
-        return {
+        result = {
             "status": "PARTIAL" if failed else "PASS",
             "path": "standard",
             "execution_order": exec_order,
             "total_phases": total_phases,
             "results": {sid: self.results.get(sid, "") for sid in dm.subtasks},
         }
+        self._remember_execution(task, result)
+        return result
 
     def _execute_single(self, task_spec: dict) -> dict:
         """执行单个子任务：调用 LLM API """
@@ -233,7 +308,7 @@ class NexusOrchestrator:
             content = resp.json()["choices"][0]["message"]["content"]
             return {"status": "PASS", "output": content, "model": model}
         except Exception as exc:
-            return {"status": "FAILED", "output": f"完成: {task_spec['name']}",
+            return {"status": "FAILED", "output": f"失败: {task_spec['name']}, 错误: {exc}",
                     "error": str(exc)}
 
     @staticmethod
@@ -258,6 +333,21 @@ class NexusOrchestrator:
     def _fallback(self, decomposition: dict) -> dict:
         return {"status": "PASS", "path": "fallback_direct",
                 "output": f"直接完成: {decomposition.get('task', '')}"}
+
+
+def get_global_registry() -> dict:
+    """返回全局注册表快照（用于审计/监控）"""
+    with _registry_lock:
+        return dict(_GLOBAL_REGISTRY)
+
+
+def register_task(external_task_id: str, metadata: dict) -> str:
+    """外部组件注册任务到全局注册表，返回 instance_id"""
+    instance_id = hashlib.md5(f"ext_{external_task_id}_{time.time()}".encode()).hexdigest()[:8]
+    with _registry_lock:
+        _GLOBAL_REGISTRY[instance_id] = {"task": external_task_id, "started": time.time(),
+                                          "task_registry": {external_task_id: metadata}}
+    return instance_id
 
 
 def main():

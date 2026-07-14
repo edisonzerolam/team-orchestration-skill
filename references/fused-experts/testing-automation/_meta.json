@@ -1,0 +1,23 @@
+{
+  "fused_agent": "testing-automation",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "mode-based",
+  "merged_from": [
+    {
+      "name": "testing-api-tester",
+      "path": "../../workbuddy-experts/_archived/testing-automation/testing-testing-api-tester"
+    },
+    {
+      "name": "testing-test-automation-engineer",
+      "path": "../../workbuddy-experts/_archived/testing-automation/testing-testing-test-automation-engineer"
+    },
+    {
+      "name": "testing-performance-benchmarker",
+      "path": "../../workbuddy-experts/_archived/testing-automation/testing-testing-performance-benchmarker"
+    }
+  ],
+  "verification": {
+    "status": "pending"
+  }
+}

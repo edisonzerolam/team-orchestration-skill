@@ -10,7 +10,7 @@
 
 | 问题 | 影响 |
 |------|------|
-| `load_all_experts()` 全量加载所有团（49团×~300文件I/O） | 每次匹配扫描 5-10MB，实际只用 Top-3 |
+| `load_all_experts()` 全量加载所有团（31团×~300文件I/O） | 每次匹配扫描 5-10MB，实际只用 Top-3 |
 | 无热/温/冷区分，冷团占用与热团相同资源 | 冷团 30 天未用但每次匹配仍全量加载 |
 | 大团全部 agent .md 加载后执行 | 中等复杂度任务只需要大团中 30% 的 agent |
 | 无 Token 预算上限 | 单次匹配+执行可能消耗 150K+ tokens |
@@ -24,7 +24,7 @@
 
 ```
 执行链路原貌:
-  task → decomposer → matcher(load_all 49团) → path-selector → orchestrator
+  task → decomposer → matcher(load_all 31团) → path-selector → orchestrator
 
 三阶优化后:
   task → decomposer ─→ matcher(Tier 1: teams-index.json, ~4KB)

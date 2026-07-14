@@ -1,0 +1,31 @@
+{
+  "fused_agent": "finance",
+  "version": "1.0.0",
+  "merge_date": "2026-07-13",
+  "merge_strategy": "mode-based",
+  "merged_from": [
+    {
+      "name": "finance-financial-analyst",
+      "path": "../../workbuddy-experts/_archived/finance/finance-finance-financial-analyst"
+    },
+    {
+      "name": "finance-fpa-analyst",
+      "path": "../../workbuddy-experts/_archived/finance/finance-finance-fpa-analyst"
+    },
+    {
+      "name": "finance-investment-researcher",
+      "path": "../../workbuddy-experts/_archived/finance/finance-finance-investment-researcher"
+    },
+    {
+      "name": "finance-tax-strategist",
+      "path": "../../workbuddy-experts/_archived/finance/finance-finance-tax-strategist"
+    },
+    {
+      "name": "finance-bookkeeper-controller",
+      "path": "../../workbuddy-experts/_archived/finance/finance-finance-bookkeeper-controller"
+    }
+  ],
+  "verification": {
+    "status": "pending"
+  }
+}

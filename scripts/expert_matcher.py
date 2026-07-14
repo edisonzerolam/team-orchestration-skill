@@ -264,17 +264,27 @@ _EPSILON_FLOOR = 0.02
 _EPSILON_DECAY = 0.95
 _GRADUATE_THRESHOLD = 5
 
+_exploration_cache = None
+_exploration_cache_dirty = False
+
 
 def _get_exploration_log() -> dict:
+    global _exploration_cache
+    if _exploration_cache is not None:
+        return _exploration_cache
     if EXPLORATION_LOG_PATH.exists():
         try:
-            return json.loads(EXPLORATION_LOG_PATH.read_text(encoding="utf-8"))
+            _exploration_cache = json.loads(EXPLORATION_LOG_PATH.read_text(encoding="utf-8"))
+            return _exploration_cache
         except (json.JSONDecodeError, UnicodeDecodeError):
             return {"version": "1.0", "experts": {}}
     return {"version": "1.0", "experts": {}}
 
 
 def _save_exploration_log(log: dict):
+    global _exploration_cache, _exploration_cache_dirty
+    _exploration_cache = log
+    _exploration_cache_dirty = True
     EXPLORATION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     from scripts.file_utils import atomic_write
     atomic_write(EXPLORATION_LOG_PATH, log)
@@ -572,13 +582,18 @@ def match(task_domains: list, task_abilities: list = None,
         return scored[:top_k]
 
     # Tier 1: domain 预过滤（light 数据无 agent_names/capabilities）
+    # 冷团在 Tier 1 提前跳过，避免进入 Tier 2 的 plugin.json 加载
     pre_scored = []
     if not task_domains:
-        # 无领域需求时，所有团队进入 Tier 2
+        # 无领域需求时，所有非冷团队进入 Tier 2
         for name in light_experts:
+            if is_cold_team(name) and not no_explore and not _should_explore(name):
+                continue
             pre_scored.append({"name": name, "score": 0.25})
     else:
         for name, info in light_experts.items():
+            if is_cold_team(name) and not no_explore and not _should_explore(name):
+                continue
             d = domain_match(task_domains, info)
             t = weights["domain"] * d
             if t > 0.05:
@@ -587,14 +602,12 @@ def match(task_domains: list, task_abilities: list = None,
     pre_scored.sort(key=lambda x: -x["score"])
     top_candidates = [m["name"] for m in pre_scored[:15]]
 
-    # Tier 2: plugin.json 精筛 + 冷团跳过
+    # Tier 2: plugin.json 精筛（冷团已在 Tier 1 跳过）
     detail_experts = load_experts_detail(top_candidates)
     merged = {n: detail_experts.get(n, light_experts.get(n)) for n in top_candidates}
 
     scored = []
     for name, info in merged.items():
-        if is_cold_team(name) and not no_explore and not _should_explore(name):
-            continue
         rec = _score_team(name, info, weights, task_domains, task_abilities,
                           scores, active_experts, task_type, no_explore)
         if rec:
