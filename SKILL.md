@@ -97,7 +97,7 @@ tags:
 
 | 特性 | 说明 |
 |------|------|
-| 动态权重矩阵 | `references/weight-matrix.json` — 按任务类型动态调整四维权重，非固定比例 |
+| 动态权重矩阵 | `shared/weight-matrix.json` — 按任务类型动态调整四维权重，非固定比例 |
 | ε-greedy 冷启动探索 | 新 Agent 以概率 ε 探索分配（ε 随经验衰减），避免冷启动偏置 |
 | 三阶层次化加载 | 领域级 → 能力级 → 实体级三级过滤，大幅降低匹配延迟 |
 
@@ -115,7 +115,7 @@ tags:
 | L3 复杂 | System 2 团队 | 跨领域、需多轮推理 |
 | L4 深度 | System 2 完整团队 | 深度分析、需完整 SOP |
 
-19 个快速路径模板列表 + 流程图 → `references/team-templates/index.md`
+19 个快速路径模板列表 + 流程图 → `references/team-templates/`
 System 1 执行遇错 → 自动升级 System 2
 主理人铁律：禁止代写/禁止跳过阶段/禁止成员直连 → `references/communication.md`
 
@@ -133,7 +133,7 @@ System 1 执行遇错 → 自动升级 System 2
 | R4 场景适配 | 高影响强制三角测量；低影响跳过 |
 
 四档自适应深度：skip(L1) / light(L2) / standard(L3) / deep(L4+高风险)
-- **脚本：** `python3 scripts/cross-validator.py --task <id> --depth auto`
+- **脚本：** `python3 scripts/_legacy/cross-validator.py --task <id> --depth auto`
 
 ---
 
@@ -241,7 +241,7 @@ CLOSED→OPEN(连续3次失败)→HALF_OPEN(冷却60s)→CLOSED(连续恢复2次
 
 #### 熔断器实时可视化
 
-`python3 scripts/health-dashboard.py [--port 9090]` — 本地 Web 仪表板，展示各 Agent 熔断器状态、任务队列深度、失败率趋势。
+`python3 scripts/health_dashboard.py [--port 9090]` — 本地 Web 仪表板，展示各 Agent 熔断器状态、任务队列深度、失败率趋势。
 
 #### JSON API 端点
 
@@ -284,7 +284,7 @@ CLOSED→OPEN(连续3次失败)→HALF_OPEN(冷却60s)→CLOSED(连续恢复2次
 - 失败任务 exit code ≠ 0 时自动触发 `rollback_manager.py restore <agent_id> latest`
 - 回滚后自动重试（指数退避，最多 3 次）
 - 回滚事件计入 Prometheus `team_rollback_events_total`
-- **脚本：** `python3 scripts/memory-bridge.py resume-context` — 记忆桥接，回滚后恢复 Agent 上下文状态
+- **脚本：** `python3 scripts/_memory_collector.py resume-context` — 记忆桥接，回滚后恢复 Agent 上下文状态
 
 ---
 
@@ -319,7 +319,7 @@ CLOSED→OPEN(连续3次失败)→HALF_OPEN(冷却60s)→CLOSED(连续恢复2次
 | 六、反馈循环时 | `references/self-evolution-protocol.md` | 三环协议细节（v2.3 增强版） |
 | 六、反馈循环时 | `references/loop-engineering-research.md` | Loop Engineering 完整调研报告 |
 | 任意阶段 | `references/workbuddy-experts/_index.md` | 302 agents 完整索引 |
-| 运行时监控时 | `references/health-monitoring.md` | 监控指标说明 |
+| 运行时监控时 | `scripts/health_dashboard.py` | 运行时监控仪表板（Prometheus + 熔断器可视化） |
 | 需要时 | `references/first-principles.md` | 第一性原理框架 |
 | 需要时 | `references/task-lifecycle.md` | 任务状态转场规范 |
 | 需要时 | `references/handoff-protocol.md` | 交接协议 |
