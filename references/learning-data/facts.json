@@ -1,0 +1,17 @@
+{
+  "$schema": "facts-store",
+  "version": "1.0.0",
+  "description": "事实库：跨审判积累的已验证事实，供后续举证阶段直接引用",
+  "entries": [
+    {
+      "id": "F-000001",
+      "fact": "示例：A股T+1交易制度自1995年起实施",
+      "domain": "08-FinanceInvestment",
+      "source": "上交所交易规则",
+      "confidence": 0.95,
+      "verified_in": ["TC-20260730-001"],
+      "created_at": "2026-07-30T18:00:00+08:00",
+      "last_verified": "2026-07-30T18:00:00+08:00"
+    }
+  ]
+}

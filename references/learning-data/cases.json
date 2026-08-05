@@ -1,0 +1,21 @@
+{
+  "$schema": "cases-store",
+  "version": "1.0.0",
+  "description": "案例库：每次审判的结构化摘要，供同类议题参考",
+  "entries": [
+    {
+      "id": "C-000001",
+      "docket_id": "TC-20260730-001",
+      "issue_summary": "示例议题摘要",
+      "issue_type": "08-FinanceInvestment",
+      "complexity": "L3",
+      "roles_used": ["正方(主张方)", "反方(质疑方)", "中立(比较方)"],
+      "merger_type": "debate",
+      "verdict_confidence": 0.75,
+      "key_lessons": ["示例经验：需交叉验证数据来源"],
+      "assets_used": ["expert_teams: x"],
+      "duration_minutes": 12,
+      "created_at": "2026-07-30T18:00:00+08:00"
+    }
+  ]
+}

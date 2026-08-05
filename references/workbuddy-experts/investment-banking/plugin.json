@@ -1,0 +1,120 @@
+{
+  "name": "investment-banking",
+  "version": "1.0.0",
+  "description": "IPO prospectus, M&A advisory, bond offering memoranda, regulatory response, roadshow materials, financial modeling (SOTP/scenario)",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/ib-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md"
+  ],
+  "expertType": "team",
+  "agentName": "ib-lead",
+  "teamInfo": {
+    "leadAgent": "ib-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5"
+    ]
+  },
+  "displayName": {
+    "en": "Investment Banking",
+    "zh": "投行承做团队"
+  },
+  "profession": {
+    "en": "IB Advisory & Execution",
+    "zh": "投行承做与顾问"
+  },
+  "displayDescription": {
+    "en": "IPO prospectus, M&A advisory, bond offering memoranda, regulatory response, roadshow materials, financial modeling (SOTP/scenario)",
+    "zh": "IPO招股书、并购顾问报告、债券募集说明书、监管问询回复、路演材料、财务建模(SOTP/情景分析)，适配科创板/创业板/主板/北交所"
+  },
+  "categoryId": "08-FinanceInvestment",
+  "defaultInitPrompt": {
+    "zh": "帮我起草IPO招股书的核心章节",
+    "en": "Draft key IPO prospectus sections"
+  },
+  "members": [
+    {
+      "id": "ib-lead",
+      "name": {
+        "zh": "保荐人",
+        "en": "Sponsor"
+      },
+      "profession": {
+        "zh": "保荐代表人",
+        "en": "Sponsor Rep"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "招股书撰写员",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "招股书撰写员",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "并购分析师",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "并购分析师",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "债券专员",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "债券专员",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "监管合规员",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "监管合规员",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "估值建模师",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "估值建模师",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

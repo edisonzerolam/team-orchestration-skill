@@ -1,1 +1,46 @@
-﻿# 鍐呭鍙樼幇鍥㈤槦 SOP## 鍩烘湰淇℃伅- **鍥㈤槦鍚嶇О**锛歝ontent-monetization锛堝唴瀹瑰彉鐜帮級- **Agent 鏁伴噺**锛?- **瑙﹀彂璇?*锛氬唴瀹瑰彉鐜?鍟嗕笟妯″紡/鏀剁泭浼樺寲/甯垜璧氶挶## 鍥㈤槦鏋舵瀯| Agent | 瑙掕壊 | 鑱岃矗 ||-------|------|------|| revenue-strategist | 鏀剁泭绛栫暐甯?| 鍒跺畾鏁翠綋鍙樼幇绛栫暐锛屽垎鏋愬悇妯″紡浼樺姡 || cps-specialist | CPS涓撳 | 瑙勫垝浣ｉ噾鍒嗘垚妯″紡鐨勯€夊搧鍜屾帹骞跨瓥鐣?|| cpe-cpm-specialist | CPE/CPM涓撳 | 璐熻矗鎸夋晥鏋?鍗冩灞曠ず浠樿垂鐨勫彉鐜扮瓥鐣?|| marketplace-strategist | Marketplace绛栫暐甯?| 璇勪及搴旂敤鍟嗗簵/鐢靛晢骞冲彴鐨勫彉鐜版綔鍔?|| revenue-analyst | 鏀剁泭鍒嗘瀽甯?| 鍒嗘瀽鏀剁泭鏁版嵁锛屽缓绔嬫敹鐩婇娴嬫ā鍨?|## SOP 娴佺▼### Phase 1锛氭敹鐩婄瓥鐣ュ埗瀹?**杈撳叆**锛氬唴瀹硅祫浜?+ 鐢ㄦ埛鐢诲儚**杈撳嚭**锛歚monetization-plan.md`**鐩殑**锛氱‘瀹氭渶浼樺彉鐜拌矾寰?**姝ラ**锛?1. revenue-strategist 鍒嗘瀽鍐呭璧勪骇鐗规€?2. 璇勪及鍚勫彉鐜版ā寮忕殑閫傜敤鎬?3. 鍒跺畾鏁翠綋鍙樼幇绛栫暐### Phase 2锛欳PS 妯″紡瑙勫垝**杈撳叆**锛歮onetization-plan.md**杈撳嚭**锛歚cps-strategy.md`**鐩殑**锛氳鍒掍剑閲戝垎鎴愭ā寮?**姝ラ**锛?1. cps-specialist 閫夋嫨鎺ㄥ箍浜у搧2. 鍒跺畾鎺ㄥ箍璁″垝鍜屼剑閲戜紭鍖栫瓥鐣?3. 杈撳嚭 CPS 绛栫暐鏂囨。### Phase 3锛欳PE/CPM 妯″紡瑙勫垝**杈撳叆**锛歮onetization-plan.md**杈撳嚭**锛歚cpe-cpm-strategy.md`**鐩殑**锛氳鍒掑箍鍛婂彉鐜版ā寮?**姝ラ**锛?1. cpe-cpm-specialist 璁捐骞垮憡灞曠ず绛栫暐2. 浼樺寲骞垮憡濉厖鐜囧拰鐐瑰嚮鐜?3. 杈撳嚭 CPE/CPM 绛栫暐鏂囨。### Phase 4锛歁arketplace 璇勪及**杈撳叆**锛歮onetization-plan.md**杈撳嚭**锛歚marketplace-strategy.md`**鐩殑**锛氳瘎浼板钩鍙板唴璐拱妯″紡**姝ラ**锛?1. marketplace-strategist 璇勪及鍚勫钩鍙拌垂鐜?2. 璁捐鍐呰喘椤圭洰鍜屽畾浠风瓥鐣?3. 杈撳嚭 Marketplace 绛栫暐鏂囨。### Phase 5锛氭敹鐩婂垎鏋愪笌鎶ュ憡**杈撳叆**锛氭墍鏈夌瓥鐣ユ枃妗?**杈撳嚭**锛歚revenue-model.md`**鐩殑**锛氬缓绔嬫敹鐩婃ā鍨嬶紝杈撳嚭棰勬祴鎶ュ憡**姝ラ**锛?1. revenue-analyst 姹囨€诲悇妯″紡棰勬湡鏀剁泭2. 寤虹珛鏀剁泭棰勬祴妯″瀷3. 杈撳嚭缁煎悎鏀剁泭妯″瀷鎶ュ憡## 闃舵鍏冲崱锛圥hase Gates锛?| 鍏冲崱 | 閫氳繃鏉′欢 | 澶辫触澶勭悊 ||------|----------|----------|| PG1-绛栫暐 | 鍙樼幇璁″垝鍖呭惈鑷冲皯2绉嶅彉鐜版ā寮?| 琛ュ厖妯″紡鍒嗘瀽 || PG2-CPS | CPS绛栫暐鍖呭惈鑷冲皯5涓帹骞夸骇鍝佸拰浣ｉ噾棰勬湡 | 琛ュ厖閫夊搧鍒嗘瀽 || PG3-CPE/CPM | 骞垮憡绛栫暐鍖呭惈濉厖鐜囧拰CPM棰勬湡鏁版嵁 | 浼樺寲骞垮憡閰嶇疆 || PG4-Marketplace | Marketplace绛栫暐鍖呭惈鑷冲皯3涓珵鍝佸姣?| 琛ュ厖骞冲彴鍒嗘瀽 || PG5-鏀剁泭鍒嗘瀽 | 鏀剁泭妯″瀷鍖呭惈鍚勬ā寮忔敹鐩婇娴?| 璋冩暣妯″瀷鍙傛暟 |## 浜ゆ帴鍗忚### 浜у嚭鐗╂牸寮?```yaml---team_id: {team_id}agent_id: revenue-strategistrole: 鏀剁泭绛栫暐甯?phase: strategystatus: donefindings: |  鎺ㄨ崘鍙樼幇妯″紡锛欳PS + CPE/CPM缁勫悎  棰勬湡鏈堟敹鐩婏細5涓?8涓囧厓  鍙樼幇浼樺厛绾э細CPS>CPE/CPM>Marketplace---```### 楠屾敹瀛楁- `phase`锛氬綋鍓嶉樁娈?- `status`锛歞one/in_progress- `findings`锛氬彉鐜扮瓥鐣ュ拰棰勬湡鏀剁泭
+
+# 内容变现团队 SOP
+## 基本信息- **团队名称**：
+content-monetization（内容变现）- **Agent 数量**?- **触发?*：
+内容变?商业模式/收益优化/帮我赚钱
+## 团队架构
+| Agent | 角色 | 职责 ||-------|------|------|| revenue-strategist | 收益策略?| 制定整体变现策略，分析各模式优劣 || cps-specialist | CPS专家 | 规划佣金分成模式的品和推广策?|| cpe-cpm-specialist | CPE/CPM专家 | 负责按效?千次展示付费的变现策?|| marketplace-strategist | Marketplace策略?| 评估应用商店/电商平台的变现潜?|| revenue-analyst | 收益分析?| 分析收益数据，建立收益预测模?|
+## SOP 流程
+### Phase 1：
+收益策略制?**输入**：
+内容资?+ 用户画像**输出**：
+`monetization-plan.md`**目的**：
+确定最优变现路?**步骤**?1. revenue-strategist 分析内容资产特?2. 评估各变现模式的适用?3. 制定整体变现策略
+### Phase 2：
+CPS 模式规划**输入**：
+monetization-plan.md**输出**：
+`cps-strategy.md`**目的**：
+规划佣金分成模?**步骤**?1. cps-specialist 选择推广产品2. 制定推广计划和佣金优化策?3. 输出 CPS 策略文档
+### Phase 3：
+CPE/CPM 模式规划**输入**：
+monetization-plan.md**输出**：
+`cpe-cpm-strategy.md`**目的**：
+规划广告变现模?**步骤**?1. cpe-cpm-specialist 设计广告展示策略2. 优化广告填充率和点击?3. 输出 CPE/CPM 策略文档
+### Phase 4：
+Marketplace 评估**输入**：
+monetization-plan.md**输出**：
+`marketplace-strategy.md`**目的**：
+评估平台内购买模式**步骤**?1. marketplace-strategist 评估各平台费?2. 设计内购项目和定价策?3. 输出 Marketplace 策略文档
+### Phase 5：
+收益分析与报告**输入**：
+所有策略文?**输出**：
+`revenue-model.md`**目的**：
+建立收益模型，输出预测报告**步骤**?1. revenue-analyst 汇各模式预期收益2. 建立收益预测模型3. 输出综合收益模型报告
+## 阶段关卡（Phase Gates?
+| 关卡 | 通过条件 | 失败处理 ||------|----------|----------|| PG1-策略 | 变现计划包含至少2种变现模?| 补充模式分析 || PG2-CPS | CPS策略包含至少5个推广产品和佣金预期 | 补充选品分析 || PG3-CPE/CPM | 广告策略包含填充率和CPM预期数据 | 优化广告配置 || PG4-Marketplace | Marketplace策略包含至少3个竞品对?| 补充平台分析 || PG5-收益分析 | 收益模型包含各模式收益预?| 调整模型参数 |
+## 交接协议
+### 产出物格?
+```yaml---team_id: {team_id}agent_id: revenue-strategistrole: 收益策略?phase: strategystatus: donefindings: |  推荐变现模式：
+CPS + CPE/CPM组合  预期月收益：
+5?8万元  变现优先级：
+CPS>CPE/CPM>Marketplace---
+```
+### 验收字段- `phase`：
+当前阶?- `status`：
+done/in_progress- `findings`：
+变现策略和预期收益

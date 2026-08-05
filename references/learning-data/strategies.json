@@ -1,0 +1,17 @@
+{
+  "$schema": "strategies-store",
+  "version": "1.0.0",
+  "description": "策略库：跨审判积累的有效裁决策略与专家调度经验",
+  "entries": [
+    {
+      "id": "S-000001",
+      "issue_type": "08-FinanceInvestment",
+      "strategy": "金融估值类议题优先采用辩论+裁决制，需至少3方(正/反/中立)",
+      "merger_type": "debate",
+      "effectiveness": 0.8,
+      "applied_in": ["TC-20260730-001"],
+      "created_at": "2026-07-30T18:00:00+08:00",
+      "notes": "投票制在主观判断类议题中一致性过低，不适用"
+    }
+  ]
+}

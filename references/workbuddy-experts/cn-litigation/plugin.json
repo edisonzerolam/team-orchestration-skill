@@ -1,0 +1,120 @@
+{
+  "name": "cn-litigation",
+  "version": "1.0.0",
+  "description": "20 skills across 4 layers: routing, document drafting (complaint/defense/evidence/cross-exam/trial outline/closing), analysis (visualization/fact/element/property/legal research), case management (deadlines/review/knowledge base)",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/lit-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md"
+  ],
+  "expertType": "team",
+  "agentName": "lit-lead",
+  "teamInfo": {
+    "leadAgent": "lit-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5"
+    ]
+  },
+  "displayName": {
+    "en": "CN Litigation Team",
+    "zh": "中国诉讼专家团"
+  },
+  "profession": {
+    "en": "Full-lifecycle CN Civil Litigation",
+    "zh": "民商事诉讼全生命周期"
+  },
+  "displayDescription": {
+    "en": "20 skills across 4 layers: routing, document drafting (complaint/defense/evidence/cross-exam/trial outline/closing), analysis (visualization/fact/element/property/legal research), case management (deadlines/review/knowledge base)",
+    "zh": "20技能4层架构：路由层、文书起草（起诉状/答辩状/证据目录/质证/庭审提纲/代理词/8族40+程序文书）、分析层（可视化/事实/要件攻防/财产调查/法律检索）、案件管理（期限/三审/知识库）"
+  },
+  "categoryId": "11-SecurityCompliance",
+  "defaultInitPrompt": {
+    "zh": "帮我起草一份民事起诉状",
+    "en": "Draft a civil complaint"
+  },
+  "members": [
+    {
+      "id": "lit-lead",
+      "name": {
+        "zh": "主诉律师",
+        "en": "Lead Litigator"
+      },
+      "profession": {
+        "zh": "主诉律师",
+        "en": "Lead Litigator"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "文书律师",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "文书律师",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "证据分析师",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "证据分析师",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "法律检索员",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "法律检索员",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "案件管理员",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "案件管理员",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "可视化专员",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "可视化专员",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

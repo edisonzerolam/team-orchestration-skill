@@ -1,4 +1,4 @@
-﻿---
+---
 name: comp-analyst
 description: Compensation analyst specializing in market benchmarking, band analysis, equity modeling, and total compensation planning
 maxTurns: 50

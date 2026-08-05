@@ -1,0 +1,134 @@
+{
+  "name": "alicloud-engineering",
+  "version": "1.0.0",
+  "description": "OpenAPI/Terraform/CLI operations, SDD infrastructure lifecycle (plan→code→validate→execute), 7-specialist 6-phase migration SOP (AWS/Azure/GCP/Tencent/Huawei/IDC → Alibaba Cloud)",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/cloud-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md",
+    "./agents/member-6.md"
+  ],
+  "expertType": "team",
+  "agentName": "cloud-lead",
+  "teamInfo": {
+    "leadAgent": "cloud-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5",
+      "member-6"
+    ]
+  },
+  "displayName": {
+    "en": "Alibaba Cloud Engineering",
+    "zh": "阿里云工程专家团"
+  },
+  "profession": {
+    "en": "Cloud Ops + Infra + Migration",
+    "zh": "云运维/基础设施/迁移"
+  },
+  "displayDescription": {
+    "en": "OpenAPI/Terraform/CLI operations, SDD infrastructure lifecycle (plan→code→validate→execute), 7-specialist 6-phase migration SOP (AWS/Azure/GCP/Tencent/Huawei/IDC → Alibaba Cloud)",
+    "zh": "OpenAPI/Terraform/CLI运维、SDD基础设施全生命周期(plan→code→validate→execute)、7专家6阶段迁移SOP(AWS/Azure/GCP/腾讯/华为/IDC→阿里云)，含跨云产品映射/HA决策/等保合规/应急预案"
+  },
+  "categoryId": "02-Engineering",
+  "defaultInitPrompt": {
+    "zh": "帮我规划从AWS迁移到阿里云的方案",
+    "en": "Plan AWS to Alibaba Cloud migration"
+  },
+  "members": [
+    {
+      "id": "cloud-lead",
+      "name": {
+        "zh": "云架构师",
+        "en": "Cloud Architect"
+      },
+      "profession": {
+        "zh": "首席云架构师",
+        "en": "Chief Cloud Architect"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "运维工程师",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "运维工程师",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "Terraform专员",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "Terraform专员",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "迁移规划师",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "迁移规划师",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "安全合规员",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "安全合规员",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "监控专员",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "监控专员",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-6",
+      "name": {
+        "zh": "网络工程师",
+        "en": "Specialist 6"
+      },
+      "profession": {
+        "zh": "网络工程师",
+        "en": "Specialist 6"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

@@ -1,0 +1,106 @@
+{
+  "name": "devtools-engineering",
+  "version": "1.0.0",
+  "description": "Multi-repo Git workspaces (Orbit), AI-powered requirement verification and bug confirmation against live web apps, backend API logic analysis and documentation",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/dt-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md"
+  ],
+  "expertType": "team",
+  "agentName": "dt-lead",
+  "teamInfo": {
+    "leadAgent": "dt-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4"
+    ]
+  },
+  "displayName": {
+    "en": "DevTools & Testing",
+    "zh": "开发工具与测试团队"
+  },
+  "profession": {
+    "en": "Multi-repo Git + AI Testing",
+    "zh": "多仓Git/AI测试/接口分析"
+  },
+  "displayDescription": {
+    "en": "Multi-repo Git workspaces (Orbit), AI-powered requirement verification and bug confirmation against live web apps, backend API logic analysis and documentation",
+    "zh": "多仓库Git工作区(Orbit)、AI驱动的需求验证与bug确认(对活Web应用)、后端接口逻辑梳理与文档化，覆盖跨仓协作/自动化测试/接口文档生成"
+  },
+  "categoryId": "02-Engineering",
+  "defaultInitPrompt": {
+    "zh": "帮我梳理这个接口的完整逻辑",
+    "en": "Analyze this API's full logic"
+  },
+  "members": [
+    {
+      "id": "dt-lead",
+      "name": {
+        "zh": "工具链负责人",
+        "en": "Toolchain Lead"
+      },
+      "profession": {
+        "zh": "开发工具链负责人",
+        "en": "DevToolchain Lead"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "Git工作流专员",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "Git工作流专员",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "AI测试员",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "AI测试员",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "接口分析师",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "接口分析师",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "文档生成员",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "文档生成员",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

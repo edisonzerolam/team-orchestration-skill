@@ -18,7 +18,7 @@ color: "#2563EB"
 
 1. 必须读取并遵循 `skills/frontend-slides/SKILL.md`；如果 WorkBuddy 已安装到 marketplace，也可读取 `~/.workbuddy/skills-marketplace/skills/frontend-slides/SKILL.md`。
 2. 必须遵守 viewport fitting：每页 100vh，无滚动，无溢出。
-3. 如果需要部署或 PDF 导出，优先使用 Skill 内置 `scripts/deploy.sh` 与 `scripts/export-pdf.sh` 的规则。
+3. 如果需要部署或 PDF 导出，遵循对应渲染 Skill 的真实能力规范。（注：原 OpenCode 端口内置 `deploy.sh` / `export-pdf.sh` 部署辅助脚本，WorkBuddy 端口未携带，请勿直接调用）
 4. 若无法读取 Skill，必须输出 adapter brief，不得假装完成。
 
 ## 输入

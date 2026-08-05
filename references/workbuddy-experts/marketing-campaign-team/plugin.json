@@ -6,25 +6,28 @@
     "name": "Expert Marketplace"
   },
   "agents": "./agents/",
-
   "expertType": "team",
   "agentName": "marketing-director",
   "teamInfo": {
     "leadAgent": "marketing-director",
-    "memberAgents": ["content-creator", "campaign-planner", "seo-expert", "brand-analyst"]
+    "memberAgents": [
+      "content-creator",
+      "campaign-planner",
+      "seo-expert",
+      "brand-analyst"
+    ]
   },
-
   "displayName": {
     "en": "Marketing Campaign Team",
     "zh": "营销战役团队"
   },
   "profession": {
-    "en": "Marketing Campaign & Content",
-    "zh": "营销战役与内容"
+    "zh": "全链路营销增长中台",
+    "en": "Full-funnel Marketing Growth Hub"
   },
   "displayDescription": {
-    "en": "A team of 4 marketing specialists led by a Marketing Director: Content Creator (blog posts/email/social media/brand voice), Campaign Planner (campaign strategy/audience/channels/budget), SEO Expert (technical audit/content optimization/performance analytics), and Brand Analyst (competitive positioning/brand review). Covers the full marketing lifecycle.",
-    "zh": "由营销总监领导的 4 人营销专家团队：内容创作者（博客/邮件/社媒/品牌声音）、活动策划师（战役策略/受众/渠道/预算）、SEO 专家（技术审计/内容优化/效果分析）和品牌分析师（竞品定位/品牌审核）。覆盖完整营销生命周期。"
+    "zh": "5位营销增长专家+全域营销能力层：内容策划、活动营销、SEO优化、品牌策略、社媒趋势追踪、广告合规审查、竞品营销追踪、营销绩效分析（ROI/归因）、品牌声音审查、文案撰写（标题/落地页/CTA/邮件）。覆盖从策略到执行到复盘的全链路营销。",
+    "en": "5 marketing experts + full-spectrum layer: content, campaigns, SEO, brand, social trends, ad compliance, competitive tracking, performance analytics, brand voice, copywriting. Full-funnel marketing."
   },
   "avatar": "avatars/team.png",
   "categoryId": "05-MarketingGrowth",
@@ -35,38 +38,70 @@
   "members": [
     {
       "id": "marketing-director",
-      "name": {"en": "Jiang", "zh": "江增量"},
-      "profession": {"en": "Growth Operator", "zh": "增长操盘手"},
+      "name": {
+        "en": "Jiang",
+        "zh": "江增量"
+      },
+      "profession": {
+        "en": "Growth Operator",
+        "zh": "增长操盘手"
+      },
       "avatar": "avatars/team-lead.png",
       "role": "lead"
     },
     {
       "id": "content-creator",
-      "name": {"en": "Pen", "zh": "笔达"},
-      "profession": {"en": "Content Creator", "zh": "内容创作者"},
+      "name": {
+        "en": "Pen",
+        "zh": "笔达"
+      },
+      "profession": {
+        "en": "Content Creator",
+        "zh": "内容创作者"
+      },
       "avatar": "avatars/content-creator.png",
       "role": "member"
     },
     {
       "id": "campaign-planner",
-      "name": {"en": "Camp", "zh": "策略"},
-      "profession": {"en": "Campaign Planner", "zh": "活动策划师"},
+      "name": {
+        "en": "Camp",
+        "zh": "策略"
+      },
+      "profession": {
+        "en": "Campaign Planner",
+        "zh": "活动策划师"
+      },
       "avatar": "avatars/campaign-planner.png",
       "role": "member"
     },
     {
       "id": "seo-expert",
-      "name": {"en": "Opti", "zh": "优搜"},
-      "profession": {"en": "SEO Expert", "zh": "SEO 专家"},
+      "name": {
+        "en": "Opti",
+        "zh": "优搜"
+      },
+      "profession": {
+        "en": "SEO Expert",
+        "zh": "SEO 专家"
+      },
       "avatar": "avatars/seo-expert.png",
       "role": "member"
     },
     {
       "id": "brand-analyst",
-      "name": {"en": "Brandi", "zh": "品析"},
-      "profession": {"en": "Brand Analyst", "zh": "品牌分析师"},
+      "name": {
+        "en": "Brandi",
+        "zh": "品析"
+      },
+      "profession": {
+        "en": "Brand Analyst",
+        "zh": "品牌分析师"
+      },
       "avatar": "avatars/brand-analyst.png",
       "role": "member"
     }
-  ]
+  ],
+  "_enhancedWith": "qoderwork-plugin-market",
+  "_enhancedAt": "2026-07-31"
 }

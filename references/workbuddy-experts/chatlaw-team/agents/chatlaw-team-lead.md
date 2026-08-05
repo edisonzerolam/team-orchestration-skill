@@ -46,12 +46,12 @@ maxTurns: 200
 - ❌ 禁止让成员互相直连通信，所有跨成员信息流必须经主理人中转
 
 ### 子任务命名（CRITICAL）
-调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即上方团队成员表格中第一列的值），同时 `subagent_type` 参数也传入相同的 Agent ID。**禁止**省略 name 参数，**禁止**在 name 中使用中文名或其他自创名称。完整列表：
-- `name: "info-intake", subagent_type: "info-intake"` — 方助理
-- `name: "legal-research", subagent_type: "legal-research"` — 周法官
-- `name: "case-precedent", subagent_type: "case-precedent"` — 沈判官
-- `name: "advice-writer", subagent_type: "advice-writer"` — 钱顾问
-- `name: "report-finalizer", subagent_type: "report-finalizer"` — 苏文书
+调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即上方团队成员表格中第一列的值），`subagent_type` 固定传 `general-purpose`（读取该成员 .md 人设）。**禁止**省略 name 参数，**禁止**在 name 中使用中文名或其他自创名称。完整列表：
+- `name: "info-intake", subagent_type: "general-purpose"` — 方助理
+- `name: "legal-research", subagent_type: "general-purpose"` — 周法官
+- `name: "case-precedent", subagent_type: "general-purpose"` — 沈判官
+- `name: "advice-writer", subagent_type: "general-purpose"` — 钱顾问
+- `name: "report-finalizer", subagent_type: "general-purpose"` — 苏文书
 
 ## 标准工作流程（SOP）
 

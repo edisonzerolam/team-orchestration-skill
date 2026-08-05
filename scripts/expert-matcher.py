@@ -5,8 +5,121 @@ Matches task decomposition results against the WorkBuddy expert pool.
 """
 import json, sys, os, argparse
 from pathlib import Path
+import sys
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
-EXPERT_DIR = Path.home() / ".config" / "opencode" / "skills" / "team-orchestration" / "references" / "workbuddy-experts"
+# WorkBuddy 适配：改为相对于本脚本定位专家库，安装位置无关
+EXPERT_DIR = Path(__file__).resolve().parent.parent / "references" / "workbuddy-experts"
+SKILL_DIR = Path(__file__).resolve().parent.parent
+
+def _coerce(v):
+    if v.lower() in ("true", "false"):
+        return v.lower() == "true"
+    try:
+        return int(v)
+    except ValueError:
+        pass
+    try:
+        return float(v)
+    except ValueError:
+        pass
+    return v
+
+def _load_yaml(path):
+    """Minimal YAML: 2-space indent nested maps, scalar values. No list support."""
+    tree = {}
+    stack = [(-1, tree)]
+    try:
+        for line in open(path, encoding="utf-8"):
+            s = line.rstrip("\n")
+            if not s.strip() or s.strip().startswith("#"):
+                continue
+            indent = len(s) - len(s.lstrip(" "))
+            key, _, val = s.strip().partition(":")
+            key = key.strip()
+            val = val.strip()
+            while stack and stack[-1][0] >= indent:
+                stack.pop()
+            parent = stack[-1][1]
+            if val == "":
+                node = {}
+                parent[key] = node
+                stack.append((indent, node))
+            else:
+                parent[key] = _coerce(val)
+    except FileNotFoundError:
+        return {}
+    return tree
+
+_MATCHER_KEYS = ("category", "bigram", "capability", "history")
+_MATCHER_DEFAULT = {"category": 0.40, "bigram": 0.35, "capability": 0.15, "history": 0.10}
+
+
+def _load_matcher_config():
+    cfg = _load_yaml(SKILL_DIR / "config.yaml")
+    m = (cfg.get("matcher") or {})
+    w = m.get("weights")
+    if w is None:
+        w = dict(_MATCHER_DEFAULT)  # 整块缺失才回退默认
+    elif not isinstance(w, dict) or any(
+        k not in w or not isinstance(w[k], (int, float)) or not 0 <= w[k] <= 1
+        for k in _MATCHER_KEYS
+    ):
+        raise ValueError(f"matcher.weights 非法（须含四键且取值 0~1）: {w}")
+    total = sum(float(w[k]) for k in _MATCHER_KEYS)
+    if abs(total - 1.0) > 0.05:
+        print(f"[WARN] matcher.weights 四键之和={total:.2f}，偏离 1.0，请检查 config.yaml")
+    return {
+        "weights": w,
+        "min_score": m.get("min_score", 0.30),
+        "top_k": m.get("top_k", 3),
+        "history_file": m.get("history_file", "references/learning-data/expert_scores.json"),
+    }
+
+MATCHER_CFG = _load_matcher_config()
+
+def _bigram_jaccard(text_a: str, text_b: str) -> float:
+    """中文 bigram Jaccard 相似度（纯标准库）。"""
+    def _bigrams(s):
+        s = s.lower().replace(" ", "")
+        return set(s[i:i+2] for i in range(len(s)-1)) if len(s) >= 2 else set()
+    ba, bb = _bigrams(text_a), _bigrams(text_b)
+    if not ba or not bb:
+        return 0.0
+    return len(ba & bb) / len(ba | bb)
+
+def _extract_capabilities(plugin_dir):
+    """从 agents/*.md 提取能力关键词。"""
+    agents_dir = plugin_dir / "agents"
+    caps = []
+    if not agents_dir.exists():
+        return caps
+    for md in agents_dir.glob("*.md"):
+        try:
+            text = md.read_text(encoding="utf-8")
+        except Exception:
+            continue
+        for line in text.splitlines()[:30]:
+            if "擅长" in line or "专业" in line or "能力" in line:
+                stripped = line.strip().lstrip("-# ").strip()
+                if stripped and len(stripped) > 2:
+                    caps.append(stripped)
+    return caps
+
+def _load_history_scores(history_file):
+    p = SKILL_DIR / history_file
+    if not p.exists():
+        return {}
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    if isinstance(data, dict) and "expert_scores" in data:
+        return data["expert_scores"]
+    return data if isinstance(data, dict) else {}
 
 def load_all_experts():
     experts = {}
@@ -32,24 +145,69 @@ def load_all_experts():
             "expert_type": data.get("expertType", ""),
             "lead_name": data.get("members", [{}])[0].get("name", {}).get("zh", "") if data.get("members") else "",
             "agent_count": agent_count,
+            "capabilities": data.get("capabilities", ""),
+            "capabilities_list": _extract_capabilities(plugin_dir),
         }
     return experts
 
-def match(experts: dict, domains: list, top_k: int = 3) -> list:
+def match(experts: dict, domains: list, top_k: int = None, weights: dict = None, task_text: str = "") -> list:
+    """P0.2: 4-dimensional weighted expert matching.
+
+    Dimensions (weights from config.yaml):
+      - category:    domain category id substring in expert category_id
+      - bigram:      中文 bigram Jaccard 相似度 (description_zh + capabilities)
+      - capability:  domain tokens found in expert capabilities field
+      - history:     historical performance score from learning data (0..1)
+    Each dim is normalized to [0,1]; total is the weighted sum, capped at 1.0.
+    """
+    cfg = MATCHER_CFG
+    w = weights or cfg["weights"]
+    top_k = cfg["top_k"] if top_k is None else max(int(top_k), 0)
+    min_score = cfg["min_score"]
+    history = _load_history_scores(cfg["history_file"])
+    # task_text: 优先使用显式传入的，否则从 domains 拼接
+    if not task_text:
+        task_text = " ".join(domains)
     scored = []
     for name, info in experts.items():
-        score = 0.0
+        s_cat = 0.0
+        s_desc = 0.0
+        s_cap = 0.0
         for domain in domains:
             cat_id = domain.split("-", 1)[-1].lower() if "-" in domain else domain.lower()
-            if cat_id in info.get("category_id", "").lower():
-                score += 0.6
-            if cat_id in info.get("description_zh", "").lower():
-                score += 0.3
-            if cat_id in info.get("display_zh", "").lower():
-                score += 0.1
-        score = min(score, 1.0)
-        if score > 0.2:
-            scored.append((score, info))
+            tokens = [t for t in cat_id.replace("_", "-").split("-") if t]
+            if cat_id and cat_id in info.get("category_id", "").lower():
+                s_cat += 1.0
+            desc = info.get("description_zh", "").lower()
+            cap = (info.get("capabilities", "") or "").lower()
+            for t in tokens:
+                if t and t in desc:
+                    s_desc += 1.0
+                if t and t in cap:
+                    s_cap += 1.0
+        s_cat = min(s_cat, 1.0)
+        s_desc = min(s_desc, 1.0)
+        s_cap = min(s_cap, 1.0)
+        # bigram Jaccard 增强
+        desc_zh = info.get("description_zh", "")
+        s_desc = max(s_desc, _bigram_jaccard(task_text, desc_zh))
+        # capability bigram 增强
+        cap_text = " ".join(info.get("capabilities_list", []))
+        s_cap = max(s_cap, _bigram_jaccard(task_text, cap_text))
+        hist_raw = history.get(name, 0.0)
+        try:
+            s_hist = float(hist_raw)
+        except (TypeError, ValueError):
+            s_hist = 0.0
+        s_hist = min(max(s_hist, 0.0), 1.0)
+        # 权重已由 _load_matcher_config 校验（四键存在），此处直取避免不一致兜底默认
+        total = (w["category"] * s_cat
+                 + w["bigram"] * s_desc
+                 + w["capability"] * s_cap
+                 + w["history"] * s_hist)
+        total = min(total, 1.0)
+        if total >= min_score:
+            scored.append((round(total, 4), info))
     scored.sort(key=lambda x: -x[0])
     return scored[:top_k]
 
@@ -62,11 +220,16 @@ def main():
     args = ap.parse_args()
     experts = load_all_experts()
     if args.domains:
-        matches = match(experts, args.domains, args.top_k)
+        matches = match(experts, args.domains, args.top_k, task_text=args.task)
     else:
-        from task_decomposer import decompose
-        result = decompose(args.task)
-        matches = match(experts, result["domains"], args.top_k)
+        # WorkBuddy 适配：task-decomposer.py 含连字符，无法用 `import` 直接导入，改用 importlib 按路径加载
+        import importlib.util as _ilu
+        _td_path = Path(__file__).resolve().parent / "task-decomposer.py"
+        _td_spec = _ilu.spec_from_file_location("task_decomposer_mod", str(_td_path))
+        _td_mod = _ilu.module_from_spec(_td_spec)
+        _td_spec.loader.exec_module(_td_mod)
+        result = _td_mod.decompose(args.task)
+        matches = match(experts, result["domains"], args.top_k, task_text=args.task)
     if args.json:
         print(json.dumps([{"score": round(s, 2), **m} for s, m in matches], ensure_ascii=False, indent=2))
     else:

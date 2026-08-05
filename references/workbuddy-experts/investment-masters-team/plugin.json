@@ -65,12 +65,12 @@
     "zh": "投资大师专家团"
   },
   "profession": {
-    "en": "AI Hedge Fund Multi-Master Investment Analysis Team",
-    "zh": "AI对冲基金多大师投资分析专家团"
+    "zh": "多流派投资智慧+量化验证引擎",
+    "en": "Multi-school Investment Wisdom + Quant Validation"
   },
   "displayDescription": {
-    "en": "19 investment analysts (13 legendary investors + 6 professional analysts) analyze in parallel, followed by risk management and portfolio decision, delivering multi-perspective investment analysis via voting-based signal aggregation",
-    "zh": "13位传奇投资哲学家 + 6位专业分析师并行分析，风险管理师评估约束，投资组合经理信号聚合投票，多角度投资分析参考"
+    "zh": "13位传奇投资哲学家（巴菲特/芒格/段永平/李录等）+ 6位专业分析师并行分析 + 价值投资计算工具（Python精确财务计算/财报审计）+ 风险管理师评估约束 + 投资组合经理信号聚合投票。多流派投资智慧引擎，覆盖深度公司研究、财报解读、行业筛选、组合管理、思维工具。",
+    "en": "13 investment philosophers (Buffett/Munger/Duan/Li Lu) + 6 analysts + value investing Python tools + risk manager + portfolio manager signal aggregation. Multi-school wisdom engine."
   },
   "avatar": "avatars/team.png",
   "categoryId": "08-FinanceInvestment",
@@ -365,5 +365,7 @@
       "avatar": "avatars/portfolio-manager.png",
       "role": "member"
     }
-  ]
+  ],
+  "_enhancedWith": "qoderwork-plugin-market",
+  "_enhancedAt": "2026-07-31"
 }

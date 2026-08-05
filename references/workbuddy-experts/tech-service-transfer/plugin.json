@@ -1,0 +1,120 @@
+{
+  "name": "tech-service-transfer",
+  "version": "1.0.0",
+  "description": "Demand mining, results matching, value assessment, deal planning, project follow-up, policy matching; Supply: opportunity discovery, product definition, tech demonstration, prototype, mass production, commercialization, fundraising",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/ts-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md"
+  ],
+  "expertType": "team",
+  "agentName": "ts-lead",
+  "teamInfo": {
+    "leadAgent": "ts-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5"
+    ]
+  },
+  "displayName": {
+    "en": "Tech Service & Transfer",
+    "zh": "科技服务转化专家团"
+  },
+  "profession": {
+    "en": "Sci-tech Service Full Chain",
+    "zh": "科技服务全链路"
+  },
+  "displayDescription": {
+    "en": "Demand mining, results matching, value assessment, deal planning, project follow-up, policy matching; Supply: opportunity discovery, product definition, tech demonstration, prototype, mass production, commercialization, fundraising",
+    "zh": "需求侧：技术需求挖掘、成果搜索匹配、价值评估、交易方案、项目跟进、政策资金匹配。供给侧：产品机会发现、产品定义、技术方案论证、原型验证、量产规划、商业化策略、融资准备"
+  },
+  "categoryId": "12-IndustryConsultant",
+  "defaultInitPrompt": {
+    "zh": "帮我评估这项技术的商业化价值",
+    "en": "Assess commercialization value of this tech"
+  },
+  "members": [
+    {
+      "id": "ts-lead",
+      "name": {
+        "zh": "转化总监",
+        "en": "Transfer Director"
+      },
+      "profession": {
+        "zh": "科技转化总监",
+        "en": "Tech Transfer Director"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "需求分析师",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "需求分析师",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "成果匹配员",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "成果匹配员",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "价值评估师",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "价值评估师",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "技术论证员",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "技术论证员",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "商业化策略师",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "商业化策略师",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

@@ -1,0 +1,120 @@
+{
+  "name": "wealth-management",
+  "version": "1.0.0",
+  "description": "Market snapshots, asset allocation, fund analysis, client reporting, financial planning, tax planning for RMs, private bankers, fund researchers, family offices",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/wm-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md"
+  ],
+  "expertType": "team",
+  "agentName": "wm-lead",
+  "teamInfo": {
+    "leadAgent": "wm-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5"
+    ]
+  },
+  "displayName": {
+    "en": "Wealth Management",
+    "zh": "财富管理专家团"
+  },
+  "profession": {
+    "en": "Full-spectrum Wealth Management",
+    "zh": "全方位财富管理"
+  },
+  "displayDescription": {
+    "en": "Market snapshots, asset allocation, fund analysis, client reporting, financial planning, tax planning for RMs, private bankers, fund researchers, family offices",
+    "zh": "市场快照、资产配置、基金分析、客户报告、财务规划、税务规划，服务客户经理、私人银行家、基金研究员、家族办公室"
+  },
+  "categoryId": "08-FinanceInvestment",
+  "defaultInitPrompt": {
+    "zh": "帮我做一份资产配置方案",
+    "en": "Create an asset allocation plan"
+  },
+  "members": [
+    {
+      "id": "wm-lead",
+      "name": {
+        "zh": "财管家",
+        "en": "WM Director"
+      },
+      "profession": {
+        "zh": "财富管理总监",
+        "en": "WM Director"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "资产配置师",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "资产配置师",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "基金研究员",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "基金研究员",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "财务规划师",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "财务规划师",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "税务顾问",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "税务顾问",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "客户报告专员",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "客户报告专员",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

@@ -1,0 +1,9 @@
+{
+  "strategy": {
+    "08-FinanceInvestment": {
+      "preferred_asset": "expert_teams",
+      "usage": 1
+    }
+  },
+  "ts": "2026-07-30T18:34:15.044656+08:00"
+}

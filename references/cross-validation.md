@@ -378,7 +378,7 @@ cross_confidence = w1 × consistency + w2 × verification + w3 × reasoning
 |------|------|
 | `scripts/cross-validator.py` | 验证编排核心（CLI + Python API） |
 | `references/cross-validation.md` | 本文档 |
-| `tests/test_cross_validator.py` | 验证单元测试 |
+| `tests/run_smoke.py` | 冒烟测试入口（逐文件执行 test_*，间接覆盖 cross-validator 等全部脚本） |
 
 ### 修改文件
 

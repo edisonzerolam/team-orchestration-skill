@@ -1,1 +1,45 @@
-﻿# 鏁版嵁鍒嗘瀽鍥㈤槦 SOP## 鍩烘湰淇℃伅- **鍥㈤槦鍚嶇О**锛歛i-data-copilot锛堟暟鎹垎鏋愶級- **Agent 鏁伴噺**锛?- **瑙﹀彂璇?*锛氭暟鎹垎鏋?鏁版嵁鏌ヨ/鏁版嵁鎶ュ憡/甯垜鍒嗘瀽鏁版嵁## 鍥㈤槦鏋舵瀯| Agent | 瑙掕壊 | 鑱岃矗 ||-------|------|------|| data-architect | 鏁版嵁鏋舵瀯甯?| 璁捐鏁版嵁浠撳簱妯″瀷锛岃鍒?SQL 鏌ヨ閫昏緫 || sql-developer | SQL 寮€鍙?| 缂栧啓鍜屼紭鍖?SQL 鏌ヨ || model-engineer | 妯″瀷宸ョ▼甯?| 寤虹珛鏁版嵁妯″瀷锛岃繘琛岀粺璁″垎鏋?|| visualization-expert | 鍙鍖栦笓瀹?| 璁捐鍥捐〃锛屽埗浣?Dashboard || knowledge-synthesizer | 鐭ヨ瘑缁煎悎甯?| 瑙ｈ鏁版嵁鍙戠幇锛岃繛鎺ヤ笟鍔＄煡璇?|| report-writer | 鎶ュ憡鎾板啓 | 鎾板啓鏈€缁堝垎鏋愭姤鍛?|## SOP 娴佺▼### Phase 1锛氶渶姹傚垎瑙?**杈撳叆**锛氱敤鎴风殑鏁版嵁鍒嗘瀽闇€姹?**杈撳嚭**锛歚data-plan.md`**鐩殑**锛氱悊瑙ｉ渶姹傦紝璁捐鏁版嵁鑾峰彇绛栫暐**姝ラ**锛?1. data-architect 鎷嗚В闇€姹傦紝纭畾鎵€闇€鏁版嵁婧?2. 璇嗗埆鏁版嵁琛ㄥ拰鍏宠仈鍏崇郴3. 缂栧啓鏁版嵁璁″垝鏂囨。### Phase 2锛歋QL 鏌ヨ**杈撳叆**锛歞ata-plan.md**杈撳嚭**锛歚sql-results.md`**鐩殑**锛氳幏鍙栧師濮嬫暟鎹?**姝ラ**锛?1. sql-developer 缂栧啓 SQL 鏌ヨ2. 鎵ц鏌ヨ骞堕獙璇佺粨鏋?3. 杈撳嚭鍘熷鏁版嵁缁撴灉### Phase 3锛氬缓妯″垎鏋?**杈撳叆**锛歴ql-results.md**杈撳嚭**锛歚model-results.md`**鐩殑**锛氫粠鏁版嵁涓彁鍙栨礊瀵?**姝ラ**锛?1. model-engineer 寤虹珛鍒嗘瀽妯″瀷2. 杩涜缁熻鍒嗘瀽3. 杈撳嚭妯″瀷缁撴灉鍜岀粺璁″彂鐜?### Phase 4锛氬彲瑙嗗寲**杈撳叆**锛歮odel-results.md**杈撳嚭**锛歚dashboard.html`**鐩殑**锛氬皢鏁版嵁鍙鍖?**姝ラ**锛?1. visualization-expert 璁捐鍥捐〃绫诲瀷2. 鐢熸垚 HTML Dashboard3. 浜や簰寮忓浘琛ㄥ畬鎴?### Phase 5锛氱煡璇嗙患鍚?+ 鎶ュ憡**杈撳叆**锛氭墍鏈夊垎鏋愮粨鏋?**杈撳嚭**锛歚knowledge-findings.md` + `final-report.md`**鐩殑**锛氬舰鎴愬畬鏁村垎鏋愭姤鍛?**姝ラ**锛?1. knowledge-synthesizer 瑙ｈ鏁版嵁鍙戠幇2. 杩炴帴涓氬姟鐭ヨ瘑锛屽舰鎴愭礊瀵?3. report-writer 鎾板啓鏈€缁堟姤鍛?## 闃舵鍏冲崱锛圥hase Gates锛?| 鍏冲崱 | 閫氳繃鏉′欢 | 澶辫触澶勭悊 ||------|----------|----------|| PG1-闇€姹傚垎瑙?| data-plan.md 鏄庣‘鏁版嵁婧愬拰鏌ヨ璁″垝 | 杩斿洖閲嶆柊鐞嗚В闇€姹?|| PG2-SQL鏌ヨ | SQL 鎵ц鎴愬姛锛屾暟鎹噺鍚堢悊 | 浼樺寲 SQL 鎴栨洿鎹㈡暟鎹簮 || PG3-寤烘ā鍒嗘瀽 | 妯″瀷缁撴灉缁熻鏄捐憲 | 璋冩暣妯″瀷鎴栬ˉ鍏呮暟鎹?|| PG4-鍙鍖?| Dashboard 鍥捐〃姝ｇ‘灞曠ず鍏抽敭鎸囨爣 | 璋冩暣鍥捐〃绫诲瀷鎴栨暟鎹槧灏?|| PG5-鎶ュ憡 | 鎶ュ憡鍖呭惈涓氬姟娲炲療鍜屽缓璁?| 琛ュ厖鍒嗘瀽鎴栭噸鏂拌В璇?|## 浜ゆ帴鍗忚### 浜у嚭鐗╂牸寮?```yaml---team_id: {team_id}agent_id: data-architectrole: 鏁版嵁鏋舵瀯甯?phase: planningstatus: donefindings: |  鏁版嵁婧愶細sales_orders + customers  鍏抽敭鎸囨爣锛氭湀閿€鍞銆佸鎴风暀瀛樼巼---```### 楠屾敹瀛楁- `phase`锛氬綋鍓嶉樁娈?- `status`锛歞one/in_progress- `findings`锛氭牳蹇冨彂鐜版弿杩
+
+# 数据分析团队 SOP
+## 基本信息- **团队名称**：
+ai-data-copilot（数据分析）- **Agent 数量**?- **触发?*：
+数据分?数据查询/数据报告/帮我分析数据
+## 团队架构
+| Agent | 角色 | 职责 ||-------|------|------|| data-architect | 数据架构?| 设计数据仓库模型，规?SQL 查询逻辑 || sql-developer | SQL 弢?| 编写和优?SQL 查询 || model-engineer | 模型工程?| 建立数据模型，进行统计分?|| visualization-expert | 可视化专?| 设计图表，制?Dashboard || knowledge-synthesizer | 知识综合?| 解读数据发现，连接业务知?|| report-writer | 报告撰写 | 撰写朢终分析报?|
+## SOP 流程
+### Phase 1：
+需求分?**输入**：
+用户的数据分析霢?**输出**：
+`data-plan.md`**目的**：
+理解需求，设计数据获取策略**步骤**?1. data-architect 拆解霢求，确定扢霢数据?2. 识别数据表和关联关系3. 编写数据计划文档
+### Phase 2：
+SQL 查询**输入**：
+data-plan.md**输出**：
+`sql-results.md`**目的**：
+获取原始数?**步骤**?1. sql-developer 编写 SQL 查询2. 执行查询并验证结?3. 输出原始数据结果
+### Phase 3：
+建模分?**输入**：
+sql-results.md**输出**：
+`model-results.md`**目的**：
+从数据中提取洞?**步骤**?1. model-engineer 建立分析模型2. 进行统计分析3. 输出模型结果和统计发?
+### Phase 4：
+可视化**输入**：
+model-results.md**输出**：
+`dashboard.html`**目的**：
+将数据可视?**步骤**?1. visualization-expert 设计图表类型2. 生成 HTML Dashboard3. 交互式图表完?
+### Phase 5：
+知识综?+ 报告**输入**：
+所有分析结?**输出**：
+`knowledge-findings.md` + `final-report.md`**目的**：
+形成完整分析报?**步骤**?1. knowledge-synthesizer 解读数据发现2. 连接业务知识，形成洞?3. report-writer 撰写朢终报?
+## 阶段关卡（Phase Gates?
+| 关卡 | 通过条件 | 失败处理 ||------|----------|----------|| PG1-霢求分?| data-plan.md 明确数据源和查询计划 | 返回重新理解霢?|| PG2-SQL查询 | SQL 执行成功，数据量合理 | 优化 SQL 或更换数据源 || PG3-建模分析 | 模型结果统计显著 | 调整模型或补充数?|| PG4-可视?| Dashboard 图表正确展示关键指标 | 调整图表类型或数据映?|| PG5-报告 | 报告包含业务洞察和建?| 补充分析或重新解?|
+## 交接协议
+### 产出物格?
+```yaml---team_id: {team_id}agent_id: data-architectrole: 数据架构?phase: planningstatus: donefindings: |  数据源：
+sales_orders + customers  关键指标：
+月锢售额、客户留存率---
+```
+### 验收字段- `phase`：
+当前阶?- `status`：
+done/in_progress- `findings`：
+核心发现描

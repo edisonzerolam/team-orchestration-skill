@@ -162,11 +162,11 @@ maxTurns: 150
 
 
 ### 子任务命名（CRITICAL）
-调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），同时 `subagent_type` 参数也传入相同的 Agent ID。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
-- `name: "ai-comment-specialist", subagent_type: "ai-comment-specialist"`
-- `name: "brand-monitor", subagent_type: "brand-monitor"`
-- `name: "interaction-automator", subagent_type: "interaction-automator"`
-- `name: "signal-miner", subagent_type: "signal-miner"`
+调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），`subagent_type` 固定传 `general-purpose`（读取该成员 .md 人设）。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
+- `name: "ai-comment-specialist", subagent_type: "general-purpose"`
+- `name: "brand-monitor", subagent_type: "general-purpose"`
+- `name: "interaction-automator", subagent_type: "general-purpose"`
+- `name: "signal-miner", subagent_type: "general-purpose"`
 
 ## 协作规则
 1. **正式团队协作流程**：所有成员调度必须经过"建立团队 → 调度成员 → 成员回传"流程

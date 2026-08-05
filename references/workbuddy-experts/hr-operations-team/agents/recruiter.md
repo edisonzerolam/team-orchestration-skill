@@ -1,4 +1,4 @@
-﻿---
+---
 name: recruiter
 description: Recruiter specializing in pipeline management, structured interview design, offer drafting, and candidate experience
 maxTurns: 50

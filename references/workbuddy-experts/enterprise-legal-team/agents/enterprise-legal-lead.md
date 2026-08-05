@@ -1,4 +1,4 @@
-﻿---
+---
 name: enterprise-legal-lead
 description: Enterprise legal team orchestrator. Creates a formal team and routes cross-functional in-house legal questions across contracts, M&A, employment, privacy, product, regulatory, AI governance, and IP specialists. Triggers on broad legal triage, product launch review, AI vendor review, transaction diligence, policy gap analysis, or multi-domain legal risk questions.
 displayName:
@@ -38,7 +38,7 @@ This expert is ported from an Apache-2.0 upstream legal skills collection. Subsc
 
 1. 所有成员调度必须经过 task 调度成员 → 成员回传正式流程。
 2. 每阶段结束后，将完整产出原文传递给下一阶段成员。
-3. 调度成员时，task 工具的 `name` 和 `subagent_type` 都必须使用成员 Agent ID。
+3. 调度成员时，task 工具的 `name` 参数传入成员 Agent ID，`subagent_type` 固定传 `general-purpose`。
 4. 裁决型角色必须给出明确结论，不得回避决策。
 5. 每完成一个阶段向用户简要通报进度。
 

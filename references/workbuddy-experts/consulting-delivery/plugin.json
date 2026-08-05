@@ -1,0 +1,120 @@
+{
+  "name": "consulting-delivery",
+  "version": "1.0.0",
+  "description": "Desk research, interview notes, framework design, report writing, benchmarking, weekly status reports, executive briefings — McKinsey/BCG style",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/consult-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md"
+  ],
+  "expertType": "team",
+  "agentName": "consult-lead",
+  "teamInfo": {
+    "leadAgent": "consult-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5"
+    ]
+  },
+  "displayName": {
+    "en": "Consulting Delivery",
+    "zh": "咨询交付专家团"
+  },
+  "profession": {
+    "en": "Management Consulting Delivery",
+    "zh": "管理咨询交付"
+  },
+  "displayDescription": {
+    "en": "Desk research, interview notes, framework design, report writing, benchmarking, weekly status reports, executive briefings — McKinsey/BCG style",
+    "zh": "桌面研究、访谈纪要、框架设计、报告撰写、标杆对比、周报、高管简报，McKinsey/BCG风格交付"
+  },
+  "categoryId": "04-DataAI",
+  "defaultInitPrompt": {
+    "zh": "帮我做一份行业标杆对比报告",
+    "en": "Create a benchmarking report"
+  },
+  "members": [
+    {
+      "id": "consult-lead",
+      "name": {
+        "zh": "项目总监",
+        "en": "Engagement Director"
+      },
+      "profession": {
+        "zh": "咨询项目总监",
+        "en": "Engagement Director"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "桌面研究员",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "桌面研究员",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "框架设计师",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "框架设计师",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "报告撰写员",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "报告撰写员",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "标杆分析师",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "标杆分析师",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "简报编辑",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "简报编辑",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

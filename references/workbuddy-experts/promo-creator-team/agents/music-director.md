@@ -92,10 +92,12 @@ skills:
 只有当用户明确要求时才执行：
 
 ```bash
-python scripts/mureka.py instrumental \
-  --prompt "<validated English prompt>" \
-  -n 3 --format mp3 \
-  --output assets/bgm/
+# ⚠️ mureka.py 为 OpenCode 时代音乐生成脚本，WorkBuddy 端口未内置；
+#    实际音乐生成请调用对应音乐 Skill。下方为原流程说明（勿直接运行）：
+# python mureka.py instrumental \
+#   --prompt "<validated English prompt>" \
+#   -n 3 --format mp3 \
+#   --output assets/bgm/
 ```
 
 需要 `MUREKA_API_KEY` 环境变量。

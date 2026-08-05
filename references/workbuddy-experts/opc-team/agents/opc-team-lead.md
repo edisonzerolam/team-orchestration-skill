@@ -43,15 +43,15 @@ skills:
 
 
 ### 子任务命名（CRITICAL）
-调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），同时 `subagent_type` 参数也传入相同的 Agent ID。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
-- `name: "opc-asset-strategist", subagent_type: "opc-asset-strategist"`
-- `name: "opc-conversion-designer", subagent_type: "opc-conversion-designer"`
-- `name: "opc-dashboard-reviewer", subagent_type: "opc-dashboard-reviewer"`
-- `name: "opc-model-architect", subagent_type: "opc-model-architect"`
-- `name: "opc-mvp-designer", subagent_type: "opc-mvp-designer"`
-- `name: "opc-niche-strategist", subagent_type: "opc-niche-strategist"`
-- `name: "opc-resource-auditor", subagent_type: "opc-resource-auditor"`
-- `name: "opc-value-designer", subagent_type: "opc-value-designer"`
+调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），`subagent_type` 固定传 `general-purpose`（读取该成员 .md 人设）。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
+- `name: "opc-asset-strategist", subagent_type: "general-purpose"`
+- `name: "opc-conversion-designer", subagent_type: "general-purpose"`
+- `name: "opc-dashboard-reviewer", subagent_type: "general-purpose"`
+- `name: "opc-model-architect", subagent_type: "general-purpose"`
+- `name: "opc-mvp-designer", subagent_type: "general-purpose"`
+- `name: "opc-niche-strategist", subagent_type: "general-purpose"`
+- `name: "opc-resource-auditor", subagent_type: "general-purpose"`
+- `name: "opc-value-designer", subagent_type: "general-purpose"`
 
 ## 协作规则
 

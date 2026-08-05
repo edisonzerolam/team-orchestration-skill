@@ -12,8 +12,18 @@ Usage:
 import json, os, sys, argparse, subprocess, tempfile
 from pathlib import Path
 from datetime import datetime
+import sys
+import sys
+import sys
+import sys
+import sys
+import sys
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
-EXPERT_DIR = Path.home() / ".config" / "opencode" / "skills" / "team-orchestration" / "references" / "workbuddy-experts"
+EXPERT_DIR = Path(__file__).resolve().parent.parent.parent / "references" / "workbuddy-experts"
 REPORT_DIR = EXPERT_DIR.parent / "evolution-reports"
 
 def get_expert_domains(name: str) -> list:
@@ -38,15 +48,10 @@ def build_search_queries(domains: list) -> list:
     return queries[:5]
 
 def search_web(query: str) -> str:
-    try:
-        result = subprocess.run(
-            ["python3", str(EXPERT_DIR.parent.parent.parent / "scripts" / "self-evolution" / "web_search_stub.py"),
-             "--query", query],
-            capture_output=True, text=True, timeout=30
-        )
-        return result.stdout[:500] if result.stdout else "（搜索未返回结果）"
-    except Exception as e:
-        return f"（搜索失败: {e}）"
+    # 环境未提供 web 搜索工具（web_search_stub.py 缺失，且无 python3 命令）
+    import logging
+    logging.getLogger(__name__).warning("联网搜索不可用，跳过: %s", query)
+    return "（联网搜索不可用：环境未提供 web 搜索工具）"
 
 def generate_report(name: str, queries: list, results: list) -> str:
     report = f"""# 进化报告: {name}

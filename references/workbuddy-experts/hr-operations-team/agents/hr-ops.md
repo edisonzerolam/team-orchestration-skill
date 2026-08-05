@@ -1,4 +1,4 @@
-﻿---
+---
 name: hr-ops
 description: HR operations specialist handling onboarding, policy lookup, compliance, and employee handbook management
 maxTurns: 50

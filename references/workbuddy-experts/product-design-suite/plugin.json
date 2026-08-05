@@ -1,0 +1,134 @@
+{
+  "name": "product-design-suite",
+  "version": "1.0.0",
+  "description": "11 core scenarios: problem definition, user research, IA, interaction flows, visual standards, marketing assets, motion, design review, usability testing, engineering handoff, retrospectives. 28 chained skills",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/pd-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md",
+    "./agents/member-6.md"
+  ],
+  "expertType": "team",
+  "agentName": "pd-lead",
+  "teamInfo": {
+    "leadAgent": "pd-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5",
+      "member-6"
+    ]
+  },
+  "displayName": {
+    "en": "Product Design Suite",
+    "zh": "产品设计全流程专家团"
+  },
+  "profession": {
+    "en": "Full-process Design Toolkit",
+    "zh": "设计全流程11场景"
+  },
+  "displayDescription": {
+    "en": "11 core scenarios: problem definition, user research, IA, interaction flows, visual standards, marketing assets, motion, design review, usability testing, engineering handoff, retrospectives. 28 chained skills",
+    "zh": "11核心场景：问题定义、用户研究、信息架构、交互流程、视觉规范、营销资产、动效开发、设计评审、可用性测试、工程交付、回顾。28个链式技能，上游产出自动传递"
+  },
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "zh": "帮我做用户研究和信息架构",
+    "en": "Help with user research and IA"
+  },
+  "members": [
+    {
+      "id": "pd-lead",
+      "name": {
+        "zh": "设计总监",
+        "en": "Design Director"
+      },
+      "profession": {
+        "zh": "设计总监",
+        "en": "Design Director"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "用户研究员",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "用户研究员",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "交互设计师",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "交互设计师",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "视觉设计师",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "视觉设计师",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "动效设计师",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "动效设计师",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "可用性测试员",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "可用性测试员",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-6",
+      "name": {
+        "zh": "设计系统工程师",
+        "en": "Specialist 6"
+      },
+      "profession": {
+        "zh": "设计系统工程师",
+        "en": "Specialist 6"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

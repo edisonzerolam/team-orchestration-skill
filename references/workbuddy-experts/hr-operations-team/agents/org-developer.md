@@ -1,4 +1,4 @@
-﻿---
+---
 name: org-developer
 description: Org development consultant specializing in org planning, performance reviews, people analytics, and organizational health assessment
 maxTurns: 50

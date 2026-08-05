@@ -1,0 +1,21 @@
+[
+  {
+    "docket_id": "TC-TEST-001",
+    "issue_type": "08-FinanceInvestment",
+    "roles": [
+      "A",
+      "B"
+    ],
+    "sub_agent_count": 2,
+    "assets": {
+      "expert_teams": [
+        "x"
+      ],
+      "mcp_tools": [],
+      "skills": [],
+      "connectors": []
+    },
+    "archived_at": "C:\\Users\\林昌\\AppData\\Local\\Temp\\tmpnunoxj_q",
+    "ts": "2026-07-30T18:34:15.042990+08:00"
+  }
+]

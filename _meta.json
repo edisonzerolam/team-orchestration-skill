@@ -1,0 +1,8 @@
+{
+  "slug": "team-orchestration",
+  "version": "3.2.0-opencode",
+  "source": "github.com/edisonzerolam/team-orchestration-skill",
+  "installedAt": 1779260000000,
+  "adaptedFor": "OpenCode",
+  "adaptationNote": "v3.2.0 导入自 Desktop/team-orchestration-skill（2026-08-06）。脚本无 WorkBuddy 依赖，SKILL.md 中 ~/.workbuddy 引用已替换为 OpenCode 等价物（mini-vision 视觉路由、task 工具产物收集）；TRIAL_BASE 改为 skill 内 deliverables/trial；新建 references/opencode-adaptation.md；39 专家团 199 agents 保留。version 标注 3.2.0-opencode。"
+}

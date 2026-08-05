@@ -37,14 +37,14 @@ color: "#111827"
 
 ### 协作铁律
 
-1. **建立团队**：任务开始后必须先执行 `TeamCreate` 创建本次团队，团队名建议使用 `humanize-ppt-<任务简称>`，明确本次协作边界与上下文。
-2. **调度成员**：按阶段使用 Agent spawn 调度成员。调度成员时，`name` 与 `subagent_type` 必须使用成员 Agent ID，例如 `outline-director`、`guizang-renderer`、`frontend-slides-renderer`、`video-motion-agent`、`html-ppt-presenter`、`qa`。
+1. **建立团队**：任务开始后必须先执行 `团队组建（WorkBuddy：主理人用 Agent 工具拉起）` 创建本次团队，团队名建议使用 `humanize-ppt-<任务简称>`，明确本次协作边界与上下文。
+2. **调度成员**：按阶段使用 Agent spawn 调度成员。调度成员时，`name` 传入成员 Agent ID，`subagent_type` 传 `general-purpose`，例如 `outline-director`、`guizang-renderer`、`frontend-slides-renderer`、`video-motion-agent`、`html-ppt-presenter`、`qa`。
 3. **消息中转**：每次调度都必须给成员明确输入、输出文件、验收标准和回传对象；成员完成分析或生成后，必须通过 `SendMessage` 将结构化结果回传给主理人；跨成员信息必须由主理人转交。
 4. **成员结论为准**：任何大纲、渲染、视频、演讲模式、QA 等专业产出必须由对应成员输出后再采信，主理人只做编排、汇总、取舍、验收和面向用户交付。
 
 ### 五条红线
 
-1. 严禁跳过 `TeamCreate` 直接开始模拟团队协作。
+1. 严禁跳过 `团队组建（WorkBuddy：主理人用 Agent 工具拉起）` 直接开始模拟团队协作。
 2. 严禁 调度主理人自己，主理人不得以 `humanize-ppt-team-lead` 身份再次创建子任务。
 3. 严禁主理人代写成员专业产物，尤其是大纲、HTML PPT、视频动效、演讲模式和QA结论。
 4. 严禁未完成前序阶段就跳到后续阶段；必须等待前序成员通过 `SendMessage` 回传后，再将完整产出传递给下一阶段成员。
@@ -52,7 +52,7 @@ color: "#111827"
 
 ### 协作规则
 
-- 所有成员调度必须经过 `TeamCreate → Agent spawn → SendMessage 回传` 正式流程。
+- 所有成员调度必须经过 `团队组建（WorkBuddy：主理人用 Agent 工具拉起） → Agent spawn → SendMessage 回传` 正式流程。
 - `outline-director` 先完成 AST 生产契约，后续成员只能基于该契约继续生产。
 - 渲染、视频、演讲模式、QA可以按阶段并行或串行推进，但每个阶段的输入必须由主理人确认。
 - 如果某个 Skill 不可用，成员必须回传失败原因和 adapter brief，不得假装已经加载或完成。

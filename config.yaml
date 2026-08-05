@@ -1,0 +1,11 @@
+# team-orchestration matcher configuration (v3.1.0)
+matcher:
+  weights:
+    category: 0.40
+    bigram: 0.35
+    capability: 0.15
+    # 自学习历史表现权重（最小 YAML 解析器不支持行内注释，故注释独立成行）
+    history: 0.10
+  min_score: 0.25
+  top_k: 3
+  history_file: references/learning-data/expert_scores.json

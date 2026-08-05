@@ -1,0 +1,15 @@
+# 运行态产物（不进入版本库）
+scripts/output/
+__pycache__/
+*.pyc
+.pytest_cache/
+.phase0-backup/
+SKILL.md.bak-to-test
+deliverables/
+references/last-asset-snapshot.json
+
+# 运行态学习数据（写端自动生成，勿入库）
+references/learning-data/docket-*.json
+references/learning-data/trial-count.json
+references/learning-data/learning-init.json
+references/learning-data/expert_scores.json

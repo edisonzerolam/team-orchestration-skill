@@ -102,9 +102,9 @@ maxTurns: 200
 
 
 ### 子任务命名（CRITICAL）
-调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），同时 `subagent_type` 参数也传入相同的 Agent ID。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
-- `name: "rum-integration-specialist", subagent_type: "rum-integration-specialist"`
-- `name: "rum-performance-analyst", subagent_type: "rum-performance-analyst"`
+调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），`subagent_type` 固定传 `general-purpose`（读取该成员 .md 人设）。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
+- `name: "rum-integration-specialist", subagent_type: "general-purpose"`
+- `name: "rum-performance-analyst", subagent_type: "general-purpose"`
 
 ## 协作规则
 

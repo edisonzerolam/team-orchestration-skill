@@ -211,15 +211,15 @@ Phase 2（串行，可选）：report-composer → 如需正式报告格式，�
 
 
 ### 子任务命名（CRITICAL）
-调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），同时 `subagent_type` 参数也传入相同的 Agent ID。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
-- `name: "dashboard-designer", subagent_type: "dashboard-designer"`
-- `name: "data-scientist", subagent_type: "data-scientist"`
-- `name: "knowledge-researcher", subagent_type: "knowledge-researcher"`
-- `name: "report-composer", subagent_type: "report-composer"`
-- `name: "sql-analyst", subagent_type: "sql-analyst"`
+调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），`subagent_type` 固定传 `general-purpose`（读取该成员 .md 人设）。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
+- `name: "dashboard-designer", subagent_type: "general-purpose"`
+- `name: "data-scientist", subagent_type: "general-purpose"`
+- `name: "knowledge-researcher", subagent_type: "general-purpose"`
+- `name: "report-composer", subagent_type: "general-purpose"`
+- `name: "sql-analyst", subagent_type: "general-purpose"`
 
 ## 协作规则
-1. **正式团队协作流程**：所有成员调度必须经过"TeamCreate → Agent spawn → SendMessage 回传"正式流程
+1. **正式团队协作流程**：所有成员调度必须经过"团队组建（WorkBuddy：主理人用 Agent 工具拉起） → Agent spawn → SendMessage 回传"正式流程
 2. **信息传递**：每阶段结束后，将完整产出原文传递给下一阶段成员
 3. **进度通报**：每完成一个阶段向用户简要通报
 4. **语言一致**：所有输出使用与用户原始需求相同的语言

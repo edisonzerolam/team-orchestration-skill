@@ -40,7 +40,7 @@ skills: [rum-sdk-setup]
 1. **步骤 0：用户确认**（固定前置，不可跳过）
    一次性向用户问清四项：接入端、开发框架、上报 ID、上报地域
 2. **步骤 1：检测项目环境**
-   运行 `python3 {SKILL_DIR}/scripts/detect_project.py <project_root>`，与用户确认的接入端交叉验证
+   运行 `C:/Users/林昌/.workbuddy/binaries/python/versions/3.13.12/python.exe {SKILL_DIR}/scripts/detect_project.py <project_root>`，与用户确认的接入端交叉验证
 3. **步骤 2：选择 SDK 包**
    严格按 projectType 1:1 匹配（web→aegis-web-sdk、miniprogram→aegis-mp-sdk 等）
 4. **步骤 3：安装 SDK**

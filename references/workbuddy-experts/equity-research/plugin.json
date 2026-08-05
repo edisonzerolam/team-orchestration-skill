@@ -1,0 +1,120 @@
+{
+  "name": "equity-research",
+  "version": "1.0.0",
+  "description": "End-to-end equity research: deep-dive reports, industry research, annual report analysis, earnings reviews, field research notes, morning briefings, research digests, comparable company analysis",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/equity-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md"
+  ],
+  "expertType": "team",
+  "agentName": "equity-lead",
+  "teamInfo": {
+    "leadAgent": "equity-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5"
+    ]
+  },
+  "displayName": {
+    "en": "Equity Research",
+    "zh": "股票研究团队"
+  },
+  "profession": {
+    "en": "Sell-side & Buy-side Research",
+    "zh": "卖方/买方研究全流程"
+  },
+  "displayDescription": {
+    "en": "End-to-end equity research: deep-dive reports, industry research, annual report analysis, earnings reviews, field research notes, morning briefings, research digests, comparable company analysis",
+    "zh": "端到端股票研究：深度报告、行业研究、年报分析、业绩点评、调研纪要、晨会纪要、研报精编、可比公司分析，支持金融数据MCP自动取数"
+  },
+  "categoryId": "08-FinanceInvestment",
+  "defaultInitPrompt": {
+    "zh": "帮我写一份XX公司的深度研究报告",
+    "en": "Write a deep-dive report on [company]"
+  },
+  "members": [
+    {
+      "id": "equity-lead",
+      "name": {
+        "zh": "研主编",
+        "en": "Research Lead"
+      },
+      "profession": {
+        "zh": "研究主编",
+        "en": "Research Editor"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "宏观分析师",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "宏观分析师",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "行业研究员",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "行业研究员",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "财务建模师",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "财务建模师",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "估值分析师",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "估值分析师",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "研报编辑",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "研报编辑",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}

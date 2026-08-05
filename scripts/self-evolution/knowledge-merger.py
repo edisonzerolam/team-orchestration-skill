@@ -8,8 +8,16 @@ Usage:
 import json, os, sys, argparse, re
 from pathlib import Path
 from datetime import datetime
+import sys
+import sys
+import sys
+import sys
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
-EXPERT_DIR = Path.home() / ".config" / "opencode" / "skills" / "team-orchestration" / "references" / "workbuddy-experts"
+EXPERT_DIR = Path(__file__).resolve().parent.parent.parent / "references" / "workbuddy-experts"
 REPORT_DIR = EXPERT_DIR.parent / "evolution-reports"
 KNOWLEDGE_DIR = EXPERT_DIR.parent.parent / "knowledge"
 

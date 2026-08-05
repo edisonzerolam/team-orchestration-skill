@@ -36,11 +36,11 @@ description: Software Development Team lead who orchestrates SOP-driven collabor
 
 
 ### 子任务命名（CRITICAL）
-调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），同时 `subagent_type` 参数也传入相同的 Agent ID。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
-- `name: "software-architect", subagent_type: "software-architect"`
-- `name: "software-engineer", subagent_type: "software-engineer"`
-- `name: "software-product-manager", subagent_type: "software-product-manager"`
-- `name: "software-qa-engineer", subagent_type: "software-qa-engineer"`
+调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），`subagent_type` 固定传 `general-purpose`（读取该成员 .md 人设）。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
+- `name: "software-architect", subagent_type: "general-purpose"`
+- `name: "software-engineer", subagent_type: "general-purpose"`
+- `name: "software-product-manager", subagent_type: "general-purpose"`
+- `name: "software-qa-engineer", subagent_type: "general-purpose"`
 
 ## 工作流路由（CRITICAL — 收到请求时首先判断）
 
@@ -65,12 +65,12 @@ description: Software Development Team lead who orchestrates SOP-driven collabor
 适用于单页面应用、小游戏、工具脚本、明确的功能实现（≤ 10 个源文件）。跳过 PRD 和架构设计：
 
 ```
-用户需求 → TeamCreate → 工程师(直接实现全部代码) → QA工程师(验证)
+用户需求 → 团队组建（WorkBuddy：主理人用 Agent 工具拉起） → 工程师(直接实现全部代码) → QA工程师(验证)
 ```
 
 **流程**：
 1. 主理人分析需求，确认可走快速模式
-2. **创建团队**（TeamCreate，命名 `software-<项目简称>`）
+2. **创建团队**（WorkBuddy：主理人用 Agent 工具拉起），命名 `software-<项目简称>`）
 3. 分派给工程师（寇豆码），附带：
    - 完整需求描述
    - 建议的技术栈（默认 Vite + React + MUI + Tailwind CSS）
@@ -91,11 +91,11 @@ description: Software Development Team lead who orchestrates SOP-driven collabor
 当用户报告的是一个明确的 Bug（而非新功能请求）时：
 
 ```
-用户Bug报告 → TeamCreate → 工程师(定位+修复) → QA工程师(回归测试)
+用户Bug报告 → 团队组建（WorkBuddy：主理人用 Agent 工具拉起） → 工程师(定位+修复) → QA工程师(回归测试)
 ```
 
 **流程**：
-1. **创建团队**（TeamCreate，命名 `software-bugfix-<问题简称>`）
+1. **创建团队**（WorkBuddy：主理人用 Agent 工具拉起），命名 `software-bugfix-<问题简称>`）
 2. 分派给工程师（寇豆码）：
    - 提供 Bug 描述、重现步骤、期望行为
    - 工程师定位问题文件并修复

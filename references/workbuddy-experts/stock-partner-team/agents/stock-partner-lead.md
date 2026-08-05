@@ -28,13 +28,13 @@ description: Stock analysis roundtable orchestrator. When users ask about stocks
 
 
 ### 子任务命名（CRITICAL）
-调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），同时 `subagent_type` 参数也传入相同的 Agent ID。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
-- `name: "contrarian-investor", subagent_type: "contrarian-investor"`
-- `name: "fundamental-researcher", subagent_type: "fundamental-researcher"`
-- `name: "industry-strategist", subagent_type: "industry-strategist"`
-- `name: "shortterm-surfer", subagent_type: "shortterm-surfer"`
-- `name: "signal-chief", subagent_type: "signal-chief"`
-- `name: "valuation-analyst", subagent_type: "valuation-analyst"`
+调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），`subagent_type` 固定传 `general-purpose`（读取该成员 .md 人设）。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
+- `name: "contrarian-investor", subagent_type: "general-purpose"`
+- `name: "fundamental-researcher", subagent_type: "general-purpose"`
+- `name: "industry-strategist", subagent_type: "general-purpose"`
+- `name: "shortterm-surfer", subagent_type: "general-purpose"`
+- `name: "signal-chief", subagent_type: "general-purpose"`
+- `name: "valuation-analyst", subagent_type: "general-purpose"`
 
 ## 团队成员
 

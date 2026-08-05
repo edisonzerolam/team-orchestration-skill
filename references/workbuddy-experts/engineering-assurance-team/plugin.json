@@ -6,25 +6,29 @@
     "name": "Expert Marketplace"
   },
   "agents": "./agents/",
-
   "expertType": "team",
   "agentName": "engineering-director",
   "teamInfo": {
     "leadAgent": "engineering-director",
-    "memberAgents": ["code-reviewer", "architect", "sre-engineer", "testing-expert", "tech-writer"]
+    "memberAgents": [
+      "code-reviewer",
+      "architect",
+      "sre-engineer",
+      "testing-expert",
+      "tech-writer"
+    ]
   },
-
   "displayName": {
     "en": "Engineering Assurance Team",
     "zh": "工程保障团队"
   },
   "profession": {
-    "en": "Full-Stack Engineering Assurance",
-    "zh": "全栈工程保障"
+    "zh": "工程卓越与质量守护",
+    "en": "Engineering Excellence & Quality Guardianship"
   },
   "displayDescription": {
-    "en": "A team of 5 engineering specialists led by an Engineering Director: Code Reviewer (security/performance/correctness), Architect (system design/ADR), SRE Engineer (incident response/deploy), Testing Expert (test strategy/coverage), and Tech Writer (documentation/runbooks). Handles complex engineering workflows from code review to incident response.",
-    "zh": "由工程总监领导的 5 人工程专家团队：代码审查师（安全/性能/正确性）、架构师（系统设计/ADR）、SRE 工程师（事故响应/部署）、测试专家（测试策略/覆盖率）和技术文档师（文档/Runbook）。处理从代码审查到事故响应的复杂工程工作流。"
+    "zh": "6位工程保障专家+质量工程能力：架构评审、SRE可靠性、代码审查、测试策略、安全审计、证据推理驱动的质量守护（减少幻觉/上下文优化/消除AI模式/变更后强制lint+typecheck+test+build验证）、后端接口逻辑梳理与文档化。",
+    "en": "6 engineering experts + quality engineering: architecture review, SRE, code review, test strategy, security audit, evidence-based quality guardianship, API logic analysis & documentation."
   },
   "avatar": "avatars/team.png",
   "categoryId": "02-Engineering",
@@ -35,45 +39,83 @@
   "members": [
     {
       "id": "engineering-director",
-      "name": {"en": "Zhen", "zh": "甄宇航"},
-      "profession": {"en": "Engineering Director", "zh": "工程督导"},
+      "name": {
+        "en": "Zhen",
+        "zh": "甄宇航"
+      },
+      "profession": {
+        "en": "Engineering Director",
+        "zh": "工程督导"
+      },
       "avatar": "avatars/team-lead.png",
       "role": "lead"
     },
     {
       "id": "code-reviewer",
-      "name": {"en": "Cody", "zh": "科迪"},
-      "profession": {"en": "Code Reviewer", "zh": "代码审查师"},
+      "name": {
+        "en": "Cody",
+        "zh": "科迪"
+      },
+      "profession": {
+        "en": "Code Reviewer",
+        "zh": "代码审查师"
+      },
       "avatar": "avatars/code-reviewer.png",
       "role": "member"
     },
     {
       "id": "architect",
-      "name": {"en": "Archi", "zh": "阿奇"},
-      "profession": {"en": "System Architect", "zh": "系统架构师"},
+      "name": {
+        "en": "Archi",
+        "zh": "阿奇"
+      },
+      "profession": {
+        "en": "System Architect",
+        "zh": "系统架构师"
+      },
       "avatar": "avatars/architect.png",
       "role": "member"
     },
     {
       "id": "sre-engineer",
-      "name": {"en": "Rex", "zh": "雷克斯"},
-      "profession": {"en": "SRE Engineer", "zh": "SRE 工程师"},
+      "name": {
+        "en": "Rex",
+        "zh": "雷克斯"
+      },
+      "profession": {
+        "en": "SRE Engineer",
+        "zh": "SRE 工程师"
+      },
       "avatar": "avatars/sre-engineer.png",
       "role": "member"
     },
     {
       "id": "testing-expert",
-      "name": {"en": "Tessa", "zh": "泰莎"},
-      "profession": {"en": "Testing Expert", "zh": "测试专家"},
+      "name": {
+        "en": "Tessa",
+        "zh": "泰莎"
+      },
+      "profession": {
+        "en": "Testing Expert",
+        "zh": "测试专家"
+      },
       "avatar": "avatars/testing-expert.png",
       "role": "member"
     },
     {
       "id": "tech-writer",
-      "name": {"en": "Docu", "zh": "多库"},
-      "profession": {"en": "Technical Writer", "zh": "技术文档师"},
+      "name": {
+        "en": "Docu",
+        "zh": "多库"
+      },
+      "profession": {
+        "en": "Technical Writer",
+        "zh": "技术文档师"
+      },
       "avatar": "avatars/tech-writer.png",
       "role": "member"
     }
-  ]
+  ],
+  "_enhancedWith": "qoderwork-plugin-market",
+  "_enhancedAt": "2026-07-31"
 }

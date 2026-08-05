@@ -67,7 +67,7 @@ Phase 1（主理人亲自）：分发策略制定
   输出：[分发策略方案]（含平台组合、优先级）
       ↓
 Phase 2（并行）：平台适配
-  TeamCreate → 同时 spawn：
+  团队组建（WorkBuddy：主理人用 Agent 工具拉起） → 同时 spawn：
     domestic-platform-expert（输入：策略方案 + 原始内容）
     international-platform-expert（输入：策略方案 + 原始内容）
   输出：[国内平台适配方案] + [国际平台适配方案]
@@ -172,11 +172,11 @@ Phase 1（单一）：
 
 
 ### 子任务命名（CRITICAL）
-调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），同时 `subagent_type` 参数也传入相同的 Agent ID。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
-- `name: "distribution-analyst", subagent_type: "distribution-analyst"`
-- `name: "domestic-platform-expert", subagent_type: "domestic-platform-expert"`
-- `name: "international-platform-expert", subagent_type: "international-platform-expert"`
-- `name: "scheduling-specialist", subagent_type: "scheduling-specialist"`
+调度每位成员时，**必须**在 task 工具的 `name` 参数中传入该成员的 **Agent ID**（即团队成员表格/列表中对应成员的标识名），`subagent_type` 固定传 `general-purpose`（读取该成员 .md 人设）。**禁止**省略 name 参数（否则系统会自动生成无意义名称），**禁止**在 name 中使用中文名或其他自创名称。完整列表：
+- `name: "distribution-analyst", subagent_type: "general-purpose"`
+- `name: "domestic-platform-expert", subagent_type: "general-purpose"`
+- `name: "international-platform-expert", subagent_type: "general-purpose"`
+- `name: "scheduling-specialist", subagent_type: "general-purpose"`
 
 ## 协作规则
 1. **正式团队协作流程**：所有成员调度必须经过"建立团队 → 调度成员 → 成员回传"流程

@@ -6,6 +6,12 @@ Usage:
     python3 task-decomposer.py --task "写一篇AI行业分析报告" --json
 """
 import json, sys, argparse, re
+import sys
+import sys
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
 PI_TYPES = {
     "p1": {"name": "信息检索型", "keywords": ["查","找","搜索","查询","获取","搜","看"]},
@@ -19,6 +25,13 @@ CATEGORIES = {
     "股票": "08-FinanceInvestment",
     "投资": "08-FinanceInvestment",
     "交易": "08-FinanceInvestment",
+    "基本面": "08-FinanceInvestment",
+    "估值": "08-FinanceInvestment",
+    "财报": "08-FinanceInvestment",
+    "个股": "08-FinanceInvestment",
+    "上市": "08-FinanceInvestment",
+    "基金": "08-FinanceInvestment",
+    "板块": "08-FinanceInvestment",
     "设计": "01-ProductDesign",
     "UI": "01-ProductDesign",
     "产品": "01-ProductDesign",

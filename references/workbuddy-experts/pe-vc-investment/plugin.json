@@ -1,0 +1,120 @@
+{
+  "name": "pe-vc-investment",
+  "version": "1.0.0",
+  "description": "Deal screening, DD checklists, term sheet review, IC memos, return modeling (IRR/MOIC), exit analysis for investment managers and partners",
+  "author": {
+    "name": "QoderWork Plugin Market"
+  },
+  "agents": [
+    "./agents/pe-lead.md",
+    "./agents/member-1.md",
+    "./agents/member-2.md",
+    "./agents/member-3.md",
+    "./agents/member-4.md",
+    "./agents/member-5.md"
+  ],
+  "expertType": "team",
+  "agentName": "pe-lead",
+  "teamInfo": {
+    "leadAgent": "pe-lead",
+    "memberAgents": [
+      "member-1",
+      "member-2",
+      "member-3",
+      "member-4",
+      "member-5"
+    ]
+  },
+  "displayName": {
+    "en": "Private Equity & VC",
+    "zh": "PE/VC投资团队"
+  },
+  "profession": {
+    "en": "End-to-end PE/VC Toolkit",
+    "zh": "PE/VC全链路"
+  },
+  "displayDescription": {
+    "en": "Deal screening, DD checklists, term sheet review, IC memos, return modeling (IRR/MOIC), exit analysis for investment managers and partners",
+    "zh": "项目筛选、尽调清单、条款审查(Term Sheet)、投委会备忘录、回报建模(IRR/MOIC)、退出分析，服务投资经理、MD、合伙人"
+  },
+  "categoryId": "08-FinanceInvestment",
+  "defaultInitPrompt": {
+    "zh": "帮我审查这份Term Sheet",
+    "en": "Review this term sheet"
+  },
+  "members": [
+    {
+      "id": "pe-lead",
+      "name": {
+        "zh": "投委会主席",
+        "en": "IC Chair"
+      },
+      "profession": {
+        "zh": "投委会主席",
+        "en": "IC Chair"
+      }
+    },
+    {
+      "id": "member-1",
+      "name": {
+        "zh": "行业扫描员",
+        "en": "Specialist 1"
+      },
+      "profession": {
+        "zh": "行业扫描员",
+        "en": "Specialist 1"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-2",
+      "name": {
+        "zh": "尽调专员",
+        "en": "Specialist 2"
+      },
+      "profession": {
+        "zh": "尽调专员",
+        "en": "Specialist 2"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-3",
+      "name": {
+        "zh": "条款律师",
+        "en": "Specialist 3"
+      },
+      "profession": {
+        "zh": "条款律师",
+        "en": "Specialist 3"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-4",
+      "name": {
+        "zh": "财务建模师",
+        "en": "Specialist 4"
+      },
+      "profession": {
+        "zh": "财务建模师",
+        "en": "Specialist 4"
+      },
+      "role": "member"
+    },
+    {
+      "id": "member-5",
+      "name": {
+        "zh": "退出策略师",
+        "en": "Specialist 5"
+      },
+      "profession": {
+        "zh": "退出策略师",
+        "en": "Specialist 5"
+      },
+      "role": "member"
+    }
+  ],
+  "_source": "qoderwork-plugin-market",
+  "_adaptedAt": "2026-07-31"
+}
