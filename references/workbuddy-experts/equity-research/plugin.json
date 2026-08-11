@@ -47,22 +47,23 @@
       "id": "equity-lead",
       "name": {
         "zh": "研主编",
-        "en": "Research Lead"
+        "en": "Research Editor"
       },
       "profession": {
         "zh": "研究主编",
-        "en": "Research Editor"
-      }
+        "en": "Research Editor in Chief"
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
         "zh": "宏观分析师",
-        "en": "Specialist 1"
+        "en": "Macro Analyst"
       },
       "profession": {
         "zh": "宏观分析师",
-        "en": "Specialist 1"
+        "en": "Macro Analyst"
       },
       "role": "member"
     },
@@ -70,11 +71,11 @@
       "id": "member-2",
       "name": {
         "zh": "行业研究员",
-        "en": "Specialist 2"
+        "en": "Industry Analyst"
       },
       "profession": {
         "zh": "行业研究员",
-        "en": "Specialist 2"
+        "en": "Industry Analyst"
       },
       "role": "member"
     },
@@ -82,11 +83,11 @@
       "id": "member-3",
       "name": {
         "zh": "财务建模师",
-        "en": "Specialist 3"
+        "en": "Financial Modeler"
       },
       "profession": {
         "zh": "财务建模师",
-        "en": "Specialist 3"
+        "en": "Financial Modeling Specialist"
       },
       "role": "member"
     },
@@ -94,11 +95,11 @@
       "id": "member-4",
       "name": {
         "zh": "估值分析师",
-        "en": "Specialist 4"
+        "en": "Valuation Analyst"
       },
       "profession": {
         "zh": "估值分析师",
-        "en": "Specialist 4"
+        "en": "Equity Valuation Specialist"
       },
       "role": "member"
     },
@@ -106,11 +107,11 @@
       "id": "member-5",
       "name": {
         "zh": "研报编辑",
-        "en": "Specialist 5"
+        "en": "Research Report Editor"
       },
       "profession": {
         "zh": "研报编辑",
-        "en": "Specialist 5"
+        "en": "Research Report Editor"
       },
       "role": "member"
     }

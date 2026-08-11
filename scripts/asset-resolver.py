@@ -56,21 +56,61 @@ def discover_skills() -> list[dict]:
     for skill_dir in sorted(skills_dir.iterdir()):
         if not skill_dir.is_dir() or skill_dir.name.startswith("."):
             continue
+        # 排除备份/临时/模板目录：.backup 结尾、backup- 前缀、.bak 结尾、.tmp、~ 备份后缀
+        name_lower = skill_dir.name.lower()
+        if (".backup" in name_lower or name_lower.startswith("backup-")
+                or name_lower.endswith(".bak") or name_lower.endswith(".tmp")
+                or name_lower.endswith("~") or ".old" in name_lower):
+            continue
         skill_md = skill_dir / "SKILL.md"
         if not skill_md.exists():
             continue
         description = ""
         triggers = []
+        disabled = False
+        in_frontmatter = False
         try:
-            text = skill_md.read_text(encoding="utf-8", errors="replace")
-            for line in text.splitlines():
-                line_lower = line.lower().strip()
-                if line_lower.startswith("description:"):
-                    description = line.split(":", 1)[1].strip()
-                if line_lower.startswith("triggers:") or line_lower.startswith("当"):
-                    triggers.append(line.strip())
+            raw_bytes = skill_md.read_bytes()
+            text = None
+            # 优先 UTF-8；失败则尝试 GB18030（兼容历史 GBK 编码的 SKILL.md），杜绝 U+FFFD 乱码注入
+            for enc in ("utf-8", "gb18030"):
+                try:
+                    text = raw_bytes.decode(enc)
+                    break
+                except UnicodeDecodeError:
+                    continue
+            if text is None:
+                text = raw_bytes.decode("utf-8", errors="replace")
+            lines = text.splitlines()
+            # frontmatter 是文件头 `---` 到下一个 `---` 之间的 YAML 块；
+            # 状态机：in_fm=False，遇到第 1 个 --- 进入、第 2 个 --- 退出，仅取前 40 行内的边界。
+            in_fm = False
+            fm_dashes = 0
+            for line in lines[:40]:
+                stripped = line.strip()
+                if stripped == "---":
+                    fm_dashes += 1
+                    in_fm = fm_dashes % 2 == 1
+                    if fm_dashes >= 2 and not in_fm:
+                        break
+                    continue
+                if in_fm:
+                    line_lower = line.lower().strip()
+                    key, _, val = line.partition(":")
+                    key_l = key.strip().lower()
+                    val_l = val.strip().lower()
+                    if key_l == "disabled":
+                        disabled = val_l in ("true", "yes", "1")
+                        if disabled:
+                            break
+                    if key_l == "description":
+                        description = val.strip()
+                    if line_lower.startswith("triggers:") or line_lower.startswith("当"):
+                        triggers.append(line.strip())
         except Exception:
             pass
+        if disabled:
+            continue
 
         skills.append({
             "name": skill_dir.name,
@@ -299,12 +339,38 @@ def match_by_issue_type(issue_type: str, snapshot: dict = None) -> dict:
             })
 
     # 技能匹配（按 description + triggers）
-    query_words = set(issue_lower.replace("-", " ").replace("_", " ").split())
+    # 中文增强：CJK 查询词支持按 2-gram 切分（如"宏观经济"→{"宏观","观经","经济"}），
+    # 并将中文词长度门槛放宽到 >=2（"宏观""数据"等 2 字词是关键触发词），
+    # 使中文 description 技能能被自然语言议题正确召回。
+    def _match_tokens(text: str):
+        tokens = set(text.replace("-", " ").replace("_", " ").split())
+        ascii_tokens = set()
+        cjk_tokens = set()
+        for t in tokens:
+            hits = set()
+            if t:  # 去重
+                hits.add(t)
+            # CJK 2-gram 切分
+            cjk_run = "".join(c if "\u4e00" <= c <= "\u9fff" else " " for c in t)
+            for part in cjk_run.split():
+                if len(part) >= 2:
+                    hits.add(part)
+                    # 含中文且总长>=2 时，追加每连续 2 字片段
+                    if any("\u4e00" <= c <= "\u9fff" for c in t):
+                        for i in range(len(part) - 1):
+                            hits.add(part[i:i + 2])
+            ascii_tokens |= {t for t in hits if not any("\u4e00" <= c <= "\u9fff" for c in t)}
+            cjk_tokens |= {t for t in hits if any("\u4e00" <= c <= "\u9fff" for c in t)}
+        # 合并：ASCII 词仍需 >2，中文词 >=2
+        ascii_tokens = {t for t in ascii_tokens if len(t) > 2}
+        return ascii_tokens | cjk_tokens
+
+    query_hits = _match_tokens(issue_lower)
     for skill in snapshot.get("skills", []):
         desc_lower = skill.get("description", "").lower()
         trigger_text = " ".join(skill.get("triggers", [])).lower()
         combined = desc_lower + " " + trigger_text
-        if any(qw in combined for qw in query_words if len(qw) > 2):
+        if any(qw in combined for qw in query_hits):
             matched["skills"].append({
                 "name": skill["name"],
                 "description": skill.get("description", "")[:100],

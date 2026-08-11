@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-# 审判庭核心调度器（现行后端）：案卷 docket / 证据阶段 / 质证 / 终审归档 / 自学习 S1(计数)+S2(专家评分写回) / verdict 模板（投票+辩论合并策略）
+# 审判庭核心调度器（现行后端，二审终审制）：案卷 docket / 证据阶段 / 质证 / 一审裁决+回灌修订 / 二审终审归档 / 自学习 S1(计数)+S2(专家评分写回) / verdict 模板（投票+辩论合并策略）
 # -*- coding: utf-8 -*-
 """trial-court-orchestrator.py — 审判庭核心调度器
 
-提供审判庭四阶段的核心辅助工具：
+提供审判庭五阶段（二审终审制）的核心辅助工具：
   1. docket — 议题立案登记、争点提取辅助
   2. evidence — 举证阶段 prompt 模板生成
   3. cross_exam — 质证阶段 prompt 模板生成
-  4. judgment — 终审裁决模板生成
-  5. archive — 审判记录归档 + 自学习触发
+  4. revision — 一审回灌修订 prompt 模板生成（固定 1 轮）
+  5. verdict-template — 一审判决书 / 二审终审意见书模板生成（--instance first|second）
+  6. archive — 审判记录归档 + 自学习触发
 
 用法：
     # 立案（在 Phase A 开始前运行，生成案卷信息 JSON）
@@ -20,10 +21,16 @@
     # 生成质证子代理 prompt（在 Phase C 前运行）
     python trial-court-orchestrator.py prompt --phase cross-exam --role "正方" --docket ./docket.json --evidence-dir ./01-举证/
 
-    # 生成终审裁决模板（在 Phase D 前运行）
-    python trial-court-orchestrator.py verdict-template --docket ./docket.json --evidence-dir ./02-质证/
+    # 生成一审回灌修订 prompt（Phase D 一审裁决后运行，固定 1 轮）
+    python trial-court-orchestrator.py prompt --phase revision --role "正方" --docket ./docket.json --verdict-file ./03-一审/first-instance-verdict.md --evidence-dir ./02-质证/
 
-    # 归档整次审判（Phase D 完成后运行）
+    # 生成一审判决书模板（Phase D 一审裁决前运行）
+    python trial-court-orchestrator.py verdict-template --docket ./docket.json --instance first --out ./03-一审/first-instance-verdict.md
+
+    # 生成二审终审意见书模板（Phase E 前运行，终局不回灌）
+    python trial-court-orchestrator.py verdict-template --docket ./docket.json --instance second --out ./05-二审终审/final-verdict.md
+
+    # 归档整次审判（Phase E 完成后运行）
     python trial-court-orchestrator.py archive --docket ./docket.json --trial-dir ./deliverables/trial/TC-XXX/
 
     # 自学习：查看学习状态
@@ -49,7 +56,8 @@ except Exception:
     pass
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
-TRIAL_BASE = SKILL_DIR / "deliverables" / "trial"
+# TRIAL_BASE：优先环境变量覆盖（ZCode 适配，归档到工作区根）；缺省 = 当前工作目录下 deliverables/trial
+TRIAL_BASE = Path(os.environ.get("TRIAL_BASE", str(Path.cwd() / "deliverables" / "trial")))
 LEARNING_DIR = SKILL_DIR / "references" / "learning-data"
 
 # ─── 辅助函数 ───────────────────────────────────────────────
@@ -124,9 +132,15 @@ def cmd_docket(args):
         },
         "status": "docketed",
         "cross_exam": {
-            "max_rounds": getattr(args, "max_rounds", 3) or 3,
+            "max_rounds": getattr(args, "max_rounds", 2) or 2,
             "current_round": 0,
             "converged": False
+        },
+        # 二审终审制：一审裁决后回灌修订固定 1 轮（不追加、不因收敛提前）
+        "revision": {
+            "max_rounds": 1,
+            "current_round": 0,
+            "done": False
         },
         "confirmed": False
     }
@@ -171,9 +185,9 @@ def cmd_prompt(args):
     _require_confirmed(docket, args)
 
     # P0.5 质证轮次控制参数
-    max_rounds = 3
+    max_rounds = 2
     if docket.get("cross_exam"):
-        max_rounds = docket["cross_exam"].get("max_rounds", 3)
+        max_rounds = docket["cross_exam"].get("max_rounds", 2)
     round_no = getattr(args, "round", 1) or 1
 
     assets = docket.get("assets_resolved", {})
@@ -252,21 +266,64 @@ def cmd_prompt(args):
 ### 二、己方立场修正说明
 ### 三、修正后的终局建议
 """
-    # P0.5 轮次控制提示
-    if round_no >= max_rounds:
-        prompt += f"\n\n### ⚠ 轮次控制\n已达到最大质证轮次({max_rounds})。请基于现有材料形成终局立场，不再开启新一轮，直接进入终审(Phase D)。"
-    else:
-        prompt += f"\n\n### 轮次提示\n当前为第 {round_no}/{max_rounds} 轮质证。若各方立场已稳定收敛(连续两轮无实质变更)，可提前结束并进入终审。"
+    elif phase == "revision":
+        verdict_path = Path(args.verdict_file) if getattr(args, "verdict_file", "") else None
+        verdict_text = ""
+        if verdict_path and verdict_path.exists():
+            verdict_text = verdict_path.read_text(encoding="utf-8")
+        evidence_dir = Path(args.evidence_dir) if args.evidence_dir else None
+        evidence_text = ""
+        if evidence_dir and evidence_dir.exists():
+            for f in sorted(evidence_dir.glob("*.md")):
+                evidence_text += f"\n\n--- 来自 {f.name} ---\n"
+                evidence_text += f.read_text(encoding="utf-8")[:2000]
 
-    # 回写当前轮次到案卷
-    if docket.get("cross_exam"):
-        docket["cross_exam"]["current_round"] = round_no
-        if round_no >= max_rounds:
-            docket["cross_exam"]["converged"] = True
+        prompt = f"""\
+## 阶段 D: 一审回灌修订 — {role}
+
+一审已结束。审判长把《一审判决书》和各方最新产物全部交给你，请为二审终审做最后一轮修订（固定 1 轮，修订后直接进入二审终审，不再回灌）。
+
+### 修订要求
+1. 对一审判决逐条回应：接受（服判）或异议（给出理由与依据）
+2. 基于判决与他方产物修正己方立场：撤回站不住的主张 / 加强可坚守的 / 补充新的反驳依据
+3. 注明相比上一轮的变更要点（变与不变）
+
+### 一审判决书
+{verdict_text or "（一审判决书将由审判长分发）"}
+
+### 其他方最新产物
+{evidence_text or "（产物将由审判长分发）"}
+
+### 产出格式
+## 产物 P{{i}}（阶段D 回灌修订）— 角色：{role}
+### 一、对一审判决的逐条回应（服判/异议+理由）
+### 二、己方立场再修订说明
+### 三、给二审审判长的终局建议
+"""
+    # P0.5 轮次控制提示（质证适用）；一审回灌修订固定 1 轮
+    if phase == "revision":
+        prompt += "\n\n### ⚠ 轮次控制\n本轮回灌修订为固定 1 轮，不追加、不因收敛提前结束。修订完成后直接进入二审终审(Phase E)，审判长将不再回灌。"
+        if docket.get("revision"):
+            docket["revision"]["current_round"] = 1
+            docket["revision"]["done"] = True
         try:
             Path(args.docket).write_text(json.dumps(docket, ensure_ascii=False, indent=2), encoding="utf-8")
         except Exception:
             pass
+    elif phase == "cross-exam":
+        if round_no >= max_rounds:
+            prompt += f"\n\n### ⚠ 轮次控制\n已达到最大质证轮次({max_rounds})。请基于现有材料形成终局立场，不再开启新一轮，直接进入一审裁决(Phase D)。"
+        else:
+            prompt += f"\n\n### 轮次提示\n当前为第 {round_no}/{max_rounds} 轮质证。若各方立场已稳定收敛(连续两轮无实质变更)，可提前结束并进入一审裁决。"
+        # 回写当前轮次到案卷
+        if docket.get("cross_exam"):
+            docket["cross_exam"]["current_round"] = round_no
+            if round_no >= max_rounds:
+                docket["cross_exam"]["converged"] = True
+            try:
+                Path(args.docket).write_text(json.dumps(docket, ensure_ascii=False, indent=2), encoding="utf-8")
+            except Exception:
+                pass
     else:
         print(f"❌ 未知阶段: {phase}", file=sys.stderr)
         sys.exit(1)
@@ -278,7 +335,7 @@ def cmd_prompt(args):
 # ─── Phase D: 终审裁决模板 ──────────────────────────────────
 
 CMD_VERDICT_DESC = """\
-生成终审裁决 Markdown 模板（Phase D）。
+生成一审判决书 / 二审终审意见书 Markdown 模板（二审终审制，--instance first|second）。
 """
 
 def cmd_verdict_template(args):
@@ -295,6 +352,7 @@ def cmd_verdict_template(args):
 
     roles_str = " / ".join(r.get("name", "?") for r in docket.get("roles", []))
     assets_str = json.dumps(docket.get("assets_resolved", {}), ensure_ascii=False, indent=2)
+    instance = getattr(args, "instance", "second") or "second"
 
     # C3: 合并器分型 — 根据 issue_type 判定裁决策略
     issue_type = (docket.get("issue_type") or "").lower()
@@ -310,8 +368,9 @@ def cmd_verdict_template(args):
         merger_type = "混合型（逐争点分型）"
         merger_note = "事实争点用投票制，价值/策略争点用辩论+裁决制。"
 
-    template = f"""\
-## 终审意见书 — {docket.get('issue','?')}
+    if instance == "first":
+        template = f"""\
+## 一审判决书 — {docket.get('issue','?')}
 
 ### 一、案卷信息
 - **docket_id**: {docket.get('docket_id','?')}
@@ -327,28 +386,68 @@ def cmd_verdict_template(args):
 |------|---------|---------|---------|
 | （填写） | （填写） | （填写） | （填写） |
 
-### 三、逐条裁决
+### 三、逐条裁决（一审）
 | # | 争点 | 裁决（采信/部分采信/排除） | 采信哪方 | 理由 | 依据来源 |
 |---|------|--------------------------|---------|------|---------|
 | 1 | | | | | |
 
-### 四、终局结论
-（综合上述裁决，形成对本议题的终局结论）
+### 四、一审结论
+（综合上述裁决，形成一审结论）
 
 ### 五、存疑/遗留事项
 - （如实标注未解决的问题）
 
-### 六、资产使用评价
+---
+*本一审判决由审判长 {docket.get('docket_id','?')} 出具。一审判决为中间产物，将连同各方产物回灌各举证方修订 1 轮后进入二审终审。*
+"""
+    else:
+        template = f"""\
+## 终审意见书 — {docket.get('issue','?')}（二审终审 · 终局）
+
+### 一、案卷信息
+- **docket_id**: {docket.get('docket_id','?')}
+- **议题**: {docket.get('issue','?')}
+- **审判日期**: {docket.get('created_at','?')}
+- **参与方**: {roles_str}
+- **议题分类**: {docket.get('issue_type','?')}
+- **复杂度**: {docket.get('complexity','?')}
+- **裁决策略**: {merger_type} — {merger_note}
+- **一审判决书**: 03-一审/first-instance-verdict.md
+
+### 二、争点回顾
+| 争点 | 正方主张 | 反方主张 | 中立观察 |
+|------|---------|---------|---------|
+| （填写） | （填写） | （填写） | （填写） |
+
+### 三、质证与一审修订记录
+| 阶段 | 轮数 | 关键变更（变与不变） |
+|------|------|---------------------|
+| 质证 | （填写） | （填写） |
+| 一审回灌修订 | 1 轮 | （填写） |
+
+### 四、逐条裁决（二审终局）
+| # | 争点 | 裁决（采信/部分采信/排除） | 采信哪方 | 理由 | 与一审异同 | 依据来源 |
+|---|------|--------------------------|---------|------|-----------|---------|
+| 1 | | | | | | |
+
+### 五、终局结论
+（综合上述裁决，形成终局结论。标注"二审终审，不再回灌"）
+
+### 六、存疑/遗留事项
+- （如实标注未解决的问题）
+
+### 七、资产使用评价
 | 资产 | 类型 | 是否使用 | 贡献度 | 下次建议 |
 |------|------|---------|-------|---------|
 （由主理人填写）
 
 ---
-*本终审意见由审判长 {docket.get('docket_id','?')} 出具。所有依据已在举证和质证阶段公开。*
+*本终审意见书由审判长 {docket.get('docket_id','?')} 出具（二审终审 · 终局，不再回灌修订）。所有依据已在举证、质证与一审回灌修订阶段公开。*
 """
     if args.out:
         Path(args.out).write_text(template, encoding="utf-8")
-        print(f"✅ 终审模板已生成: {args.out}")
+        label = "一审判决书" if instance == "first" else "二审终审意见书"
+        print(f"✅ 裁决文书模板已生成（{label}）: {args.out}")
     else:
         print(template)
     return template
@@ -389,8 +488,8 @@ def cmd_archive(args):
     (archive_dir / "00-案卷信息.json").write_text(
         json.dumps(docket, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    # 复制各阶段产物
-    for subdir in ["00-立案", "01-举证", "02-质证", "03-终审"]:
+    # 复制各阶段产物（二审终审制五阶段）
+    for subdir in ["00-立案", "01-举证", "02-质证", "03-一审", "04-回灌修订", "05-二审终审"]:
         src = trial_path / subdir
         if src.exists():
             dst = archive_dir / subdir
@@ -403,7 +502,7 @@ def cmd_archive(args):
         "docket_id": docket_id,
         "archive_path": str(archive_dir),
         "archived_at": _now(),
-        "phases": ["立案", "举证", "质证", "终审"],
+        "phases": ["立案", "举证", "质证", "一审", "回灌修订", "二审终审"],
         "sub_agent_count": docket.get("sub_agent_count", 0),
         "status": "archived"
     }
@@ -639,7 +738,7 @@ def cmd_convergence_check(args):
     threshold = args.threshold
     converged = ratio >= threshold
     print(f"收敛相似度: {ratio:.2%} (阈值 {threshold:.0%}) -> {'已收敛' if converged else '未收敛'}")
-    print(f"建议: {'可进入终审' if converged else '继续下一轮质证'}")
+    print(f"建议: {'可进入一审裁决' if converged else '继续下一轮质证'}")
     return {"similarity": ratio, "converged": converged}
 
 
@@ -769,21 +868,23 @@ def main():
     p_docket.add_argument("--issue", required=True, help="议题描述")
     p_docket.add_argument("--roles", type=int, default=3, choices=[2,3,4,5,6], help="子代理数量")
     p_docket.add_argument("--type", default="", help="议题类型标签(如 08-FinanceInvestment)")
-    p_docket.add_argument("--max-rounds", type=int, default=3, help="质证最大轮次(默认3)")
+    p_docket.add_argument("--max-rounds", type=int, default=2, help="质证最大轮次(默认2, 二审终审制统一口径)")
     p_docket.add_argument("--out", default="", help="输出路径")
 
     # prompt
     p_prompt = sub.add_parser("prompt", description=CMD_PROMPT_DESC)
-    p_prompt.add_argument("--phase", required=True, choices=["evidence", "cross-exam"], help="阶段")
+    p_prompt.add_argument("--phase", required=True, choices=["evidence", "cross-exam", "revision"], help="阶段: evidence=举证 / cross-exam=质证 / revision=一审回灌修订")
     p_prompt.add_argument("--role", required=True, help="角色名")
     p_prompt.add_argument("--docket", default="", help="案卷信息 JSON 路径")
-    p_prompt.add_argument("--evidence-dir", default="", help="举证产物目录（质证阶段需要）")
+    p_prompt.add_argument("--evidence-dir", default="", help="产物目录（质证/回灌修订阶段需要，指向他方产物目录）")
+    p_prompt.add_argument("--verdict-file", default="", help="一审判决书路径（回灌修订阶段需要，如 03-一审/first-instance-verdict.md）")
     p_prompt.add_argument("--round", type=int, default=1, help="质证轮次序号(从1开始)")
     p_prompt.add_argument("--force", action="store_true", help="跳过用户确认关卡(紧急放行)")
 
     # verdict-template
     p_vt = sub.add_parser("verdict-template", description=CMD_VERDICT_DESC)
     p_vt.add_argument("--docket", required=True, help="案卷信息 JSON 路径")
+    p_vt.add_argument("--instance", default="second", choices=["first", "second"], help="裁决文书类型: first=一审判决书 / second=二审终审意见书(默认,终局不回灌)")
     p_vt.add_argument("--out", default="", help="输出路径")
     p_vt.add_argument("--force", action="store_true", help="跳过用户确认关卡(紧急放行)")
 

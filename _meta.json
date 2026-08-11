@@ -1,8 +1,8 @@
 {
   "slug": "team-orchestration",
-  "version": "3.2.0-opencode",
+  "version": "3.4.0-zcode",
   "source": "github.com/edisonzerolam/team-orchestration-skill",
   "installedAt": 1779260000000,
-  "adaptedFor": "OpenCode",
-  "adaptationNote": "v3.2.0 导入自 Desktop/team-orchestration-skill（2026-08-06）。脚本无 WorkBuddy 依赖，SKILL.md 中 ~/.workbuddy 引用已替换为 OpenCode 等价物（mini-vision 视觉路由、task 工具产物收集）；TRIAL_BASE 改为 skill 内 deliverables/trial；新建 references/opencode-adaptation.md；39 专家团 199 agents 保留。version 标注 3.2.0-opencode。"
+  "adaptedFor": "ZCode",
+  "adaptationNote": "v3.4.0-zcode (2026-08-09 二审终审制改造)：审判庭由四阶段升级为五阶段——立案→举证→质证(默认1轮最多2轮)→一审(裁决+回灌修订固定1轮)→二审终审(不回灌)；一审判决书为中间产物(03-一审/first-instance-verdict.md)，终审意见书为二审终局交付(05-二审终审/)；质证轮次上限统一为 2（修掉 SKILL.md 与参考文档/代码 3 轮矛盾）；orchestrator 新增 prompt --phase revision 与 verdict-template --instance first|second，docket 新增 revision 字段；归档子目录扩为 00-立案/01-举证/02-质证/03-一审/04-回灌修订/05-二审终审。v3.3.0 适配历史：① 更新自 Desktop/team-orchestration（v3.3.0，WorkBuddy 版）；② SKILL.md §4.1 视觉路由改 ZCode 实测口径（main=deepseek-v4-flash 不可读图，一律 Task 委托 mini-vision）；§4.2 后台契约改 task 返回值/TaskOutput（ZCode 无 inbox）；§7.1 归档改工作区 deliverables/trial；§8 删 models.json 重复行、新增 zcode-adaptation.md 与 opencode-adaptation.md（v3.2.0 历史参考）；③ 新建 references/zcode-adaptation.md（实测映射：task 调度、51 用户级 agent、mini-vision 路由、TRIAL_BASE 环境变量）；④ scripts/trial-court-orchestrator.py TRIAL_BASE 支持 TRIAL_BASE 环境变量（缺省 cwd/deliverables/trial）；⑤ test-workflow.md C2/C7/R4 判据 ZCode 化。disable-model-invocation: true 为非官方字段（ZCode 官方仅 name/description/when_to_use/license/metadata），保留但不可依赖。"
 }

@@ -46,71 +46,72 @@
     {
       "id": "ib-lead",
       "name": {
-        "zh": "保荐人",
-        "en": "Sponsor"
+        "zh": "保荐代表人",
+        "en": "Sponsor Rep"
       },
       "profession": {
         "zh": "保荐代表人",
-        "en": "Sponsor Rep"
-      }
+        "en": "Sponsor Representative"
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
-        "zh": "招股书撰写员",
-        "en": "Specialist 1"
+        "zh": "IPO顾问",
+        "en": "IPO Advisor"
       },
       "profession": {
-        "zh": "招股书撰写员",
-        "en": "Specialist 1"
+        "zh": "IPO顾问",
+        "en": "IPO Advisory Specialist"
       },
       "role": "member"
     },
     {
       "id": "member-2",
       "name": {
-        "zh": "并购分析师",
-        "en": "Specialist 2"
+        "zh": "并购顾问",
+        "en": "M&A Advisor"
       },
       "profession": {
-        "zh": "并购分析师",
-        "en": "Specialist 2"
+        "zh": "并购顾问",
+        "en": "M&A Advisory Analyst"
       },
       "role": "member"
     },
     {
       "id": "member-3",
       "name": {
-        "zh": "债券专员",
-        "en": "Specialist 3"
+        "zh": "债券承销",
+        "en": "Bond Underwriting Specialist"
       },
       "profession": {
-        "zh": "债券专员",
-        "en": "Specialist 3"
+        "zh": "债券承销专员",
+        "en": "Bond Underwriting Specialist"
       },
       "role": "member"
     },
     {
       "id": "member-4",
       "name": {
-        "zh": "监管合规员",
-        "en": "Specialist 4"
+        "zh": "监管问询专家",
+        "en": "Regulatory Response Expert"
       },
       "profession": {
-        "zh": "监管合规员",
-        "en": "Specialist 4"
+        "zh": "监管问询专家",
+        "en": "Regulatory Inquiry Response Specialist"
       },
       "role": "member"
     },
     {
       "id": "member-5",
       "name": {
-        "zh": "估值建模师",
-        "en": "Specialist 5"
+        "zh": "投行财务建模师",
+        "en": "IB Financial Modeler"
       },
       "profession": {
-        "zh": "估值建模师",
-        "en": "Specialist 5"
+        "zh": "投行财务建模师",
+        "en": "Investment Banking Financial Modeler"
       },
       "role": "member"
     }

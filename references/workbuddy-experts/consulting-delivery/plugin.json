@@ -52,7 +52,8 @@
       "profession": {
         "zh": "咨询项目总监",
         "en": "Engagement Director"
-      }
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",

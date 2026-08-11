@@ -1,6 +1,6 @@
 # 最后资产快照
 
-> 生成时间: 2026-08-01T12:35:03+08:00
+> 生成时间: 2026-08-06T03:04:13+08:00
 
 ---
 ## 📊 资产总览
@@ -8,9 +8,9 @@
 | 类型 | 数量 |
 |------|------|
 | 专家团 (Expert Teams) | 39 |
-| MCP 工具 (已连接) | 7 |
-| 技能 (Skills) | 90 |
-| 连接器 (Connectors) | 7 |
+| MCP 工具 (已连接) | 8 |
+| 技能 (Skills) | 97 |
+| 连接器 (Connectors) | 8 |
 | 插件 (Plugins) | 0 |
 
 ## MCP 工具（已连接）
@@ -18,7 +18,7 @@
 - **tmeet** | ---, name: tmeet-skill, version: 1.0.8
   - 适用议题: 通用, 会议, 协作
 
-- **qq-mail** | ---, name: qq-mail, description: "QQ邮箱(QQ Mail)全功能操作技能。触发场景：看邮箱、查邮件、收件箱、看看邮件、有没有新邮件、未读邮件、帮我看看邮箱、打开邮箱、最近的邮件、邮件列表、发邮件、写邮件、发一封邮件、回复邮件、转发邮件、删除邮件、搜邮件、找邮件、搜索邮箱、下载附件、邮件附件、check email、inbox、send email、reply、forward、search mail、a
+- **qq-mail** | ---, name: qq-mail, description: QQ邮箱(QQ
   - 适用议题: 通用, 通信, 邮件
 
 - **westock-mcp** | ---, name: westock-skill, description: 提供实时行情，支持条件选股、自选管理、股价提醒与模拟交易
@@ -33,14 +33,18 @@
 - **tencent-map** | 
   - 适用议题: 通用, 地理, 位置, 地图
 
-- **qcc-company** | ---, name: qcc-company, description: "Query and verify corporate registration information. Supports shareholder structure, actual controllers, beneficial owners, executive teams, external investments, financial data, annual 
+- **qcc-company** | ---, name: qcc-company, description: Query and verify corporate registration information. Supports
   - 适用议题: 11-SecurityCompliance, 工商, 企业信息, 合规
+
+- **lemonclaw** | ---, name: lemonclaw-workbuddy, description: "通过 lemonclaw-cli 与内置独立开票工作流查询或操作柠檬云多产品业务数据。覆盖认证和账套、进销存 SCM、业财 ERP、财务 ACC、发票查询及独立开票；适用于客户、供应商、商品、采购、销售、库存、收付款、往来、凭证、账簿、资金与经营报表、进销项发票、立即开票、批量开票和开票反馈等场景。用户提到柠檬云、Lemon Cloud、LemonSCM、LemonER
+  - 适用议题: 通用
 
 ## 技能（按需加载节选）
 
 - **a-stock-analysis-pro**: |
 - **agent-browser-core**: OpenClaw skill for the agent-browser CLI (Rust-based with Node.js fallback) enabling AI-friendly web automation with sna
-- **agent-planner**: "Agent�滮�������ܣ���ǿ��E��������auditor��P-Sub-P�׶Σ��ṩP1�����ƻ�/P2���ι滮/P3������ֽ⡣֧��4-Zone Workspace�������ӵ��Ԥ�����Ӵ���
+- **agent-planner**: "Agent规划修正技能（增强层E）。用于auditor的P-Sub-P阶段，提供P1批量计划/P2单次规划/P3子任务分解。支持4-Zone Workspace分区、坑点库预警、子代理调用模式(F11/E6)、plan-tracker版本
+- **agent-reach**: >
 - **agent-team-orchestration**: "Orchestrate multi-agent teams with defined roles, task lifecycles, handoff protocols, and review workflows. Use when: (
 - **aihot**: 查询 AI HOT 的中文 AI 资讯、精选、当前热点和日报。用户询问今天或最近的 AI 新闻、AI 圈动态、大模型或产品发布、OpenAI／Anthropic／Google 最新消息、AI 论文、AI 日报、AI HOT 精选、当前最热事
 - **akshare-backtest**: >
@@ -53,11 +57,10 @@
 - **bank-reconciliation-claw**: |
 - **china-stock-analysis**: Analyze Chinese stock prices (A-shares, HK stocks) and provide investment recommendations. Use when the user asks about 
 - **clawhub**: Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch ne
+- **cnfinancialscraper**: |
 - **content-factory**: "Multi-agent content production system. One piece of source content becomes many formats — social posts, email, scripts,
 - **content-ops**: ""
 - **debug**: "Trace errors in logs, parse stack traces, detect memory leaks, profile commands, and debug HTTP."
-- **deep-research**: "Structured deep research workflow with human-in-the-loop control. Use /research to generate research outline, /research
-- **docx**: "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers incl
 
 ## 专家团（按分类）
 

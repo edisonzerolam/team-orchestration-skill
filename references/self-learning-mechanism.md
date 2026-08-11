@@ -29,17 +29,20 @@ Loop 3: 主动联网增强              Layer S3: 反馈驱动改进
 ```
 trial_archive/{yyyy-mm}/{docket_id}/
 ├── 00-案卷信息.json           # 元数据：议题、时间、所用资产
-├── 01-争点清单.md             # Phase A 产出
-├── 02-举证/                   # Phase B 所有子代理产物
+├── 归档摘要.json              # orchestrator archive 命令生成的摘要
+├── 00-立案/                   # Phase A 产出（争点清单 + 案卷记录）
+├── 01-举证/                   # Phase B 所有子代理产物 P{i}(A)
 │   ├── P1-正方.md
 │   ├── P2-反方.md
 │   └── P3-中立.md
-├── 03-质证/                   # Phase C 质证记录
+├── 02-质证/                   # Phase C 质证记录 P{i}(B)（最多 2 轮）
 │   ├── P1-B-质证.md
 │   └── ...
-├── 04-终审意见书.md           # Phase D 产出
-├── 05-资产使用记录.json        # 用了哪些资产、效果如何
-└── 06-反馈记录.json            # 用户反馈（如有时）
+├── 03-一审/                   # Phase D 一审判决书（first-instance-verdict.md，中间产物）
+├── 04-回灌修订/               # Phase D 回灌修订产物 P{i}(C)（固定 1 轮）
+├── 05-二审终审/               # Phase E 二审终审意见书（终局，不回灌）
+├── 06-资产使用记录.json        # 自学习层补充：用了哪些资产、效果如何
+└── 07-反馈记录.json            # 自学习层补充：用户反馈（如有时）
 ```
 
 ### 2.2 案卷信息 JSON 结构
@@ -52,7 +55,16 @@ trial_archive/{yyyy-mm}/{docket_id}/
   "created_at": "2026-07-27T11:00:00+08:00",
   "complexity": "L3",
   "sub_agent_count": 3,
-  "cross_exam_rounds": 1,
+  "cross_exam": {
+    "max_rounds": 2,
+    "current_round": 0,
+    "converged": false
+  },
+  "revision": {
+    "max_rounds": 1,
+    "current_round": 0,
+    "done": false
+  },
   "assets_used": {
     "expert_teams": ["chatlaw-team"],
     "mcp_tools": [],

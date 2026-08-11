@@ -1,6 +1,6 @@
 # team-orchestration 回归测试工作流（选择性加载模块 · 现行）
 
-> 适用范围：team-orchestration 技能（v3.1.2）。当有人对该技能做**改进 / 修改 / 调整 / 优化**任一操作后，须执行本回归测试工作流，验证改动未破坏原有功能。
+> 适用范围：team-orchestration 技能（v3.4.0-zcode）。当有人对该技能做**改进 / 修改 / 调整 / 优化**任一操作后，须执行本回归测试工作流，验证改动未破坏原有功能。
 > 模块性质：**选择性加载**，封装于 `references/test-workflow.md`；默认不加载，按需读取。本草案即该模块的源稿。
 > 依据：本对话两次真实演练暴露的问题清单 `to-test-module/dialogue-facts.md`（F1-F5）+ 技能现存契约（SKILL.md / cross-validation.md / phase-gates.md / team-setup.md / task-lifecycle.md）+ 既有自动化测试 `tests/run_smoke.py` 与 `tests/test_*.py`。
 > **v2 修正记录**：本版依据 team-lead 审阅已落实 3 处必改（A1 触发判据分层、B2 去除 L4 档位并将深度档归入 cross-validation、选择性加载 step-0 自检 + §8 强约束索引）与 4 处建议（fixtures 数据源 / 报告单一路径 / B6 六段式内联 / step0 环境具体值 + 无 git 基线）。
@@ -14,11 +14,11 @@
 - `test_file_health.py`：全包 UTF-8 健康扫描（严格解码 / 无 U+FFFD / 无单行超长 / 无 mojibake）。
 - `test_references.py` + `check_references.py`：本地引用完整性（references/ scripts/ tests/ 死链检测）。
 - `test_task_decomposer.py` / `test_expert_matcher.py` / `test_dispatch_planner.py`：三个**前端脚本**的分层/选专家/派工/A3 交付模板字段断言。
-- `test_trial_court.py`：审判庭后端脚本（案卷生成 / 归档 / 自学习初始化）冒烟。
+- `test_trial_court.py`：审判庭后端脚本（案卷生成 / 归档 / 自学习初始化 / 二审终审制：一审判决书模板、回灌修订 prompt）冒烟。
 
 **回归模块与既有测试的分工**：
 - 既有测试 = **脚本层自动化（白盒、静态、确定性）**，改动后跑 `run_smoke.py` 即有数值结果。
-- 本模块 = **编排行为层回归（黑盒、协议、端到端）**，覆盖脚本测试捕获不了的运行时编排语义：三阶段是否照跑、A3 契约是否遵守、TeamCreate 切换任务列表、后台送达契约、终审门禁、归档元数据、视觉路由等。
+- 本模块 = **编排行为层回归（黑盒、协议、端到端）**，覆盖脚本测试捕获不了的运行时编排语义：五阶段是否照跑（二审终审制：一审裁决→回灌修订→二审终审）、A3 契约是否遵守、TeamCreate 切换任务列表、后台送达契约、终审门禁、归档元数据、视觉路由等。
 - 二者互补：本模块把 `run_smoke.py` 作为 step 1 前置检查；脚本测试通过才进入行为级回归。
 
 ---
@@ -40,7 +40,7 @@
 - **默认 3 人即可跑通全链路**：lead（主理人）+ runner（执行）+ designated（独立复核）。reporter 与 env-guard 可由 lead 兼任（单人小改可缩减）。
 - **必须保留独立复核角色**：F1 教训是"worker 自报不可信"。若让执行者自己判自己通过，等于复刻 bug。配不了独立复核者时，lead 至少另起全新上下文抽查最薄弱证据。
 - **可缩减**：纯静态小改（仅文档措辞）用 `最小冒烟`（见 §4.3），单 lead 一人跑 run_smoke + 引用检查即可，不组团队。
-- **可扩编**：涉及多领域/高争议改动（改了三阶段或 A3 契约），扩到 4-6 人多分支并行；独立复核者单独全新上下文，不与 runner 共享。
+- **可扩编**：涉及多领域/高争议改动（改了五阶段或 A3 契约），扩到 4-6 人多分支并行；独立复核者单独全新上下文，不与 runner 共享。
 - **角色隔离纪律**：禁止 runner 兼任自身用例的 designated；designated 必须全新上下文、看不到 runner 过程，只给结论与证据。
 
 ---
@@ -49,29 +49,30 @@
 
 ### 2.A 核心功能点测试（对应技能功能分层）
 
-逐条执行 SKILL.md 功能分层：规模门 → 三阶段/直行 → 角色分配 → 合并策略 → 质量门禁 → 归档。
+逐条执行 SKILL.md 功能分层：规模门 → 五阶段/直行 → 角色分配 → 合并策略 → 质量门禁 → 归档。
 
 | 编号 | 功能点 | 步骤（谁做） | 判定标准（通过判据） |
 |------|--------|--------------|----------------------|
-| A1 | **触发条件与规模门** | runner 构造低复杂度（应直行）与高复杂度（应三阶段）两用例；lead 核对分层判定 | 分层判定：**先判触发面**——SKILL.md §1"①>1 子代理 ②main+子代理协作 ③多角度执行"任一满足→走三阶段，都不满足→直行；**再判规模面**——§2 阈值 L1/L2→直行深度、L3+→三阶段深度。冲突仲裁：**若触发面命中的场景同时落在规模面 L1/L2（低复杂但仍多视角），以触发面优先走三阶段**（多视角仍须对抗，深度可按规模面收缩）。 |
-| A2 | **三阶段流程** | runner 走 立案→并行举证→质证+终审；lead 核对顺序 | 严格 A→B→C；无跳阶段（§7 铁律） |
+| A1 | **触发条件与规模门** | runner 构造低复杂度（应直行）与高复杂度（应五阶段）两用例；lead 核对分层判定 | 分层判定：**先判触发面**——SKILL.md §1"①>1 子代理 ②main+子代理协作 ③多角度执行"任一满足→走五阶段（二审终审制），都不满足→直行；**再判规模面**——§2 阈值 L1/L2→直行深度、L3+→五阶段深度。冲突仲裁：**若触发面命中的场景同时落在规模面 L1/L2（低复杂但仍多视角），以触发面优先走五阶段**（多视角仍须对抗，深度可按规模面收缩）。 |
+| A2 | **五阶段流程（二审终审制）** | runner 走 立案→并行举证→质证→一审(裁决+回灌修订)→二审终审；lead 核对顺序 | 严格 A→B→C→D(一审)→E(二审终审)；无跳阶段（§7 铁律）；一审回灌修订固定 1 轮（含判决书+他方产物）、二审终审不回灌 |
 | A3 | **直行与自动切换** | runner 先直行，中途复杂度升 L3 | 升级触发自动切换，不卡在单 agent |
 | A4 | **降级路径** | runner 尝试组团队但无法确认 2+ 差异化视角 | 按 §2 降为单 agent+自我批判，不硬凑团队（无假团队） |
 | A5 | **角色分配** | runner 按争点数选 2/3/4-6 角色 | 角色数匹配 §6 表格；专业视角差异化（非重复角色） |
 | A6 | **合并策略** | 构造封闭题（投票制）+ 开放题（辩论制） | 封闭题多数采信+少数留痕；开放题 main 综合采信并逐条给理由 |
-| A7 | **质量门禁** | 终审后 lead 核对 §7 铁律 + §7.1 五章节 + phase-gates G1-G5 | 无代写/跳阶段/直连；可信度=最薄弱证据；意见书章节齐全 |
-| A8 | **归档** | runner 触发归档，lead 核对落盘 | 产物在 `deliverables/trial/YYYY-MM-DD/<docket_id>/final-verdict.md`，docket_id=TC-YYYYMMDD-N；异步不阻塞 |
+| A7 | **质量门禁** | 二审终审后 lead 核对 §7 铁律 + §7.1 五章节 + phase-gates G1-G5 | 无代写/跳阶段/直连；可信度=最薄弱证据；意见书章节齐全；一审判决书已作中间产物归档 |
+| A8 | **归档** | runner 触发归档，lead 核对落盘 | 产物在 `deliverables/trial/YYYY-MM-DD/<docket_id>/final-verdict.md`（二审终审意见书），docket_id=TC-YYYYMMDD-N；一审判决书在 `03-一审/first-instance-verdict.md`；异步不阻塞 |
+| A9 | **二审终审制专项** | runner 走 一审裁决→回灌修订→二审终审 全链 | 一审判决书为中间产物（落盘+流程中展示摘要，不单独交付）；回灌修订固定 1 轮、不因收敛提前；二审终审意见书为终局交付且不再回灌；二审不引入新论点 |
 
 ### 2.B 关键代码路径与边界条件测试
 
 | 编号 | 关键路径 / 边界 | 步骤 | 判定标准 |
 |------|----------------|------|---------|
-| B1 | **L1 直行 与 L3 三阶段 切换边界** | runner 从子任务≤3 增至 ≥4、或维度由单转多 | 恰在 L1→L3 阈值切换，不早不晚；切换后走对应流程 |
-| B2 | **规模门阈值（L1/L2/L3）** | runner 构造复杂度 1/2/3 三档 | **规模门只有 L1 / L2 / L3+，无 L4 档**。按门：L1 直行、L2 可直行、L3+ 三阶段。测试某档时的"验证深度"单独按 `references/cross-validation.md` 的四档（skip/light/standard/deep，映射复杂度 1-4）选取，**勿把 deep 深度档当规模门档位** |
+| B1 | **L1 直行 与 L3 五阶段 切换边界** | runner 从子任务≤3 增至 ≥4、或维度由单转多 | 恰在 L1→L3 阈值切换，不早不晚；切换后走对应流程 |
+| B2 | **规模门阈值（L1/L2/L3）** | runner 构造复杂度 1/2/3 三档 | **规模门只有 L1 / L2 / L3+，无 L4 档**。按门：L1 直行、L2 可直行、L3+ 五阶段。测试某档时的"验证深度"单独按 `references/cross-validation.md` 的四档（skip/light/standard/deep，映射复杂度 1-4）选取，**勿把 deep 深度档当规模门档位** |
 | B3 | **降级路径（无法定视角）** | runner 给"无法确认 2+ 差异化视角"输入 | 单 agent+自我批判；不 stub 假角色；降级被显式记录 |
 | B4 | **升级路径（L2 跨 ≥3 领域）** | runner 构造 L2 但覆盖 3 领域 | 升为 L3，不留在 L2 直行 |
 | B5 | **A3 JSON 完整性** | runner 让每子代理输出，校验器逐字段断言 | 每 A3 含 role/artifacts{conclusions,evidence,risks,actions}/confidence/uncertainties；非空、类型对、无缺键 |
-| B6 | **终审六段式** | runner 走 `references/trial-court-protocol.md` §6.1 六段终审；lead 逐段核对 | 判据"六段齐全" = 一段 案卷信息 / 二段 争点回顾 / 三段 逐条裁决 / 四段 终局结论 / 五段 存疑遗留 / 六段 资产使用评价；六段齐全、顺序对、段三逐条裁决含理由、段六记录资产使用；禁止引入新论点（定位：trial-court-protocol.md §6.1） |
+| B6 | **终审七段式** | runner 走 `references/trial-court-protocol.md` §7.2 七段终审；lead 逐段核对 | 判据"七段齐全" = 一段 案卷信息 / 二段 争点回顾 / 三段 质证与一审修订记录 / 四段 逐条裁决 / 五段 终局结论 / 六段 存疑遗留 / 七段 资产使用评价；七段齐全、顺序对、段四逐条裁决含理由、段三记录质证轮数+回灌修订轮、段七记录资产使用；禁止引入新论点（定位：trial-court-protocol.md §7.1） |
 | B7 | **并行 worker spawn 上限/收敛** | 同时 spawn 2-6 子代理 | 数量在区间；全部被 TaskCreate 登记；并发产出且质证不缺件 |
 
 ### 2.C 与团队成员 / 工具的集成点测试
@@ -79,12 +80,12 @@
 | 编号 | 集成点 | 步骤 | 判定标准 |
 |------|--------|------|---------|
 | C1 | **TeamCreate 切换任务列表** | runner 建团队，观察任务列表 | TeamCreate 后任务列表切到团队目录；原列表被隔离（不混）；可切回 |
-| C2 | **后台 inbox 送达契约** | spawn 后台 worker，结束时 SendMessage 回传 | 判完成**以 `~/.workbuddy/teams/<team>/inboxes/<lead>.json` 文件为准**，不看实时消息流与 completed 自动通知 |
+| C2 | **后台送达契约（ZCode）** | spawn 后台 worker（`background: true` / `run_in_background`），结束时回传 A3 | 判完成**以 task 返回值 / 完成通知为准**（ZCode 无 inbox 文件机制），不看实时消息流；prompt 末尾注明"返回结构化 A3 JSON 结果" |
 | C3 | **TaskOutput 看门狗** | 设 5 分钟超时（建议），超时主动 TaskOutput 拉取 | 不无限等消息流；超时兜底能取到产物；无假停滞 |
 | C4 | **run_smoke.py** | runner 在 env-guard 核对后执行 | `python tests/run_smoke.py` 退出 0，全 PASS，无 LOAD-FAIL |
 | C5 | **引用完整性 + 文件健康** | runner 执行 test_references / test_file_health | check_references 无死链（退出 0）；test_file_health 全包 UTF-8 健康 |
 | C6 | **MCP / 连接器 / 技能资产注入** | 立案阶段选取可用资产并注入子代理 prompt | 资产真实注入（出现在 A3 的 tools/actions）；可调用；失败有兜底说明 |
-| C7 | **models.json 视觉路由** | 含图像子代理场景 | 起代理前核对 models.json 目标模型存在且 supportsImages=true；main 能读图则 main 直读；子代理 400 时切 mimo-v2.5 或外部 OCR 转文本，不硬调不存在模型 |
+| C7 | **视觉路由（ZCode 实测修正）** | 含图像子代理场景 | **三路不可用**（2026-08-09 实测：main 直读报 Media omitted；mini-vision 类型不存在；general-purpose 子代理同样 text-only；模型池全表 text-only）→ 视觉任务走外部 OCR 转文本喂子代理；不硬调不存在的模型/类型 |
 
 ---
 
@@ -97,7 +98,7 @@
 ```
 step-0 触发自检（在读取本文件后立刻执行）：
   改动命中【逻辑/契约/脚本/.json】→ 强制先读本文件并按 §5 全量回归
-    命中面：SKILL.md 触发/规模门/三阶段/A3 契约/角色分配/合并策略/门禁/归档
+    命中面：SKILL.md 触发/规模门/五阶段/A3 契约/角色分配/合并策略/门禁/归档
             references/trial-court*、cross-validation、phase-gates、team-setup、task-lifecycle
             scripts/*.py、config.yaml、models.json、_meta.json
   仅改文档格式/措辞（不动逻辑/契约/字段）→ 最小冒烟
@@ -109,7 +110,7 @@ step-0 触发自检（在读取本文件后立刻执行）：
 
 - 本模块作为 **`references/test-workflow.md`** 独立文件存在，完整承载 §2/§4/§5/§6 全部内容，并以 §3.1 的 step-0 自检清单开头。
 - `SKILL.md` **只在 §8 参考索引表加一行**，且"用途"栏**加粗写强约束**：`| references/test-workflow.md | **改本技能逻辑/契约/脚本前必先读，作为回归门禁** |`——让该索引行成为强约束而非普通索引项。
-- **不写入 SKILL.md 主流程**：三阶段、A3 契约、规模门等正文一律不动，避免测试逻辑污染生产主流程。
+- **不写入 SKILL.md 主流程**：五阶段、A3 契约、规模门等正文一律不动，避免测试逻辑污染生产主流程。
 - 同样不进入触发段、规模门、质量门禁等任何执行逻辑引用。
 
 ### 3.3 加载方式（关键）
@@ -124,7 +125,7 @@ step-0 触发自检（在读取本文件后立刻执行）：
 ### 3.4 为何选择性加载（不塞进主流程）
 
 1. **解耦**：测试工作流运行开销高（组独立复核、跑端到端），常驻会拖慢每次正常编排。
-2. **可维护**：测试模块独立演进，不牵连生产三阶段版本。
+2. **可维护**：测试模块独立演进，不牵连生产五阶段版本。
 3. **防互相污染**：主流程若被测试逻辑引用，改生产代码会误触断言，产生假阴/假阳。
 
 ---
@@ -138,15 +139,15 @@ step-0 触发自检（在读取本文件后立刻执行）：
 | 操作类型 | 例子 | 触发词 / 判断 | 归属处理 |
 |----------|------|---------------|----------|
 | **改进 / 增强** | 新增某阶段能力、优化质量门禁、扩充合并策略 | 用户/lead 说"改进""增强""提升""优化技能" | 强制回归 |
-| **修改 / 调整** | 改三阶段顺序、调规模门阈值、改 A3 字段、改角色分配 | "改""调整""变更""编辑""重构" 结合技能文件 | 强制回归 |
+| **修改 / 调整** | 改五阶段顺序、调规模门阈值、改 A3 字段、改角色分配 | "改""调整""变更""编辑""重构" 结合技能文件 | 强制回归 |
 | **Bug 修复** | 修复 F1-F5 任一 | 明确"修 bug""修复""解决回归问题" | 强制回归 |
-| **文件级触发** | 技能目录 .md（自有逻辑）/ .py / .json（config.yaml、models.json、_meta.json）被改 | 检测到 `~/.workbuddy/skills/team-orchestration/**` 变更 | 强制回归 |
+| **文件级触发** | 技能目录 .md（自有逻辑）/ .py / .json（config.yaml、_meta.json）被改 | 检测到 `~/.agents/skills/team-orchestration/**` 变更 | 强制回归 |
 | **git 触发** | git diff 检测新旧差异 | `git diff` 有实质输出指向技能内容 | 强制回归（无 watcher 时由人工比对 git diff 生效） |
 | **文档格式微调** | 仅排版/措辞，不动逻辑/契约/字段 | 无逻辑/契约/字段改动 | 最小冒烟 |
 
 ### 4.2 人工判定准则（diff / 变更检测）
 
-- `git -C ~/.workbuddy/skills/team-orchestration status` 与 `git diff` 核对改动面。
+- `git -C ~/.agents/skills/team-orchestration status` 与 `git diff` 核对改动面（ZCode 安装目录通常非 git 仓库，桌面源目录 team-orchestration 为 git 仓库，可作基线）。
 - 改动命中 SKILL.md / 自有逻辑 .md（trial-court*、cross-validation、phase-gates、team-setup 等）/ scripts/*.py / config.yaml / models.json → **强制回归**。
 - **无 git 时的基线留存**：本技能目录实测为独立 git 仓库（git rev-parse=true，回滚可用 git）。但若将来移出 git，改动前先备份受影响 reference 文件到指定备份目录，或记录各文件 mtime 前后快照，确保可回滚基线不丢失。
 - 无法判断是否触碰逻辑 → **保守触发**（宁跑勿漏，按强制回归处理）。
@@ -165,13 +166,15 @@ step-0 触发自检（在读取本文件后立刻执行）：
 ### 5.1 执行步骤序列（自下而上）
 
 ```
-step 0  环境守护 env-check：核对受管解释器 / 工作区绝对路径 / inbox 可写 / Git Bash heredoc 陷阱 / 无 git 时基线留存
-       环境基线具体值（实测验证）：
-         - 受管 Python        : C:/Users/林昌/.workbuddy/binaries/python/versions/3.13.12/python.exe
-         - 工作区路径          : D:/workbuddy/2026-08-01-12-45-16（产物用工作区绝对路径，勿写 Git Bash /tmp）
+step 0  环境守护 env-check：核对解释器 / 工作区绝对路径 / 产物收集机制 / Git Bash heredoc 陷阱 / 无 git 时基线留存
+       [ZCode 2026-08-09 实测基线，若换机以实测为准]：
+         - 受管 Python        : python 3.12.8（系统 PATH 可直接 `python`）
+         - 工作区路径          : C:\Users\林昌\.zcode\workspace\default（产物用工作区绝对路径，勿写 Git Bash /tmp）
          - scripts/*.py 存在性 : 断言 scripts/task-decomposer.py / expert-matcher.py / dispatch-planner.py
-                              / trial-court-orchestrator.py / asset-resolver.py / cross-validator.py 均存在
+                              / trial-court-orchestrator.py / asset-resolver.py / cross-validator.py
+                              / check_team_consistency.py / check_agent_completeness.py 均存在（新增校验脚本纳入）
          - tests/run_smoke.py 可运行: 直接执行 `python tests/run_smoke.py` 返回 exit 0
+         - 子代理机制：task(subagent_type=...)（ZCode 无 inbox/TeamCreate，判据见 C2/R4）
        无 git 基线：若技能非 git 管理，改动前先备份受影响 reference 文件到 `<工作区>/deliverables/to-test-module/backup/`
                   + 记录各文件 mtime 前后快照（env-guard 负责）
 step 1  基线自动化：runner 跑 python tests/run_smoke.py 与 python tests/check_references.py
@@ -188,7 +191,7 @@ step 7  lead 出 regression-report.md（固定路径 §5.5），附验收清单�
 
 - **A 类**：步骤序列正确、产物章节/字段齐全、无铁律违反 → PASS；任一铁律违反（代写/跳阶段/直连）即 FAIL。A1 额外校验：触发面与规模面分层判定正确、冲突仲裁按触发面优先。
 - **B 类**：阈值处行为与 §1/§2 明文一致；降级/升级被显式记录 → PASS；阈值错或硬凑团队即 FAIL。B2 额外校验：不把 cross-validation 的 deep 深度档误当规模门 L4 档。
-- **C 类**：inbox 文件齐全（以文件为准）、看门狗不假停滞、run_smoke 退出 0、引用无死链、模型路由正确 → PASS；依赖消息流/自动通知即 FAIL。
+- **C 类**：task 返回值齐全（以返回值为准）、看门狗不假停滞、run_smoke 退出 0、引用无死链、视觉路由正确（委托 mini-vision）→ PASS；依赖消息流/自动通知即 FAIL。
 - **F 系回归（R1-R5）**：见 §6 各自期望通过表现单独判定。
 
 ### 5.3 通过 / 失败处理逻辑
@@ -201,7 +204,7 @@ step 7  lead 出 regression-report.md（固定路径 §5.5），附验收清单�
 3. 治本而非绕过门禁；禁止 --no-verify 式跳过。
 
 **回滚协议**：
-- 技能是 git 仓库。回归破坏且无法时限内修复 → `git -C ~/.workbuddy/skills/team-orchestration checkout -- <受损文件>` 或 revert 到改动前 commit；无 git 时用 step0 备份目录 / mtime 快照恢复。
+- 技能是 git 仓库（桌面源目录）。回归破坏且无法时限内修复 → `git -C <源目录> checkout -- <受损文件>` 或 revert 到改动前 commit；无 git 时用 step0 备份目录 / mtime 快照恢复。
 - 回滚前确认无未保存交付；回滚后重跑 step1 基线 + 相关 F 系用例确认恢复绿。
 - 破坏性/共享操作（force push、reset）须 lead 确认，不擅自执行。
 
@@ -262,10 +265,10 @@ R1-R5 直接把《dialogue-facts.md》的 F1-F5 转为可执行回归用例；R6
 - **怎么触发**：构造题面理论值有误场景（T06：题面≈3.85 vs 独立扫描实际≈2.850595，数据见 §6.0）。
 - **期望通过表现**：冲突出现在汇总/日志顶部显著位置并附独立证据；即便判断正确也不凑题面篡改；仅源码注释标注无显式上报 → FAIL。
 
-### R4〔F4〕后台送达以 inbox 文件为准——实时流不可靠，须设看门狗
-- **测什么**：判后台 worker 完成以 `inboxes/<lead>.json` 文件条目为准，而非实时消息流；不看 completed 自动通知；设超时看门狗。
+### R4〔F4〕后台送达以 task 返回值为准——实时流不可靠，须设看门狗
+- **测什么**：判后台 worker 完成以 **task 返回值 / 完成通知**（ZCode 无 inbox 文件）为准，而非实时消息流；设超时看门狗。
 - **怎么触发**：spawn 后台 worker 并模拟消息流未弹出（掩盖实时事件）。
-- **期望通过表现**：即使无消息流/无 completed，仍扫 inbox 文件 + TaskOutput 看门狗确认收齐全部产物并继续质证；无假停滞；超时兜底正常。
+- **期望通过表现**：即使无消息流，仍以 task 返回值 / TaskOutput 看门狗确认收齐全部产物并继续质证；无假停滞；超时兜底正常。
 
 ### R5〔F5〕日志含可复现元数据——路径+命令+SHA-256
 - **测什么**：产物落盘含元数据（代码路径 + 运行命令 + SHA-256 + exit），可复现。

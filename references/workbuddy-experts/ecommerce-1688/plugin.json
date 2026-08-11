@@ -51,18 +51,19 @@
       },
       "profession": {
         "zh": "电商运营总监",
-        "en": "E-commerce Director"
-      }
+        "en": "E-commerce Operations Director"
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
         "zh": "选品专员",
-        "en": "Specialist 1"
+        "en": "选品专员"
       },
       "profession": {
         "zh": "选品专员",
-        "en": "Specialist 1"
+        "en": "选品专员"
       },
       "role": "member"
     },
@@ -70,11 +71,11 @@
       "id": "member-2",
       "name": {
         "zh": "供应商分析师",
-        "en": "Specialist 2"
+        "en": "供应商分析师"
       },
       "profession": {
         "zh": "供应商分析师",
-        "en": "Specialist 2"
+        "en": "供应商分析师"
       },
       "role": "member"
     },
@@ -82,11 +83,11 @@
       "id": "member-3",
       "name": {
         "zh": "店铺诊断师",
-        "en": "Specialist 3"
+        "en": "店铺诊断师"
       },
       "profession": {
         "zh": "店铺诊断师",
-        "en": "Specialist 3"
+        "en": "店铺诊断师"
       },
       "role": "member"
     },
@@ -94,11 +95,11 @@
       "id": "member-4",
       "name": {
         "zh": "数据分析师",
-        "en": "Specialist 4"
+        "en": "数据分析师"
       },
       "profession": {
         "zh": "数据分析师",
-        "en": "Specialist 4"
+        "en": "数据分析师"
       },
       "role": "member"
     },
@@ -106,11 +107,11 @@
       "id": "member-5",
       "name": {
         "zh": "转化优化师",
-        "en": "Specialist 5"
+        "en": "转化优化师"
       },
       "profession": {
         "zh": "转化优化师",
-        "en": "Specialist 5"
+        "en": "转化优化师"
       },
       "role": "member"
     }

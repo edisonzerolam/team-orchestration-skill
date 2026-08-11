@@ -2,7 +2,8 @@
 
 > 来源: 内置 28 专家团 (WorkBuddy/CodeBuddy) + QoderWork 套件市场 23 插件融入
 > 融合日期: 2026-07-31
-> 总数: 39 个专家团（28 原有 + 11 新建），6 个原有团队已增强
+> 总数: 39 个专家团（28 原有 + 11 新建），6 个原有团队已增强。
+> 补齐状态(2026-08-09): 11 个新建团队已补齐为成员完整（agent-template 标准 + verified 标记），见 `_template/agent-template.md`
 
 ## 融合说明
 
@@ -24,10 +25,10 @@
 | [trading-agent](trading-agent/) | 13 | 何执舟 | 5阶段交易分析, 输出HTML报告 | 原有 |
 | [stock-partner-team](stock-partner-team/) | 7 | 圆汇众 | 六位实战炒股大神经验蒸馏 | 原有 |
 | [a-share-analysis](a-share-analysis/) | 8 | 古见远 | A股全链路研究, 6 Workflow | 原有 |
-| [equity-research](equity-research/) | 6 | 研主编 | 深度报告/行业研究/年报/业绩点评/研报精编 | **新建** |
-| [wealth-management](wealth-management/) | 6 | 财管家 | 资产配置/基金分析/财务规划/税务规划 | **新建** |
-| [pe-vc-investment](pe-vc-investment/) | 6 | 投委会主席 | 项目筛选/尽调/Term Sheet/回报建模/退出 | **新建** |
-| [investment-banking](investment-banking/) | 6 | 保荐人 | IPO/并购/债券/监管问询/路演/财务建模 | **新建** |
+| [equity-research](equity-research/) | 6 | 研主编 | 深度报告/行业研究/年报/业绩点评/研报精编 | **新建·已补齐** |
+| [wealth-management](wealth-management/) | 6 | 财管家 | 资产配置/基金分析/财务规划/税务规划 | **新建·已补齐** |
+| [pe-vc-investment](pe-vc-investment/) | 6 | 投委会主席 | 项目筛选/尽调/Term Sheet/回报建模/退出 | **新建·已补齐** |
+| [investment-banking](investment-banking/) | 6 | 保荐人 | IPO/并购/债券/监管问询/路演/财务建模 | **新建·已补齐** |
 
 ### 06-ContentCreative 内容创作 (4)
 
@@ -53,7 +54,7 @@
 |--------|---------|--------|------|------|
 | [product-strategy-team](product-strategy-team/) | 6 | 方向明 | 产品全生命周期：PRD/用户故事/竞品/指标/路线图 | 原有+增强 |
 | [design-engine](design-engine/) | 6 | 画统筹 | 71套设计系统, 6角色视觉产出 | 原有 |
-| [product-design-suite](product-design-suite/) | 7 | 设计总监 | UX全流程11场景28技能（用研/IA/交互/可用性） | **新建** |
+| [product-design-suite](product-design-suite/) | 7 | 设计总监 | UX全流程11场景28技能（用研/IA/交互/可用性） | **新建·已补齐** |
 
 ### 02-Engineering 工程与云原生 (7)
 
@@ -63,8 +64,8 @@
 | [engineering-assurance-team](engineering-assurance-team/) | 6 | 甄宇航 | 架构/SRE/代码审查/测试/质量工程/接口分析 | 原有+增强 |
 | [gstack](gstack/) | 6 | 沽思航 | 产品审查/安全审计/QA | 原有 |
 | [rum-fullstack-team](rum-fullstack-team/) | 3 | 莱拉 | 腾讯云RUM前端监控 | 原有 |
-| [alicloud-engineering](alicloud-engineering/) | 7 | 云架构师 | 阿里云运维/Terraform/迁移SOP | **新建** |
-| [devtools-engineering](devtools-engineering/) | 5 | 工具链负责人 | 多仓Git/AI测试/接口逻辑分析 | **新建** |
+| [alicloud-engineering](alicloud-engineering/) | 7 | 云架构师 | 阿里云运维/Terraform/迁移SOP | **新建·已补齐** |
+| [devtools-engineering](devtools-engineering/) | 5 | 工具链负责人 | 多仓Git/AI测试/接口逻辑分析 | **新建·已补齐** |
 | [humanize-ppt-team](humanize-ppt-team/) | 7 | 主理人 | PPT大纲→视频→演讲→质检 | 原有 |
 
 ### 11-SecurityCompliance 法律与财税 (4)
@@ -74,7 +75,7 @@
 | [chatlaw-team](chatlaw-team/) | 6 | 林律师 | 4阶段法律咨询 | 原有 |
 | [enterprise-legal-team](enterprise-legal-team/) | 9 | 法衡中 | 企业法务+合同管理（审查/红线/NDA/电子签） | 原有+增强 |
 | [tax-compliance-team](tax-compliance-team/) | 6 | 钱合规 | 企业财税一体化（税务/记账/预算/内审/报表） | 原有+增强 |
-| [cn-litigation](cn-litigation/) | 6 | 主诉律师 | 民商事诉讼全生命周期（20技能4层） | **新建** |
+| [cn-litigation](cn-litigation/) | 6 | 主诉律师 | 民商事诉讼全生命周期（20技能4层） | **新建·已补齐** |
 
 ### 04-DataAI 研究与咨询 (4)
 
@@ -83,13 +84,13 @@
 | [gpt-researcher-team](gpt-researcher-team/) | 7 | 顾全之 | 5阶段深度研究 | 原有 |
 | [huashu-data-pro](huashu-data-pro/) | 4 | 数据主管 | 数据分析全链路 | 原有 |
 | [ai-data-copilot](ai-data-copilot/) | 6 | 诺亚 | SQL/EDA/RAG/可视化 | 原有 |
-| [consulting-delivery](consulting-delivery/) | 6 | 项目总监 | 咨询交付：桌面研究/框架/报告/标杆/高管简报 | **新建** |
+| [consulting-delivery](consulting-delivery/) | 6 | 项目总监 | 咨询交付：桌面研究/框架/报告/标杆/高管简报 | **新建·已补齐** |
 
 ### 07-SalesCommerce 电商与供应链 (2)
 
 | 专家团 | Agent 数 | 主理人 | 说明 | 来源 |
 |--------|---------|--------|------|------|
-| [ecommerce-1688](ecommerce-1688/) | 6 | 电商总监 | 1688买方选品/卖方运营/数据/转化 | **新建** |
+| [ecommerce-1688](ecommerce-1688/) | 6 | 电商总监 | 1688买方选品/卖方运营/数据/转化 | **新建·已补齐** |
 | [sales-battle-team](sales-battle-team/) | 5 | 应必达 | 销售全周期（也归属营销增长） | 原有 |
 
 ### 09-OperationsHR 组织运营 (2)
@@ -103,7 +104,7 @@
 
 | 专家团 | Agent 数 | 主理人 | 说明 | 来源 |
 |--------|---------|--------|------|------|
-| [tech-service-transfer](tech-service-transfer/) | 6 | 转化总监 | 科技服务转化：需求挖掘/成果匹配/量产/融资 | **新建** |
+| [tech-service-transfer](tech-service-transfer/) | 6 | 转化总监 | 科技服务转化：需求挖掘/成果匹配/量产/融资 | **新建·已补齐** |
 | [openspec-doc-team](openspec-doc-team/) | 4 | 章成文 | 企业级长文档生成 | 原有 |
 
 ## 融合适配记录

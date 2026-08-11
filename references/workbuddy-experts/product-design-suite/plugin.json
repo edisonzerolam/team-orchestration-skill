@@ -48,83 +48,84 @@
     {
       "id": "pd-lead",
       "name": {
-        "zh": "设计总监",
-        "en": "Design Director"
+        "zh": "秦观澜",
+        "en": "Qin Guanlan"
       },
       "profession": {
         "zh": "设计总监",
         "en": "Design Director"
-      }
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
-        "zh": "用户研究员",
-        "en": "Specialist 1"
+        "zh": "林海青",
+        "en": "Lin Haiqing"
       },
       "profession": {
         "zh": "用户研究员",
-        "en": "Specialist 1"
+        "en": "UX Researcher"
       },
       "role": "member"
     },
     {
       "id": "member-2",
       "name": {
-        "zh": "交互设计师",
-        "en": "Specialist 2"
+        "zh": "周屿",
+        "en": "Zhou Yu"
       },
       "profession": {
         "zh": "交互设计师",
-        "en": "Specialist 2"
+        "en": "Interaction Designer"
       },
       "role": "member"
     },
     {
       "id": "member-3",
       "name": {
-        "zh": "视觉设计师",
-        "en": "Specialist 3"
+        "zh": "苏曼",
+        "en": "Su Man"
       },
       "profession": {
         "zh": "视觉设计师",
-        "en": "Specialist 3"
+        "en": "Visual Designer"
       },
       "role": "member"
     },
     {
       "id": "member-4",
       "name": {
-        "zh": "动效设计师",
-        "en": "Specialist 4"
+        "zh": "顾一鸣",
+        "en": "Gu Yiming"
       },
       "profession": {
         "zh": "动效设计师",
-        "en": "Specialist 4"
+        "en": "Motion Designer"
       },
       "role": "member"
     },
     {
       "id": "member-5",
       "name": {
-        "zh": "可用性测试员",
-        "en": "Specialist 5"
+        "zh": "白鹿",
+        "en": "Bai Lu"
       },
       "profession": {
         "zh": "可用性测试员",
-        "en": "Specialist 5"
+        "en": "Usability Tester"
       },
       "role": "member"
     },
     {
       "id": "member-6",
       "name": {
-        "zh": "设计系统工程师",
-        "en": "Specialist 6"
+        "zh": "岑安",
+        "en": "Cen An"
       },
       "profession": {
         "zh": "设计系统工程师",
-        "en": "Specialist 6"
+        "en": "Design System Engineer"
       },
       "role": "member"
     }

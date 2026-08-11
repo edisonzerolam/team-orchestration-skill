@@ -1,34 +1,32 @@
 ---
 name: team-orchestration
-version: 3.2.0
+version: 3.4.0-zcode
 disable-model-invocation: true
-description: "多智能体团队编排引擎 — 三阶段对抗协议 + A3契约 + 降级路径 + 视觉识别路由(实测验证) + 后台送达契约。触发词：组建团队、团队协作、需要团队、build a team、找合伙人、组成专家小组"
-tags: [orchestration, team, multi-agent, trial-court, vision]
+description: "多智能体团队编排引擎 — 五阶段对抗协议(二审终审制) + A3契约 + 降级路径 + 视觉识别路由(实测验证) + 后台送达契约。触发词：组建团队、团队协作、需要团队、build a team、找合伙人、组成专家小组"
+tags: [orchestration, team, multi-agent, trial-court, two-instance, vision]
 ---
 
-# Team Orchestration v3.2.0
+# Team Orchestration v3.4.0-zcode
 
 ## 1 触发条件
 
-满足**任一**即走三阶段对抗协议：① >1 子代理 ② main+子代理协作 ③ 多角度执行。
+满足**任一**即走五阶段对抗协议（二审终审制）：① >1 子代理 ② main+子代理协作 ③ 多角度执行。
 不满足 → 直行（单 agent）。直行中复杂度升级 → 自动切换。
 
 ## 2 规模门 + 降级路径
 
 - **L1-L2**（单维度/低争议/子任务≤3）：直行，单 agent + 自我批判。
-- **L3+**（多维/高争议/跨领域）：三阶段对抗协议。
+- **L3+**（多维/高争议/跨领域）：五阶段对抗协议（二审终审制）。
 - **降级**：若无法确定合适的 2+ 差异化视角，降为单 agent + 自我批判（不硬凑团队）。
 - **升级**：L2 涉及 ≥3 领域 → 升为 L3。
 
-> **OpenCode 执行环境**：子代理通过 `task(subagent_type="general")` 拉起（可选 `debug-expert`/`code-reviewer` 等专长子代理），同一消息多个 task 调用即并行。专家人设读取 `references/workbuddy-experts/<团队>/agents/*.md` 注入 prompt。详见 `references/opencode-adaptation.md`。
-
-## 3 三阶段流程
+## 3 五阶段流程（二审终审制）
 
 ```
-立案(main直思) ──► 并行举证(N子代理) ──► 质证+终审(回灌→裁决)
+立案(main直思) ──► 并行举证(N子代理) ──► 质证(回灌→修正) ──► 一审(裁决→回灌修订1轮) ──► 二审终审(不回灌)
 ```
 
-> **与审判庭协议的关系**：三阶段是审判庭四阶段（Phase A 立案/B 举证/C 质证/D 终审）的**精简视图**；复杂议题按 `references/trial-court-protocol.md` 展开执行（含案卷归档、自学习 S1/S2、终审六段式）。
+> **与审判庭协议的关系**：五阶段是审判庭完整协议（Phase A 立案/B 举证/C 质证/D 一审/E 二审终审）的**精简视图**；复杂议题按 `references/trial-court-protocol.md` 展开执行（含案卷归档、自学习 S1/S2、终审七段式）。
 
 **A 立案**（main 内存中完成，无需脚本）：
 1. 5W2H 澄清（模糊则追问 ≤2 轮）
@@ -38,11 +36,18 @@ tags: [orchestration, team, multi-agent, trial-court, vision]
 
 **B 并行举证**：同一消息并行拉起 2-6 个 Agent 子代理，每个 prompt 按 §4 四要素模板。子代理独立举证，可联网/调 MCP/用技能。
 
-**C 质证+终审**：
+**C 质证**：
 1. 汇总 B 产物 → 回灌给每个子代理 → 逐条质证他方 → 修正己方（**默认 1 轮**；分歧>2 追加 1 轮，最多 2 轮）
-2. main 逐条裁断：采信/部分采信/排除（每项说明理由）
-3. 产出终审意见书 → 交付用户
-4. 归档（异步，不阻塞交付）
+2. 分歧收敛判定（分歧≤1 即进入一审）→ 产物落盘 02-质证/
+
+**D 一审（裁决 + 回灌修订）**：
+1. main 逐条裁断：采信/部分采信/排除（每项说明理由）→ 产出《一审判决书》（**中间产物**，落盘 03-一审/first-instance-verdict.md，流程中展示摘要，不单独交付）
+2. 把《一审判决书》+ 各方最新产物回灌给每个子代理 → 逐条回应判决（服判/异议+理由）+ 立场再修订（**固定 1 轮**，不因收敛提前、不追加第二轮）→ P{i}(C) 落盘 04-回灌修订/
+
+**E 二审终审**：
+1. 汇总一审修订产物 → main 终局裁断：采信/部分采信/排除（每项说明理由，禁止引入新论点）
+2. 产出《终审意见书》（**二审终审，不再回灌**）→ 交付用户
+3. 归档（异步，不阻塞交付）
 
 ## 4 子代理 Prompt 四要素 + A3 契约
 
@@ -52,25 +57,37 @@ tags: [orchestration, team, multi-agent, trial-court, vision]
 3. **工具**：可用资产列表（从 A 阶段选取注入）。
 4. **边界**：聚焦你的视角，不越界；存疑标注"不确定"；≤400 字。
 
+### 4.3 交接与收敛契约（v3.3 增强 · TC-20260809）
+
+> 处理大量跨 agent 交接时降低上下文污染、收敛无界重试。核心：**交接只传摘要、验收只卡 schema、收敛有上限**。
+
+- **C1 结构化交接摘要**：子代理回传/交接时，只传结构化 A3 摘要（conclusions + evidence + risks + actions）。evidence 须携带 **artifact 指针**（来源路径/引用名），质证阶段按指针取原始论述，**不传全量对话**，防上下文随对抗轮次恶化。
+- **C2 重试上限 + 达标阈值**：质证默认 1 轮、分歧 >2 追加 1 轮、**最多 2 轮**；一审回灌修订**固定 1 轮**（二审终审制：不因收敛提前、不追加第二轮，修订后直接进入二审终审）。单个子代理产出**因相同原因不达标**时最多重试 2 次即收敛（固定上限，防 token 失控）；不同原因可继续，但累计 >2 次仍收敛并标记"低可信度"。
+- **C3 输出 schema 级检查**：每子代理输出的 A3 须过字段完整性校验——**硬键** `role / artifacts{conclusions,evidence,risks,actions} / confidence / uncertainties` 缺失即判不达标触发 C2 重试；**软键**（confidence 数值偏离、uncertainties 为空等）仅 **warning 不重试**，避免主观字段假阳性。校验宿主=接入 C2 重试闭环（A3 产出 → 校验 → 不达标重试），复用 `scripts/cross-validator.py`。单子代理累计消耗超 token 阈值即终止并返回部分结果。
+
 ### 4.1 子代理模型选择（视觉识别路由）
 
-> **平台现状（OpenCode 2026-08-06 适配）**：
-> 1. **main 直读已验证可行**：OpenCode main agent 用 Read 工具直接读图（若当前模型支持视觉）；否则委托 `task(subagent_type="mini-vision")` 子代理读图（全局规则「图片委托规则」）。
-> 2. **子代理视觉能力**：OpenCode 子代理模型能力取决于各自配置；`mini-vision`（MiMo V2.5）为专用视觉子代理，读图返回结构化 JSON。
-> 3. 视觉任务不依赖具体模型 ID 硬编码（OpenCode 无模型清单文件概念），按 `task` 工具可用子代理类型路由。
+> **平台现状（ZCode 2026-08-09 三路运行时验证——视觉路由当前不可用）**：
+> 1. **main 直读**：✗ 失败 — `Media omitted ... model does not support image input`（deepseek-v4-flash text-only）。
+> 2. **mini-vision 子代理**：✗ `Agent type 'mini-vision' not found. Available agents: general-purpose, Explore` — **ZCode 运行时不消费 `~/.config/opencode/agents/*.md` 为 subagent_type**，仅暴露 general-purpose/Explore 两种内置类型。
+> 3. **general-purpose 子代理读图**：✗ 失败 — 子代理继承 main 的 text-only 模型。且 `~/.zcode/v2/config.json` 模型池全表 text-only（mimo-v2.5 亦声明 text-only），**当前无任何视觉模型**。
 
-- **视觉任务路由（已验证）**：**优先 main 直接读取**（当前模型支持视觉时不产生子代理成本）。
-- **子代理必须看图**：main 先读图提取信息，再将文本结论喂给子代理处理（推荐，已验证可行）；或委托 `mini-vision` 子代理结构化读图。
-- **若视觉信息与文字冲突**：以 main 直读的直接观察为准，裁决注明依据。
-- **模型可用性核对**：OpenCode 下检查 `task` 工具可用子代理类型（`mini-vision` 为视觉子代理）。
+- **视觉任务路由（ZCode 实测）**：**三路不可用**，视觉任务当前只能走外部通道：
+  1. **外部 OCR/视觉通道转文本**（当前唯一可行路径）：图片先经外部 OCR 转结构化文本，再喂子代理处理。
+  2. **切换视觉模型**：若 ZCode 引入带视觉的模型（注册表 modalities 支持 image），main 直读即可。
+  3. **注册用户级 agents**：调研 ZCode「Settings → Subagents」是否可将 agents/*.md 注册为可调用类型。
+- **兜底约定**：子代理 prompt 不传图片路径，只传「图片的文本化内容」；无法文本化时向用户说明。
+- **若视觉信息与文字冲突**：以直接观察/主证据为准，裁决注明依据。
 
-### 4.2 后台子代理送达契约 + 看门狗（OpenCode 适配）
+### 4.2 后台子代理送达契约 + 看门狗（ZCode 2026-08-09 适配）
 
-> **OpenCode 差异**：WorkBuddy 的 `teams/<team>/inboxes/` 收件箱机制在 OpenCode 下不存在。OpenCode 的 `task` 工具为同步调用：子代理完成后直接返回结果给 main，不存在实时消息流或 "completed" 通知。多子代理并行 = 同一消息多次 `task` 调用。
+> **ZCode 实测口径**：无收件箱机制。子代理产物 = `task` 调用返回值（同步）或后台任务完成通知 + `agent_*/task.output` 产物文件；主环境 SendMessage(to: agentId) 可与已 spawn agent 通信（agent 间直连受限）。
 
-- **产物收集 = 事实来源**：OpenCode 下子代理产物即 `task` 调用返回值，无需收件箱。
-- **并行契约**：每个子代理 prompt 末尾**必须**写明"返回结构化 A3 JSON 结果"。
-- **看门狗**：OpenCode 下无后台 worker；如需超时控制，由 main 自行把握 task 数量与轮次（建议单轮 ≤6 个子代理）。
+- **产物收集 = 事实来源**：判定 worker 是否完成，以 `task` 返回结果 / Agent 工具 `run_in_background` 完成通知为准；后台任务可用 `task_id` 续接同一子会话。
+- **并行契约**：同一消息多次 `task` 调用即并行（2-6 个）；每个子代理 prompt 末尾**必须**写明"返回结构化 A3 JSON 结果"。
+- **看门狗**：spawn 每个后台 worker 后设超时（建议 5 分钟），超时主动用 `TaskOutput`/读产物文件拉取其产出，绝不无限期等待。
+- **收尾兜底**：并行 spawn 后、进入质证前，强制核对全部 task 返回值已收齐再继续；不因"通知未弹出"就停在等待态。
+- **禁止轮询**：后台任务完成会收到通知，不要 sleep/轮询等待。
 
 ## 5 合并策略
 
@@ -89,38 +106,37 @@ tags: [orchestration, team, multi-agent, trial-court, vision]
 
 ## 7 质量门禁
 
-- 终审禁止引入新论点（未在举证/质证出现不可采信）
+- 二审终审禁止引入新论点（未在举证/质证/一审回灌修订出现不可采信）
 - 可信度 = 最薄弱证据的可信度
-- 每轮质证标注「变与不变」
+- 每轮质证与一审回灌修订标注「变与不变」
 - 主理人铁律：禁止代写 / 禁止跳阶段 / 禁止成员直连
 
-## 7.1 终审意见书最小契约（v3.1）
+## 7.1 终审意见书最小契约（v3.1 · 二审终审制）
 
-终审产出即**终审意见书**，章节结构：
+终审产出即**终审意见书**（二审终局文书；一审判决书为中间产物，落盘 `03-一审/first-instance-verdict.md`，结构见 `references/trial-court-protocol.md` §6.2），章节结构：
 1. 议题与争点（核心 1 + 子 2-5）
 2. 各方举证摘要（每方 A3 JSON 的 `artifacts.conclusions` 要点）
-3. 质证记录（轮数 + 每轮「变与不变」）
-4. 裁决理由（逐条：采信 / 部分采信 / 排除 + 理由；禁止引入新论点）
-5. 最终结论（含可信度 = 最薄弱证据的可信度）
+3. 质证与一审修订记录（质证轮数 + 回灌修订轮 + 每轮「变与不变」）
+4. 裁决理由（逐条：采信 / 部分采信 / 排除 + 理由；二审禁止引入新论点）
+5. 最终结论（含可信度 = 最薄弱证据的可信度；标注"二审终审，不再回灌"）
 
 **A3 JSON 字段映射**：`role`→举证方；`artifacts.conclusions`→争点结论；`artifacts.evidence`→依据；`confidence`→可信度；`uncertainties`→存疑项。
 
-**归档**（异步，不阻塞交付）：`deliverables/trial/YYYY-MM-DD/<docket_id>/final-verdict.md`（docket_id 格式 TC-YYYYMMDD-N）。
+**归档**（异步，不阻塞交付）：**工作区根** `deliverables/trial/YYYY-MM-DD/<docket_id>/final-verdict.md`（docket_id 格式 TC-YYYYMMDD-N；TRIAL_BASE 支持环境变量覆盖，见 `references/zcode-adaptation.md` §5）。
 
 ## 8 参考文件（按需读取）
 
 | 文件 | 用途 |
 |------|------|
 | `references/trial-court.md` | 完整审判庭协议细节（现行补充协议） |
-| `references/trial-court-protocol.md` | 审判庭四阶段详细执行规范（案卷归档/自学习S1/S2/终审六段式） |
+| `references/trial-court-protocol.md` | 审判庭五阶段详细执行规范（二审终审制：一审裁决/回灌修订/二审终审，含案卷归档/自学习S1/S2/终审七段式） |
 | `references/trial-court-architecture.md` | 审判庭架构（v2 历史，内容与上重复，存档参考） |
 | `references/workbuddy-experts/_index.md` | 39 专家团索引 |
-| `references/workbuddy-adaptation.md` | WorkBuddy 专家/技能/MCP 资产体系（OpenCode 下作专家池索引参考） |
-| `references/opencode-adaptation.md` | **OpenCode 适配指南（脚本路径、子代理映射、平台差异）** |
+| `references/workbuddy-adaptation.md` | WorkBuddy 专家/技能/MCP 资产体系（OpenCode/ZCode 下作专家池索引参考） |
+| `references/zcode-adaptation.md` | **ZCode 适配指南（实测：task 调度、mini-vision 视觉路由、产物收集、TRIAL_BASE、路径映射）** |
+| `references/opencode-adaptation.md` | OpenCode 适配历史（v3.2.0-opencode，存档参考） |
 | `references/cross-validation.md` | 交叉验证规则 |
-| `references/test-workflow.md` | **改本技能逻辑/契约/脚本前必先读，作为回归门禁（见 §8 下触发守则）** |
-
-**归档路径**（OpenCode）：`skill 目录/deliverables/trial/YYYY-MM-DD/<docket_id>/final-verdict.md`（docket_id 格式 TC-YYYYMMDD-N）。
+| `references/test-workflow.md` | **改本技能逻辑/契约/脚本前必先读，作为回归门禁（触发守则见该文件 §3.1/§4）** |
 
 ## 8.1 加载决策（分域路由）· Phase 0
 

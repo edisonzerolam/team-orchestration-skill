@@ -44,59 +44,60 @@
     {
       "id": "dt-lead",
       "name": {
-        "zh": "工具链负责人",
-        "en": "Toolchain Lead"
+        "zh": "居工",
+        "en": "Ju Gong"
       },
       "profession": {
         "zh": "开发工具链负责人",
         "en": "DevToolchain Lead"
-      }
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
-        "zh": "Git工作流专员",
-        "en": "Specialist 1"
+        "zh": "祁合",
+        "en": "Qi He"
       },
       "profession": {
         "zh": "Git工作流专员",
-        "en": "Specialist 1"
+        "en": "Git Workflow Specialist"
       },
       "role": "member"
     },
     {
       "id": "member-2",
       "name": {
-        "zh": "AI测试员",
-        "en": "Specialist 2"
+        "zh": "测研",
+        "en": "Ce Yan"
       },
       "profession": {
         "zh": "AI测试员",
-        "en": "Specialist 2"
+        "en": "AI Test Engineer"
       },
       "role": "member"
     },
     {
       "id": "member-3",
       "name": {
-        "zh": "接口分析师",
-        "en": "Specialist 3"
+        "zh": "罗辑",
+        "en": "Luo Ji"
       },
       "profession": {
         "zh": "接口分析师",
-        "en": "Specialist 3"
+        "en": "API Analyst"
       },
       "role": "member"
     },
     {
       "id": "member-4",
       "name": {
-        "zh": "文档生成员",
-        "en": "Specialist 4"
+        "zh": "温档",
+        "en": "Wen Dang"
       },
       "profession": {
         "zh": "文档生成员",
-        "en": "Specialist 4"
+        "en": "Documentation Specialist"
       },
       "role": "member"
     }

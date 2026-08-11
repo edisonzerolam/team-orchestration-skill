@@ -48,83 +48,84 @@
     {
       "id": "cloud-lead",
       "name": {
-        "zh": "云架构师",
-        "en": "Cloud Architect"
+        "zh": "秦云",
+        "en": "Yun Qin"
       },
       "profession": {
         "zh": "首席云架构师",
         "en": "Chief Cloud Architect"
-      }
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
-        "zh": "运维工程师",
-        "en": "Specialist 1"
+        "zh": "运维云",
+        "en": "Wei Yun"
       },
       "profession": {
         "zh": "运维工程师",
-        "en": "Specialist 1"
+        "en": "Cloud Operations Engineer"
       },
       "role": "member"
     },
     {
       "id": "member-2",
       "name": {
-        "zh": "Terraform专员",
-        "en": "Specialist 2"
+        "zh": "植易",
+        "en": "Yi Zhi"
       },
       "profession": {
         "zh": "Terraform专员",
-        "en": "Specialist 2"
+        "en": "Terraform Specialist"
       },
       "role": "member"
     },
     {
       "id": "member-3",
       "name": {
-        "zh": "迁移规划师",
-        "en": "Specialist 3"
+        "zh": "迁移远",
+        "en": "Qian Yi"
       },
       "profession": {
         "zh": "迁移规划师",
-        "en": "Specialist 3"
+        "en": "Migration Planner"
       },
       "role": "member"
     },
     {
       "id": "member-4",
       "name": {
-        "zh": "安全合规员",
-        "en": "Specialist 4"
+        "zh": "安全全",
+        "en": "An Quan"
       },
       "profession": {
         "zh": "安全合规员",
-        "en": "Specialist 4"
+        "en": "Cloud Security & Compliance Specialist"
       },
       "role": "member"
     },
     {
       "id": "member-5",
       "name": {
-        "zh": "监控专员",
-        "en": "Specialist 5"
+        "zh": "监控康",
+        "en": "Jian Kong"
       },
       "profession": {
         "zh": "监控专员",
-        "en": "Specialist 5"
+        "en": "Monitoring Specialist"
       },
       "role": "member"
     },
     {
       "id": "member-6",
       "name": {
-        "zh": "网络工程师",
-        "en": "Specialist 6"
+        "zh": "网络骆",
+        "en": "Wang Luo"
       },
       "profession": {
         "zh": "网络工程师",
-        "en": "Specialist 6"
+        "en": "Network Engineer"
       },
       "role": "member"
     }

@@ -51,18 +51,19 @@
       },
       "profession": {
         "zh": "财富管理总监",
-        "en": "WM Director"
-      }
+        "en": "Wealth Management Director"
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
         "zh": "资产配置师",
-        "en": "Specialist 1"
+        "en": "Asset Allocator"
       },
       "profession": {
         "zh": "资产配置师",
-        "en": "Specialist 1"
+        "en": "Asset Allocation Specialist"
       },
       "role": "member"
     },
@@ -70,11 +71,11 @@
       "id": "member-2",
       "name": {
         "zh": "基金研究员",
-        "en": "Specialist 2"
+        "en": "Fund Researcher"
       },
       "profession": {
         "zh": "基金研究员",
-        "en": "Specialist 2"
+        "en": "Fund Research Analyst"
       },
       "role": "member"
     },
@@ -82,11 +83,11 @@
       "id": "member-3",
       "name": {
         "zh": "财务规划师",
-        "en": "Specialist 3"
+        "en": "Financial Planner"
       },
       "profession": {
         "zh": "财务规划师",
-        "en": "Specialist 3"
+        "en": "Financial Planning Specialist"
       },
       "role": "member"
     },
@@ -94,11 +95,11 @@
       "id": "member-4",
       "name": {
         "zh": "税务顾问",
-        "en": "Specialist 4"
+        "en": "Tax Advisor"
       },
       "profession": {
         "zh": "税务顾问",
-        "en": "Specialist 4"
+        "en": "Investment Tax Advisor"
       },
       "role": "member"
     },
@@ -106,11 +107,11 @@
       "id": "member-5",
       "name": {
         "zh": "客户报告专员",
-        "en": "Specialist 5"
+        "en": "Client Report Specialist"
       },
       "profession": {
         "zh": "客户报告专员",
-        "en": "Specialist 5"
+        "en": "Client Reporting Specialist"
       },
       "role": "member"
     }

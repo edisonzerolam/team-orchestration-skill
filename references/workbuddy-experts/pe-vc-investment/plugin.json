@@ -52,53 +52,54 @@
       "profession": {
         "zh": "投委会主席",
         "en": "IC Chair"
-      }
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
-        "zh": "行业扫描员",
-        "en": "Specialist 1"
+        "zh": "项目筛选师",
+        "en": "Deal Screener"
       },
       "profession": {
-        "zh": "行业扫描员",
-        "en": "Specialist 1"
+        "zh": "项目筛选师",
+        "en": "Deal Sourcing & Screening Analyst"
       },
       "role": "member"
     },
     {
       "id": "member-2",
       "name": {
-        "zh": "尽调专员",
-        "en": "Specialist 2"
+        "zh": "尽调分析师",
+        "en": "DD Analyst"
       },
       "profession": {
-        "zh": "尽调专员",
-        "en": "Specialist 2"
+        "zh": "尽调分析师",
+        "en": "Due Diligence Analyst"
       },
       "role": "member"
     },
     {
       "id": "member-3",
       "name": {
-        "zh": "条款律师",
-        "en": "Specialist 3"
+        "zh": "交易结构师",
+        "en": "Deal Structure Specialist"
       },
       "profession": {
-        "zh": "条款律师",
-        "en": "Specialist 3"
+        "zh": "交易结构师",
+        "en": "Deal Structuring & Term Sheet Specialist"
       },
       "role": "member"
     },
     {
       "id": "member-4",
       "name": {
-        "zh": "财务建模师",
-        "en": "Specialist 4"
+        "zh": "回报建模师",
+        "en": "Return Modeler"
       },
       "profession": {
-        "zh": "财务建模师",
-        "en": "Specialist 4"
+        "zh": "回报建模师",
+        "en": "Return & Financial Modeling Analyst"
       },
       "role": "member"
     },
@@ -106,11 +107,11 @@
       "id": "member-5",
       "name": {
         "zh": "退出策略师",
-        "en": "Specialist 5"
+        "en": "Exit Strategist"
       },
       "profession": {
         "zh": "退出策略师",
-        "en": "Specialist 5"
+        "en": "Exit Strategy Analyst"
       },
       "role": "member"
     }

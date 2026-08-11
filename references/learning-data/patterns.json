@@ -2,8 +2,9 @@
   "by_issue_type_assets": {
     "08-FinanceInvestment": {
       "expert_teams": 1
-    }
+    },
+    "strategy": {}
   },
-  "total_experiences": 1,
-  "ts": "2026-07-30T18:34:15.043836+08:00"
+  "total_experiences": 2,
+  "ts": "2026-08-09T17:19:18.351071+08:00"
 }

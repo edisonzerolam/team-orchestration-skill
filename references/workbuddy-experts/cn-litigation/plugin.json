@@ -46,71 +46,72 @@
     {
       "id": "lit-lead",
       "name": {
-        "zh": "主诉律师",
-        "en": "Lead Litigator"
+        "zh": "狄真源",
+        "en": "Di Zhenyuan"
       },
       "profession": {
         "zh": "主诉律师",
         "en": "Lead Litigator"
-      }
+      },
+      "role": "lead"
     },
     {
       "id": "member-1",
       "name": {
-        "zh": "文书律师",
-        "en": "Specialist 1"
+        "zh": "骆文澜",
+        "en": "Luo Wenlan"
       },
       "profession": {
         "zh": "文书律师",
-        "en": "Specialist 1"
+        "en": "Litigation Document Attorney"
       },
       "role": "member"
     },
     {
       "id": "member-2",
       "name": {
-        "zh": "证据分析师",
-        "en": "Specialist 2"
+        "zh": "辛证",
+        "en": "Xin Zheng"
       },
       "profession": {
         "zh": "证据分析师",
-        "en": "Specialist 2"
+        "en": "Evidence Analyst"
       },
       "role": "member"
     },
     {
       "id": "member-3",
       "name": {
-        "zh": "法律检索员",
-        "en": "Specialist 3"
+        "zh": "查礼仁",
+        "en": "Zha Liren"
       },
       "profession": {
         "zh": "法律检索员",
-        "en": "Specialist 3"
+        "en": "Legal Researcher"
       },
       "role": "member"
     },
     {
       "id": "member-4",
       "name": {
-        "zh": "案件管理员",
-        "en": "Specialist 4"
+        "zh": "程安",
+        "en": "Cheng An"
       },
       "profession": {
         "zh": "案件管理员",
-        "en": "Specialist 4"
+        "en": "Case Manager"
       },
       "role": "member"
     },
     {
       "id": "member-5",
       "name": {
-        "zh": "可视化专员",
-        "en": "Specialist 5"
+        "zh": "丁时序",
+        "en": "Ding Shixu"
       },
       "profession": {
         "zh": "可视化专员",
-        "en": "Specialist 5"
+        "en": "Case Visualization Specialist"
       },
       "role": "member"
     }
