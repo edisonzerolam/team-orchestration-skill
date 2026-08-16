@@ -75,21 +75,28 @@ def _date_tag():
     return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y%m%d")
 
 def _next_docket_id():
-    """生成格式 TC-YYYYMMDD-NNN"""
+    """生成格式 TC-YYYYMMDD-NNN
+
+    序号双源扫描（TC-20260816-8 修复）：① 归档目录的 00-案卷信息.json（归档文件名带 00- 前缀）；
+    ② 学习记录 docket-*.json（立案即写，覆盖"并行立案先于归档"的窗口）。任一源最大序号 +1。
+    """
     tag = _date_tag()
     seq = 1
-    # 尝试从已有案卷中找最大序号
     archive_dir = SKILL_DIR / "deliverables" / "trial" / "archive"
+    sources = []
     if archive_dir.exists():
-        for f in archive_dir.rglob("案卷信息.json"):
-            try:
-                data = json.loads(f.read_text(encoding="utf-8"))
-                did = data.get("docket_id", "")
-                if did.startswith(f"TC-{tag}"):
-                    n = int(did.split("-")[-1])
-                    seq = max(seq, n + 1)
-            except Exception:
-                pass
+        sources.append(archive_dir.rglob("00-案卷信息.json"))
+    if LEARNING_DIR.exists():
+        sources.append(LEARNING_DIR.glob("docket-*.json"))
+    for f in [x for src in sources for x in src]:
+        try:
+            data = json.loads(f.read_text(encoding="utf-8"))
+            did = data.get("docket_id", "")
+            if did.startswith(f"TC-{tag}"):
+                n = int(did.split("-")[-1])
+                seq = max(seq, n + 1)
+        except Exception:
+            pass
     return f"TC-{tag}-{seq:03d}"
 
 
@@ -529,23 +536,43 @@ def cmd_archive(args):
 
     # 归档路径
     docket_id = docket.get("docket_id", "unknown")
-    date_prefix = docket_id.split("-")[1][:6]  # YYYYMM
+    # TC-20260816-8：docket_id 白名单校验（防被篡改 JSON 的 ../ 路径越界建目录/写文件）
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,63}", docket_id):
+        print(f"❌ 非法 docket_id: {docket_id!r}", file=sys.stderr)
+        sys.exit(1)
+    # TC-20260816-8 修复：docket_id 无 "-"（如 unknown/畸形）时防御，避免 split IndexError 崩溃
+    try:
+        date_prefix = docket_id.split("-")[1][:6]  # YYYYMM
+    except IndexError:
+        date_prefix = "000000"
     archive_root = SKILL_DIR / "deliverables" / "trial" / "archive"
     archive_dir = archive_root / date_prefix / docket_id
     archive_dir.mkdir(parents=True, exist_ok=True)
 
-    # 复制案卷信息
-    (archive_dir / "00-案卷信息.json").write_text(
-        json.dumps(docket, ensure_ascii=False, indent=2), encoding="utf-8")
+    def _atomic_write(path: Path, text: str):
+        """原子写：临时文件 + os.replace（TC-20260816-8 修复：防中断损坏）"""
+        tmp = path.with_suffix(path.suffix + ".tmp")
+        tmp.write_text(text, encoding="utf-8")
+        os.replace(tmp, path)
 
-    # 复制各阶段产物（二审终审制五阶段）
+    # 复制案卷信息
+    _atomic_write(archive_dir / "00-案卷信息.json",
+                  json.dumps(docket, ensure_ascii=False, indent=2))
+
+    # 复制各阶段产物（二审终审制五阶段；跳过子目录/非文件，防 IsADirectoryError）
     for subdir in ["00-立案", "01-举证", "02-质证", "03-一审", "04-回灌修订", "05-二审终审"]:
         src = trial_path / subdir
         if src.exists():
             dst = archive_dir / subdir
             dst.mkdir(exist_ok=True)
             for f in src.glob("*"):
-                dst.joinpath(f.name).write_text(f.read_text(encoding="utf-8"), encoding="utf-8")
+                if not f.is_file():
+                    continue
+                try:
+                    text = f.read_text(encoding="utf-8", errors="replace")
+                except OSError:
+                    continue
+                _atomic_write(dst.joinpath(f.name), text)
 
     # 生成归档摘要
     summary = {
@@ -556,8 +583,8 @@ def cmd_archive(args):
         "sub_agent_count": docket.get("sub_agent_count", 0),
         "status": "archived"
     }
-    (archive_dir / "归档摘要.json").write_text(
-        json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    _atomic_write(archive_dir / "归档摘要.json",
+                  json.dumps(summary, ensure_ascii=False, indent=2))
 
     print(f"✅ 审判记录已归档: {archive_dir}")
 

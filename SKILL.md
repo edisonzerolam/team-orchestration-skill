@@ -7,6 +7,20 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 
 # Team Orchestration v3.9.0-dsh
 
+## 0 首次运行适配（v3.10.1 · TC-20260816-7）
+
+> 本技能适配多种桌面 agent / harness / AI 客户端（DSH / ZCode / OpenCode / Claude Code / Codex / WorkBuddy）。**安装后首次触发时自动适配当前客户端**：
+
+1. 跑 `python scripts/detect-runtime.py`（环境变量锚 + 用户目录特征加权判定）
+2. 按 `references/runtime-adaptation.json` 的 `adaptation_doc` 加载对应适配文档（如 DSH → `references/dsh-adaptation.md`）
+3. **技能根检测（v3.10.2 · TC-20260816-7）**：asset-resolver 自动收集**当前机器**全部客户端技能根（~/.agents/skills、~/.dsh/skills、~/.workbuddy/skills、~/.claude/skills、~/.codex/skills + 工作区项目级 `--project-dir`）——**换机安装即扫新机器的技能**，无需任何配置
+4. 按该文档的工具映射执行五阶段协议（子代理拉起/产物收集/提问中转/检查点各客户端不同）
+5. `unknown`（无锚点）→ 向用户确认客户端类型 → 选择适配文档；无对应文档按通用协议（磁盘案卷 + A3 契约）执行
+
+> **子代理技能面（已实测 · TC-20260816-7）**：DSH 子代理经 available_skills 注入面发现本机技能（约 203 个，与 main 一致），skill 工具可按名称加载技能正文（实测 `schema` 加载成功）——**编排器子代理天然"发现并使用当前机器技能"，无需额外注入**；§4-3 的技能候选清单用于约束子代理聚焦候选（防误触发），非加载前提。
+
+> 适配状态写入案卷 `00-立案/案卷信息.json` 的 `runtime` 字段；后续案卷沿用同一判定，不重复检测（跨客户端迁移时重新检测）。
+
 ## 1 触发条件
 
 满足**任一**即走五阶段对抗协议（二审终审制）：① >1 子代理 ② main+子代理协作 ③ 多角度执行。
@@ -43,7 +57,7 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 1. 5W2H 澄清（模糊则追问 ≤2 轮）
 2. 拆 1 核心争点 + 2-5 子争点
 3. 选角色（见 §6）+ 为每角色选定专业视角；**动态派数（v3.9 · TC-20260816-6）**：L3+ 先跑 `python scripts/task-decomposer.py --task "<任务>" --concurrency <并发上限> --json` 取 `suggested_subagents`（{value, range, rationale}）作**推荐派数**（非强制，main 可覆写并留痕理由；L1/L2 直行信号不走并行举证）。**并发参考数据（v3.9 补强）**：立案时先跑 `python scripts/concurrency_check.py check`——若 `status=stale`（参考数据 >14 天未更新）→ **先派 1 个子代理**查模型提供方官方文档（web_search/browser）更新 `references/concurrency-data.json`（`concurrency_check.py update --official N --source URL`）；**更新失败/不可用** → 采用 `suggested`（= 上次更新至今最大派出数 +1 试探）；每次实际派出后跑 `concurrency_check.py record --n <N>` 记录历史。
-4. 从上下文已有技能/MCP/连接器中选取可用资产
+4. **资产路由（v3.10.2 · TC-20260816-7）**：跑 `python scripts/asset-resolver.py --task "<任务原文>" [--project-dir <工作区>]`（或读 `references/last-asset-snapshot.json` 快照）→ 按触发词召回**当前机器**技能（多客户端根：~/.agents/skills、~/.dsh/skills、~/.workbuddy/skills、~/.claude/skills、~/.codex/skills + 项目级）→ 取技能候选 top-N（≤5，按域相关度）+ MCP/连接器 → 注入子代理 prompt；快照 `snapshot_at` >30 天先 `--snapshot` 再生成（§9.5-3 保鲜）。**可选增强（非主路径）**：多机注册表远程技能（`references/skill-registry.json`，SSH 拉取，命中标注「在 <host> 机」）——立案 `--registry-check`（保鲜 7 天）驱动刷新，详见 §9
 5. **（v3.6 · 吸收 dsh-agent-teams）登记依赖感知任务图**：把阶段/子争点记为 `tasks.json`（含 dependencies）；**资产可用性不预检**，在**首次真正 spawn 时 fail-loud**（含可操作错误，如视觉路由三路不可用时的 OCR 兜底提示），不因兄弟资产时序在立案期随机失败。
 
 **B 并行举证**：同一消息并行拉起 2-6 个 Agent 子代理，每个 prompt 按 §4 四要素模板。子代理独立举证，可联网/调 MCP/用技能。**派出记录（强制，v3.9 补强）**：spawn 后**立即**跑 `python scripts/concurrency_check.py record --n <实际派出数>`——记录每次任务实际派出数（口径：B 举证 spawn 数；C 质证追加时追加记录）——这是并发参考数据 `max_spawned` 的唯一事实来源，禁止跳过。
@@ -57,7 +71,7 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 1. main 逐条裁断：采信/部分采信/排除（每项说明理由）→ 产出《一审判决书》（**中间产物**，落盘 03-一审/first-instance-verdict.md，流程中展示摘要，不单独交付）
 2. 把《一审判决书》+ 各方最新产物回灌给每个子代理 → 逐条回应判决（服判/异议+理由）+ 立场再修订（**固定 1 轮**，不因收敛提前、不追加第二轮）→ P{i}(C) 落盘 04-回灌修订/
 
-**检查点（v3.5 增强 · P0-4）**：**02-质证/** 与 **04-回灌修订/** 落盘后各设一次检查点（`scripts/checkpoint_manager.py`，即 `--step C_cross_exam` / `--step D_revision`，state 含 `{docket_id, 轮数, 分歧数}`）。中断恢复：新会话读案卷 JSON 的 `resume_from` + 检查点目录**从最后完成的阶段继续**，不重跑已完阶段。跨会话断点恢复协议见 `references/zcode-adaptation.md` §9。
+**检查点（v3.5 增强 · P0-4；v3.10.3 · TC-20260816-8 键名对齐）**：**02-质证/** 与 **04-回灌修订/** 落盘后各设一次检查点（`scripts/checkpoint_manager.py`，**step_id = 阶段名**（`--step 02-质证` / `--step 04-回灌修订`，与案卷 `resume_from` 的阶段名一致），state 含 `{docket_id, 轮数, 分歧数}`）。中断恢复：新会话读案卷 JSON 的 `resume_from` + 检查点目录——`--action plan --steps "00-立案,01-举证,02-质证,03-一审,04-回灌修订,05-二审终审"` 返回 next 阶段，**从最后完成的阶段继续**，不重跑已完阶段。跨会话断点恢复协议见 `references/zcode-adaptation.md` §9。
 
 **新会话读案卷续审（v3.5 增强 · P0-4）**：接手进行中案卷时（对标 `references/workbuddy-experts/opc-team/` 的 state 文件机制）：① 读案卷信息 JSON（`00-立案/案卷信息.json`，含 `resume_from` / `skipped_phases` 字段）→ ② 向用户展示进度摘要（已完成阶段/当前阶段/剩余子争点）→ ③ 从断点继续，**不重复提问**已澄清过的 5W2H。
 
@@ -72,7 +86,7 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 每个子代理 prompt 必须包含：
 1. **目标**：你是「{角色名}」，专业：{领域}，立场：{正/反/中立}。争点：{具体子问题}。
 2. **格式**：严格输出 A3 JSON — `{"role":"...","artifacts":{"conclusions":[],"evidence":[],"risks":[],"actions":[]},"confidence":0.0,"uncertainties":[]}`；如需用户澄清，附加**软键** `"questions":[{"q":"...","context":"...","needed_by":"..."}]`（最多 2 条，仅"无法自查的实质歧义"才写）。
-3. **工具**：可用资产列表（从 A 阶段选取注入）。
+3. **工具**：可用资产列表（从 A 阶段选取注入）——**技能候选格式**（v3.10 · TC-20260816-7）：`技能 <name>（<触发词/用途>，source=<agents|workbuddy|...>）`；**子代理经本机 available_skills 注入面发现技能、用 skill 工具按 name 加载正文（已实测可用）**，聚焦候选清单内技能，不自发调用候选外技能（防上下文污染与误触发）。
 4. **边界**：聚焦你的视角，不越界；存疑标注"不确定"；≤400 字；**后台子代理无用户交互面——禁止调用 `ask_user_question` 等提问类工具**（会永久挂起死锁，实测 TC-stops-001）；需澄清时写 A3 `questions` 字段，由主理人中转。
 5. **成员 persona 块（v3.6 · 吸收 dsh-agent-teams）**：追加自包含 persona（身份/署名 + 团队上下文 + 案卷状态位置只读 + 工作规则：收到指派→认领→in_progress→completed+output→向队长短报 + 你是 worker 不建团/加员/删团/裁决 + 反盲从每条结论自带反论）。完整模板见 `references/agent-teams-absorption.md` §3。
 
@@ -96,6 +110,7 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 > 把"禁止成员越权/直连"从提示词纪律升级为可执行层（吸收 dsh-agent-teams 的 captain-only tool deny）。
 
 - 对 `subagent`/`subagent_fork` 的成员，在 prompt 中显式声明 **deny 列表**：不可建团/加员/删团/创建任务/终审裁决；验收时校验其 `artifacts.actions` 未含越权项。
+- **技能 deny（v3.10 · TC-20260816-7）**：`disable-model-invocation` 敏感技能（baoyu-post-to-wechat/weibo/x、baoyu-danger-gemini-web/x-to-markdown、baoyu-electron-extract、baoyu-wechat-summary、notebooklm、revops、social）**不得被子代理自动调用**——仅用户显式点名时由 main 直接调用（与 AGENTS.md 第六节互洽）；asset-resolver 已按 frontmatter 门禁自动排除它们（快照技能段不含敏感技能）。
 - **角色视角裁剪**：给立案官/举证/质证/一审/二审每角色一块 scope（允许产物 + 禁止动作，如"二审不得引入新论点"直接写入 persona 禁止项）。
 - **横向通信 vs 裁决**：允许成员间**交换信息/产物**（`send_message` depth-1）；**禁止绕过主理人裁决**与变更团队权。细化原"禁止成员直连"铁律（禁绕过裁决，不禁横向通信）。
 
@@ -170,7 +185,7 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 
 **动态派数推荐（v3.9 · TC-20260816-6）**：上表为**视角模式基线**；实际派数由 `task-decomposer --concurrency N` 按 复杂度 × 分工域数 × 模型并发 计算推荐值（L3+ 区间 [2,6]；L1/L2 直行信号）。推荐值非强制，main 可覆写。**预算硬约束（覆盖全档位）**：任何派数（含直行信号下手动派 2-3）进入各阶段前须过 `C(N,q)=N×(2+q)` 预算校验（WARN 80% / BLOCK 100%）；质证追加须由缺口触发且追加后复检。
 
-专家人设库：`references/workbuddy-experts/`（40 团队 257 agents（磁盘实测 agents/*.md；plugin.json agents[] 声明 273），按需读取 agents/*.md 注入 prompt）。
+专家人设库：`references/workbuddy-experts/`（40 团队 257 agents（磁盘 agents/*.md 与 plugin.json agents[] 声明完全一致，2026-08-16 实测），按需读取 agents/*.md 注入 prompt）。
 
 **专家池渐进披露（v3.5 增强 · P2-5）**：立案时先注入最小集（§8.1 已定域，仅 T1 团队头寸 + knowledge 最小集），阶段推进**按需追加**（如质证中发现缺某领域视角，再补注入相关 agent 人设），不做全量披露——省上下文且避免立场污染。
 
@@ -234,7 +249,7 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 
 **定域流程**：立案用下方触发词 → 定 `domain` → 加载该域 T1 团队头寸 + knowledge 最小集 → 进队 agent 人设按需（T2 惰性，`read_agent_md` 已内置）。
 
-**聚合域路由（v3.9 · TC-20260816-5）**：40 团队归入 8 大聚合域 + 通用对抗层（gpt-researcher + general-critics 通才批判团），定域后**跨团队按需组队**（agent 超网思想：257 agents 为组件池，按任务组合激活，不物理合并目录）。团队目录/plugin.json 保留，expert-scores/脚本引用零破坏：
+**聚合域路由（v3.9 · TC-20260816-5；v3.10.3 · TC-20260816-9 补全）**：40 团队归入 10 组（8 业务域 + 通用对抗 + 通用兜底），完整归组见 **`references/domain-map.json`**（40 团全覆盖，categoryId 13 类归并），域入口文件 `references/workbuddy-experts/_domain/<domain>.md`（立案定域只读该入口）。定域后**跨团队按需组队**（agent 超网思想：257 agents 为组件池，按任务组合激活，不物理合并目录）。团队目录/plugin.json 保留，expert-scores/脚本引用零破坏：
 
 | 聚合域 | 团队（目录保留） | 触发词补充 |
 |---|---|---|
@@ -248,6 +263,22 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 | 产品设计 | product-strategy + design-engine + product-design-suite | PRD/UX/设计系统 |
 
 > 任务级 skill 封装（触发词 + 团队组合 + 流程）见 `references/skills-pack.md`。
+
+## 8.2 技能路由表（v3.10 · TC-20260816-7）
+
+> 任务域 → 当前机器技能候选（多客户端根）。**优先实时召回**：`asset-resolver.py --task "<任务>" [--project-dir <工作区>]` 按触发词匹配（2-gram 中英）；本表为**静态兜底**（asset-resolver 不可用时）。子代理 prompt 按 §4-3 注入技能候选（≤5），候选外技能不注入。敏感技能（disable-model-invocation）已被 asset-resolver 自动排除。
+
+| 任务域 | 技能候选（agents 源优先） | 触发例 |
+|--------|--------------------------|--------|
+| product | create-prd / product-strategy / user-stories / prioritize-features / lean-canvas / wwas | PRD/路线图/需求拆解/排优先级 |
+| marketing | marketing-plan / copywriting / ad-creative / ads / cro / aso / customer-research / competitor-analysis / competitor-profiling / competitors / cold-email / pricing | 营销方案/文案/投放/转化/ASO/竞品/冷邮/定价 |
+| content | story-studio（故事族编排器）/ wewrite（公众号）/ baoyu-image-gen / baoyu-comic / baoyu-translate / baoyu-slide-deck / bili-daily / stop-slop | 公众号/网文/配图/漫画/翻译/PPT/字幕 |
+| taste/design | design-taste-frontend / frontend-ui-engineering / high-end-visual-design / baoyu-diagram / image-to-code | 前端/视觉/图表/设计系统 |
+| security | skillspector / intended-vs-implemented / security-and-hardening / auditor | 技能安全扫描/代码审计/合规 |
+| tool | firecrawl（族）/ sql-queries / graphify / browser-cdp / firecrawl-parse | 抓取/查询/知识图谱/浏览器/解析 |
+| data | analytics / cohort-analysis / sentiment-analysis / metrics-dashboard | 埋点/留存/反馈/指标 |
+
+> 域冲突时以 asset-resolver 触发词得分 + main 判断为准；未命中任何域 → 不注入技能候选（子代理仅凭 available_skills 自动面）。
 
 **兜底（表外/跨界/新团队）**：触发词未命中静态表时，交语义判断 —— `python scripts/expert-matcher.py --task "<任务原文>" --top-k 4 --json`，按其得分高的团队为准；仍无高分(score<0.25)则回退通用对抗（gpt-researcher-team）。优先级：静态表(快) → LLM语义(matcher) → 通用兜底。冲突以 matcher 语义得分为准。
 
@@ -266,7 +297,8 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 ## 9 可选辅助脚本（非主流程必须）
 
 以下脚本可辅助决策但**不阻塞**主流程，main 可跳过直接思考：
-> scripts/ 下共 **19 个 .py（顶层 16 + self-evolution/ 下 3）**。审判庭后端（trial-court-orchestrator / asset-resolver / cross-validator）+ 前端（task-decomposer/expert-matcher/dispatch-planner）互补，按需运行。
+> scripts/ 下共 **21 个 .py（顶层 18 + self-evolution/ 下 3）**。审判庭后端（trial-court-orchestrator / asset-resolver / cross-validator）+ 前端（task-decomposer/expert-matcher/dispatch-planner）互补，按需运行。
+> **案卷隔离（v3.10.3 · TC-20260816-9）**：`deliverables/trial/` 为真实任务数据（含路径/内容），**禁止进入带 remote 的 git 仓库**——归档位置默认工作区根 `deliverables/trial/`，若工作区 git 仓库有 remote，用 TRIAL_BASE 环境变量指向仓库外目录（如 `~/.dsh/trial-archive`）。
 
 **前端（决策参考）**：
 - `python scripts/task-decomposer.py --task "..." --json`（复杂度参考）
@@ -275,7 +307,8 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 
 **审判庭后端（案卷/归档/自学习，现行）**：
 - `python scripts/trial-court-orchestrator.py docket ...`（案卷/归档/自学习后端）
-- `python scripts/asset-resolver.py --snapshot`（资产快照生成）
+- `python scripts/asset-resolver.py --snapshot`（资产快照生成）；`--task "<任务>"`（技能触发词路由召回，v3.10 · TC-20260816-7）
+- **多机技能注册表（v3.10.1 · TC-20260816-7）**：`python scripts/skill-registry-agent.py`（远程技能枚举——部署到目标机运行，输出本机技能 JSON）；主控侧 `asset-resolver.py --registry-merge <json> --host-alias <别名>`（合并进 `references/skill-registry.json`）/ `--registry-check`（保鲜检查，7 天）/ `--registry-list`（列出远程技能）。**定期更新**：立案 `--registry-check` 驱动刷新；也可在 DSH GUI 注册轮询任务（如每周日 3 点：ssh_exec 各目标机跑 skill-registry-agent → 取回合并）实现无人值守
 - `python scripts/cross-validator.py ...`（举证交叉验证，接入 A3 evidence 校验）
 
 **激活资产（v3.5 增强 · P0-3 索引补齐）**：

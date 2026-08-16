@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-08-16",
+  "method": "char3gram-tfidf-cosine",
+  "threshold": 0.5,
+  "agents_scanned": 257,
+  "pair_count": 2,
+  "pairs": [
+    {
+      "a_team": "investment-masters-team",
+      "a_id": "fundamentals-analyst",
+      "b_team": "trading-agent",
+      "b_id": "fundamentals-analyst",
+      "score": 0.795
+    },
+    {
+      "a_team": "product-strategy-team",
+      "a_id": "competitive-analyst",
+      "b_team": "sales-battle-team",
+      "b_id": "competitive-intel",
+      "score": 0.648
+    }
+  ]
+}

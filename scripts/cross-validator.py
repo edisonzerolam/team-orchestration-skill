@@ -68,10 +68,44 @@ def main():
     p.add_argument("--task", required=True, help="任务 ID")
     p.add_argument("--depth", default="auto", choices=["auto", "skip", "light", "standard", "deep"])
     p.add_argument("--input", required=True, help='JSON 文件或 "-" 读 stdin: [{"agent":..,"text":..}]')
+    p.add_argument("--a3", action="store_true",
+                   help="A3 硬键校验模式（SKILL.md §4.3 C3 契约）：输入为 A3 JSON 对象/列表，"
+                        "校验 role/artifacts{conclusions,evidence,risks,actions}/confidence/uncertainties 硬键；"
+                        "缺失即 rc=1")
     a = p.parse_args()
-    raw = sys.stdin.read() if a.input == "-" else open(a.input, encoding="utf-8").read()
+    try:
+        raw = sys.stdin.read() if a.input == "-" else open(a.input, encoding="utf-8").read()
+        data = json.loads(raw)
+    except Exception as e:
+        print(json.dumps({"task_id": a.task, "status": "error", "message": str(e)},
+                         ensure_ascii=False), file=sys.stderr)
+        sys.exit(1)
+
+    if a.a3:
+        # A3 硬键校验（TC-20260816-8 · 兑现 SKILL.md §4.3 C3 契约）
+        items = data if isinstance(data, list) else [data]
+        HARD_KEYS = ["role", "artifacts", "confidence", "uncertainties"]
+        ART_KEYS = ["conclusions", "evidence", "risks", "actions"]
+        invalid = []
+        for it in items:
+            role = it.get("role", "?") if isinstance(it, dict) else "?"
+            if not isinstance(it, dict):
+                invalid.append({"role": role, "missing": ["<not-dict>"]})
+                continue
+            missing = [k for k in HARD_KEYS if k not in it]
+            if isinstance(it.get("artifacts"), dict):
+                missing += ["artifacts." + k for k in ART_KEYS if k not in it["artifacts"]]
+            elif "artifacts" in it:
+                missing.append("artifacts.<dict>")
+            if missing:
+                invalid.append({"role": role, "missing": missing})
+        out = {"task_id": a.task, "mode": "a3-hardkey", "status": "ok" if not invalid else "invalid",
+               "items": len(items), "invalid": invalid}
+        print(json.dumps(out, ensure_ascii=False))
+        sys.exit(0 if not invalid else 1)
+
     claims = score_confidence(
-        triangulate(check_independence(trace_provenance(extract_claims(json.loads(raw))))),
+        triangulate(check_independence(trace_provenance(extract_claims(data)))),
         a.depth,
     )
     conflicts = detect_conflicts(claims)

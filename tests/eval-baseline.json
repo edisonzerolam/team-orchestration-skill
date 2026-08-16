@@ -1,0 +1,439 @@
+{
+  "hit": 16,
+  "total": 22,
+  "hit_rate": 72.7,
+  "negative_ok": 2,
+  "negative_total": 2,
+  "cases": [
+    {
+      "task": "分析宁德时代估值",
+      "domain": "08-FinanceInvestment",
+      "top3": [
+        "trading-agent",
+        "stock-partner-team",
+        "wealth-management"
+      ],
+      "scores": [
+        0.46,
+        0.41,
+        0.41
+      ],
+      "expected": [
+        "investment-masters-team",
+        "stock-partner-team",
+        "trading-agent"
+      ],
+      "hit": true
+    },
+    {
+      "task": "写一份A股行业研报",
+      "domain": "08-FinanceInvestment",
+      "top3": [
+        "engineering-assurance-team",
+        "trading-agent",
+        "equity-research"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.02
+      ],
+      "expected": [
+        "a-share-analysis",
+        "equity-research",
+        "investment-masters-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "帮我配置一个投资组合",
+      "domain": "08-FinanceInvestment",
+      "top3": [
+        "trading-agent",
+        "investment-masters-team",
+        "wealth-management"
+      ],
+      "scores": [
+        0.46,
+        0.41,
+        0.41
+      ],
+      "expected": [
+        "investment-masters-team",
+        "wealth-management"
+      ],
+      "hit": true
+    },
+    {
+      "task": "审一份劳动合同",
+      "domain": "11-SecurityCompliance",
+      "top3": [
+        "engineering-assurance-team",
+        "trading-agent",
+        "chatlaw-team"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.01
+      ],
+      "expected": [
+        "chatlaw-team",
+        "enterprise-legal-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "准备一个商业诉讼策略",
+      "domain": "11-SecurityCompliance",
+      "top3": [
+        "engineering-assurance-team",
+        "trading-agent",
+        "tech-service-transfer"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.01
+      ],
+      "expected": [
+        "chatlaw-team",
+        "cn-litigation"
+      ],
+      "hit": false
+    },
+    {
+      "task": "税务合规审查",
+      "domain": "11-SecurityCompliance",
+      "top3": [
+        "tax-compliance-team",
+        "enterprise-legal-team",
+        "chatlaw-team"
+      ],
+      "scores": [
+        0.42,
+        0.41,
+        0.4
+      ],
+      "expected": [
+        "enterprise-legal-team",
+        "tax-compliance-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "写一篇小红书种草文案",
+      "domain": "06-ContentCreative",
+      "top3": [
+        "ai-content-creator-team",
+        "content-distribution-team",
+        "humanize-ppt-team"
+      ],
+      "scores": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "expected": [
+        "ai-content-creator-team",
+        "content-distribution-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "制作一个产品宣传片脚本",
+      "domain": "06-ContentCreative",
+      "top3": [
+        "product-strategy-team",
+        "product-design-suite",
+        "design-engine"
+      ],
+      "scores": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "expected": [
+        "ai-content-creator-team",
+        "promo-creator-team"
+      ],
+      "hit": false
+    },
+    {
+      "task": "做一份人感PPT",
+      "domain": "06-ContentCreative",
+      "top3": [
+        "engineering-assurance-team",
+        "trading-agent",
+        "humanize-ppt-team"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.03
+      ],
+      "expected": [
+        "humanize-ppt-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "SEO 内容优化方案",
+      "domain": "05-MarketingGrowth",
+      "top3": [
+        "seo-content-team",
+        "marketing-campaign-team",
+        "ai-content-creator-team"
+      ],
+      "scores": [
+        0.43,
+        0.42,
+        0.41
+      ],
+      "expected": [
+        "marketing-campaign-team",
+        "seo-content-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "设计一次营销战役",
+      "domain": "05-MarketingGrowth",
+      "top3": [
+        "product-design-suite",
+        "design-engine",
+        "marketing-campaign-team"
+      ],
+      "scores": [
+        0.41,
+        0.41,
+        0.4
+      ],
+      "expected": [
+        "marketing-campaign-team",
+        "seo-content-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "社媒互动增长策略",
+      "domain": "05-MarketingGrowth",
+      "top3": [
+        "engineering-assurance-team",
+        "trading-agent",
+        "social-engagement-team"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.01
+      ],
+      "expected": [
+        "social-engagement-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "做一次代码审查",
+      "domain": "02-Engineering",
+      "top3": [
+        "engineering-assurance-team",
+        "gstack",
+        "alicloud-engineering"
+      ],
+      "scores": [
+        0.47,
+        0.42,
+        0.4
+      ],
+      "expected": [
+        "engineering-assurance-team",
+        "gstack"
+      ],
+      "hit": true
+    },
+    {
+      "task": "设计云迁移方案",
+      "domain": "02-Engineering",
+      "top3": [
+        "design-engine",
+        "product-design-suite",
+        "product-strategy-team"
+      ],
+      "scores": [
+        0.41,
+        0.41,
+        0.4
+      ],
+      "expected": [
+        "alicloud-engineering",
+        "engineering-assurance-team"
+      ],
+      "hit": false
+    },
+    {
+      "task": "前端性能优化",
+      "domain": "02-Engineering",
+      "top3": [
+        "engineering-assurance-team",
+        "trading-agent",
+        "ecommerce-1688"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.01
+      ],
+      "expected": [
+        "devtools-engineering",
+        "rum-fullstack-team"
+      ],
+      "hit": false
+    },
+    {
+      "task": "做一份数据分析报告",
+      "domain": "04-DataAI",
+      "top3": [
+        "huashu-data-pro",
+        "ai-data-copilot",
+        "gpt-researcher-team"
+      ],
+      "scores": [
+        0.43,
+        0.43,
+        0.41
+      ],
+      "expected": [
+        "ai-data-copilot",
+        "huashu-data-pro"
+      ],
+      "hit": true
+    },
+    {
+      "task": "深度调研一个行业",
+      "domain": "04-DataAI",
+      "top3": [
+        "engineering-assurance-team",
+        "trading-agent",
+        "equity-research"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.02
+      ],
+      "expected": [
+        "gpt-researcher-team"
+      ],
+      "hit": false
+    },
+    {
+      "task": "写一份PRD",
+      "domain": "01-ProductDesign",
+      "top3": [
+        "engineering-assurance-team",
+        "trading-agent",
+        "huashu-data-pro"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.01
+      ],
+      "expected": [
+        "product-design-suite",
+        "product-strategy-team"
+      ],
+      "hit": false
+    },
+    {
+      "task": "设计一套设计系统",
+      "domain": "01-ProductDesign",
+      "top3": [
+        "design-engine",
+        "product-design-suite",
+        "product-strategy-team"
+      ],
+      "scores": [
+        0.44,
+        0.41,
+        0.4
+      ],
+      "expected": [
+        "design-engine",
+        "product-design-suite"
+      ],
+      "hit": true
+    },
+    {
+      "task": "销售作战计划与话术",
+      "domain": "07-SalesCommerce",
+      "top3": [
+        "sales-battle-team",
+        "ecommerce-1688",
+        "engineering-assurance-team"
+      ],
+      "scores": [
+        0.41,
+        0.4,
+        0.06
+      ],
+      "expected": [
+        "sales-battle-team"
+      ],
+      "hit": true
+    },
+    {
+      "task": "1688 电商选品分析",
+      "domain": "07-SalesCommerce",
+      "top3": [
+        "trading-agent",
+        "engineering-assurance-team",
+        "ecommerce-1688"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.01
+      ],
+      "expected": [
+        "ecommerce-1688"
+      ],
+      "hit": true
+    },
+    {
+      "task": "批判性审查这份方案",
+      "domain": "00-General",
+      "top3": [
+        "trading-agent",
+        "engineering-assurance-team",
+        "general-critics"
+      ],
+      "scores": [
+        0.06,
+        0.06,
+        0.01
+      ],
+      "expected": [
+        "general-critics"
+      ],
+      "hit": true
+    },
+    {
+      "task": "今天天气怎么样",
+      "domain": "",
+      "top3": [],
+      "scores": [],
+      "expected": [],
+      "hit": true
+    },
+    {
+      "task": "帮我订一张机票",
+      "domain": "",
+      "top3": [],
+      "scores": [],
+      "expected": [],
+      "hit": true
+    }
+  ]
+}

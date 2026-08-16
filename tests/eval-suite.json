@@ -1,0 +1,31 @@
+{
+  "eval_suite_version": 1,
+  "purpose": "专家合并回归门禁（P7）：每次合并前后跑 eval-gate.py，命中率下降 >5% 即撤销",
+  "threshold_drop_pct": 5.0,
+  "cases": [
+    {"task": "分析宁德时代估值", "domain": "08-FinanceInvestment", "expected_teams": ["investment-masters-team", "trading-agent", "stock-partner-team"]},
+    {"task": "写一份A股行业研报", "domain": "08-FinanceInvestment", "expected_teams": ["a-share-analysis", "equity-research", "investment-masters-team"]},
+    {"task": "帮我配置一个投资组合", "domain": "08-FinanceInvestment", "expected_teams": ["wealth-management", "investment-masters-team"]},
+    {"task": "审一份劳动合同", "domain": "11-SecurityCompliance", "expected_teams": ["chatlaw-team", "enterprise-legal-team"]},
+    {"task": "准备一个商业诉讼策略", "domain": "11-SecurityCompliance", "expected_teams": ["cn-litigation", "chatlaw-team"]},
+    {"task": "税务合规审查", "domain": "11-SecurityCompliance", "expected_teams": ["tax-compliance-team", "enterprise-legal-team"]},
+    {"task": "写一篇小红书种草文案", "domain": "06-ContentCreative", "expected_teams": ["ai-content-creator-team", "content-distribution-team"]},
+    {"task": "制作一个产品宣传片脚本", "domain": "06-ContentCreative", "expected_teams": ["promo-creator-team", "ai-content-creator-team"]},
+    {"task": "做一份人感PPT", "domain": "06-ContentCreative", "expected_teams": ["humanize-ppt-team"]},
+    {"task": "SEO 内容优化方案", "domain": "05-MarketingGrowth", "expected_teams": ["seo-content-team", "marketing-campaign-team"]},
+    {"task": "设计一次营销战役", "domain": "05-MarketingGrowth", "expected_teams": ["marketing-campaign-team", "seo-content-team"]},
+    {"task": "社媒互动增长策略", "domain": "05-MarketingGrowth", "expected_teams": ["social-engagement-team"]},
+    {"task": "做一次代码审查", "domain": "02-Engineering", "expected_teams": ["gstack", "engineering-assurance-team"]},
+    {"task": "设计云迁移方案", "domain": "02-Engineering", "expected_teams": ["alicloud-engineering", "engineering-assurance-team"]},
+    {"task": "前端性能优化", "domain": "02-Engineering", "expected_teams": ["rum-fullstack-team", "devtools-engineering"]},
+    {"task": "做一份数据分析报告", "domain": "04-DataAI", "expected_teams": ["ai-data-copilot", "huashu-data-pro"]},
+    {"task": "深度调研一个行业", "domain": "04-DataAI", "expected_teams": ["gpt-researcher-team"]},
+    {"task": "写一份PRD", "domain": "01-ProductDesign", "expected_teams": ["product-strategy-team", "product-design-suite"]},
+    {"task": "设计一套设计系统", "domain": "01-ProductDesign", "expected_teams": ["design-engine", "product-design-suite"]},
+    {"task": "销售作战计划与话术", "domain": "07-SalesCommerce", "expected_teams": ["sales-battle-team"]},
+    {"task": "1688 电商选品分析", "domain": "07-SalesCommerce", "expected_teams": ["ecommerce-1688"]},
+    {"task": "批判性审查这份方案", "domain": "00-General", "expected_teams": ["general-critics"], "note": "通才批判兜底"},
+    {"task": "今天天气怎么样", "domain": "", "expected_teams": [], "note": "负例：无匹配"},
+    {"task": "帮我订一张机票", "domain": "", "expected_teams": [], "note": "负例：无匹配"}
+  ]
+}

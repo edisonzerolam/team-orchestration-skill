@@ -33,10 +33,18 @@ def merge(expert_name: str, source_path: str):
     if not source.exists():
         print(f"错误: 源文件不存在: {source}")
         return False
+    # TC-20260816-8 修复：expert_name 白名单校验（防 knowledge/../x 路径穿越）
+    if not re.fullmatch(r"[\w-]+", expert_name):
+        print(f"错误: 非法的专家名: {expert_name}")
+        return False
     content = source.read_text(encoding="utf-8")
     target_dir = KNOWLEDGE_DIR / expert_name
     target_dir.mkdir(parents=True, exist_ok=True)
     target_file = target_dir / f"evolution-{datetime.now().strftime('%Y%m%d')}.md"
+    # TC-20260816-8 修复：同日二次 merge 不再覆盖——追加并加分隔，保留两次进化内容
+    if target_file.exists():
+        existing = target_file.read_text(encoding="utf-8")
+        content = existing.rstrip() + "\n\n---\n\n" + content
     target_file.write_text(content, encoding="utf-8")
     archived = REPORT_DIR / f"{source.stem}.archived"
     source.rename(archived)

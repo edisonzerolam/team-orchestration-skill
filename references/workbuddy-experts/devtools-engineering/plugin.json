@@ -7,20 +7,20 @@
   },
   "agents": [
     "./agents/dt-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md"
+    "./agents/git-workflow-specialist.md",
+    "./agents/ai-test-engineer.md",
+    "./agents/api-analyst.md",
+    "./agents/documentation-specialist.md"
   ],
   "expertType": "team",
   "agentName": "dt-lead",
   "teamInfo": {
     "leadAgent": "dt-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4"
+      "git-workflow-specialist",
+      "ai-test-engineer",
+      "api-analyst",
+      "documentation-specialist"
     ]
   },
   "displayName": {
@@ -54,7 +54,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "git-workflow-specialist",
       "name": {
         "zh": "祁合",
         "en": "Qi He"
@@ -66,7 +66,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "ai-test-engineer",
       "name": {
         "zh": "测研",
         "en": "Ce Yan"
@@ -78,7 +78,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "api-analyst",
       "name": {
         "zh": "罗辑",
         "en": "Luo Ji"
@@ -90,7 +90,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "documentation-specialist",
       "name": {
         "zh": "温档",
         "en": "Wen Dang"

@@ -92,7 +92,7 @@ A 立案(main 内存) ──► B 举证(同一消息多次 task 调用并行) �
 
 | 原路径 (WorkBuddy) | 当前路径 (ZCode) |
 |--------------------|------------------|
-| `deliverables/trial/`（Workspace 级） | **工作区根** `deliverables/trial/YYYY-MM-DD/<docket_id>/final-verdict.md`（如 `C:\Users\林昌\.zcode\workspace\default\deliverables\trial\...`） |
+| `deliverables/trial/`（Workspace 级） | **工作区根** `deliverables/trial/YYYY-MM-DD/<docket_id>/final-verdict.md`（如 `~\.zcode\workspace\default\deliverables\trial\...`） |
 | `~/.workbuddy/models.json` | 无等价文件；模型能力在 `~/.zcode/v2/config.json`（provider 注册 + modalities）与 agent frontmatter（model 字段） |
 | `~/.workbuddy/skills/` | `~/.agents/skills/`（用户级技能目录） |
 | `references/learning-data/` | 不变 |

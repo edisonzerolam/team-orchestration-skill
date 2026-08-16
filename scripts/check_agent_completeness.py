@@ -23,6 +23,12 @@ import re
 import sys
 from pathlib import Path
 
+# Windows GBK 控制台防护（同 asset-resolver）：emoji/中文输出必须 UTF-8 重配置，否则 UnicodeEncodeError 崩溃
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 SKILL_ROOT = Path(__file__).resolve().parent.parent
 EXPERTS = SKILL_ROOT / "references" / "workbuddy-experts"
 NON_TEAM = {"_template"}

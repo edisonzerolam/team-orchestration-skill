@@ -1,7 +1,7 @@
 # OpenCode 适配指南（v3.2.0-opencode）
 
 > 本文件说明 `team-orchestration` skill v3.2.0 在 **OpenCode** 环境下的适配要点。
-> 源版本来自 `C:\Users\林昌\Desktop\team-orchestration-skill`（v3.2.0，WorkBuddy 适配版），已针对 OpenCode 二次适配。
+> 源版本来自 `~\Desktop\team-orchestration-skill`（v3.2.0，WorkBuddy 适配版），已针对 OpenCode 二次适配。
 
 ## 0. 核心结论
 

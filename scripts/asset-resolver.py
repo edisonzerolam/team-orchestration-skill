@@ -31,6 +31,7 @@ except Exception:
 """
 import json
 import os
+import re
 import sys
 import argparse
 import datetime
@@ -41,85 +42,178 @@ WORKBUDDY_HOME = Path.home() / ".workbuddy"
 
 ASSET_SNAPSHOT_PATH = SKILL_DIR / "references" / "last-asset-snapshot.json"
 ASSET_MAP_PATH = SKILL_DIR / "references" / "asset-issue-map.md"
+# 多机技能注册表（TC-20260816-7 · 跨机器技能发现）：远程主机经 skill-registry-agent 枚举后合并于此
+REGISTRY_PATH = SKILL_DIR / "references" / "skill-registry.json"
+REGISTRY_FRESH_DAYS = 7  # 远程清单保鲜期：超过则立案时提示/自动刷新
 
 # ─── 发现引擎 ────────────────────────────────────────────────
 
 # ─── 1. 技能发现 ───
 
-def discover_skills() -> list[dict]:
-    """扫描 ~/.workbuddy/skills/<name>/SKILL.md 的 description"""
-    skills = []
-    skills_dir = WORKBUDDY_HOME / "skills"
-    if not skills_dir.exists():
-        return skills
+# 技能根：多客户端动态收集（TC-20260816-7 · 换机即用）——
+# 本技能安装到任意桌面 agent/harness/AI 客户端后，asset-resolver 扫"当前机器"的
+# 全部客户端技能根（按存在性收集），使路由注入本机实际已装技能。
+HOME_SKILL_ROOTS = [
+    (Path.home() / ".agents" / "skills", "agents"),
+    (Path.home() / ".dsh" / "skills", "dsh"),
+    (Path.home() / ".workbuddy" / "skills", "workbuddy"),
+    (Path.home() / ".claude" / "skills", "claude"),
+    (Path.home() / ".codex" / "skills", "codex"),
+]
+# 对齐 DSH 注入面：跳过测试夹具/构建产物/嵌套仓库元数据
+SKIP_PATH_PARTS = {"tests", "fixtures", "dist", "__pycache__", "node_modules", ".git"}
 
-    for skill_dir in sorted(skills_dir.iterdir()):
-        if not skill_dir.is_dir() or skill_dir.name.startswith("."):
-            continue
-        # 排除备份/临时/模板目录：.backup 结尾、backup- 前缀、.bak 结尾、.tmp、~ 备份后缀
-        name_lower = skill_dir.name.lower()
-        if (".backup" in name_lower or name_lower.startswith("backup-")
-                or name_lower.endswith(".bak") or name_lower.endswith(".tmp")
-                or name_lower.endswith("~") or ".old" in name_lower):
-            continue
-        skill_md = skill_dir / "SKILL.md"
-        if not skill_md.exists():
-            continue
-        description = ""
-        triggers = []
-        disabled = False
-        in_frontmatter = False
-        try:
-            raw_bytes = skill_md.read_bytes()
-            text = None
-            # 优先 UTF-8；失败则尝试 GB18030（兼容历史 GBK 编码的 SKILL.md），杜绝 U+FFFD 乱码注入
-            for enc in ("utf-8", "gb18030"):
-                try:
-                    text = raw_bytes.decode(enc)
+
+def discover_skill_roots(project_dir: str = "") -> list:
+    """收集当前机器存在的技能根（home 级 + 可选项目级 .dsh/skills、.agents/skills）。"""
+    roots = [(r, s) for r, s in HOME_SKILL_ROOTS if r.exists()]
+    if project_dir:
+        pd = Path(project_dir).expanduser()
+        for sub, src in ((".dsh", "dsh"), (".agents", "agents")):
+            r = pd / sub / "skills"
+            if r.exists() and (r, src) not in roots:
+                roots.append((r, src))
+    return roots
+
+
+def _is_skip_dir(name: str) -> bool:
+    """跳过隐藏目录、备份/临时目录、测试/构建目录"""
+    name_lower = name.lower()
+    if name.startswith("."):
+        return True
+    if name_lower in SKIP_PATH_PARTS:
+        return True
+    return (".backup" in name_lower or name_lower.startswith("backup-")
+            or name_lower.endswith(".bak") or name_lower.endswith(".tmp")
+            or name_lower.endswith("~") or ".old" in name_lower)
+
+
+def _parse_skill_frontmatter(skill_md: Path) -> dict:
+    """解析 SKILL.md frontmatter：name/description/triggers/disabled。
+
+    - 编码：UTF-8 优先，GB18030 兼容（历史 GBK 文件），杜绝 U+FFFD 乱码注入
+    - 门禁对齐 DSH：`disable-model-invocation: true` 视为 disabled（TC-20260816-2 实证）
+    - 触发词：frontmatter `triggers:`/「当…」行 + description 内「触发词：/触发方式：」段
+      （TC-20260816-2 精修约定：中文触发词写入 description）
+    """
+    info = {"name": "", "description": "", "triggers": [], "disabled": False}
+    try:
+        raw_bytes = skill_md.read_bytes()
+        text = None
+        for enc in ("utf-8", "gb18030"):
+            try:
+                text = raw_bytes.decode(enc)
+                break
+            except UnicodeDecodeError:
+                continue
+        if text is None:
+            text = raw_bytes.decode("utf-8", errors="replace")
+        lines = text.splitlines()
+        in_fm = False
+        fm_dashes = 0
+        for idx, line in enumerate(lines[:80]):
+            stripped = line.strip()
+            if stripped == "---":
+                fm_dashes += 1
+                in_fm = fm_dashes % 2 == 1
+                if fm_dashes >= 2 and not in_fm:
                     break
-                except UnicodeDecodeError:
-                    continue
-            if text is None:
-                text = raw_bytes.decode("utf-8", errors="replace")
-            lines = text.splitlines()
-            # frontmatter 是文件头 `---` 到下一个 `---` 之间的 YAML 块；
-            # 状态机：in_fm=False，遇到第 1 个 --- 进入、第 2 个 --- 退出，仅取前 40 行内的边界。
-            in_fm = False
-            fm_dashes = 0
-            for line in lines[:40]:
-                stripped = line.strip()
-                if stripped == "---":
-                    fm_dashes += 1
-                    in_fm = fm_dashes % 2 == 1
-                    if fm_dashes >= 2 and not in_fm:
-                        break
-                    continue
-                if in_fm:
-                    line_lower = line.lower().strip()
-                    key, _, val = line.partition(":")
-                    key_l = key.strip().lower()
-                    val_l = val.strip().lower()
-                    if key_l == "disabled":
-                        disabled = val_l in ("true", "yes", "1")
-                        if disabled:
+                continue
+            if not in_fm:
+                continue
+            key, _, val = line.partition(":")
+            key_l = key.strip().lower()
+            val_l = val.strip().lower()
+            if key_l in ("disabled", "disable-model-invocation"):
+                if val_l in ("true", "yes", "1"):
+                    info["disabled"] = True
+                    break
+            elif key_l == "name":
+                info["name"] = val.strip().strip("\"'")
+            elif key_l == "description":
+                raw_val = val.strip()
+                if raw_val in ("|", ">"):
+                    # YAML 块标量（wewrite/story-studio 等多行 description）：收集后续缩进行
+                    block = []
+                    for j in range(idx + 1, len(lines)):
+                        nxt = lines[j]
+                        if nxt.strip() == "":
+                            block.append("")
+                            continue
+                        if nxt.startswith(" ") or nxt.startswith("\t"):
+                            block.append(nxt.strip())
+                        else:
                             break
-                    if key_l == "description":
-                        description = val.strip()
-                    if line_lower.startswith("triggers:") or line_lower.startswith("当"):
-                        triggers.append(line.strip())
-        except Exception:
-            pass
-        if disabled:
-            continue
+                    raw_val = " ".join(x for x in block if x).strip()
+                info["description"] = raw_val
+                # 提取 description 内「触发词：」段（TC-20260816-2 精修约定；wewrite 用「触发关键词：」）
+                for marker in ("触发词：", "触发词:", "触发方式：", "触发方式:", "触发关键词：", "触发关键词:"):
+                    idx_m = info["description"].find(marker)
+                    if idx_m >= 0:
+                        seg = info["description"][idx_m + len(marker):].split("。")[0]
+                        for tok in re.split(r"[、，,;；/|]", seg):
+                            tok = tok.strip().strip("\"' ")
+                            if tok and tok not in info["triggers"]:
+                                info["triggers"].append(tok)
+                        break
+            elif line.lower().startswith("triggers:") or line.lower().startswith("当"):
+                info["triggers"].append(line.strip())
+    except Exception:
+        pass
+    return info
 
-        skills.append({
-            "name": skill_dir.name,
-            "description": description[:300],
-            "triggers": triggers[:5],
-            "path": str(skill_dir),
-            "type": "skill"
-        })
+
+def discover_skills_from(root: Path, source: str, max_depth: int = 4) -> list[dict]:
+    """递归扫描技能根下的 SKILL.md（对齐 DSH 注入面：顶层 + 技能族嵌套，跳过 tests/fixtures 等）"""
+    skills = []
+    if not root.exists():
+        return skills
+    stack = [(root, 0)]
+    while stack:
+        cur, depth = stack.pop()
+        if depth >= max_depth:
+            continue
+        try:
+            entries = sorted(cur.iterdir(), key=lambda p: p.name.lower())
+        except OSError:
+            continue
+        for entry in entries:
+            if entry.is_dir():
+                if _is_skip_dir(entry.name):
+                    continue
+                stack.append((entry, depth + 1))
+                continue
+            if entry.name.lower() != "skill.md":
+                continue
+            info = _parse_skill_frontmatter(entry)
+            if info["disabled"]:
+                continue
+            skills.append({
+                "name": info["name"] or entry.parent.name,
+                "description": info["description"],  # 完整描述（匹配用；快照体积可控，显示侧自行截断）
+                "triggers": info["triggers"][:5],
+                "path": str(entry.parent),
+                "type": "skill",
+                "source": source,
+            })
+    skills.sort(key=lambda s: s["name"])
     return skills
+
+
+def discover_skills(project_dir: str = "") -> list[dict]:
+    """多根聚合：当前机器全部客户端技能根（DSH/WorkBuddy/Claude Code/Codex + 可选项目级）。
+
+    同名冲突时 agents 优先（DSH 注入面优先）；返回按 name 字典序。
+    """
+    skills = []
+    for root, source in discover_skill_roots(project_dir):
+        skills.extend(discover_skills_from(root, source))
+    seen = {}
+    for s in skills:
+        key = s["name"]
+        if key not in seen or s["source"] == "agents":
+            seen[key] = s
+    return list(seen.values())
 
 
 # ─── 2. MCP 工具发现 ───
@@ -284,11 +378,12 @@ def discover_plugins() -> list[dict]:
 
 # ─── 聚合与匹配 ──────────────────────────────────────────────
 
-def resolve_all() -> dict:
-    """全量发现所有资产"""
+def resolve_all(project_dir: str = "") -> dict:
+    """全量发现所有资产（含多机注册表远程技能）"""
     return {
         "snapshot_at": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%dT%H:%M:%S+08:00"),
-        "skills": discover_skills(),
+        "skills": discover_skills(project_dir),
+        "remote_skills": load_registry().get("remote_skills", []),
         "mcp_tools": discover_mcp_tools(),
         "connectors": discover_connectors(),
         "expert_teams": discover_expert_teams(),
@@ -296,10 +391,10 @@ def resolve_all() -> dict:
     }
 
 
-def match_by_issue_type(issue_type: str, snapshot: dict = None) -> dict:
+def match_by_issue_type(issue_type: str, snapshot: dict = None, project_dir: str = "") -> dict:
     """按议题类型匹配资产"""
     if snapshot is None:
-        snapshot = resolve_all()
+        snapshot = resolve_all(project_dir)
 
     issue_lower = issue_type.lower()
 
@@ -366,16 +461,51 @@ def match_by_issue_type(issue_type: str, snapshot: dict = None) -> dict:
         return ascii_tokens | cjk_tokens
 
     query_hits = _match_tokens(issue_lower)
-    for skill in snapshot.get("skills", []):
+    # TC-20260816-8 修复：纯 ASCII ≤2 字符（如 --match AI）token 化后为空集 → 零召回；
+    # 退化为原始查询子串匹配（"ai" 直接匹配含 "ai" 的技能）
+    if not query_hits and issue_lower.strip():
+        query_hits = {issue_lower.strip()}
+    all_skills = list(snapshot.get("skills", []))
+    # 并入多机注册表远程技能（source=remote:<host>，标注主机）
+    all_skills += snapshot.get("remote_skills", [])
+    scored = []
+    for skill in all_skills:
         desc_lower = skill.get("description", "").lower()
         trigger_text = " ".join(skill.get("triggers", [])).lower()
-        combined = desc_lower + " " + trigger_text
-        if any(qw in combined for qw in query_hits):
-            matched["skills"].append({
-                "name": skill["name"],
-                "description": skill.get("description", "")[:100],
-                "usage_hint": f"可用 skill：{skill['name']}"
-            })
+        # 3+ 字中文触发词展开 2-gram（"公众号"→"公众,众号"），对齐 query 侧 2-gram 切分，防 3 字触发词失配
+        trig_ngrams = set()
+        for tg in skill.get("triggers", []):
+            cjk = "".join(c if "\u4e00" <= c <= "\u9fff" else " " for c in tg)
+            for part in cjk.split():
+                if len(part) >= 3:
+                    for i in range(len(part) - 1):
+                        trig_ngrams.add(part[i:i + 2])
+        combined = desc_lower + " " + trigger_text + " " + " ".join(sorted(trig_ngrams))
+        if not any(qw in combined for qw in query_hits):
+            continue
+        # 相关性计分：触发词精确命中 > 触发词 2-gram > 描述命中（防 name 字典序把噪声排前）
+        trigs = [t.lower() for t in skill.get("triggers", [])]
+        score = 0
+        for qw in query_hits:
+            if any(qw == tg or (len(qw) >= 2 and qw in tg) for tg in trigs):
+                score += 3
+            elif qw in trig_ngrams:
+                score += 2
+            elif qw in desc_lower:
+                score += 1
+        scored.append((score, skill))
+    scored.sort(key=lambda x: (-x[0], x[1]["name"]))
+    for score, skill in scored:
+        trig = "、".join(skill.get("triggers", [])[:3])
+        host = skill.get("host", "")
+        host_note = "（在 %s 机，经 SSH 执行）" % host if host else ""
+        matched["skills"].append({
+            "name": skill["name"],
+            "description": skill.get("description", "")[:100],
+            "source": skill.get("source", ""),
+            "match_score": score,
+            "usage_hint": f"可用 skill：{skill['name']}" + (f"（触发词：{trig}）" if trig else "") + host_note
+        })
 
     # 生成摘要
     parts = []
@@ -388,6 +518,106 @@ def match_by_issue_type(issue_type: str, snapshot: dict = None) -> dict:
     matched["summary"] = " | ".join(parts) if parts else "（当前无自动匹配资产）"
 
     return matched
+
+
+# ─── 多机技能注册表（TC-20260816-7）────────────────────────
+
+def load_registry() -> dict:
+    """读多机技能注册表；不存在返回空结构。"""
+    empty = {"registry_version": 1, "updated_at": "", "hosts": {}, "remote_skills": []}
+    if not REGISTRY_PATH.exists():
+        return empty
+    try:
+        data = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+        data.setdefault("hosts", {})
+        data.setdefault("remote_skills", [])
+        return data
+    except Exception:
+        return empty
+
+
+def _sanitize_remote_skill(s, host_alias: str):
+    """远程技能条目结构校验 + 清洗（TC-20260816-8 · 防提示注入）。
+
+    被攻陷主机的技能清单若原样拼入子代理 prompt 即成提示注入通道；
+    白名单校验：name 合法（宽松 kebab/dot/underscore）、字段长度上限、去控制字符、条数上限。
+    非法条目丢弃并计数。
+    """
+    if not isinstance(s, dict):
+        return None
+    name = str(s.get("name", "")).strip()
+    if not name or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,63}", name):
+        return None
+    def _clean(x: str) -> str:
+        return "".join(c for c in x if c >= " " or c == "\n")
+    desc = _clean(str(s.get("description", "")))[:300]
+    trigs = [_clean(str(t))[:40] for t in (s.get("triggers") or []) if isinstance(t, str)][:5]
+    return {
+        "name": name,
+        "description": desc,
+        "triggers": trigs,
+        "source": "remote:%s" % host_alias,
+        "host": host_alias,
+        "path": str(s.get("path", ""))[:200],
+    }
+
+
+def merge_registry(payload: dict, host_alias: str) -> dict:
+    """合并一份远程枚举清单（skill-registry-agent 输出）进注册表。
+
+    - host_alias：主控侧为主机起的别名（如 dev-01 / home-pc）
+    - 同名同源技能按 host 保留（不同机器可有同名技能，路由时按 host 区分）
+    - 条目经 _sanitize_remote_skill 校验清洗（结构白名单 + 长度上限 + 去控制字符）
+    """
+    registry = load_registry()
+    skills = payload.get("skills", [])
+    if not isinstance(skills, list):
+        skills = []
+    clean_skills, dropped = [], 0
+    for s in skills[:2000]:  # 条数上限防膨胀
+        c = _sanitize_remote_skill(s, host_alias)
+        if c is not None:
+            clean_skills.append(c)
+        else:
+            dropped += 1
+    registry["remote_skills"] = [s for s in registry.get("remote_skills", [])
+                                 if s.get("host") != host_alias] + clean_skills
+    registry["hosts"][host_alias] = {
+        "host": str(payload.get("host", host_alias))[:64],
+        "last_sync": str(payload.get("generated_at", ""))[:32],
+        "count": len(clean_skills),
+        "dropped": dropped,
+    }
+    registry["updated_at"] = datetime.datetime.now(
+        datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%dT%H:%M:%S+08:00")
+    REGISTRY_PATH.parent.mkdir(parents=True, exist_ok=True)
+    REGISTRY_PATH.write_text(json.dumps(registry, ensure_ascii=False, indent=2), encoding="utf-8")
+    return registry
+
+
+def check_registry() -> list:
+    """检查各远程主机清单保鲜状态：返回过期主机列表（>REGISTRY_FRESH_DAYS 或从未同步）。"""
+    registry = load_registry()
+    now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))
+    stale = []
+    for alias, info in registry.get("hosts", {}).items():
+        last = info.get("last_sync", "")
+        days = None
+        if last:
+            try:
+                ts = datetime.datetime.fromisoformat(last)
+                days = (now - ts).days
+            except ValueError:
+                pass
+        if days is None or days > REGISTRY_FRESH_DAYS:
+            stale.append({
+                "alias": alias,
+                "host": info.get("host", ""),
+                "last_sync": last,
+                "age_days": days,
+                "count": info.get("count", 0),
+            })
+    return stale
 
 
 # ─── 快照 ────────────────────────────────────────────────────
@@ -492,37 +722,55 @@ def list_types(snapshot: dict = None):
 
 # ─── CLI ─────────────────────────────────────────────────────
 
+def _print_match(result: dict, label: str):
+    """打印匹配结果（--match / --task 共用）"""
+    print(f"📋 {label}: {result['issue_type']}")
+    print(f"  摘要: {result['summary']}")
+    print(f"  匹配专家团: {len(result['expert_teams'])} 个")
+    for t in result['expert_teams']:
+        print(f"    - {t['display_zh']} ({t['name']})")
+    print(f"  匹配 MCP: {len(result['mcp_tools'])} 个")
+    for t in result['mcp_tools']:
+        print(f"    - {t['name']}: {t['usage_hint']}")
+    print(f"  匹配技能: {len(result['skills'])} 个")
+    for s in result['skills'][:8]:
+        print(f"    - {s['name']} [{s.get('source','')}] {s['usage_hint']}")
+
+
 def main():
-    ap = argparse.ArgumentParser(description="WorkBuddy 资产解析器")
+    ap = argparse.ArgumentParser(description="WorkBuddy/DSH 资产解析器（TC-20260816-7 双根版）")
     ap.add_argument("--snapshot", action="store_true", help="全量扫描并生成资产快照")
     ap.add_argument("--match", default="", help="按议题类型匹配资产（如 08-FinanceInvestment）")
+    ap.add_argument("--task", default="", help="按自然语言任务匹配资产（如 '做一次竞品分析'）")
     ap.add_argument("--docket", default="", help="从案卷 JSON 中提取议题类型")
     ap.add_argument("--json", action="store_true", help="JSON 输出")
     ap.add_argument("--list-types", action="store_true", help="列出所有资产分类")
+    ap.add_argument("--registry-merge", default="", metavar="JSON", help="合并远程技能清单（skill-registry-agent 输出）进注册表，如 --registry-merge ./remote-skills.json --host-alias dev-01")
+    ap.add_argument("--host-alias", default="", help="--registry-merge 时的主机别名")
+    ap.add_argument("--registry-check", action="store_true", help="检查远程技能清单保鲜状态（过期提示刷新）")
+    ap.add_argument("--registry-list", action="store_true", help="列出注册表中的远程技能")
+    ap.add_argument("--project-dir", default="", help="项目/工作区目录：附加扫描 <dir>/.dsh/skills、<dir>/.agents/skills（换机场景项目级技能）")
     args = ap.parse_args()
 
     if args.snapshot:
-        snapshot = resolve_all()
+        snapshot = resolve_all(args.project_dir)
         generate_snapshot(snapshot)
         # 顺便更新类型列表
         list_types(snapshot)
 
     elif args.match:
-        result = match_by_issue_type(args.match)
+        result = match_by_issue_type(args.match, project_dir=args.project_dir)
         if args.json:
             print(json.dumps(result, ensure_ascii=False, indent=2))
         else:
-            print(f"📋 议题类型: {args.match}")
-            print(f"  摘要: {result['summary']}")
-            print(f"  匹配专家团: {len(result['expert_teams'])} 个")
-            for t in result['expert_teams']:
-                print(f"    - {t['display_zh']} ({t['name']})")
-            print(f"  匹配 MCP: {len(result['mcp_tools'])} 个")
-            for t in result['mcp_tools']:
-                print(f"    - {t['name']}: {t['usage_hint']}")
-            print(f"  匹配技能: {len(result['skills'])} 个")
-            for s in result['skills'][:5]:
-                print(f"    - {s['name']}")
+            _print_match(result, "议题类型")
+
+    elif args.task:
+        result = match_by_issue_type(args.task, project_dir=args.project_dir)
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+        else:
+            _print_match(result, "任务")
 
     elif args.docket:
         try:
@@ -547,6 +795,41 @@ def main():
             json.dumps(docket, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"✅ 案卷已更新资产信息: {args.docket}")
         print(f"   {result['summary']}")
+
+    elif args.registry_merge:
+        if not args.host_alias:
+            print("❌ 需要 --host-alias 指定主机别名", file=sys.stderr)
+            sys.exit(1)
+        try:
+            payload = json.loads(Path(args.registry_merge).read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"❌ 读取远程清单失败: {e}", file=sys.stderr)
+            sys.exit(1)
+        reg = merge_registry(payload, args.host_alias)
+        info = reg["hosts"][args.host_alias]
+        print(f"✅ 已合并主机 [{args.host_alias}]（{info.get('host','')}）：{info['count']} 个远程技能")
+        print(f"   注册表共 {len(reg['remote_skills'])} 个远程技能 / {len(reg['hosts'])} 台主机")
+
+    elif args.registry_check:
+        stale = check_registry()
+        if not stale:
+            print("✅ 全部远程技能清单在保鲜期内（≤%d 天）" % REGISTRY_FRESH_DAYS)
+        else:
+            print("⚠️ 以下主机技能清单过期（保鲜期 %d 天）：" % REGISTRY_FRESH_DAYS)
+            for s in stale:
+                age = "%d 天" % s["age_days"] if s["age_days"] is not None else "未知"
+                print(f"  - [{s['alias']}] {s['host']} | 上次同步 {s['last_sync'] or '从未'} | {age} | {s['count']} 技能")
+            print("  → 刷新：ssh_exec 在目标机跑 skill-registry-agent.py，取回 JSON 后 --registry-merge")
+
+    elif args.registry_list:
+        reg = load_registry()
+        if not reg["remote_skills"]:
+            print("（注册表为空——先 --registry-merge 合并远程清单）")
+        else:
+            print(f"远程技能注册表：{len(reg['remote_skills'])} 技能 / {len(reg['hosts'])} 主机")
+            for s in sorted(reg["remote_skills"], key=lambda x: (x.get("host",""), x["name"])):
+                trig = "、".join(s.get("triggers", [])[:2])
+                print(f"  - [{s.get('host','')}] {s['name']}" + (f"（触发词：{trig}）" if trig else ""))
 
     elif args.list_types:
         list_types(resolve_all())

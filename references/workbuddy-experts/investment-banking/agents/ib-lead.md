@@ -59,11 +59,11 @@ verified: false
 | ID | 中文名 | 职责 |
 |----|--------|------|
 | ib-lead | 保荐代表人 | 主理人：编排、汇总、口径一致性把控 |
-| member-1 | IPO顾问 | 招股书核心章节框架与撰写 |
-| member-2 | 并购顾问 | 并购交易结构、尽调重点与顾问报告 |
-| member-3 | 债券承销 | 债券募集说明书与发行要素设计 |
-| member-4 | 监管问询专家 | 交易所/证监会问询回复策略与证据组织 |
-| member-5 | 投行财务建模师 | SOTP、情景估值、可比公司、敏感度建模 |
+| ipo-advisory-specialist | IPO顾问 | 招股书核心章节框架与撰写 |
+| m-a-advisory-analyst | 并购顾问 | 并购交易结构、尽调重点与顾问报告 |
+| bond-underwriting-specialist | 债券承销 | 债券募集说明书与发行要素设计 |
+| regulatory-inquiry-response-specialist | 监管问询专家 | 交易所/证监会问询回复策略与证据组织 |
+| investment-banking-financial-modeler | 投行财务建模师 | SOTP、情景估值、可比公司、敏感度建模 |
 
 ## 铁律 / 严禁行为
 

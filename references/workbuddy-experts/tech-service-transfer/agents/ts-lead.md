@@ -45,7 +45,7 @@ verified: false
 ## 数据获取方式
 
 - **任务输入**：复用主理人给定的技术成果资料、需求描述、政策文本
-- **数据来源**：成员产出（member-1..5）、用户提供的专利/论文/样机资料
+- **数据来源**：成员产出（requirements-analyst, outcome-matcher, value-assessor, technical-validator, commercialization-strategist）、用户提供的专利/论文/样机资料
 - **引用方式**：成员引用 `@references/<file>.md`，总监交叉验证来源一致
 - **缺失声明**：成员数据不可得时要求其标注「需复核/缺数待补」，不擅自补造
 
@@ -56,7 +56,7 @@ verified: false
 ```markdown
 - task_id: {T01..Tn}
 - 任务类型: {需求分析|成果匹配|价值评估|技术论证|商业化}
-- 负责人: {member-1..5 id}
+- 负责人: {requirements-analyst, outcome-matcher, value-assessor, technical-validator, commercialization-strategist id}
 - 输入: {引用文件/上一步产出}
 - 输出: {结构化 schema，见成员模板第5节}
 - deadline: {YYYY-MM-DD}
@@ -97,11 +97,11 @@ verified: false
 
 ## 成员清单
 
-- **member-1（需求分析师）**：技术需求挖掘、痛点梳理、需求结构化
-- **member-2（成果匹配员）**：成果搜索匹配、匹配度评估、候选清单
-- **member-3（价值评估师）**：技术价值评估、效益测算、市场前景估算
-- **member-4（技术论证员）**：技术成熟度/可行性/风险论证、原型与量产评估
-- **member-5（商业化策略师）**：产品定义、目标市场、融资准备、商业化路径
+- **requirements-analyst（需求分析师）**：技术需求挖掘、痛点梳理、需求结构化
+- **outcome-matcher（成果匹配员）**：成果搜索匹配、匹配度评估、候选清单
+- **value-assessor（价值评估师）**：技术价值评估、效益测算、市场前景估算
+- **technical-validator（技术论证员）**：技术成熟度/可行性/风险论证、原型与量产评估
+- **commercialization-strategist（商业化策略师）**：产品定义、目标市场、融资准备、商业化路径
 
 ## 铁律 / 严禁行为
 

@@ -7,24 +7,24 @@
   },
   "agents": [
     "./agents/cloud-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md",
-    "./agents/member-5.md",
-    "./agents/member-6.md"
+    "./agents/cloud-operations-engineer.md",
+    "./agents/terraform-specialist.md",
+    "./agents/migration-planner.md",
+    "./agents/cloud-security-compliance-specialist.md",
+    "./agents/monitoring-specialist.md",
+    "./agents/network-engineer.md"
   ],
   "expertType": "team",
   "agentName": "cloud-lead",
   "teamInfo": {
     "leadAgent": "cloud-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4",
-      "member-5",
-      "member-6"
+      "cloud-operations-engineer",
+      "terraform-specialist",
+      "migration-planner",
+      "cloud-security-compliance-specialist",
+      "monitoring-specialist",
+      "network-engineer"
     ]
   },
   "displayName": {
@@ -58,7 +58,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "cloud-operations-engineer",
       "name": {
         "zh": "运维云",
         "en": "Wei Yun"
@@ -70,7 +70,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "terraform-specialist",
       "name": {
         "zh": "植易",
         "en": "Yi Zhi"
@@ -82,7 +82,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "migration-planner",
       "name": {
         "zh": "迁移远",
         "en": "Qian Yi"
@@ -94,7 +94,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "cloud-security-compliance-specialist",
       "name": {
         "zh": "安全全",
         "en": "An Quan"
@@ -106,7 +106,7 @@
       "role": "member"
     },
     {
-      "id": "member-5",
+      "id": "monitoring-specialist",
       "name": {
         "zh": "监控康",
         "en": "Jian Kong"
@@ -118,7 +118,7 @@
       "role": "member"
     },
     {
-      "id": "member-6",
+      "id": "network-engineer",
       "name": {
         "zh": "网络骆",
         "en": "Wang Luo"

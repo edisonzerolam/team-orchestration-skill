@@ -7,22 +7,22 @@
   },
   "agents": [
     "./agents/ts-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md",
-    "./agents/member-5.md"
+    "./agents/requirements-analyst.md",
+    "./agents/outcome-matcher.md",
+    "./agents/value-assessor.md",
+    "./agents/technical-validator.md",
+    "./agents/commercialization-strategist.md"
   ],
   "expertType": "team",
   "agentName": "ts-lead",
   "teamInfo": {
     "leadAgent": "ts-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4",
-      "member-5"
+      "requirements-analyst",
+      "outcome-matcher",
+      "value-assessor",
+      "technical-validator",
+      "commercialization-strategist"
     ]
   },
   "displayName": {
@@ -56,7 +56,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "requirements-analyst",
       "name": {
         "zh": "需求分析师",
         "en": "Specialist 1"
@@ -68,7 +68,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "outcome-matcher",
       "name": {
         "zh": "成果匹配员",
         "en": "Specialist 2"
@@ -80,7 +80,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "value-assessor",
       "name": {
         "zh": "价值评估师",
         "en": "Specialist 3"
@@ -92,7 +92,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "technical-validator",
       "name": {
         "zh": "技术论证员",
         "en": "Specialist 4"
@@ -104,7 +104,7 @@
       "role": "member"
     },
     {
-      "id": "member-5",
+      "id": "commercialization-strategist",
       "name": {
         "zh": "商业化策略师",
         "en": "Specialist 5"

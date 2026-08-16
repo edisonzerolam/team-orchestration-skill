@@ -69,8 +69,10 @@ def record(n: int):
     data = _load()
     hist = data.get("max_spawned_history", [])
     hist.append(n)
-    data["max_spawned_history"] = hist[-20:]  # 滚动保留 20 条
-    data["max_spawned"] = max(hist)
+    data["max_spawned_history"] = hist[-20:]  # 滚动保留 20 条（仅参考）
+    # TC-20260816-8 修复：max_spawned 取运行期全量最大（此前取滚动窗口最大，
+    # 大派出数滑出窗口后建议值回退，渐进试探失真）
+    data["max_spawned"] = max(data.get("max_spawned", 0), n)
     _save(data)
     return {"recorded": n, "max_spawned": data["max_spawned"], "history": hist[-20:]}
 

@@ -7,22 +7,22 @@
   },
   "agents": [
     "./agents/wm-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md",
-    "./agents/member-5.md"
+    "./agents/asset-allocation-specialist.md",
+    "./agents/fund-research-analyst.md",
+    "./agents/financial-planning-specialist.md",
+    "./agents/investment-tax-advisor.md",
+    "./agents/client-reporting-specialist.md"
   ],
   "expertType": "team",
   "agentName": "wm-lead",
   "teamInfo": {
     "leadAgent": "wm-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4",
-      "member-5"
+      "asset-allocation-specialist",
+      "fund-research-analyst",
+      "financial-planning-specialist",
+      "investment-tax-advisor",
+      "client-reporting-specialist"
     ]
   },
   "displayName": {
@@ -56,7 +56,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "asset-allocation-specialist",
       "name": {
         "zh": "资产配置师",
         "en": "Asset Allocator"
@@ -68,7 +68,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "fund-research-analyst",
       "name": {
         "zh": "基金研究员",
         "en": "Fund Researcher"
@@ -80,7 +80,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "financial-planning-specialist",
       "name": {
         "zh": "财务规划师",
         "en": "Financial Planner"
@@ -92,7 +92,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "investment-tax-advisor",
       "name": {
         "zh": "税务顾问",
         "en": "Tax Advisor"
@@ -104,7 +104,7 @@
       "role": "member"
     },
     {
-      "id": "member-5",
+      "id": "client-reporting-specialist",
       "name": {
         "zh": "客户报告专员",
         "en": "Client Report Specialist"

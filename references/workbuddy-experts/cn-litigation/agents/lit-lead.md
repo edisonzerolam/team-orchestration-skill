@@ -91,11 +91,11 @@ verified: false
 | id | 中文角色 | 职责 |
 |----|----------|------|
 | lit-lead | 主诉律师 | 编排、策略、汇总、风险把控 |
-| member-1 | 文书律师 | 起草起诉状/答辩状/质证/代理词等 |
-| member-2 | 证据分析师 | 证据整理、组织、证明力分析 |
-| member-3 | 法律检索员 | 法条/判例/类案检索 |
-| member-4 | 案件管理员 | 期限、三审、知识库管理 |
-| member-5 | 可视化专员 | 时间线/关系图/案情可视化 |
+| litigation-document-attorney | 文书律师 | 起草起诉状/答辩状/质证/代理词等 |
+| evidence-analyst | 证据分析师 | 证据整理、组织、证明力分析 |
+| legal-researcher | 法律检索员 | 法条/判例/类案检索 |
+| case-manager | 案件管理员 | 期限、三审、知识库管理 |
+| case-visualization-specialist | 可视化专员 | 时间线/关系图/案情可视化 |
 
 ## 铁律
 

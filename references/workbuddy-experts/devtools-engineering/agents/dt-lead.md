@@ -96,10 +96,10 @@ verified: false
 
 ## 成员命名清单
 
-- **member-1**：Git工作流专员 —— 多仓/分支/合入流程编排
-- **member-2**：AI测试员 —— 对活 Web 应用执行需求验证与 bug 确认
-- **member-3**：接口分析师 —— 后端接口逻辑梳理与依赖分析
-- **member-4**：文档生成员 —— 接口文档与使用说明生成
+- **git-workflow-specialist**：Git工作流专员 —— 多仓/分支/合入流程编排
+- **ai-test-engineer**：AI测试员 —— 对活 Web 应用执行需求验证与 bug 确认
+- **api-analyst**：接口分析师 —— 后端接口逻辑梳理与依赖分析
+- **documentation-specialist**：文档生成员 —— 接口文档与使用说明生成
 
 ## 铁律 / 严禁行为
 

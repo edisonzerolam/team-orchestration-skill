@@ -4,7 +4,7 @@
   "description": "AI-native agentic data analysis team with autonomous SQL generation, code execution, RAG knowledge retrieval, and multi-source data insight capabilities",
   "author": {
     "name": "WorkBuddy Team",
-    "email": "team@workbuddy.ai"
+    "email": "tea****@workbuddy.ai"
   },
   "agents": [
     "./agents/copilot-team-lead.md",

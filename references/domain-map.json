@@ -1,0 +1,53 @@
+{
+  "domain_map_version": 1,
+  "purpose": "40 团 → 归组映射（P4 域入口页基础；categoryId 13 类归并为 10 组：8 业务域 + 通用对抗 + 通用兜底）",
+  "domains": {
+    "investment": {
+      "name_zh": "投资分析", "category_ids": ["08-FinanceInvestment"],
+      "teams": ["a-share-analysis", "equity-research", "investment-banking", "investment-masters-team", "pe-vc-investment", "stock-partner-team", "trading-agent", "wealth-management"]
+    },
+    "legal": {
+      "name_zh": "法律服务", "category_ids": ["11-SecurityCompliance"],
+      "teams": ["chatlaw-team", "cn-litigation", "enterprise-legal-team", "tax-compliance-team"]
+    },
+    "content": {
+      "name_zh": "内容全链路", "category_ids": ["06-ContentCreative"],
+      "teams": ["ai-content-creator-team", "content-distribution-team", "humanize-ppt-team", "promo-creator-team"]
+    },
+    "marketing": {
+      "name_zh": "营销增长（含销售商务）", "category_ids": ["05-MarketingGrowth", "07-SalesCommerce"],
+      "teams": ["content-monetization-team", "marketing-campaign-team", "seo-content-team", "social-engagement-team", "ecommerce-1688", "sales-battle-team"]
+    },
+    "engineering": {
+      "name_zh": "工程保障（含项目质量）", "category_ids": ["02-Engineering", "10-ProjectQuality"],
+      "teams": ["alicloud-engineering", "devtools-engineering", "engineering-assurance-team", "gstack", "rum-fullstack-team", "openspec-doc-team", "software-company"]
+    },
+    "data": {
+      "name_zh": "数据智能", "category_ids": ["04-DataAI"],
+      "teams": ["ai-data-copilot", "consulting-delivery", "gpt-researcher-team", "huashu-data-pro"]
+    },
+    "product": {
+      "name_zh": "产品设计", "category_ids": ["01-ProductDesign"],
+      "teams": ["design-engine", "product-design-suite", "product-strategy-team"]
+    },
+    "operations": {
+      "name_zh": "通用运营（HR/人事）", "category_ids": ["09-OperationsHR"],
+      "teams": ["hr-operations-team"]
+    },
+    "general-critics": {
+      "name_zh": "通用对抗", "category_ids": ["00-General"],
+      "teams": ["general-critics"]
+    },
+    "consulting": {
+      "name_zh": "通用兜底（咨询交付）", "category_ids": ["12-IndustryConsultant"],
+      "teams": ["opc-team", "tech-service-transfer"]
+    }
+  },
+  "notes": [
+    "software-company 原无 categoryId，按领域归入 engineering",
+    "07-SalesCommerce 并入 marketing（销售/电商为增长链路）",
+    "10-ProjectQuality 并入 engineering",
+    "09-OperationsHR 独立为通用运营域",
+    "12-IndustryConsultant 为通用兜底（无匹配时路由至此）"
+  ]
+}

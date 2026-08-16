@@ -100,12 +100,12 @@ verified: false
 
 ## 成员命名清单
 
-- **member-1**：运维工程师 —— 日常运维、实例/资源状态巡检
-- **member-2**：Terraform 专员 —— 基础设施即代码编写与验证
-- **member-3**：迁移规划师 —— 跨云迁移策略与执行路径
-- **member-4**：安全合规员 —— 云安全与等保合规评估
-- **member-5**：监控专员 —— 监控告警与可观测性建设
-- **member-6**：网络工程师 —— VPC/网络规划与连接设计
+- **cloud-operations-engineer**：运维工程师 —— 日常运维、实例/资源状态巡检
+- **terraform-specialist**：Terraform 专员 —— 基础设施即代码编写与验证
+- **migration-planner**：迁移规划师 —— 跨云迁移策略与执行路径
+- **cloud-security-compliance-specialist**：安全合规员 —— 云安全与等保合规评估
+- **monitoring-specialist**：监控专员 —— 监控告警与可观测性建设
+- **network-engineer**：网络工程师 —— VPC/网络规划与连接设计
 
 ## 铁律 / 严禁行为
 

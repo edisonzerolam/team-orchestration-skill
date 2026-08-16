@@ -7,22 +7,22 @@
   },
   "agents": [
     "./agents/equity-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md",
-    "./agents/member-5.md"
+    "./agents/macro-analyst.md",
+    "./agents/industry-analyst.md",
+    "./agents/financial-modeling-specialist.md",
+    "./agents/equity-valuation-specialist.md",
+    "./agents/research-report-editor.md"
   ],
   "expertType": "team",
   "agentName": "equity-lead",
   "teamInfo": {
     "leadAgent": "equity-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4",
-      "member-5"
+      "macro-analyst",
+      "industry-analyst",
+      "financial-modeling-specialist",
+      "equity-valuation-specialist",
+      "research-report-editor"
     ]
   },
   "displayName": {
@@ -56,7 +56,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "macro-analyst",
       "name": {
         "zh": "宏观分析师",
         "en": "Macro Analyst"
@@ -68,7 +68,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "industry-analyst",
       "name": {
         "zh": "行业研究员",
         "en": "Industry Analyst"
@@ -80,7 +80,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "financial-modeling-specialist",
       "name": {
         "zh": "财务建模师",
         "en": "Financial Modeler"
@@ -92,7 +92,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "equity-valuation-specialist",
       "name": {
         "zh": "估值分析师",
         "en": "Valuation Analyst"
@@ -104,7 +104,7 @@
       "role": "member"
     },
     {
-      "id": "member-5",
+      "id": "research-report-editor",
       "name": {
         "zh": "研报编辑",
         "en": "Research Report Editor"

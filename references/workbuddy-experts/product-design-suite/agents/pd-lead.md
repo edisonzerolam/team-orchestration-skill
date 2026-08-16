@@ -92,12 +92,12 @@ verified: false
 | id | 中文角色 | 职责 |
 |----|----------|------|
 | pd-lead | 设计总监 | 编排、汇总、质量把关 |
-| member-1 | 用户研究员 | 用户研究、需求洞察、persona |
-| member-2 | 交互设计师 | 信息架构、交互流程、任务流 |
-| member-3 | 视觉设计师 | 视觉语言、界面规范、营销资产 |
-| member-4 | 动效设计师 | 动效概念、微交互、动效规格 |
-| member-5 | 可用性测试员 | 测试方案、执行、问题清单 |
-| member-6 | 设计系统工程师 | 设计系统 tokens、组件、工程交付 |
+| ux-researcher | 用户研究员 | 用户研究、需求洞察、persona |
+| interaction-designer | 交互设计师 | 信息架构、交互流程、任务流 |
+| visual-designer | 视觉设计师 | 视觉语言、界面规范、营销资产 |
+| motion-designer | 动效设计师 | 动效概念、微交互、动效规格 |
+| usability-tester | 可用性测试员 | 测试方案、执行、问题清单 |
+| design-system-engineer | 设计系统工程师 | 设计系统 tokens、组件、工程交付 |
 
 ## 铁律
 

@@ -4,7 +4,7 @@
   "description": "6 stock market experts collaborate as an agent team for stock market information analysis and discussion",
   "author": {
     "name": "jensonli",
-    "email": "jensonli@tencent.com"
+    "email": "jen****@tencent.com"
   },
   "agents": [
     "./agents/stock-partner-lead.md",

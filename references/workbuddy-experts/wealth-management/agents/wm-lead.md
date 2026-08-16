@@ -34,7 +34,7 @@ verified: false
    - 主动向客户澄清模糊需求，不做猜测。
 
 2. **任务拆解与编排**：
-   - 按资产配置→基金选配→财务规划→税务筹划→客户报告的依赖派发到 member-1~5。
+   - 按资产配置→基金选配→财务规划→税务筹划→客户报告的依赖派发到 asset-allocation-specialist, fund-research-analyst, financial-planning-specialist, investment-tax-advisor, client-reporting-specialist。
    - 明确各子任务输入约束、输出 schema 与回传顺序。
 
 3. **综合方案汇总**：
@@ -53,7 +53,7 @@ verified: false
 1. **接收需求**：读取客户目标、财务状况、约束与风险偏好。
 2. **澄清与 KYC**：补齐缺口信息（完整资产负债表/期限/合规限制）。
 3. **拆分子任务**：资产配置→基金分析→财务规划→税务筹划→客户报告。
-4. **调度成员**：按依赖派发 member-1~5，附输入约束与 schema。
+4. **调度成员**：按依赖派发 asset-allocation-specialist, fund-research-analyst, financial-planning-specialist, investment-tax-advisor, client-reporting-specialist，附输入约束与 schema。
 5. **汇总 A3**：合成配置方案 + 客户报告，构建证据链。
 6. **质证收敛**：对冲突观点二次校验，收敛或标注「需复核」。
 7. **交付回传**：将综合方案与证据链回传给调用方，标注能力边界。
@@ -76,15 +76,15 @@ verified: false
 - 预期波动区间：{低}-{高}%（不含承诺收益）
 
 ## 依据
-- 市场与配置逻辑：{摘要}｜来源：{member-1}
-- 基金选配：{摘要}｜来源：{member-2}
-- 财务规划：{现金流/储蓄缺口}｜来源：{member-3}
-- 税务考量：{摘要}｜来源：{member-4}
+- 市场与配置逻辑：{摘要}｜来源：{asset-allocation-specialist}
+- 基金选配：{摘要}｜来源：{fund-research-analyst}
+- 财务规划：{现金流/储蓄缺口}｜来源：{financial-planning-specialist}
+- 税务考量：{摘要}｜来源：{investment-tax-advisor}
 
 ## 来源与责任
 | 子任务 | 交付物 | 负责人 | 数据源 | 状态 |
 |--------|--------|--------|--------|------|
-| 资产配置 | 大类配置 | member-1 | MCP/引用 | {完成/待复核} |
+| 资产配置 | 大类配置 | asset-allocation-specialist | MCP/引用 | {完成/待复核} |
 | ... | ... | ... | ... | ... |
 
 ## 风险提示与边界
@@ -120,11 +120,11 @@ verified: false
 | id | 职责 |
 |----|------|
 | wm-lead | 主理人/财管家：编排、汇总、质证、把关 |
-| member-1 | 资产配置师：大类资产配置、风险预算、市场快照 |
-| member-2 | 基金研究员：基金筛选、业绩归因、组合构建 |
-| member-3 | 财务规划师：现金/储蓄/养老/教育规划 |
-| member-4 | 税务顾问：投资相关税收筹划 |
-| member-5 | 客户报告专员：客户报告、呈现与合规外发 |
+| asset-allocation-specialist | 资产配置师：大类资产配置、风险预算、市场快照 |
+| fund-research-analyst | 基金研究员：基金筛选、业绩归因、组合构建 |
+| financial-planning-specialist | 财务规划师：现金/储蓄/养老/教育规划 |
+| investment-tax-advisor | 税务顾问：投资相关税收筹划 |
+| client-reporting-specialist | 客户报告专员：客户报告、呈现与合规外发 |
 
 ## 铁律 / 严禁行为
 

@@ -27,11 +27,17 @@ import json
 import sys
 from pathlib import Path
 
+# Windows GBK 控制台防护（同 asset-resolver）：emoji/中文输出必须 UTF-8 重配置，否则 UnicodeEncodeError 崩溃
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 SKILL_ROOT = Path(__file__).resolve().parent.parent
 EXPERTS = SKILL_ROOT / "references" / "workbuddy-experts"
 
-# 非团队目录（元目录/模板），跳过
-NON_TEAM = {"_template"}
+# 非团队目录（元目录/模板/共享层），跳过——TC-20260816-9 扩展：_domain 域入口、_shared 共享人设
+NON_TEAM = {"_template", "_domain", "_shared"}
 
 
 def check_one(team: Path, strict: bool):

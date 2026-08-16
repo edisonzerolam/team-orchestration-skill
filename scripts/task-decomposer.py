@@ -69,7 +69,9 @@ def detect_domains(task: str) -> list:
     for kw, cat in CATEGORIES.items():
         if kw in task:
             domains.add(cat)
-    return list(domains) if domains else ["12-IndustryConsultant"]
+    # TC-20260816-9 修正：无关键词匹配不再回退 12-IndustryConsultant（曾致 opc/tech 在
+    # 无关任务中霸榜）；无域信号 = 空（复杂度判 L1，域路由走通用兜底）
+    return list(domains)
 
 def estimate_complexity(task: str, domains: list) -> str:
     words = len(task)

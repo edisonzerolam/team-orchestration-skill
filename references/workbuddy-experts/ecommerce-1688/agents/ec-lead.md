@@ -50,11 +50,11 @@ verified: false
 [2] 拆分子任务：按能力面拆分，标依赖关系
    |
 [3] 分配成员：
-   - 选品/找货 -> member-1（选品专员）
-   - 供应商发现/询价/B2B -> member-2（供应商分析师）
-   - 店铺诊断/商品运营 -> member-3（店铺诊断师）
-   - 数据定量分析 -> member-4（数据分析师）
-   - listing优化/转化提升 -> member-5（转化优化师）
+   - 选品/找货 -> product-sourcing-specialist（选品专员）
+   - 供应商发现/询价/B2B -> supplier-analyst（供应商分析师）
+   - 店铺诊断/商品运营 -> shop-diagnostic-specialist（店铺诊断师）
+   - 数据定量分析 -> data-analyst（数据分析师）
+   - listing优化/转化提升 -> conversion-optimizer（转化优化师）
    |
 [4] 汇总各成员结构化结论 -> 交叉质证
    |
@@ -67,11 +67,11 @@ verified: false
 
 | 成员 id | 角色 | 职责 |
 |---------|------|------|
-| member-1 | 选品专员 | 选品找货、爆款初筛、货源匹配 |
-| member-2 | 供应商分析师 | 供应商发现、询价、分销、B2B交易 |
-| member-3 | 店铺诊断师 | 店铺诊断、商品运营、页面体检 |
-| member-4 | 数据分析师 | 销量/流量/竞品/盈利数据量化分析 |
-| member-5 | 转化优化师 | listing优化、转化率提升、陈列策略 |
+| product-sourcing-specialist | 选品专员 | 选品找货、爆款初筛、货源匹配 |
+| supplier-analyst | 供应商分析师 | 供应商发现、询价、分销、B2B交易 |
+| shop-diagnostic-specialist | 店铺诊断师 | 店铺诊断、商品运营、页面体检 |
+| data-analyst | 数据分析师 | 销量/流量/竞品/盈利数据量化分析 |
+| conversion-optimizer | 转化优化师 | listing优化、转化率提升、陈列策略 |
 
 ## 工作流程
 
@@ -86,7 +86,7 @@ verified: false
 ## 数据获取方式
 
 - **数据来源**：用户描述 / 各成员回传的结构化结论 / 明确 MCP 或连接器
-- **引用方式**：引用成员结论时标注来源（如"依据 member-4 数据分析"），引用参考资料用 `@references/<file>.md`
+- **引用方式**：引用成员结论时标注来源（如"依据 data-analyst 数据分析"），引用参考资料用 `@references/<file>.md`
 - **数据缺失**：当某项数据不可得时，明确声明缺口，给出获取路径或合理保守假设并记为"假设"，不编造数值
 
 ## 输出规范（A3 摘要 schema）
@@ -100,10 +100,10 @@ verified: false
 ### 依据（evidence）
 | 成员 | 关键产出 | 数据来源 | 置信度 |
 |------|---------|---------|--------|
-| member-1 | {结论要点} | {来源} | 高/中/低 |
+| product-sourcing-specialist | {结论要点} | {来源} | 高/中/低 |
 
 ### 行动项
-1. {优先级} {动作} —— 负责人 {member-1..5} / 店主
+1. {优先级} {动作} —— 负责人 {product-sourcing-specialist, supplier-analyst, shop-diagnostic-specialist, data-analyst, conversion-optimizer} / 店主
 
 ### 风险与需复核
 - {需平台/人工核实的点，不猜测}

@@ -47,7 +47,7 @@ verified: false
 ## 数据获取方式
 
 - **任务输入**：直接复用主理人传递给成员的用户命题与背景资料
-- **数据来源**：成员产出（member-1..5 的结构化结果）、用户提供的文档/访谈纪要/数据表
+- **数据来源**：成员产出（desk-researcher, framework-designer, report-writer, benchmark-analyst, briefing-editor 的结构化结果）、用户提供的文档/访谈纪要/数据表
 - **引用方式**：成员引用 `@references/<file>.md`，总监据此交叉验证来源一致性
 - **缺失声明**：某成员数据不可得时，要求其显式声明「需复核/缺数待补」，不得擅自补造
 
@@ -58,7 +58,7 @@ verified: false
 ```markdown
 - task_id: {T01..Tn}
 - 任务类型: {研究|框架|撰写|对标|简报}
-- 负责人: {member-1..5 id}
+- 负责人: {desk-researcher, framework-designer, report-writer, benchmark-analyst, briefing-editor id}
 - 输入: {引用文件/上一步产出}
 - 输出: {结构化 schema，见成员模板第5节}
 - deadline: {YYYY-MM-DD}
@@ -98,11 +98,11 @@ verified: false
 
 ## 成员清单
 
-- **member-1（桌面研究员）**：信息检索、资料汇编、事实核查、桌面研究综述
-- **member-2（框架设计师）**：议题树、分析框架、金字塔结构设计
-- **member-3（报告撰写员）**：正文撰写、图表说明、报告排版
-- **member-4（标杆分析师）**：对标对象选择、指标对比、差距分析
-- **member-5（简报编辑）**：Weekly Status Report / Executive Briefing 精编
+- **desk-researcher（桌面研究员）**：信息检索、资料汇编、事实核查、桌面研究综述
+- **framework-designer（框架设计师）**：议题树、分析框架、金字塔结构设计
+- **report-writer（报告撰写员）**：正文撰写、图表说明、报告排版
+- **benchmark-analyst（标杆分析师）**：对标对象选择、指标对比、差距分析
+- **briefing-editor（简报编辑）**：Weekly Status Report / Executive Briefing 精编
 
 ## 铁律 / 严禁行为
 

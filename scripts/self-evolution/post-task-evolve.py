@@ -18,7 +18,9 @@ except Exception:
     pass
 
 EXPERT_DIR = Path(__file__).resolve().parent.parent.parent / "references" / "workbuddy-experts"
-SCORES_FILE = EXPERT_DIR.parent / "expert-scores.json"
+# TC-20260816-8 修复：评分文件与消费方对齐——此前写 references/expert-scores.json，
+# 而 §5/expert-matcher/orchestrator 读 learning-data/expert_scores.json，自学习写入无人消费
+SCORES_FILE = Path(__file__).resolve().parent.parent / "references" / "learning-data" / "expert_scores.json"
 
 def collect_logs():
     logs = {}
@@ -47,8 +49,12 @@ def update_scores(logs: dict, scores: dict):
     for name, info in logs.items():
         if name not in scores:
             scores[name] = {"score": 0.5, "count": 0}
-        scores[name]["count"] += info["entries"]
+        # TC-20260816-8 修复：score 此前恒 0.5——按反思条目数递增（0.5 基准 + 0.05/条，封顶 1.0）
+        total = scores[name].get("count", 0) + info["entries"]
+        scores[name]["count"] = total
+        scores[name]["score"] = round(min(0.5 + 0.05 * total, 1.0), 4)
         scores[name]["last_updated"] = datetime.now().isoformat()
+    SCORES_FILE.parent.mkdir(parents=True, exist_ok=True)
     SCORES_FILE.write_text(json.dumps(scores, ensure_ascii=False, indent=2), encoding="utf-8")
     return scores
 

@@ -7,22 +7,22 @@
   },
   "agents": [
     "./agents/lit-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md",
-    "./agents/member-5.md"
+    "./agents/litigation-document-attorney.md",
+    "./agents/evidence-analyst.md",
+    "./agents/legal-researcher.md",
+    "./agents/case-manager.md",
+    "./agents/case-visualization-specialist.md"
   ],
   "expertType": "team",
   "agentName": "lit-lead",
   "teamInfo": {
     "leadAgent": "lit-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4",
-      "member-5"
+      "litigation-document-attorney",
+      "evidence-analyst",
+      "legal-researcher",
+      "case-manager",
+      "case-visualization-specialist"
     ]
   },
   "displayName": {
@@ -56,7 +56,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "litigation-document-attorney",
       "name": {
         "zh": "骆文澜",
         "en": "Luo Wenlan"
@@ -68,7 +68,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "evidence-analyst",
       "name": {
         "zh": "辛证",
         "en": "Xin Zheng"
@@ -80,7 +80,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "legal-researcher",
       "name": {
         "zh": "查礼仁",
         "en": "Zha Liren"
@@ -92,7 +92,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "case-manager",
       "name": {
         "zh": "程安",
         "en": "Cheng An"
@@ -104,7 +104,7 @@
       "role": "member"
     },
     {
-      "id": "member-5",
+      "id": "case-visualization-specialist",
       "name": {
         "zh": "丁时序",
         "en": "Ding Shixu"

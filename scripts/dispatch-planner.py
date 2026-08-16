@@ -162,13 +162,16 @@ def _profession_focus(profession_zh: str) -> str:
 def assign_subtasks(team_plan: dict, task: str):
     """为每个成员生成子任务提示；为主理人生成汇总提示。"""
     dispatch = []
-    for m in team_plan.get("members", []):
+    for idx, m in enumerate(team_plan.get("members", [])):
         focus = _profession_focus(m.get("profession_zh", ""))
+        # TC-20260816-8 修复：stance 此前恒"中立"（member_entry 无 stance 键，死代码）。
+        # 优先 plugin.json members 的 stance 字段；缺省按成员序推导（正/反/中立循环）
+        stance = m.get("stance") or ("正方" if idx % 3 == 0 else "反方" if idx % 3 == 1 else "中立")
         subtask = (
             f"任务背景：{task}\n"
             f"你的角色：{m.get('profession_zh','')}（{m.get('name_zh','')}）。\n"
             f"你的专属视角：{focus}。\n"
-            f"你的立场：{m.get('stance', '中立')}（正/反/中立，请明确表达该立场下的主张）。\n"
+            f"你的立场：{stance}（正/反/中立，请明确表达该立场下的主张）。\n"
             f"请基于你的人设与专长，独立完成你负责的部分；"
             f"聚焦你最擅长的角度，不要越界替其他成员工作。\n"
             f"\n【A3 单页契约·强制输出格式】严格返回如下 JSON（不得自由发挥格式；全文不超过 400 字）：\n"

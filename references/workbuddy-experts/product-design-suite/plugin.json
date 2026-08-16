@@ -7,24 +7,24 @@
   },
   "agents": [
     "./agents/pd-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md",
-    "./agents/member-5.md",
-    "./agents/member-6.md"
+    "./agents/ux-researcher.md",
+    "./agents/interaction-designer.md",
+    "./agents/visual-designer.md",
+    "./agents/motion-designer.md",
+    "./agents/usability-tester.md",
+    "./agents/design-system-engineer.md"
   ],
   "expertType": "team",
   "agentName": "pd-lead",
   "teamInfo": {
     "leadAgent": "pd-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4",
-      "member-5",
-      "member-6"
+      "ux-researcher",
+      "interaction-designer",
+      "visual-designer",
+      "motion-designer",
+      "usability-tester",
+      "design-system-engineer"
     ]
   },
   "displayName": {
@@ -58,7 +58,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "ux-researcher",
       "name": {
         "zh": "林海青",
         "en": "Lin Haiqing"
@@ -70,7 +70,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "interaction-designer",
       "name": {
         "zh": "周屿",
         "en": "Zhou Yu"
@@ -82,7 +82,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "visual-designer",
       "name": {
         "zh": "苏曼",
         "en": "Su Man"
@@ -94,7 +94,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "motion-designer",
       "name": {
         "zh": "顾一鸣",
         "en": "Gu Yiming"
@@ -106,7 +106,7 @@
       "role": "member"
     },
     {
-      "id": "member-5",
+      "id": "usability-tester",
       "name": {
         "zh": "白鹿",
         "en": "Bai Lu"
@@ -118,7 +118,7 @@
       "role": "member"
     },
     {
-      "id": "member-6",
+      "id": "design-system-engineer",
       "name": {
         "zh": "岑安",
         "en": "Cen An"

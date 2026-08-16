@@ -7,22 +7,22 @@
   },
   "agents": [
     "./agents/pe-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md",
-    "./agents/member-5.md"
+    "./agents/deal-sourcing-screening-analyst.md",
+    "./agents/due-diligence-analyst.md",
+    "./agents/deal-structuring-term-sheet-specialist.md",
+    "./agents/return-financial-modeling-analyst.md",
+    "./agents/exit-strategy-analyst.md"
   ],
   "expertType": "team",
   "agentName": "pe-lead",
   "teamInfo": {
     "leadAgent": "pe-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4",
-      "member-5"
+      "deal-sourcing-screening-analyst",
+      "due-diligence-analyst",
+      "deal-structuring-term-sheet-specialist",
+      "return-financial-modeling-analyst",
+      "exit-strategy-analyst"
     ]
   },
   "displayName": {
@@ -56,7 +56,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "deal-sourcing-screening-analyst",
       "name": {
         "zh": "项目筛选师",
         "en": "Deal Screener"
@@ -68,7 +68,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "due-diligence-analyst",
       "name": {
         "zh": "尽调分析师",
         "en": "DD Analyst"
@@ -80,7 +80,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "deal-structuring-term-sheet-specialist",
       "name": {
         "zh": "交易结构师",
         "en": "Deal Structure Specialist"
@@ -92,7 +92,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "return-financial-modeling-analyst",
       "name": {
         "zh": "回报建模师",
         "en": "Return Modeler"
@@ -104,7 +104,7 @@
       "role": "member"
     },
     {
-      "id": "member-5",
+      "id": "exit-strategy-analyst",
       "name": {
         "zh": "退出策略师",
         "en": "Exit Strategist"

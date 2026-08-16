@@ -95,7 +95,10 @@ class SelfHeal:
             return result
         action = info["fix_actions"][0]
         result["fix_action"] = action
-        result["fix_success"] = True
+        # TC-20260816-8 修复：fix_success 语义诚实化——本脚本只推荐修复动作，
+        # 不执行修复（执行由 main/宿主完成），故 fix_success=False + fix_recommended=True
+        result["fix_success"] = False
+        result["fix_recommended"] = True
         result["handled"] = True
         self.retries[error_type] = current + 1
         try:

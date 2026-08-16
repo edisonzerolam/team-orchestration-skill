@@ -13,3 +13,10 @@ references/learning-data/docket-*.json
 references/learning-data/trial-count.json
 references/learning-data/learning-init.json
 references/learning-data/expert_scores.json
+
+team-orchestration/references/last-asset-snapshot.json
+team-orchestration/references/asset-issue-map.md
+team-orchestration/references/skill-registry.json
+team-orchestration/references/remote-skills/
+__pycache__/
+

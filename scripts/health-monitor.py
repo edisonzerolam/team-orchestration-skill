@@ -24,12 +24,14 @@ def load_team_status(team_id):
 
 def check_agent_health(agent, now=None):
     if now is None:
-        now = datetime.now()
+        now = datetime.now().astimezone()  # TC-20260816-8：aware 基准，防 naive-aware 相减 TypeError
     last_heartbeat = agent.get("last_heartbeat")
     status = agent.get("status", "unknown")
     if last_heartbeat:
         try:
             last = datetime.fromisoformat(last_heartbeat)
+            if last.tzinfo is None:
+                last = last.astimezone()  # naive 心跳按本地时区解释
             seconds_since = (now - last).total_seconds()
             is_alive = seconds_since < HEARTBEAT_TIMEOUT
             return {
@@ -43,7 +45,7 @@ def check_agent_health(agent, now=None):
                 "is_failed": status in ("failed", "failed_with_error"),
             }
         except Exception:
-            pass
+            pass  # 心跳解析失败：按未知处理（区别于"真死亡"——seconds_ago=None）
     return {
         "id": agent.get("id"),
         "role": agent.get("role"),

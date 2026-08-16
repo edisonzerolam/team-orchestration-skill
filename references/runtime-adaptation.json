@@ -1,0 +1,84 @@
+{
+  "runtime_adaptation_version": 1,
+  "purpose": "team-orchestration 跨客户端适配映射：detect-runtime.py 判定 runtime 后按此表加载对应适配文档，按文档的工具映射执行五阶段协议。",
+  "detect_script": "scripts/detect-runtime.py",
+  "runtimes": {
+    "dsh": {
+      "label": "DeepSeek Harness",
+      "adaptation_doc": "references/dsh-adaptation.md",
+      "shell": "pwsh（python scripts/...）",
+      "subagent": "subagent / subagent_fork（默认后台；同一消息多次调用即并行 2-6）",
+      "send_message": "send_message（仅 depth-1 直接子代理）",
+      "ask_user": "ask_user_question（可多题带选项）",
+      "checkpoint": "checkpoint_manager.py + 可选 create_goal/update_goal 持久目标",
+      "vision": "main 默认 text-only；workflow agent() 可指定多模态模型；兜底外部 OCR 转文本",
+      "notes": ["禁止轮询（完成即通知）", "send_message 仅 depth-1，深层仅 interrupt_agent", "磁盘即真相，事件仅审计"]
+    },
+    "zcode": {
+      "label": "ZCode",
+      "adaptation_doc": "references/zcode-adaptation.md",
+      "shell": "bash（python scripts/...）",
+      "subagent": "task(subagent_type=...)",
+      "send_message": "SendMessage(to: agentId)",
+      "ask_user": "—（子代理 questions 软键由 main 中转）",
+      "checkpoint": "checkpoint_manager.py + 案卷 resume_from",
+      "vision": "三路不可用（实测）；外部 OCR 转文本唯一路径",
+      "notes": ["无收件箱：产物=task 返回值 + agent_*/task.output", "禁止轮询"]
+    },
+    "opencode": {
+      "label": "OpenCode",
+      "adaptation_doc": "references/opencode-adaptation.md",
+      "shell": "bash",
+      "subagent": "task",
+      "send_message": "SendMessage",
+      "ask_user": "—",
+      "checkpoint": "checkpoint_manager.py",
+      "vision": "外部 OCR 转文本",
+      "notes": ["历史适配版本 v3.2.0-opencode（存档参考）"]
+    },
+    "claude-code": {
+      "label": "Claude Code",
+      "adaptation_doc": "references/claude-code-adaptation.md",
+      "shell": "bash",
+      "subagent": "Task/Agent 工具（parallel）",
+      "send_message": "—（无跨 agent 消息；产物经文件/返回值）",
+      "ask_user": "AskUserQuestion 工具",
+      "checkpoint": "checkpoint_manager.py",
+      "vision": "读图模型或外部 OCR",
+      "notes": ["skills 机制：子代理可经 filesystem 发现项目技能；本技能以 CLAUDE.md 形式安装"]
+    },
+    "codex": {
+      "label": "OpenAI Codex",
+      "adaptation_doc": "references/codex-adaptation.md",
+      "shell": "bash",
+      "subagent": "subagent 工具",
+      "send_message": "—（产物经文件）",
+      "ask_user": "—",
+      "checkpoint": "checkpoint_manager.py",
+      "vision": "读图模型或外部 OCR",
+      "notes": ["AGENTS.md 为上下文锚点"]
+    },
+    "workbuddy": {
+      "label": "WorkBuddy",
+      "adaptation_doc": "references/workbuddy-adaptation.md",
+      "shell": "bash",
+      "subagent": "task",
+      "send_message": "SendMessage",
+      "ask_user": "—",
+      "checkpoint": "checkpoint_manager.py",
+      "vision": "外部 OCR 转文本",
+      "notes": ["历史移植参考（压缩版；现行事实源=workbuddy-experts/_index.md + dsh-adaptation.md）"]
+    },
+    "unknown": {
+      "label": "未知客户端",
+      "adaptation_doc": "",
+      "shell": "需用户确认",
+      "subagent": "需用户确认",
+      "send_message": "需用户确认",
+      "ask_user": "需用户确认",
+      "checkpoint": "checkpoint_manager.py（跨运行时通用）",
+      "vision": "外部 OCR 转文本（通用兜底）",
+      "notes": ["detect-runtime.py 无锚点时：main 向用户确认客户端类型 → 选择对应适配文档；无对应文档则按通用提示词协议（磁盘案卷 + A3 契约）执行"]
+    }
+  }
+}

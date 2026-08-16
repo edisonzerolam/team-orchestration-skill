@@ -7,22 +7,22 @@
   },
   "agents": [
     "./agents/ec-lead.md",
-    "./agents/member-1.md",
-    "./agents/member-2.md",
-    "./agents/member-3.md",
-    "./agents/member-4.md",
-    "./agents/member-5.md"
+    "./agents/product-sourcing-specialist.md",
+    "./agents/supplier-analyst.md",
+    "./agents/shop-diagnostic-specialist.md",
+    "./agents/data-analyst.md",
+    "./agents/conversion-optimizer.md"
   ],
   "expertType": "team",
   "agentName": "ec-lead",
   "teamInfo": {
     "leadAgent": "ec-lead",
     "memberAgents": [
-      "member-1",
-      "member-2",
-      "member-3",
-      "member-4",
-      "member-5"
+      "product-sourcing-specialist",
+      "supplier-analyst",
+      "shop-diagnostic-specialist",
+      "data-analyst",
+      "conversion-optimizer"
     ]
   },
   "displayName": {
@@ -56,7 +56,7 @@
       "role": "lead"
     },
     {
-      "id": "member-1",
+      "id": "product-sourcing-specialist",
       "name": {
         "zh": "选品专员",
         "en": "选品专员"
@@ -68,7 +68,7 @@
       "role": "member"
     },
     {
-      "id": "member-2",
+      "id": "supplier-analyst",
       "name": {
         "zh": "供应商分析师",
         "en": "供应商分析师"
@@ -80,7 +80,7 @@
       "role": "member"
     },
     {
-      "id": "member-3",
+      "id": "shop-diagnostic-specialist",
       "name": {
         "zh": "店铺诊断师",
         "en": "店铺诊断师"
@@ -92,7 +92,7 @@
       "role": "member"
     },
     {
-      "id": "member-4",
+      "id": "data-analyst",
       "name": {
         "zh": "数据分析师",
         "en": "数据分析师"
@@ -104,7 +104,7 @@
       "role": "member"
     },
     {
-      "id": "member-5",
+      "id": "conversion-optimizer",
       "name": {
         "zh": "转化优化师",
         "en": "转化优化师"

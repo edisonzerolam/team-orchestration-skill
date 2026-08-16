@@ -59,11 +59,11 @@ verified: false
 | ID | 中文名 | 职责 |
 |----|--------|------|
 | pe-lead | 投委会主席 | 主理人：编排、汇总、投委会议事收敛 |
-| member-1 | 项目筛选师 | Deal Sourcing、行业赛道初筛、漏斗评分、立项建议 |
-| member-2 | 尽调分析师 | 业务/财务/法务/管理团队尽调清单与发现 |
-| member-3 | 交易结构师 | 交易结构与融资条款设计、Term Sheet 审查 |
-| member-4 | 回报建模师 | 财务/回报建模，IRR/MOIC/SOTP、三档情景 |
-| member-5 | 退出策略师 | 退出路径设计、可比交易、锁定期与流动性分析 |
+| deal-sourcing-screening-analyst | 项目筛选师 | Deal Sourcing、行业赛道初筛、漏斗评分、立项建议 |
+| due-diligence-analyst | 尽调分析师 | 业务/财务/法务/管理团队尽调清单与发现 |
+| deal-structuring-term-sheet-specialist | 交易结构师 | 交易结构与融资条款设计、Term Sheet 审查 |
+| return-financial-modeling-analyst | 回报建模师 | 财务/回报建模，IRR/MOIC/SOTP、三档情景 |
+| exit-strategy-analyst | 退出策略师 | 退出路径设计、可比交易、锁定期与流动性分析 |
 
 ## 铁律 / 严禁行为
 

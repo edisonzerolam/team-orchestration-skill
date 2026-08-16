@@ -169,7 +169,7 @@ step-0 触发自检（在读取本文件后立刻执行）：
 step 0  环境守护 env-check：核对解释器 / 工作区绝对路径 / 产物收集机制 / Git Bash heredoc 陷阱 / 无 git 时基线留存
        [ZCode 2026-08-09 实测基线，若换机以实测为准]：
          - 受管 Python        : python 3.12.8（系统 PATH 可直接 `python`）
-         - 工作区路径          : C:\Users\林昌\.zcode\workspace\default（产物用工作区绝对路径，勿写 Git Bash /tmp）
+         - 工作区路径          : ~\.zcode\workspace\default（产物用工作区绝对路径，勿写 Git Bash /tmp）
          - scripts/*.py 存在性 : 断言 scripts/task-decomposer.py / expert-matcher.py / dispatch-planner.py
                               / trial-court-orchestrator.py / asset-resolver.py / cross-validator.py
                               / check_team_consistency.py / check_agent_completeness.py 均存在（新增校验脚本纳入）
