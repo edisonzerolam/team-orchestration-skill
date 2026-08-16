@@ -41,6 +41,12 @@
 
     # 自学习：获取改进建议
     python trial-court-orchestrator.py improvements
+
+    # P0-3 调用环检测（复用 cycle_detector，阻断 A→B→A→B 死循环）
+    python trial-court-orchestrator.py check-cycle --edges ./edges.json
+
+    # P0-4 断点续传状态（跨会话新会话续审用，读案卷 + 检查点目录输出可恢复状态）
+    python trial-court-orchestrator.py resume-status --docket ./docket.json --checkpoint-root ./ckpt/
 """
 import json
 import os
@@ -97,6 +103,45 @@ def _require_confirmed(docket: dict, args) -> bool:
     return True
 
 
+# P0-4/P2-1: 二审终审制阶段顺序（与 archive 目录清单一致），用于断点续传的 next_phase 推导
+_PHASE_ORDER = ["00-立案", "01-举证", "02-质证", "03-一审", "04-回灌修订", "05-二审终审"]
+
+
+def _next_phase_after(resume_from: str):
+    """返回 resume_from 之后的下一个阶段名；若已全部完成返回 None。"""
+    if resume_from in _PHASE_ORDER:
+        idx = _PHASE_ORDER.index(resume_from)
+        if idx + 1 < len(_PHASE_ORDER):
+            return _PHASE_ORDER[idx + 1]
+    return None
+
+
+def _phase_budget_record(role_count: int) -> dict:
+    """P0-3/P1-1: 按角色数映射 effort 档位，记录分阶段 token 预算（复用 token_budget.py 预设）。
+
+    角色数到档位映射与 complexity 字段一致：L{min(role_count, 4)}。
+    token_budget.py 缺失或加载异常时降级为仅记录档位，不阻塞立案主流程。
+    """
+    effort = f"L{min(max(role_count, 1), 4)}"
+    try:
+        import importlib.util as _ilu
+        tb_path = Path(__file__).resolve().parent / "token_budget.py"
+        if not tb_path.exists():
+            return {"effort": effort, "limits": {}, "note": "token_budget.py 缺失，未记录预算"}
+        _tb_spec = _ilu.spec_from_file_location("token_budget_mod", str(tb_path))
+        _tb_mod = _ilu.module_from_spec(_tb_spec)
+        _tb_spec.loader.exec_module(_tb_mod)
+        presets = _tb_mod.effort_limits(effort)
+        return {
+            "effort": effort,
+            "sub_agents": presets["sub_agents"],
+            "token_cap": presets["token_cap"],
+            "limits": presets["limits"],
+        }
+    except Exception as _e:
+        return {"effort": effort, "limits": {}, "note": f"token_budget 集成异常: {_e}"}
+
+
 # ─── Phase A: 立案 ──────────────────────────────────────────
 
 CMD_DOCKET_DESC = """\
@@ -142,6 +187,11 @@ def cmd_docket(args):
             "current_round": 0,
             "done": False
         },
+        # P0-4/P2-1: 断点续传 metadata——上次完成阶段（立案完成即记录 00-立案；
+        # 后续阶段落盘后由主理人/文档侧更新为如 02-质证 / 04-回灌修订）。旧案卷无此字段时读取方需向后兼容。
+        "resume_from": "00-立案",
+        # P0-3/P1-1: 分阶段 token 预算（按 effort 档位预设，来自 token_budget.py）
+        "token_budget": _phase_budget_record(role_count),
         "confirmed": False
     }
 
@@ -627,9 +677,11 @@ def cmd_learning_status(args):
         return {"total": 0}
 
     counts = json.loads(learning_file.read_text(encoding="utf-8"))
+    docket_files = list(LEARNING_DIR.glob("docket-*.json"))
     print(f"📊 自学习状态")
     print(f"━━━━━━━━━━━━━━━━━━━")
     print(f"  审判总次数: {counts.get('total', 0)}")
+    print(f"  历史案卷数: {len(docket_files)}")
     print(f"  按议题类型分布:")
     for t, c in counts.get("by_type", {}).items():
         print(f"    {t}: {c} 次")
@@ -857,6 +909,98 @@ def cmd_auto_decide(args):
     return res.stdout
 
 
+# ─── P0-3 调用环检测（集成 cycle_detector.py） ─────────────────
+
+CMD_CHECK_CYCLE_DESC = """检测子代理调用图是否存在循环(集成 cycle_detector.py，阻断 A→B→A→B 死循环)。"""
+
+def cmd_check_cycle(args):
+    try:
+        import importlib.util as _ilu
+        cd_path = Path(__file__).resolve().parent / "cycle_detector.py"
+        if not cd_path.exists():
+            print("❌ 未找到 cycle_detector.py", file=sys.stderr)
+            sys.exit(1)
+        edges_path = Path(args.edges)
+        if not edges_path.exists():
+            print(f"❌ 调用图文件不存在: {edges_path}", file=sys.stderr)
+            sys.exit(1)
+        pairs = json.loads(edges_path.read_text(encoding="utf-8"))
+        _cd_spec = _ilu.spec_from_file_location("cycle_detector_mod", str(cd_path))
+        _cd_mod = _ilu.module_from_spec(_cd_spec)
+        _cd_spec.loader.exec_module(_cd_mod)
+        det = _cd_mod.CycleDetector()
+        det.load_edges(pairs)
+        cyc = det.detect()
+        result = {"cyclic": cyc is not None, "cycle": cyc}
+        if cyc:
+            print("CYCLE DETECTED:", " -> ".join(cyc))
+            print("ACTION: block further delegation along this loop")
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            raise SystemExit(1)
+        print("NO CYCLE")
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return result
+    except SystemExit:
+        raise
+    except Exception as _e:
+        print(f"❌ 调用环检测失败: {_e}", file=sys.stderr)
+        sys.exit(1)
+
+
+# ─── P0-4 断点续传状态（跨会话恢复协议） ──────────────────────
+
+CMD_RESUME_DESC = """读取案卷 + 检查点目录，输出跨会话可恢复状态(P0-4 断点续传)。
+新会话据此从 resume_from 之后继续，不重跑已完阶段。旧案卷无 resume_from 字段时向后兼容（按 00-立案 处理）。"""
+
+def cmd_resume_status(args):
+    if not args.docket:
+        print("❌ 需要 --docket 参数", file=sys.stderr)
+        sys.exit(1)
+    p = Path(args.docket)
+    if not p.exists():
+        print(f"❌ 案卷不存在: {p}", file=sys.stderr)
+        sys.exit(1)
+    try:
+        docket = json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"❌ 读取案卷失败: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # 向后兼容：旧案卷无 resume_from 字段时按立案完成处理，不报错
+    resume_from = docket.get("resume_from") or "00-立案"
+    result = {
+        "docket_id": docket.get("docket_id", "?"),
+        "issue": docket.get("issue", ""),
+        "status": docket.get("status", "unknown"),
+        "confirmed": docket.get("confirmed", False),
+        "resume_from": resume_from,
+        "next_phase": _next_phase_after(resume_from),
+        # P2-1 metadata 承载体：若文档侧已落 skipped_phases 则透出（只读，不在此创建）
+        "skipped_phases": docket.get("skipped_phases", []),
+        "checkpoint": None,
+    }
+
+    # 可选：读取检查点目录（checkpoint_manager.py --root），输出已完成步骤与下一步
+    ckpt_root = getattr(args, "checkpoint_root", "") or ""
+    if ckpt_root:
+        try:
+            import importlib.util as _ilu
+            ck_path = Path(__file__).resolve().parent / "checkpoint_manager.py"
+            if not ck_path.exists():
+                result["checkpoint"] = {"error": "checkpoint_manager.py 缺失"}
+            else:
+                _ck_spec = _ilu.spec_from_file_location("checkpoint_manager_mod", str(ck_path))
+                _ck_mod = _ilu.module_from_spec(_ck_spec)
+                _ck_spec.loader.exec_module(_ck_mod)
+                mgr = _ck_mod.CheckpointManager(ckpt_root)
+                result["checkpoint"] = mgr.resume_plan(_PHASE_ORDER)
+        except Exception as _e:
+            result["checkpoint"] = {"error": f"检查点读取失败: {_e}"}
+
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return result
+
+
 # ─── 主入口 ──────────────────────────────────────────────────
 
 def main():
@@ -929,6 +1073,16 @@ def main():
     p_ad.add_argument("--error-type", default="auto", help="错误类型(auto=自动推断)")
     p_ad.add_argument("--retry-count", type=int, default=0, help="已重试次数")
 
+    # P0-3 调用环检测
+    p_cc = sub.add_parser("check-cycle", description=CMD_CHECK_CYCLE_DESC)
+    p_cc.add_argument("--edges", required=True,
+                      help="调用图 JSON 文件: [[caller, callee], ...]")
+
+    # P0-4 断点续传状态
+    p_rs = sub.add_parser("resume-status", description=CMD_RESUME_DESC)
+    p_rs.add_argument("--docket", required=True, help="案卷信息 JSON 路径")
+    p_rs.add_argument("--checkpoint-root", default="", help="检查点目录(可选，对应 checkpoint_manager.py --root)")
+
     args = ap.parse_args()
 
     if args.command == "docket":
@@ -957,6 +1111,10 @@ def main():
         cmd_health(args)
     elif args.command == "auto-decide":
         cmd_auto_decide(args)
+    elif args.command == "check-cycle":
+        cmd_check_cycle(args)
+    elif args.command == "resume-status":
+        cmd_resume_status(args)
 
 if __name__ == "__main__":
     main()

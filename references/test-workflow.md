@@ -54,7 +54,7 @@
 | 编号 | 功能点 | 步骤（谁做） | 判定标准（通过判据） |
 |------|--------|--------------|----------------------|
 | A1 | **触发条件与规模门** | runner 构造低复杂度（应直行）与高复杂度（应五阶段）两用例；lead 核对分层判定 | 分层判定：**先判触发面**——SKILL.md §1"①>1 子代理 ②main+子代理协作 ③多角度执行"任一满足→走五阶段（二审终审制），都不满足→直行；**再判规模面**——§2 阈值 L1/L2→直行深度、L3+→五阶段深度。冲突仲裁：**若触发面命中的场景同时落在规模面 L1/L2（低复杂但仍多视角），以触发面优先走五阶段**（多视角仍须对抗，深度可按规模面收缩）。 |
-| A2 | **五阶段流程（二审终审制）** | runner 走 立案→并行举证→质证→一审(裁决+回灌修订)→二审终审；lead 核对顺序 | 严格 A→B→C→D(一审)→E(二审终审)；无跳阶段（§7 铁律）；一审回灌修订固定 1 轮（含判决书+他方产物）、二审终审不回灌 |
+| A2 | **五阶段流程（二审终审制）** | runner 走 立案→并行举证→质证→一审(裁决+回灌修订)→二审终审；lead 核对顺序 | 严格 A→B→C→D(一审)→E(二审终审)；无跳阶段（§7 铁律）；一审回灌修订固定 1 轮（含判决书+他方产物）、二审终审不回灌。**回退重审判据（v3.5 · P0-1）**：若某子争点触发裁决偏差回退重审，不破坏阶段顺序——回退仅重做 main 侧独立裁决（**不重新回灌子代理**，不追加质证轮次），完成后仍按 D(一审)→E(二审终审) 顺序推进；同一子争点回退 ≤1 次，重审次数写入案卷 `cross_exam` 字段 |
 | A3 | **直行与自动切换** | runner 先直行，中途复杂度升 L3 | 升级触发自动切换，不卡在单 agent |
 | A4 | **降级路径** | runner 尝试组团队但无法确认 2+ 差异化视角 | 按 §2 降为单 agent+自我批判，不硬凑团队（无假团队） |
 | A5 | **角色分配** | runner 按争点数选 2/3/4-6 角色 | 角色数匹配 §6 表格；专业视角差异化（非重复角色） |
@@ -68,7 +68,7 @@
 | 编号 | 关键路径 / 边界 | 步骤 | 判定标准 |
 |------|----------------|------|---------|
 | B1 | **L1 直行 与 L3 五阶段 切换边界** | runner 从子任务≤3 增至 ≥4、或维度由单转多 | 恰在 L1→L3 阈值切换，不早不晚；切换后走对应流程 |
-| B2 | **规模门阈值（L1/L2/L3）** | runner 构造复杂度 1/2/3 三档 | **规模门只有 L1 / L2 / L3+，无 L4 档**。按门：L1 直行、L2 可直行、L3+ 五阶段。测试某档时的"验证深度"单独按 `references/cross-validation.md` 的四档（skip/light/standard/deep，映射复杂度 1-4）选取，**勿把 deep 深度档当规模门档位** |
+| B2 | **规模门阈值（L1/L2/L3）** | runner 构造复杂度 1/2/3 三档 | **规模门只有 L1 / L2 / L3+，无 L4 档**。按门：L1 直行、L2 可直行、L3+ 五阶段。测试某档时的"验证深度"单独按 `references/cross-validation.md` 的四档（skip/light/standard/deep，映射复杂度 1-4）选取，**勿把 deep 深度档当规模门档位**。注（v3.9 · TC-20260816-6）：`task-decomposer` 的 `L4-深度` 为 cross-validation 深度档标签（非规模门档位），与本判据不冲突 |
 | B3 | **降级路径（无法定视角）** | runner 给"无法确认 2+ 差异化视角"输入 | 单 agent+自我批判；不 stub 假角色；降级被显式记录 |
 | B4 | **升级路径（L2 跨 ≥3 领域）** | runner 构造 L2 但覆盖 3 领域 | 升为 L3，不留在 L2 直行 |
 | B5 | **A3 JSON 完整性** | runner 让每子代理输出，校验器逐字段断言 | 每 A3 含 role/artifacts{conclusions,evidence,risks,actions}/confidence/uncertainties；非空、类型对、无缺键 |
@@ -83,9 +83,9 @@
 | C2 | **后台送达契约（ZCode）** | spawn 后台 worker（`background: true` / `run_in_background`），结束时回传 A3 | 判完成**以 task 返回值 / 完成通知为准**（ZCode 无 inbox 文件机制），不看实时消息流；prompt 末尾注明"返回结构化 A3 JSON 结果" |
 | C3 | **TaskOutput 看门狗** | 设 5 分钟超时（建议），超时主动 TaskOutput 拉取 | 不无限等消息流；超时兜底能取到产物；无假停滞 |
 | C4 | **run_smoke.py** | runner 在 env-guard 核对后执行 | `python tests/run_smoke.py` 退出 0，全 PASS，无 LOAD-FAIL |
-| C5 | **引用完整性 + 文件健康** | runner 执行 test_references / test_file_health | check_references 无死链（退出 0）；test_file_health 全包 UTF-8 健康 |
+| C5 | **引用完整性 + 文件健康 + 乱码检出** | runner 执行 test_references / test_file_health；对 references/ 做 mojibake 标记扫描 | check_references 无死链（退出 0）；test_file_health 全包 UTF-8 健康。**乱码检出用例（v3.5 · P0-2 先修门禁）**：显式扫描 references/ 下 mojibake 标记——① 出现 `鈫?` / `鈥?` / `鈹?` / `鈿?` 等 UTF-8→GB18030 错位字符（密度异常）即 FAIL；② 半角 `?` 替字密度异常（连续段落丢失字尾，参照 task-lifecycle/communication 曾乱码的 `?` 全表）即 FAIL；③ 该断言存在即可检出——确保以后乱码文件会被回归检出（F5 教训延伸） |
 | C6 | **MCP / 连接器 / 技能资产注入** | 立案阶段选取可用资产并注入子代理 prompt | 资产真实注入（出现在 A3 的 tools/actions）；可调用；失败有兜底说明 |
-| C7 | **视觉路由（ZCode 实测修正）** | 含图像子代理场景 | **三路不可用**（2026-08-09 实测：main 直读报 Media omitted；mini-vision 类型不存在；general-purpose 子代理同样 text-only；模型池全表 text-only）→ 视觉任务走外部 OCR 转文本喂子代理；不硬调不存在的模型/类型 |
+| C7 | **视觉路由（ZCode 统一口径）** | 含图像子代理场景 | **三路运行时不可用 + 外部 OCR 通道兜底**（v3.5 统一口径，与 SKILL.md §4.1、zcode-adaptation.md §4 一致）：① main 直读失败（Media omitted，text-only）；② mini-vision 子代理类型运行时不可调用；③ 子代理继承 main 的 text-only 模型 → 视觉任务走外部 OCR 转文本喂子代理；不硬调不存在的模型/类型 |
 
 ---
 
@@ -149,7 +149,7 @@ step-0 触发自检（在读取本文件后立刻执行）：
 
 - `git -C ~/.agents/skills/team-orchestration status` 与 `git diff` 核对改动面（ZCode 安装目录通常非 git 仓库，桌面源目录 team-orchestration 为 git 仓库，可作基线）。
 - 改动命中 SKILL.md / 自有逻辑 .md（trial-court*、cross-validation、phase-gates、team-setup 等）/ scripts/*.py / config.yaml / models.json → **强制回归**。
-- **无 git 时的基线留存**：本技能目录实测为独立 git 仓库（git rev-parse=true，回滚可用 git）。但若将来移出 git，改动前先备份受影响 reference 文件到指定备份目录，或记录各文件 mtime 前后快照，确保可回滚基线不丢失。
+- **无 git 时的基线留存**：**技能目录当前非 git 管理**（v3.5 实测 `git rev-parse` 非仓库）——改动前**必须**按 §5.1 step-0 先备份受影响 reference 文件到指定备份目录 + 记录各文件 mtime 前后快照，确保可回滚基线不丢失（桌面源目录若为 git 仓库可作补充基线）。
 - 无法判断是否触碰逻辑 → **保守触发**（宁跑勿漏，按强制回归处理）。
 
 ### 4.3 非触发情形（可跳过，但建议最小冒烟）
@@ -173,6 +173,8 @@ step 0  环境守护 env-check：核对解释器 / 工作区绝对路径 / 产�
          - scripts/*.py 存在性 : 断言 scripts/task-decomposer.py / expert-matcher.py / dispatch-planner.py
                               / trial-court-orchestrator.py / asset-resolver.py / cross-validator.py
                               / check_team_consistency.py / check_agent_completeness.py 均存在（新增校验脚本纳入）
+                              / token_budget.py / checkpoint_manager.py / self_heal.py / auto-decider.py
+                              / cycle_detector.py 均存在（v3.5 · P0-3 激活资产纳入）
          - tests/run_smoke.py 可运行: 直接执行 `python tests/run_smoke.py` 返回 exit 0
          - 子代理机制：task(subagent_type=...)（ZCode 无 inbox/TeamCreate，判据见 C2/R4）
        无 git 基线：若技能非 git 管理，改动前先备份受影响 reference 文件到 `<工作区>/deliverables/to-test-module/backup/`
@@ -191,7 +193,12 @@ step 7  lead 出 regression-report.md（固定路径 §5.5），附验收清单�
 
 - **A 类**：步骤序列正确、产物章节/字段齐全、无铁律违反 → PASS；任一铁律违反（代写/跳阶段/直连）即 FAIL。A1 额外校验：触发面与规模面分层判定正确、冲突仲裁按触发面优先。
 - **B 类**：阈值处行为与 §1/§2 明文一致；降级/升级被显式记录 → PASS；阈值错或硬凑团队即 FAIL。B2 额外校验：不把 cross-validation 的 deep 深度档误当规模门 L4 档。
-- **C 类**：task 返回值齐全（以返回值为准）、看门狗不假停滞、run_smoke 退出 0、引用无死链、视觉路由正确（委托 mini-vision）→ PASS；依赖消息流/自动通知即 FAIL。
+
+### R8 动态派数机制（v3.9 · TC-20260816-6）
+- **测什么**：`task-decomposer --concurrency N` 的 `suggested_subagents` 取值符合终审公式（L1→0 / L2→1 直行信号 / L3+ clamp(base+bonus, 2, min(并发, 档位))）；L4-深度为深度档标签不破规模门。
+- **怎么触发**：跑取值表断言（test_task_decomposer 已含 L×D 表 + --concurrency 上界 + rationale 字段）；构造 L1/L2 直行与 L3+ 并行两组用例核对 SKILL.md §3A 步骤 3 的推荐值读取；构造质证追加场景核对 §3-C 追加触发 + C(N,q) BLOCK 复检。
+- **期望通过表现**：L1 建议 0（直行）、L2 建议 1（直行信号）、L3×D3=6（封顶）；--concurrency 4 截断到 4；rationale 含截断原因；追加派数后 C(N,q) 不超 BLOCK。
+- **C 类**：task 返回值齐全（以返回值为准）、看门狗不假停滞、run_smoke 退出 0、引用无死链、视觉路由正确（**三路运行时不可用 → 外部 OCR 转文本喂子代理**，v3.5 统一口径）→ PASS；依赖消息流/自动通知即 FAIL。
 - **F 系回归（R1-R5）**：见 §6 各自期望通过表现单独判定。
 
 ### 5.3 通过 / 失败处理逻辑
@@ -204,7 +211,7 @@ step 7  lead 出 regression-report.md（固定路径 §5.5），附验收清单�
 3. 治本而非绕过门禁；禁止 --no-verify 式跳过。
 
 **回滚协议**：
-- 技能是 git 仓库（桌面源目录）。回归破坏且无法时限内修复 → `git -C <源目录> checkout -- <受损文件>` 或 revert 到改动前 commit；无 git 时用 step0 备份目录 / mtime 快照恢复。
+- **技能目录当前非 git 管理**（v3.5 实测，§4.2）。回归破坏且无法时限内修复 → 用 step0 备份目录恢复（`<工作区>/deliverables/to-test-module/backup/`）或 mtime 快照回滚；桌面源目录若为 git 仓库可补充用 `git -C <源目录> checkout -- <受损文件>` / revert 到改动前 commit。
 - 回滚前确认无未保存交付；回滚后重跑 step1 基线 + 相关 F 系用例确认恢复绿。
 - 破坏性/共享操作（force push、reset）须 lead 确认，不擅自执行。
 
@@ -273,7 +280,7 @@ R1-R5 直接把《dialogue-facts.md》的 F1-F5 转为可执行回归用例；R6
 ### R5〔F5〕日志含可复现元数据——路径+命令+SHA-256
 - **测什么**：产物落盘含元数据（代码路径 + 运行命令 + SHA-256 + exit），可复现。
 - **怎么触发**：检查任意任务交付（对照两次演练 src/ + manifests/hashes.txt + team_process.log）。
-- **期望通过表现**：每产物含源码绝对路径（工作区绝对路径）、运行命令（受管解释器 3.13 路径）、SHA-256、exit=0、关键结论；缺任一 → FAIL。另：脚本用 Python open(..., encoding='utf-8') 直写中文避免 Write 工具 3 字节 UTF-8 打散；heredoc 写工作区绝对路径，不写 Git Bash /tmp。
+- **期望通过表现**：每产物含源码绝对路径（工作区绝对路径）、运行命令（受管解释器 3.13 路径）、SHA-256、exit=0、关键结论；缺任一 → FAIL。另：脚本用 Python `open(..., encoding='utf-8')` 直写中文避免 Write 工具 3 字节 UTF-8 打散；heredoc 写工作区绝对路径，不写 Git Bash /tmp。**编码强制（v3.8 · TC-20260816-4）**：所有写入必须显式 UTF-8（无 BOM）——Python 裸 `write_text`/`open()` 在本机（locale=cp936）默认写 GBK；PowerShell 裸 `Set-Content`（默认 GBK）/`Out-File`（默认 UTF-16LE）同理；必须显式 `encoding="utf-8"` / `-Encoding UTF8`（PS5.1 的 UTF8 带 BOM，如需无 BOM 用 `[System.IO.File]::WriteAllText(..., [System.Text.UTF8Encoding]::new($false))`）。产出物以 `tests/test_file_health.py`（全包 UTF-8 strict 扫描）为回归防线。
 
 ### R6〔正向 1：TeamCreate 切换任务列表 + 并行后台 worker 可并发解题〕
 - **测什么**：TeamCreate 后任务列表切到团队目录、原列表被隔离；并行 spawn 后台 worker（Agent + run_in_background）可同时解多任务。

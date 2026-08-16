@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-16",
+  "freshness_days": 14,
+  "models": {
+    "default_model": {
+      "official_concurrency": 2500
+    }
+  },
+  "max_spawned_history": [
+    3,
+    3,
+    3
+  ],
+  "max_spawned": 3,
+  "last_probe": {
+    "date": "2026-08-16",
+    "result": "6 并行稳定（TC-20260816-4 修复组实测，批处理口径）",
+    "note": "编排层批处理并行能力；对抗任务记录口径见 record_note"
+  },
+  "record_note": "口径: 五阶段对抗任务 B 举证实际派出数（案卷 tasks.json assignee 反推）；批处理并行(如修复组6)不计入"
+}

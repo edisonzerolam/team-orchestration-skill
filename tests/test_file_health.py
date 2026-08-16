@@ -3,6 +3,7 @@
 纳入 pytest/run_smoke 收集（文件名 test_* 自动发现）。"""
 import glob
 import pathlib
+import re
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parent.parent
 NL = chr(10)
@@ -28,6 +29,13 @@ def _is_runtime(f: str) -> bool:
 # 常见汉字集合：用于 mojibake 检测（正常中文必含高频字，乱码文本几乎不含）
 _COMMON_HAN = "的是一不了有就人在和中与我为对之等我们你他这那"
 
+# C5.2 ? 替字检测（v3.8 · TC-20260816-4）：GBK→UTF-8 误转丢字节的半角 ? 替字
+# 判据：中文相邻的半角 ?（汉字紧邻 ? 或 ? 紧邻汉字）= 字尾/标点丢失痕迹。
+# 阈值 10（实测校准：46 个损坏文件中文相邻? 28-267；test-workflow/communication 等
+# 含检测示例/重建说明的文件最多 4 处，gstack 英文问号前后为英文不匹配——无误报）。
+_ZH_Q_RE = re.compile(r"[\u4e00-\u9fff]\?|\?[\u4e00-\u9fff]")
+_ZH_Q_THRESHOLD = 10
+
 
 def _is_mojibake(text: str) -> bool:
     """检测 GB18030/UTF-8 双编码错位乱码（UTF-8 字节被按 GB18030/GBK 解码）：
@@ -44,6 +52,11 @@ def _is_mojibake(text: str) -> bool:
     orig_hits = sum(1 for ch in _COMMON_HAN if ch in text)
     rest_hits = sum(1 for ch in _COMMON_HAN if ch in restored)
     return (rest_hits - orig_hits) >= 3
+
+
+def _zh_adjacent_q_count(text: str) -> int:
+    """C5.2：中文相邻半角 ? 计数（? 替字密度，F5 教训 C5 判据②实装）。"""
+    return len(_ZH_Q_RE.findall(text))
 
 
 def _scan() -> list:
@@ -66,6 +79,9 @@ def _scan() -> list:
             bad.append(f + " | SINGLE_LINE_LONG")
         if _is_mojibake(text):
             bad.append(f + " | MOJIBAKE")
+        zh_q = _zh_adjacent_q_count(text)
+        if zh_q >= _ZH_Q_THRESHOLD:
+            bad.append(f + f" | MOJIBAKE_PLACEHOLDER(中文相邻?x{zh_q})")
     return bad
 
 

@@ -1,5 +1,7 @@
 # ZCode 适配指南（v3.4.0-zcode）
 
+> **DSH 环境参考**：`references/dsh-adaptation.md`（DSH 为现行运行环境，本文件保留作 ZCode 历史参考）。
+
 > 本文件说明 `team-orchestration` skill v3.4.0 在 **ZCode**（OpenCode 系）环境下的适配要点。
 > 适配依据：2026-08-09 四子代理并行调研（A3 举证）+ 1 轮质证（终审意见书 TC-20260809-001，归档于工作区 `deliverables/trial/2026-08-09/TC-20260809-01/final-verdict.md`）；v3.4.0 起走**二审终审制**（一审裁决 → 回灌修订 1 轮 → 二审终审不回灌）。
 > 前版适配见 `references/opencode-adaptation.md`（v3.2.0-opencode，历史参考）。
@@ -38,6 +40,14 @@ python scripts/asset-resolver.py --snapshot
 python scripts/cross-validator.py ...
 python scripts/check_team_consistency.py   # v3.3.0 新增校验脚本
 python scripts/check_agent_completeness.py # v3.3.0 新增校验脚本
+# v3.5 激活资产（P0-3 索引补齐，均实测可运行）
+python scripts/token_budget.py --limits '{"举证":12000,...}'   # 阶段 token 预算（WARN 80%/BLOCK 100%）
+python scripts/checkpoint_manager.py --root <检查点目录> --action save|load|next|plan   # 步骤检查点/断点续传
+python scripts/self_heal.py              # 错误分类与恢复（orchestrator self-heal）
+python scripts/auto-decider.py           # 错误自动决策 retry/skip/abort（orchestrator auto-decide）
+python scripts/cycle_detector.py --edges edges.json   # spawn 调用环检测
+python scripts/health-monitor.py         # 运行态健康监控
+python scripts/self_learning.py          # 自学习统计
 ```
 
 > 脚本路径相对 skill 根目录。Windows 下 stdout/stderr 已做 GBK→UTF-8 兼容（reconfigure）。
@@ -60,6 +70,8 @@ A 立案(main 内存) ──► B 举证(同一消息多次 task 调用并行) �
 
 ## 4. 视觉识别路由（ZCode·实测修正 2026-08-09 三路验证 + TC-20260809-002 路径修复）
 
+> **统一结论（v3.5 · P1-5 口径统一，与 SKILL.md §4.1、test-workflow.md §2.C C7 同口径）**：**ZCode 运行时视觉路由三路不可用** —— ① main 直读失败；② mini-vision 子代理类型运行时不可调用；③ 子代理继承 main 的 text-only 模型。**视觉任务当前唯一可行路径 = 外部 OCR/视觉通道转文本**后喂子代理处理。
+>
 > **实测修正（2026-08-09 运行时验证）**：视觉路由在旧目录布局下**不可用**（三路全灭）：
 > 1. **main 直读**：✗ 失败 — `[Media omitted from provider request because the selected model does not support image input.]`（deepseek-v4-flash text-only）
 > 2. **`task(subagent_type="mini-vision")`**：✗ 不存在 — `Agent type 'mini-vision' not found. Available agents: general-purpose, Explore`。当时根因推断为"ZCode harness 只暴露两种内置 subagent 类型"
@@ -67,11 +79,12 @@ A 立案(main 内存) ──► B 举证(同一消息多次 task 调用并行) �
 >
 > **根因修正（TC-20260809-002，反编译 app.asar 实证）**：失败原因是 **agent 定义目录错位**——ZCode 用户级 agents 解析 `~/.zcode/agents/`（resolveUserSubagentRoot），而 51 个文件误放 `~/.config/opencode/agents/`。已迁移至 `~/.zcode/agents/` 并补 name 字段后，mini-vision 已正确注册。另：`~/.zcode/v2/config.json` 运行时模型池**含视觉模型**（OPENCODE-CHAT/kimi-k3、OPENCODE-CHAT/mimo-v2.5、OPENCODE/minimax-m3 等 modalities.input 含 image），"模型池无任何视觉模型"的旧结论不成立。
 > **生效条件**：工具 schema 为会话级快照，mini-vision 需新会话后调用；其 frontmatter model `OPENCODE-CHAT/mimo-v2.5` 在 provider 注册表（db3cb211-...）存在。
+> **统一口径说明**：尽管注册表与 agent 定义侧具备视觉模型/agent，**运行时三路仍不可用**（v3.5 实测：mini-vision 类型调用仍 not found；main 仍 text-only），故结论统一为"三路不可用 + 外部 OCR 通道兜底"，不得留互相矛盾结论。
 
-- **可行路径（按优先级，TC-20260809-002 修正）**：
-  1. **注册用户级 agents（已落地）**：把 mini-vision 等 agent 定义放入 `~/.zcode/agents/*.md`（补 name 字段），新会话后 `task(subagent_type="mini-vision")` 可用；Settings → Subagents 可查看管理（zcode-guide: zcode-configuration-guide L14 已确认该入口）。
-  2. **main 切视觉模型**：运行时模型池含视觉模型（kimi-k3 / mimo-v2.5 / minimax-m3），切换后 main 可直读图片。
-  3. **外部 OCR/视觉通道**：图片经外部 OCR 转文本再喂子代理（不依赖模型视觉的兜底）。
+- **可行路径（v3.5 统一口径：三路不可用，外部 OCR 为当前唯一可行路径）**：
+  1. **外部 OCR/视觉通道转文本**（**当前唯一可行路径**）：图片经外部 OCR 转结构化文本再喂子代理处理，不依赖模型视觉。
+  2. **注册用户级 agents（待平台验证）**：mini-vision 已迁入 `~/.zcode/agents/*.md`（TC-20260809-002 已补 name 字段），但 v3.5 实测运行时调用仍报 not found——**作为待验证路径记录**，Settings → Subagents 可查看管理（zcode-guide: zcode-configuration-guide L14 已确认该入口）。
+  3. **main 切视觉模型（待平台验证）**：运行时模型池含视觉模型（kimi-k3 / mimo-v2.5 / minimax-m3），但切换路径未实证——**待新会话验证**后再改口径。
 - **若视觉信息与文字冲突**：以直接观察/主证据为准，裁决注明依据。
 - **视觉任务兜底约定**：子代理 prompt 不传图片路径，只传「图片的文本化内容」；无法文本化时向用户说明并请求外部 OCR 结果。
 
@@ -101,7 +114,7 @@ python tests/check_references.py
 ## 7. 测试与回归门禁
 
 - 修改本 skill 逻辑/契约/脚本前**必先读** `references/test-workflow.md`（回归门禁）。
-- ZCode 化判据（test-workflow.md 已更新）：C2（后台送达）以 task 返回值为准、C7（视觉路由）以「main 不读图、委托 mini-vision」为准、R4（看门狗）以 TaskOutput 超时拉取为准。
+- ZCode 化判据（test-workflow.md 已更新）：C2（后台送达）以 task 返回值为准、C7（视觉路由）以「**三路运行时不可用 + 外部 OCR 通道兜底**」为准、R4（看门狗）以 TaskOutput 超时拉取为准。
 - 测试目录 `tests/` 覆盖脚本冒烟（`run_smoke.py` 无 pytest 依赖）。
 
 ## 8. 已知差异（勿误判为 bug）
@@ -111,3 +124,14 @@ python tests/check_references.py
 - 用户级子智能体定义于 `~/.zcode/agents/*.md`（TC-20260809-002 修正）；frontmatter 白名单不含 mode/temperature/permission（被忽略），新增 agent 用 name/description + tools/disallowedTools/permissionMode 控制行为与权限。
 - `~/.workbuddy/models.json` 仍存在（WorkBuddy 侧），ZCode 不消费；视觉模型核对看 `~/.config/opencode/agents/mini-vision.md` 的 frontmatter。
 - 归档根三方路径曾不一致（TRIAL_BASE=用户根 vs skill 内 vs 工作区）——已统一为「工作区 deliverables/trial/」（TRIAL_BASE 环境变量化，v3.3.0-zcode 修正）。
+- **输出注入扫描（v3.5 · P2-3）**：对子代理产物做"提示注入内容"启发式标记（如"忽略以上指令"类文本）。ZCode **无独立检测能力** → 记为已知限制，保留人工检查路径（见 SKILL.md §10 When NOT to Use）。
+
+## 9. 跨会话断点恢复（v3.5 · P0-4）
+
+> 对标 opc-orchestrator 的 state 文件机制（`references/workbuddy-experts/opc-team/`）。跨会话接手进行中案卷时的恢复协议。
+
+- **检查点写入**：02-质证/ 与 04-回灌修订/ 落盘后各设一次检查点（`scripts/checkpoint_manager.py save --step C_cross_exam|D_revision --state {docket_id, 轮数, 分歧数}`）。
+- **恢复步骤**：
+  1. 新会话读 `00-立案/案卷信息.json`（含 `resume_from` / `skipped_phases` 字段，P2-1 metadata）→
+  2. 读检查点目录（`checkpoint_manager.py load`）确认最后完成阶段 → 3. 向用户展示进度摘要（已完成阶段/当前阶段/剩余子争点）→ 4. 从断点继续，**不重跑已完阶段、不重复提问**已澄清过的 5W2H。
+- **约定**：跨会话只做**串行断点续传**，不做并行合议（ZCode 无 sessions_spawn 并行会话编排能力，见 SKILL.md §4.2 实测口径）；后台任务可用 `task_id` 续接同一子会话（SKILL.md §4.2 基础）。

@@ -62,7 +62,8 @@ def main():
     ap.add_argument("--edges", required=True,
                     help="JSON file: list of [caller, callee] pairs")
     args = ap.parse_args()
-    pairs = json.loads(Path(args.edges).read_text(encoding="utf-8"))
+    # utf-8-sig：容忍 Windows 记事本/编辑器写入的 UTF-8 BOM（v3.8 功能自检发现，TC-20260816-4）
+    pairs = json.loads(Path(args.edges).read_text(encoding="utf-8-sig"))
     det = CycleDetector()
     det.load_edges(pairs)
     cyc = det.detect()

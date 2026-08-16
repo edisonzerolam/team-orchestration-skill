@@ -15,6 +15,34 @@ except Exception:
 EXPERT_DIR = Path(__file__).resolve().parent.parent / "references" / "workbuddy-experts"
 SKILL_DIR = Path(__file__).resolve().parent.parent
 
+# 聚合域路由（v3.9 · TC-20260816-5）：39 团队归入 8 大聚合域，--domain 限域召回
+# 与 SKILL.md §8.1 / references/skills-pack.md 同步维护
+AGGREGATE_DOMAINS = {
+    "投资分析": ["investment-masters-team", "trading-agent", "stock-partner-team",
+                "a-share-analysis", "equity-research"],
+    "资本服务": ["pe-vc-investment", "investment-banking", "wealth-management"],
+    "法律服务": ["chatlaw-team", "cn-litigation", "enterprise-legal-team", "tax-compliance-team"],
+    "内容全链路": ["ai-content-creator-team", "content-distribution-team",
+                  "content-monetization-team", "promo-creator-team"],
+    "营销增长": ["marketing-campaign-team", "sales-battle-team", "seo-content-team",
+                "social-engagement-team"],
+    "工程保障": ["engineering-assurance-team", "gstack", "devtools-engineering",
+                "rum-fullstack-team", "alicloud-engineering", "software-company"],
+    "数据智能": ["ai-data-copilot", "huashu-data-pro"],
+    "产品设计": ["product-strategy-team", "design-engine", "product-design-suite"],
+}
+
+def filter_by_domain(experts: dict, domain: str) -> dict:
+    """按聚合域名过滤专家池（域内团队），未知域名返回原池（不误伤）。
+    v3.9 双匹配：聚合域映射 team 名优先；兼容 plugin.json name 与目录名不一致的情况。"""
+    teams = AGGREGATE_DOMAINS.get(domain)
+    if not teams:
+        return experts
+    # 双匹配：目录名（key）或 plugin.json name 字段命中任一即算域内
+    team_set = set(teams)
+    return {name: info for name, info in experts.items()
+            if name in team_set or info.get("name") in team_set}
+
 def _coerce(v):
     if v.lower() in ("true", "false"):
         return v.lower() == "true"
@@ -150,7 +178,7 @@ def load_all_experts():
         }
     return experts
 
-def match(experts: dict, domains: list, top_k: int = None, weights: dict = None, task_text: str = "") -> list:
+def match(experts: dict, domains: list, top_k: int = None, weights: dict = None, task_text: str = "", min_score: float = None) -> list:
     """P0.2: 4-dimensional weighted expert matching.
 
     Dimensions (weights from config.yaml):
@@ -159,11 +187,12 @@ def match(experts: dict, domains: list, top_k: int = None, weights: dict = None,
       - capability:  domain tokens found in expert capabilities field
       - history:     historical performance score from learning data (0..1)
     Each dim is normalized to [0,1]; total is the weighted sum, capped at 1.0.
+    min_score 可覆盖（聚合域限域模式下传 0，域内全召回按分排序——TC-20260816-5）。
     """
     cfg = MATCHER_CFG
     w = weights or cfg["weights"]
     top_k = cfg["top_k"] if top_k is None else max(int(top_k), 0)
-    min_score = cfg["min_score"]
+    min_score = cfg["min_score"] if min_score is None else min_score
     history = _load_history_scores(cfg["history_file"])
     # task_text: 优先使用显式传入的，否则从 domains 拼接
     if not task_text:
@@ -214,13 +243,19 @@ def match(experts: dict, domains: list, top_k: int = None, weights: dict = None,
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--domains", nargs="+", default=[])
+    ap.add_argument("--domain", default="",
+                    help="聚合域限域召回（v3.9 · TC-20260816-5）：投资分析|资本服务|法律服务|内容全链路|营销增长|工程保障|数据智能|产品设计")
     ap.add_argument("--task", default="")
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--top-k", type=int, default=3)
     args = ap.parse_args()
     experts = load_all_experts()
+    if args.domain:
+        experts = filter_by_domain(experts, args.domain)
     if args.domains:
-        matches = match(experts, args.domains, args.top_k, task_text=args.task)
+        # 聚合域限域：域内全召回按分排序（min_score=0），避免硬阈值清空域内结果
+        matches = match(experts, args.domains, args.top_k, task_text=args.task,
+                        min_score=0 if args.domain else None)
     else:
         # WorkBuddy 适配：task-decomposer.py 含连字符，无法用 `import` 直接导入，改用 importlib 按路径加载
         import importlib.util as _ilu
@@ -229,7 +264,9 @@ def main():
         _td_mod = _ilu.module_from_spec(_td_spec)
         _td_spec.loader.exec_module(_td_mod)
         result = _td_mod.decompose(args.task)
-        matches = match(experts, result["domains"], args.top_k, task_text=args.task)
+        # 聚合域限域时同样放宽阈值（min_score=0），域内全召回按分排序
+        matches = match(experts, result["domains"], args.top_k, task_text=args.task,
+                        min_score=0 if args.domain else None)
     if args.json:
         print(json.dumps([{"score": round(s, 2), **m} for s, m in matches], ensure_ascii=False, indent=2))
     else:

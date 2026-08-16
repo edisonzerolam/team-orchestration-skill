@@ -5,15 +5,24 @@
   "author": {
     "name": "Expert Marketplace"
   },
-  "agents": "./agents/",
-
+  "agents": [
+    "./agents/comp-analyst.md",
+    "./agents/hr-director.md",
+    "./agents/hr-ops.md",
+    "./agents/org-developer.md",
+    "./agents/recruiter.md"
+  ],
   "expertType": "team",
   "agentName": "hr-director",
   "teamInfo": {
     "leadAgent": "hr-director",
-    "memberAgents": ["recruiter", "comp-analyst", "org-developer", "hr-ops"]
+    "memberAgents": [
+      "recruiter",
+      "comp-analyst",
+      "org-developer",
+      "hr-ops"
+    ]
   },
-
   "displayName": {
     "en": "HR Operations Team",
     "zh": "HR 运营团队"
@@ -35,36 +44,66 @@
   "members": [
     {
       "id": "hr-director",
-      "name": {"en": "Ren", "zh": "任贤达"},
-      "profession": {"en": "HR Director", "zh": "人事总监"},
+      "name": {
+        "en": "Ren",
+        "zh": "任贤达"
+      },
+      "profession": {
+        "en": "HR Director",
+        "zh": "人事总监"
+      },
       "avatar": "avatars/team-lead.png",
       "role": "lead"
     },
     {
       "id": "recruiter",
-      "name": {"en": "Hunter", "zh": "猎达"},
-      "profession": {"en": "Recruiter", "zh": "招聘专家"},
+      "name": {
+        "en": "Hunter",
+        "zh": "猎达"
+      },
+      "profession": {
+        "en": "Recruiter",
+        "zh": "招聘专家"
+      },
       "avatar": "avatars/recruiter.png",
       "role": "member"
     },
     {
       "id": "comp-analyst",
-      "name": {"en": "Payla", "zh": "薪析"},
-      "profession": {"en": "Compensation Analyst", "zh": "薪酬分析师"},
+      "name": {
+        "en": "Payla",
+        "zh": "薪析"
+      },
+      "profession": {
+        "en": "Compensation Analyst",
+        "zh": "薪酬分析师"
+      },
       "avatar": "avatars/comp-analyst.png",
       "role": "member"
     },
     {
       "id": "org-developer",
-      "name": {"en": "Orga", "zh": "组织"},
-      "profession": {"en": "Org Development Consultant", "zh": "组织发展顾问"},
+      "name": {
+        "en": "Orga",
+        "zh": "组织"
+      },
+      "profession": {
+        "en": "Org Development Consultant",
+        "zh": "组织发展顾问"
+      },
       "avatar": "avatars/org-developer.png",
       "role": "member"
     },
     {
       "id": "hr-ops",
-      "name": {"en": "Onboard", "zh": "入职"},
-      "profession": {"en": "HR Ops Specialist", "zh": "HR 运营专员"},
+      "name": {
+        "en": "Onboard",
+        "zh": "入职"
+      },
+      "profession": {
+        "en": "HR Ops Specialist",
+        "zh": "HR 运营专员"
+      },
       "avatar": "avatars/hr-ops.png",
       "role": "member"
     }

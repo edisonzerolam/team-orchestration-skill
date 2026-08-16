@@ -5,7 +5,14 @@
   "author": {
     "name": "Expert Marketplace"
   },
-  "agents": "./agents/",
+  "agents": [
+    "./agents/competitive-analyst.md",
+    "./agents/data-analyst.md",
+    "./agents/product-director.md",
+    "./agents/requirement-analyst.md",
+    "./agents/roadmap-planner.md",
+    "./agents/user-researcher.md"
+  ],
   "expertType": "team",
   "agentName": "product-director",
   "teamInfo": {

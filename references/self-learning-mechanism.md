@@ -55,10 +55,13 @@ trial_archive/{yyyy-mm}/{docket_id}/
   "created_at": "2026-07-27T11:00:00+08:00",
   "complexity": "L3",
   "sub_agent_count": 3,
+  "resume_from": null,
+  "skipped_phases": [],
   "cross_exam": {
     "max_rounds": 2,
     "current_round": 0,
-    "converged": false
+    "converged": false,
+    "rehear_count": 0
   },
   "revision": {
     "max_rounds": 1,
@@ -78,6 +81,8 @@ trial_archive/{yyyy-mm}/{docket_id}/
   "improvement_suggestions": []
 }
 ```
+
+> **metadata 扩展（v3.5 · P2-1/P0-1）**：`resume_from`（上次完成阶段，由 checkpoint_manager 产出）与 `skipped_phases`（显式跳过记录）供跨会话断点恢复读取（zcode-adaptation.md §9）；`cross_exam.rehear_count` 记录回退重审次数（SKILL.md §7.2 回退重审契约）。
 
 ---
 
@@ -269,3 +274,14 @@ python3 scripts/trial-court-orchestrator.py --learning-status
 # 4. 查看改进建议
 python3 scripts/trial-court-orchestrator.py --improvements
 ```
+
+---
+
+## 8. judge 校准 eval 回路（v3.5 增强 · P1-3）
+
+> 以**归档 docket 样例集**回流校准 believability 权重与五维 rubric 阈值（对应 SKILL.md §7.2 / cross-validation.md §believability）。
+
+- **样例集基数**：**以 `references/learning-data/` 下 7 个归档 docket 为基础建立样例集**（TC-20260730 / TC-20260731 / TC-20260801 / TC-20260802 / TC-20260806 / TC-20260809 / TC-20260812）。后续终审持续补入，目标 20+ 条校准样例。
+- **每条样例结构**：{子争点, 裁决, 理由, 结果反馈（用户接受/纠正）}。
+- **cases.json 现状**：当前 `cases.json` 仅 1 条（示例条目 C-000001）；样例集积累期间用真实 docket 数据逐步替换示例条目。
+- **回溯 eval**：用 `eval` 子命令（`trial-court-orchestrator.py eval`）对本回合终审做回溯评估，输出「判准率/偏差表」，回流调整 believability 历史命中率与五维 rubric 阈值。

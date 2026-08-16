@@ -5,7 +5,13 @@
   "author": {
     "name": "Expert Marketplace"
   },
-  "agents": "./agents/",
+  "agents": [
+    "./agents/brand-analyst.md",
+    "./agents/campaign-planner.md",
+    "./agents/content-creator.md",
+    "./agents/marketing-director.md",
+    "./agents/seo-expert.md"
+  ],
   "expertType": "team",
   "agentName": "marketing-director",
   "teamInfo": {

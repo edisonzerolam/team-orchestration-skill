@@ -114,7 +114,7 @@ Phase E 二审终审裁决（main 独任，不回灌）
 3. 严禁虚构，存疑标注"存疑/待查"
 4. 这是第一轮举证，稍后你会收到其他方产物并需要质证
 ### 可用资源
-{由 Asset Resolver 动态生成，见 workbuddy-asset-bridge.md §5}
+{由 Asset Resolver 动态生成，见 `scripts/asset-resolver.py --snapshot`}
 ### 产物格式
 ## 产物 P{i}（阶段 B）— 角色：{角色名}
 ### 一、核心主张

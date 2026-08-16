@@ -1,6 +1,6 @@
 # Team Orchestration Skill — 多智能体团队编排引擎
 
-> 从 WorkBuddy (Tencent CodeBuddy) Expert Marketplace 逆向移植, 39 个专家团, 199 个子 Agent
+> 专家池借鉴了包括 WorkBuddy、QoderWork 的专家功能
 
 ## 概述
 
@@ -16,11 +16,11 @@
 不依赖预定义模板, 从任务本质出发逐层拆解 (5 维: 本质类型/知识域/能力/复杂度/质量要求)
 
 ### 🎯 动态专家匹配
-39 个专家团 (199 个子 Agent) 可选, 按领域匹配度/能力匹配度/历史表现/负载评分自动推荐
+40 个专家团 (257 个子 Agent) 可选, 按领域匹配度/能力匹配度/历史表现/负载评分自动推荐
 
 ### 🤝 完整团队协作
 - 10 个预设团队模板 (快速路径)
-- 39 个 WorkBuddy 移植专家团 (深度路径)
+- 39 个移植专家团 (深度路径)
 - 主理人铁律: 禁止代写、禁止跳过阶段、禁止直连
 
 ### ✅ 自验证 + 审核门 (强制)
@@ -33,7 +33,7 @@
 | Loop 2 | 分钟级 | 事后回顾, 更新 expert-scores.json |
 | Loop 3 | 小时级 | 主动联网搜索, 半自动知识合并 |
 
-## 39 个专家团一览
+## 40 个专家团一览
 
 ### 金融投资 (4)
 | 专家团 | Agent数 | 主理人 | 说明 |
@@ -115,7 +115,7 @@
 | tech-service-transfer | 6 | 科技服务转化：需求挖掘/成果匹配（**新建·stub**） |
 | openspec-doc-team | 4 | 企业级长文档生成（原有） |
 
-> agents 计数口径：实装 **199**（agents/*.md 实测）；计划 **260**（11 个新建团队 stub 补齐后，未实装）。
+> agents 计数口径：实装 **255**（agents/*.md 磁盘实测）；声明 **268**（plugin.json agents[]，2026-08-16 功能自检更新）。
 
 
 ## 安装
@@ -132,28 +132,22 @@ cp -r team-orchestration ~/.config/opencode/skills/
 codebuddy --plugin-dir /path/to/team-orchestration
 ```
 
-### WorkBuddy（已适配）
-本仓库已针对 WorkBuddy 适配：39 个专家团即 WorkBuddy「专家中心」原生专家团（含 11 个新建 stub 团队），且脚本路径已改为相对自身。
+### DeepSeek Harness / DSH（已适配）
+本仓库已适配 DSH（DeepSeek Harness）：作为 **DSH Skill** 安装（**非插件**——本技能是提示词级编排方法论 + 纯 stdlib Python 决策脚本，DSH 已内置全部所需运行时原语：`subagent`/`send_message` 并行与回灌、`ask_user_question` 澄清、`goal`/`todo` 检查点、`pwsh` 执行脚本）。DSH 的 skill 机制扫描 `~/.agents/skills/`（user-agents 根，rank 500，即装即用、零构建、watcher 自动发现），详见 skill 内 `references/dsh-adaptation.md`。
 
 ```powershell
-# 1. 安装（复制 skill 到用户级 skills 目录）
-#    目标路径：~/.workbuddy/skills/team-orchestration/
-$src = "C:\path\to\team-orchestration-skill"
-$dst = "$env:USERPROFILE\.workbuddy\skills\team-orchestration"
+# 安装（拷贝到用户级技能根）
+$src = "C:\path\to\team-orchestration"
+$dst = "$env:USERPROFILE\.agents\skills\team-orchestration"
 if (Test-Path $dst) { Remove-Item $dst -Recurse -Force }
 Copy-Item $src $dst -Recurse
 
-# 2. 运行脚本（用托管 Python，Windows 无 python3）
-$PY = "C:/Users/林昌/.workbuddy/binaries/python/versions/3.13.12/python.exe"
-$SK = "$env:USERPROFILE\.workbuddy\skills\team-orchestration"
-& $PY "$SK/scripts/task-decomposer.py" --task "帮我分析宁德时代" --json
-& $PY "$SK/scripts/expert-matcher.py" --task "帮我分析宁德时代" --json
+# 冒烟
+python "$dst\scripts\task-decomposer.py" --task "帮我分析宁德时代" --json
+python "$dst\scripts\expert-matcher.py" --task "帮我分析宁德时代" --json
 ```
 
-**专家/专家团调用（核心适配）**：详见 skill 内 `references/workbuddy-adaptation.md`。
-- **Mode A（推荐）**：匹配后直接建议用户在 WorkBuddy 左侧栏「专家」→ 专家中心打开对应原生专家团。
-- **Mode B**：必须在当前对话内协作时，读取 `references/workbuddy-experts/<团队>/agents/*.md` 人设，用 WorkBuddy 的 Agent（子智能体）能力模拟成员，主理人汇总。
-- 经核验，39/39 专家团均已安装本机（`~/.workbuddy/plugins/marketplaces/experts/plugins/`）。
+> **可见性说明**：DSH 官方 frontmatter 字段 `disable-model-invocation: true` 会把技能从模型目录彻底排除（模型看不到、无法加载）——本包已移除该字段，使模型可在技能目录中看到并按其触发词调用。
 
 ### 作为独立 Skill 使用
 在 AGENTS.md 或 CLAUDE.md 中添加:
@@ -166,7 +160,7 @@ $SK = "$env:USERPROFILE\.workbuddy\skills\team-orchestration"
 ### 快速路径 (使用预设模板)
 加载 `team-orchestration` skill 后, 系统自动按 10 个预设模板匹配。
 
-### 专家匹配路径 (使用 WorkBuddy 专家团)
+### 专家匹配路径
 ```bash
 # 1. 拆解任务
 python3 scripts/task-decomposer.py --task "帮我分析腾讯股票"
@@ -190,7 +184,7 @@ python3 scripts/self-evolution/proactive-search.py --experts all
 
 ```
 team-orchestration/
-├── SKILL.md                           # 主入口 (v2.0.0)
+├── SKILL.md                           # 主入口 (v3.9.0-dsh)
 ├── references/
 │   ├── first-principles.md            # 第一性原理拆解框架
 │   ├── expert-matching.md             # 专家匹配评分算法
@@ -199,14 +193,12 @@ team-orchestration/
 │   │   ├── _index.md                  # 分类索引
 │   │   └── {team}/                    # 每个专家团一个目录
 │   │       ├── plugin.json            # 元数据 (双语)
-│   │       ├── agents/*.md            # Agent 定义 (199个)
+│   │       ├── agents/*.md            # Agent 定义 (255个)
 │   │       └── self-evolution-log.md  # 自进化日志
 │   ├── knowledge/                     # 42 个领域知识文件
 │   ├── team-templates/                # 10 个团队模板
 │   ├── task-lifecycle.md              # 任务生命周期
-│   ├── handoff-protocol.md            # 交接协议
 │   ├── phase-gates.md                 # 阶段关卡
-│   ├── patterns.md                    # 工作流模式
 │   └── communication.md               # Agent 通信模式
 ├── scripts/
 │   ├── task-decomposer.py             # 任务拆解器
@@ -215,23 +207,15 @@ team-orchestration/
 │   │   ├── post-task-evolve.py        # Loop 2
 │   │   ├── proactive-search.py        # Loop 3
 │   │   └── knowledge-merger.py        # 知识合并
-│   ├── team-brain.py                  # 编排引擎（⚠️ OpenCode 遗留，已弃用/WorkBuddy 不适用）
 │   ├── self_heal.py                   # 自我修复
 │   ├── health-monitor.py              # 健康监控
-│   ├── health-dashboard.py            # Web 面板
-│   ├── auto-decider.py                # 自动决策
-│   └── synthesis-check.py             # 共识确认（⚠️ OpenCode 遗留，已弃用/WorkBuddy 不适用）
+│   └── auto-decider.py                # 自动决策
 └── README.md
 ```
 
-## 移植来源
+## 专家池来源
 
-本 skill 的 39 个专家团来源于 **WorkBuddy (Tencent CodeBuddy) Expert Marketplace**, 进行了以下适配:
-- `connect_cloud_service` → 移除 (环境不兼容)
-- `Agent(name=xxx)` → 改为 `task(subagent_type=xxx)`
-- `SendMessage` → 保留语义
-- `plugin.json` 双语元数据 → 完全保留
-- avatars/ → 未移植
+本 skill 的 40 个专家团**借鉴了包括 WorkBuddy、QoderWork 的专家功能**，并在 DSH 环境完成适配（脚本路径相对化、plugin.json 双语元数据保留、五阶段对抗协议整合）。
 
 ## 协议
 

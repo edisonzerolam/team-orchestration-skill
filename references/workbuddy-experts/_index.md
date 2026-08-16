@@ -1,17 +1,22 @@
-# 专家库索引（QoderWork 融合版）
+# 专家库索引
 
-> 来源: 内置 28 专家团 (WorkBuddy/CodeBuddy) + QoderWork 套件市场 23 插件融入
-> 融合日期: 2026-07-31
-> 总数: 39 个专家团（28 原有 + 11 新建），6 个原有团队已增强。
-> 补齐状态(2026-08-09): 11 个新建团队已补齐为成员完整（agent-template 标准 + verified 标记），见 `_template/agent-template.md`
+> 来源: 内置 28 专家团 (WorkBuddy/CodeBuddy) + QoderWork 套件市场 23 插件融入（融合日期 2026-07-31；总数 40 个专家团 = 28 原有 + 11 新建 + 1 通才批判团，6 个原有团队已增强；11 个新建团队已补齐为成员完整，见 `_template/agent-template.md`）
 
-## 融合说明
+## 聚合域（v3.9 · TC-20260816-5）
 
-| 融合方式 | 数量 | 说明 |
-|---------|------|------|
-| 新建独立团队 | 11 | QoderWork 套件无内置对应，直接吸收 |
-| 增强现有团队 | 6 | 能力重叠，将套件能力并入描述 |
-| 保持原有不变 | 22 | 无对应套件，原样保留 |
+40 团队归入 8 大聚合域 + 通用对抗层，定域后**跨团队按需组队**（agent 超网：257 agents 组件池按任务组合激活，目录物理保留零破坏）：
+
+- **投资分析**：investment-masters + trading-agent + stock-partner + a-share-analysis + equity-research（56 agents）
+- **资本服务**：pe-vc-investment + investment-banking + wealth-management（18）
+- **法律服务**：chatlaw-team + cn-litigation + enterprise-legal-team + tax-compliance-team（27）
+- **内容全链路**：ai-content-creator + content-distribution + content-monetization + promo-creator（21）
+- **营销增长**：marketing-campaign + sales-battle + seo-content + social-engagement（21+）
+- **工程保障**：engineering-assurance + gstack + devtools-engineering + rum-fullstack + alicloud-engineering + software-company（26+）
+- **数据智能**：ai-data-copilot + huashu-data-pro（gpt-researcher 独立 = 通用对抗兜底）
+- **产品设计**：product-strategy + design-engine + product-design-suite（19）
+- **通用对抗层（v3.9）**：gpt-researcher-team（深度研究兜底）+ **general-critics（通才批判团：general-critic 对抗审查主理人 + devil-advocate 魔鬼代言人）**——平衡垂直专家盲点，用于质证/终审质量门禁
+
+> 任务级 skill 封装见 `../skills-pack.md`。
 
 ## 分类索引
 

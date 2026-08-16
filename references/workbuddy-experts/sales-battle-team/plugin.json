@@ -5,15 +5,24 @@
   "author": {
     "name": "Expert Marketplace"
   },
-  "agents": "./agents/",
-
+  "agents": [
+    "./agents/account-researcher.md",
+    "./agents/competitive-intel.md",
+    "./agents/outreach-strategist.md",
+    "./agents/sales-director.md",
+    "./agents/sales-forecaster.md"
+  ],
   "expertType": "team",
   "agentName": "sales-director",
   "teamInfo": {
     "leadAgent": "sales-director",
-    "memberAgents": ["account-researcher", "outreach-strategist", "competitive-intel", "sales-forecaster"]
+    "memberAgents": [
+      "account-researcher",
+      "outreach-strategist",
+      "competitive-intel",
+      "sales-forecaster"
+    ]
   },
-
   "displayName": {
     "en": "Sales Battle Team",
     "zh": "销售作战团队"
@@ -35,36 +44,66 @@
   "members": [
     {
       "id": "sales-director",
-      "name": {"en": "Ying", "zh": "应必达"},
-      "profession": {"en": "Win Advisor", "zh": "赢单顾问"},
+      "name": {
+        "en": "Ying",
+        "zh": "应必达"
+      },
+      "profession": {
+        "en": "Win Advisor",
+        "zh": "赢单顾问"
+      },
       "avatar": "avatars/team-lead.png",
       "role": "lead"
     },
     {
       "id": "account-researcher",
-      "name": {"en": "Scout", "zh": "探客"},
-      "profession": {"en": "Account Researcher", "zh": "客户研究员"},
+      "name": {
+        "en": "Scout",
+        "zh": "探客"
+      },
+      "profession": {
+        "en": "Account Researcher",
+        "zh": "客户研究员"
+      },
       "avatar": "avatars/account-researcher.png",
       "role": "member"
     },
     {
       "id": "outreach-strategist",
-      "name": {"en": "Reach", "zh": "联达"},
-      "profession": {"en": "Outreach Strategist", "zh": "外联策略师"},
+      "name": {
+        "en": "Reach",
+        "zh": "联达"
+      },
+      "profession": {
+        "en": "Outreach Strategist",
+        "zh": "外联策略师"
+      },
       "avatar": "avatars/outreach-strategist.png",
       "role": "member"
     },
     {
       "id": "competitive-intel",
-      "name": {"en": "Intel", "zh": "竞情"},
-      "profession": {"en": "Competitive Intel Analyst", "zh": "竞争情报分析师"},
+      "name": {
+        "en": "Intel",
+        "zh": "竞情"
+      },
+      "profession": {
+        "en": "Competitive Intel Analyst",
+        "zh": "竞争情报分析师"
+      },
       "avatar": "avatars/competitive-intel.png",
       "role": "member"
     },
     {
       "id": "sales-forecaster",
-      "name": {"en": "Forecast", "zh": "预析"},
-      "profession": {"en": "Sales Forecast Analyst", "zh": "销售预测分析师"},
+      "name": {
+        "en": "Forecast",
+        "zh": "预析"
+      },
+      "profession": {
+        "en": "Sales Forecast Analyst",
+        "zh": "销售预测分析师"
+      },
       "avatar": "avatars/sales-forecaster.png",
       "role": "member"
     }

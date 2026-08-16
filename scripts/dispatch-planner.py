@@ -9,8 +9,8 @@
     匹配团队 -> 主理人/成员人设(含 .md 路径与专长摘要) -> 逐成员子任务 -> 主理人汇总指令 -> 跨团队协调说明
 
 本脚本**只生成派工方案**，不真正拉起子智能体。
-子智能体的拉起由 WorkBuddy 主智能体按 SKILL.md 的「Mode B 执行协议」完成
-（读取方案里每个 agent 的 .md 人设，经 Agent 工具逐个拉起 general-purpose 子智能体）。
+子智能体的拉起由主智能体按 SKILL.md 的「Mode B 执行协议」完成
+（读取方案里每个 agent 的 .md 人设，经 Agent 工具逐个拉起 general-purpose 子智能体；DSH 环境经 subagent/send_message）。
 
 依赖（与本脚本同目录）：
     expert-matcher.py   —— 提供 load_all_experts() / match()

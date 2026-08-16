@@ -5,7 +5,14 @@
   "author": {
     "name": "Expert Marketplace"
   },
-  "agents": "./agents/",
+  "agents": [
+    "./agents/architect.md",
+    "./agents/code-reviewer.md",
+    "./agents/engineering-director.md",
+    "./agents/sre-engineer.md",
+    "./agents/tech-writer.md",
+    "./agents/testing-expert.md"
+  ],
   "expertType": "team",
   "agentName": "engineering-director",
   "teamInfo": {

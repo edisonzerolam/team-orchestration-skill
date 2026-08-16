@@ -88,22 +88,71 @@ class TokenBudget:
                 pass
 
 
+# P1-1: effort 分级预算预设（规模门四档：子代理上限 + 各阶段 token 上限）。
+# 注：此处 L1-L4 为"token 预算档位"，与 test-workflow B2 的"规模门无 L4 独立档位"不冲突——
+# B2 指规模门判据档位，此处指预算档位，二者按维度复用（文档侧注明）。
+EFFORT_TIERS = {
+    "L1": {"sub_agents": 1, "token_cap": 4000},
+    "L2": {"sub_agents": 3, "token_cap": 8000},
+    "L3": {"sub_agents": 6, "token_cap": 16000},
+    "L4": {"sub_agents": 8, "token_cap": 32000},
+}
+
+# 二审终审制六阶段（与 orchestrator 的 archive 阶段目录清单一致）
+PHASES = ["立案", "举证", "质证", "一审", "回灌修订", "二审终审"]
+
+
+def effort_limits(effort):
+    """返回某档位的预设预算：{effort, sub_agents, token_cap, limits{阶段: token 上限}}。"""
+    tier = EFFORT_TIERS[effort]
+    return {
+        "effort": effort,
+        "sub_agents": tier["sub_agents"],
+        "token_cap": tier["token_cap"],
+        "limits": {p: tier["token_cap"] for p in PHASES},
+    }
+
+
 def main():
     import argparse
     ap = argparse.ArgumentParser(description="Token budget controller")
-    ap.add_argument("--limits", required=True, help="JSON: {phase: max_tokens}")
+    ap.add_argument("--limits", default="",
+                    help="JSON: {phase: max_tokens}（与 --effort 二选一；同时给出则按阶段覆盖档位默认）")
+    ap.add_argument("--effort", default="", choices=sorted(EFFORT_TIERS),
+                    help="effort 档位预设预算（L1-L4：子代理上限 + 各阶段 token 上限，P1-1）")
     ap.add_argument("--consume", default="", help="JSON: [phase, tokens]")
     ap.add_argument("--override", action="store_true")
     args = ap.parse_args()
-    budget = TokenBudget(json.loads(args.limits))
+
+    if args.effort:
+        presets = effort_limits(args.effort)
+        limits = dict(presets["limits"])
+        if args.limits:
+            limits.update(json.loads(args.limits))
+        info = {"effort": args.effort,
+                "sub_agents": presets["sub_agents"],
+                "token_cap": presets["token_cap"]}
+    else:
+        if not args.limits:
+            ap.error("需要 --limits 或 --effort 之一")
+        limits = json.loads(args.limits)
+        info = None
+
+    budget = TokenBudget(limits)
     if args.consume:
         phase, tokens = json.loads(args.consume)
         res = budget.consume(phase, tokens, override=args.override)
+        if info:
+            res["effort"] = info["effort"]
+            res["sub_agents"] = info["sub_agents"]
         print(json.dumps(res, ensure_ascii=False))
         if res["blocked"]:
             raise SystemExit(2)
     else:
-        print(json.dumps(budget.report(), ensure_ascii=False))
+        out = budget.report()
+        if info:
+            out = {"effort": info, "usage": out}
+        print(json.dumps(out, ensure_ascii=False))
 
 
 if __name__ == "__main__":

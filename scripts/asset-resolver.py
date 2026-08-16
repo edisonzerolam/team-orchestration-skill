@@ -213,7 +213,7 @@ def discover_connectors() -> list[dict]:
     return connectors
 
 
-# ─── 4. 专家团发现（复用 workbuddy-adaptation.md） ───
+# ─── 4. 专家团发现（复用 workbuddy-experts/ 索引） ───
 
 def discover_expert_teams() -> list[dict]:
     """从 workbuddy-experts 中读取已索引的专家团"""

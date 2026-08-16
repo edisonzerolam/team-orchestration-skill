@@ -319,6 +319,19 @@ cross_confidence = w1 × consistency + w2 × verification + w3 × reasoning
   × temporal_validity (时效性：最新时间 vs 当前时间)
 ```
 
+### believability 投票权重因子（v3.5 增强 · P0-6）
+
+在 WHISTLE/Hydra 之上，新增 **believability** 作为封闭题投票的权重因子（替代等权投票，SKILL.md §5）：
+
+```
+believability = 历史命中率(learning-data/expert_scores.json，缺省 0.5) × 独立来源数(≥1)
+```
+
+- **历史命中率**：来自 `references/learning-data/expert_scores.json`（归档写端更新）；无记录或缺省 0.5（冷启动不惩罚）。
+- **独立来源数**：`verification` 维度已隐含来源独立性（R1-R4），直接复用 `independence_ratio` × 来源计数的独立来源计数（≥1，防零权重）。
+- **多数采信规则**：封闭题按 believability 加权求和取多数，少数留痕；等权投票不再作为默认。
+- **校准**：权重参数随 judge 校准 eval 回路（P1-3，以 7 个归档 docket 建立样例集）回流调整。
+
 ### 置信度 → 风险等级映射
 
 | cross_confidence | 等级 | 交付表现 | 说明 |
@@ -405,3 +418,14 @@ Layer 1.5 交叉验证解决的是**跨专家来源独立性验证**问题。
 | 不重复验证 | 增量验证只验分歧热点 |
 | 尊重专家独立性 | 不修改 Layer 1 逻辑，只新增 1.5 |
 | 可审计 | 每个验证步骤有日志和状态记录 |
+
+---
+
+## Review Rotation（环形互审 · v3.5 增强 · P2-2）
+
+> 防"同一视角互证"：A 产 B 审、B 产 C 审、C 产 A 审的环形互审。
+
+- **启用**：质证/一审修订阶段**可选**启用（默认关闭——cost 高）；高争议 **L4 预算档**案卷建议启用（对应 SKILL.md §2 预算档，非规模门档位）。
+- **机制**：A 审 B 产物、B 审 C 产物、C 审 A 产物（环形），审者输出与 A3 同构（conclusions/evidence/risks），附采信/异议。
+- **与 main 裁决的关系**：环形互审产物并入质证记录供 main 一审/二审参考，**不替代 main 独任裁决**（裁决权唯一归 main，见 trial-court-protocol.md §0）。
+- **防回环合谋**：环形互审结论若三方互相放行且均无独立证据增量 → 标「弱互证」，按 P0-5「收敛需独立证据」处理（多数方须 ≥2 独立来源支持才判收敛）。
