@@ -1,142 +1,67 @@
-# Team Orchestration Skill — 多智能体团队编排引擎
+# Team Orchestration Skill — 多智能体对抗编排引擎
 
 > 专家池借鉴了包括 WorkBuddy、QoderWork 的专家功能
 
 ## 概述
 
-这是一个 OpenCode / CodeBuddy 兼容的 Skill 包, 提供**多智能体团队编排**能力。核心流程:
+这是一个 DSH（DeepSeek Harness）Skill，提供**多智能体对抗编排**能力——核心是**五阶段对抗协议（二审终审制）**：对复杂议题组织多视角专家子代理，经举证 → 质证 → 一审 → 二审终审的对抗流程收敛出高质量结论。
 
 ```
-任务 → 第一性原理拆解 → 动态专家匹配 → 团队执行 → 自验证+审核 → 交付 → 三环自进化
+任务 → 立案(复杂度/分工/并发判定) → 并行举证(N子代理) → 质证(回灌修正)
+     → 一审(裁决+回灌修订1轮) → 二审终审(不回灌) → 交付+归档
 ```
 
-## 核心特性
+## 核心特性（v3.9.0-dsh）
 
-### 🔍 第一性原理任务拆解
-不依赖预定义模板, 从任务本质出发逐层拆解 (5 维: 本质类型/知识域/能力/复杂度/质量要求)
+### ⚖️ 五阶段对抗协议（二审终审制）
+立案（5W2H 澄清 + 争点拆解）→ 并行举证（2-6 子代理独立取证）→ 质证（回灌他方产物逐条修正，默认 1 轮、最多 2 轮）→ 一审（裁决 + 回灌修订固定 1 轮）→ **二审终审**（终局裁断，禁止引入新论点）。含**终审前置门禁**（子代理回声收齐才可终审）、BATNA 降级、独立复审（§7.3，优先调度通才批判团）。
 
-### 🎯 动态专家匹配
-40 个专家团 (257 个子 Agent) 可选, 按领域匹配度/能力匹配度/历史表现/负载评分自动推荐
+### 🧭 聚合域路由
+40 专家团归入 **8 大聚合域**（投资分析/资本服务/法律服务/内容全链路/营销增长/工程保障/数据智能/产品设计），定域后**跨团队按需组队**（agent 超网思想：257 agents 组件池按任务组合激活，目录物理保留零破坏）。脚本级支持：`expert-matcher.py --domain 投资分析 --task "..."` 限域召回。
 
-### 🤝 完整团队协作
-- 10 个预设团队模板 (快速路径)
-- 39 个移植专家团 (深度路径)
-- 主理人铁律: 禁止代写、禁止跳过阶段、禁止直连
+### 📦 任务级 Skill 封装（Agent Skills 思想）
+5 大高频任务封装为可复用 skill（触发词 + 团队组合 + 流程 + 输出契约）：**投资分析 / 法律咨询 / 内容生产 / 技术审查 / 深度研究**（`references/skills-pack.md`）——比工具高一层、比完整 agent 低一层的任务能力单元。
 
-### ✅ 自验证 + 审核门 (强制)
-所有产出物必须经过 @reviewer 审核 🟢/🟡/🔴
+### 🧠 通才批判团（general-critics）
+`general-critic`（对抗审查主理人：假设检验/偏见检测/五维 rubric）+ `devil-advocate`（魔鬼代言人：最强反论/极端场景/共识压力测试）——平衡垂直专家的盲点，服务于质证与终审质量门禁。
 
-### 🔄 三环自进化
-| 环 | 速度 | 做什么 |
-|----|------|--------|
-| Loop 1 | 秒级 | 执行中反思, 追加 self-evolution-log.md |
-| Loop 2 | 分钟级 | 事后回顾, 更新 expert-scores.json |
-| Loop 3 | 小时级 | 主动联网搜索, 半自动知识合并 |
+### 🎛 动态派数机制
+派数不再拍脑袋：`task-decomposer --concurrency N` 输出 `suggested_subagents{value, range, rationale}`——**N = 复杂度基数 × 分工加成 × 模型并发截断 × 预算硬约束 C(N,q)=N×(2+q)**。L1 直行 / L2 直行信号 / L3+ clamp[2, min(并发, 档位)]；推荐值非强制，main 可覆写留痕。
 
-## 40 个专家团一览
+### 🗄 数据治理
+- **并发参考数据保鲜**（`concurrency-data.json`）：模型并发查官方文档（DeepSeek v4-flash=2500，账号粒度），**14 天保鲜期**，过期先派子代理更新，失败用 `max_spawned+1` 渐进试探；每次实际派出强制记录（B 举证 spawn 后 `record --n N`）
+- **数据来源查证纪律**（`references/data-provenance.md` + SKILL.md §9.5）：能查官方查官方 → 能再生成就保鲜 → 查不到就如实标注，禁止把推断值当事实
 
-### 金融投资 (4)
-| 专家团 | Agent数 | 主理人 | 说明 |
-|--------|---------|--------|------|
-| investment-masters-team | 22 | 贺知衡 | 13位投资大师+6位分析师并行 |
-| trading-agent | 13 | 何执舟 | 5阶段交易分析, 输出HTML |
-| stock-partner-team | 7 | 圆汇众 | 六位炒股大神实战经验 |
-| a-share-analysis | 8 | 古见远 | A股全链路研究, 6 Workflow |
+### 🛡 质量防线
+- **40/40 测试全绿**（run_smoke：脚本冒烟/引用完整性/编码健康/专家池一致性/动态派数/并发数据）
+- **编码门禁**：全包 UTF-8 严格扫描 + C5.2 `?` 替字检测（46 个历史损坏文件根治）
+- 双编码回归（GBK 控制台 + UTF-8）
 
-### 内容创作 (4)
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| ai-content-creator-team | 5 | AI多模态: 视频/图文/剪辑/改编 |
-| content-distribution-team | 5 | 12+平台一站式分发 |
-| content-monetization-team | 5 | CPS/CPE/CPM变现 |
-| promo-creator-team | 6 | 产品宣传片全流程制作 |
+## 专家池（40 团队 / 257 agents）
 
-### 营销增长 (4)
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| marketing-campaign-team | 5 | 内容/策划/SEO/品牌 |
-| sales-battle-team | 5 | 客户研究/外联/竞情/预测 |
-| seo-content-team | 7 | 5阶段SEO内容营销 |
-| social-engagement-team | 5 | 社媒互动增长 |
+### 8 大聚合域
 
-### 设计/PPT (2)
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| design-engine | 6 | 71套设计系统, 需求→原型→审查 |
-| humanize-ppt-team | 7 | PPT大纲→HTML→视频→演讲→质检 |
+| 聚合域 | 团队 | 触发场景 |
+|---|---|---|
+| 投资分析 | investment-masters + trading-agent + stock-partner + a-share-analysis + equity-research | 股票/估值/多空/买入建议 |
+| 资本服务 | pe-vc-investment + investment-banking + wealth-management | 融资/IPO/家族办公室 |
+| 法律服务 | chatlaw-team + cn-litigation + enterprise-legal-team + tax-compliance-team | 合同/诉讼/合规/税务 |
+| 内容全链路 | ai-content-creator + content-distribution + content-monetization + promo-creator | 视频/文案/分发/变现 |
+| 营销增长 | marketing-campaign + sales-battle + seo-content + social-engagement | 投放/线索/SEO/社媒 |
+| 工程保障 | engineering-assurance + gstack + devtools-engineering + rum-fullstack + alicloud-engineering + software-company | 架构评审/代码审查/QA/云 |
+| 数据智能 | ai-data-copilot + huashu-data-pro | SQL/数据分析 |
+| 产品设计 | product-strategy + design-engine + product-design-suite | PRD/UX/设计系统 |
 
-### 工程/技术 (4)
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| software-company | 5 | 软件开发全流程 |
-| engineering-assurance-team | 6 | 架构/SRE/审查/测试 |
-| gstack | 6 | 产品审查/安全审计/QA |
-| rum-fullstack-team | 3 | 腾讯云RUM |
+### 通用对抗层
+- `gpt-researcher-team`（深度研究兜底）
+- `general-critics`（通才批判团：对抗审查 + 魔鬼代言人）
 
-### 法律/税务 (3)
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| chatlaw-team | 6 | 4阶段法律咨询 |
-| enterprise-legal-team | 9 | 8项企业法务 |
-| tax-compliance-team | 6 | 企业税务合规 |
+> 完整索引见 `references/workbuddy-experts/_index.md`（40 团队 257 agents 磁盘实测 / 273 声明）。
 
-### 研究/数据 (3)
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| gpt-researcher-team | 7 | 5阶段深度研究 |
-| huashu-data-pro | 4 | 数据分析全链路 |
-| ai-data-copilot | 6 | SQL/EDA/RAG/可视化 |
-
-### HR/运营 (2)
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| hr-operations-team | 5 | 招聘/绩效/合规 |
-| opc-team | 9 | 一人公司方法论 |
-
-### 产品 (1)
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| product-strategy-team | 6 | PRD/用户研究/路线图 |
-
-### 其余团队（12，完整索引见 `references/workbuddy-experts/_index.md`）
-
-| 专家团 | Agent数 | 说明 |
-|--------|---------|------|
-| equity-research | 6 | 深度报告/行业研究/年报点评（**新建·stub**） |
-| wealth-management | 6 | 资产配置/基金分析/财务规划（**新建·stub**） |
-| pe-vc-investment | 6 | 项目筛选/尽调/Term Sheet/回报建模（**新建·stub**） |
-| investment-banking | 6 | IPO/并购/债券/财务建模（**新建·stub**） |
-| product-design-suite | 7 | UX全流程11场景28技能（**新建·stub**） |
-| alicloud-engineering | 7 | 阿里云运维/Terraform/迁移SOP（**新建·stub**） |
-| devtools-engineering | 5 | 多仓Git/AI测试/接口逻辑分析（**新建·stub**） |
-| cn-litigation | 6 | 民商事诉讼全生命周期（**新建·stub**） |
-| consulting-delivery | 6 | 咨询交付：研究/框架/报告/简报（**新建·stub**） |
-| ecommerce-1688 | 6 | 1688选品/运营/数据/转化（**新建·stub**） |
-| tech-service-transfer | 6 | 科技服务转化：需求挖掘/成果匹配（**新建·stub**） |
-| openspec-doc-team | 4 | 企业级长文档生成（原有） |
-
-> agents 计数口径：实装 **255**（agents/*.md 磁盘实测）；声明 **268**（plugin.json agents[]，2026-08-16 功能自检更新）。
-
-
-## 安装
-
-### OpenCode
-```bash
-# 将 team-orchestration 目录复制到 skills 目录
-cp -r team-orchestration ~/.config/opencode/skills/
-```
-
-### CodeBuddy
-```bash
-# 作为本地插件加载
-codebuddy --plugin-dir /path/to/team-orchestration
-```
-
-### DeepSeek Harness / DSH（已适配）
-本仓库已适配 DSH（DeepSeek Harness）：作为 **DSH Skill** 安装（**非插件**——本技能是提示词级编排方法论 + 纯 stdlib Python 决策脚本，DSH 已内置全部所需运行时原语：`subagent`/`send_message` 并行与回灌、`ask_user_question` 澄清、`goal`/`todo` 检查点、`pwsh` 执行脚本）。DSH 的 skill 机制扫描 `~/.agents/skills/`（user-agents 根，rank 500，即装即用、零构建、watcher 自动发现），详见 skill 内 `references/dsh-adaptation.md`。
+## 安装（DSH）
 
 ```powershell
-# 安装（拷贝到用户级技能根）
+# 拷贝到用户级技能根（DSH skill 机制扫描 ~/.agents/skills/，即装即用、零构建）
 $src = "C:\path\to\team-orchestration"
 $dst = "$env:USERPROFILE\.agents\skills\team-orchestration"
 if (Test-Path $dst) { Remove-Item $dst -Recurse -Force }
@@ -144,72 +69,61 @@ Copy-Item $src $dst -Recurse
 
 # 冒烟
 python "$dst\scripts\task-decomposer.py" --task "帮我分析宁德时代" --json
-python "$dst\scripts\expert-matcher.py" --task "帮我分析宁德时代" --json
+python "$dst\scripts\expert-matcher.py" --domain 投资分析 --task "帮我分析宁德时代" --json
 ```
 
-> **可见性说明**：DSH 官方 frontmatter 字段 `disable-model-invocation: true` 会把技能从模型目录彻底排除（模型看不到、无法加载）——本包已移除该字段，使模型可在技能目录中看到并按其触发词调用。
+> 本技能为**提示词级编排方法论 + 纯 stdlib Python 决策脚本**，DSH 已内置全部运行时原语（`subagent`/`send_message` 并行与回灌、`ask_user_question` 澄清、`goal`/`todo` 检查点、`pwsh` 执行脚本），详见 `references/dsh-adaptation.md`。
 
-### 作为独立 Skill 使用
-在 AGENTS.md 或 CLAUDE.md 中添加:
-```markdown
-涉及多 agent 协作/团队分工/并行任务 → 加载 `team-orchestration`
-```
+## 快速上手
 
-## 使用方法
-
-### 快速路径 (使用预设模板)
-加载 `team-orchestration` skill 后, 系统自动按 10 个预设模板匹配。
-
-### 专家匹配路径
 ```bash
-# 1. 拆解任务
-python3 scripts/task-decomposer.py --task "帮我分析腾讯股票"
+# 1. 立案：拆解任务 + 动态派数（复杂度×分工×并发）
+python scripts/task-decomposer.py --task "帮我分析宁德时代的基本面" --concurrency 6 --json
+#    → complexity: L3-复杂, suggested_subagents: {value:4, range:[2,6], rationale:...}
 
-# 2. 匹配专家
-python3 scripts/expert-matcher.py --domains 08-FinanceInvestment
+# 2. 限域召回专家（聚合域路由）
+python scripts/expert-matcher.py --domain 投资分析 --task "帮我分析宁德时代" --top-k 3 --json
 
-# 3. 按推荐的专家团 SOP 执行
+# 3. 并发参考数据检查（14 天保鲜，过期自动提示更新）
+python scripts/concurrency_check.py check
+
+# 4. 按五阶段协议组织对抗（见 SKILL.md §3）
 ```
 
-### 自进化
-```bash
-# Loop 2: 事后回顾
-python3 scripts/self-evolution/post-task-evolve.py
+## 测试与验证
 
-# Loop 3: 主动联网增强
-python3 scripts/self-evolution/proactive-search.py --experts all
+```bash
+python tests/run_smoke.py              # 40/40 全量冒烟
+python tests/check_references.py       # 引用完整性（零死链）
+python tests/test_file_health.py       # UTF-8 健康 + C5.2 ? 替字门禁
+python scripts/check_team_consistency.py   # 专家池声明==资产一致
+python scripts/check_agent_completeness.py # agent 模板完整性
 ```
 
 ## 文件结构
 
 ```
 team-orchestration/
-├── SKILL.md                           # 主入口 (v3.9.0-dsh)
+├── SKILL.md                           # 主契约 (v3.9.0-dsh)
 ├── references/
-│   ├── first-principles.md            # 第一性原理拆解框架
-│   ├── expert-matching.md             # 专家匹配评分算法
-│   ├── self-evolution-protocol.md     # 三环自进化协议
-│   ├── workbuddy-experts/             # 39 个移植专家团
-│   │   ├── _index.md                  # 分类索引
-│   │   └── {team}/                    # 每个专家团一个目录
-│   │       ├── plugin.json            # 元数据 (双语)
-│   │       ├── agents/*.md            # Agent 定义 (255个)
-│   │       └── self-evolution-log.md  # 自进化日志
+│   ├── skills-pack.md                 # 任务级 Skill 封装（5 大 skill）
+│   ├── data-provenance.md             # 数据来源可靠性矩阵（查证纪律）
+│   ├── concurrency-data.json          # 模型并发参考数据（14 天保鲜）
+│   ├── trial-court-protocol.md        # 审判庭五阶段详细规范
+│   ├── dsh-adaptation.md              # DSH 适配指南
+│   ├── workbuddy-experts/             # 40 个移植专家团
+│   │   ├── _index.md                  # 分类索引（8 聚合域 + 通用层）
+│   │   ├── general-critics/           # 通才批判团（v3.9 自建）
+│   │   └── {team}/                    # 每团：plugin.json + agents/*.md
 │   ├── knowledge/                     # 42 个领域知识文件
-│   ├── team-templates/                # 10 个团队模板
-│   ├── task-lifecycle.md              # 任务生命周期
-│   ├── phase-gates.md                 # 阶段关卡
-│   └── communication.md               # Agent 通信模式
-├── scripts/
-│   ├── task-decomposer.py             # 任务拆解器
-│   ├── expert-matcher.py              # 专家匹配器
-│   ├── self-evolution/                # 自进化引擎
-│   │   ├── post-task-evolve.py        # Loop 2
-│   │   ├── proactive-search.py        # Loop 3
-│   │   └── knowledge-merger.py        # 知识合并
-│   ├── self_heal.py                   # 自我修复
-│   ├── health-monitor.py              # 健康监控
-│   └── auto-decider.py                # 自动决策
+│   └── team-templates/                # 团队模板
+├── scripts/                           # 19 个 .py（顶层 16 + self-evolution 3）
+│   ├── task-decomposer.py             # 拆解 + 动态派数（--concurrency）
+│   ├── expert-matcher.py              # 聚合域路由匹配（--domain）
+│   ├── concurrency_check.py           # 并发参考数据检查（check/record/update）
+│   ├── trial-court-orchestrator.py    # 案卷/归档/自学习后端
+│   └── self-evolution/                # 自进化三件套
+├── tests/                             # 40 个测试用例
 └── README.md
 ```
 
@@ -220,6 +134,3 @@ team-orchestration/
 ## 协议
 
 MIT License
-
-## 自学习数据说明
-> **生成时机**：`expert_scores.json` 由 `scripts/trial-court-orchestrator.py` 归档时自动生成，或执行 `python scripts/trial-court-orchestrator.py init-learning` 一次性初始化；history 权重 0.10 冷启动时为 0，不影响匹配。
