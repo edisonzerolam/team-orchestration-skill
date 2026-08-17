@@ -1,85 +1,136 @@
 # Team Orchestration Skill — 多智能体对抗编排引擎
 
-> **版本**: v3.10.3-dsh（TC-20260816-1 ~ TC-20260816-9 全案迭代）
-> **形态**: DSH（DeepSeek Harness）Skill —— 提示词级编排方法论 + 纯 stdlib Python 决策脚本，安装即用、跨客户端适配
+> 专家池借鉴了包括 WorkBuddy、QoderWork 的专家功能
 
-多智能体团队编排引擎：对复杂议题组织多视角专家子代理，经**五阶段对抗协议（二审终审制）**——立案 → 并行举证 → 质证 → 一审（回灌修订）→ 二审终审——收敛出高质量结论。40 个专家团队 / 257 个专家人设作为组件池，按任务动态组队，不物理合并。
+## 概述
 
----
+这是一个 DSH（DeepSeek Harness）Skill，提供**多智能体对抗编排**能力——核心是**五阶段对抗协议（二审终审制）**：对复杂议题组织多视角专家子代理，经举证 → 质证 → 一审 → 二审终审的对抗流程收敛出高质量结论。
 
-## 核心能力（v3.10.3）
-
-### 1. 五阶段对抗协议（二审终审制）
-- **A 立案** → **B 并行举证**（2-6 子代理，A3 单页契约）→ **C 质证**（回灌 ≤2 轮）→ **D 一审**（裁决 + 回灌修订固定 1 轮）→ **E 二审终审**（不回灌，加权投票 believability）
-- 规模门 L1-L4 + 降级路径（BATNA）；Effort 分级 token 预算（WARN 80% / BLOCK 100%）
-- A3 契约硬键校验（cross-validator --a3）；反盲从义务（自反证/独立证据收敛/主理人不流露倾向）
-- 检查点/断点续审（checkpoint_manager + 案卷 resume_from）；提问中转协议（防子代理死锁）
-
-### 2. 依赖感知任务图 + 成员 persona
-- 任务状态机（pending→claimed→in_progress→completed|failed|cancelled）+ 依赖门控
-- 磁盘即真相、事件仅审计；一主理人一团队；archive-not-delete 归档
-- 工具级越权防护（deny 列表：成员不可建团/裁决）；视觉识别路由（外部 OCR 转文本兜底）
-
-### 3. 技能路由（本机 + 多机）
-- `asset-resolver.py`：多客户端技能根动态收集（~/.agents/skills、~/.dsh/skills、~/.workbuddy/skills、~/.claude/skills、~/.codex/skills + 项目级）→ 触发词路由（2-gram 中英 + 相关性计分）→ 技能候选注入子代理 prompt（≤5）
-- 多机注册表（可选增强）：skill-registry-agent 枚举远程主机技能 → registry 合并（schema 校验防注入）/保鲜检查（7 天）
-- SKILL.md §8.2 技能路由表（7 域静态兜底）；敏感技能（disable-model-invocation）自动排除
-
-### 4. 跨客户端首次运行自动适配
-- `detect-runtime.py`：环境变量锚 + 目录特征加权判定 DSH / ZCode / OpenCode / Claude Code / Codex / WorkBuddy
-- `runtime-adaptation.json` + 各客户端适配文档（dsh/zcode/opencode/claude-code/codex/workbuddy）——装到任何客户端首次触发即自动适配
-- **子代理技能面已实测**：DSH 子代理经 available_skills 注入面发现本机技能 + skill 工具按名加载正文（换机即用）
-
-### 5. 专家资产治理（P0-P7 合并方案）
-| 阶段 | 内容 |
-|------|------|
-| P0 | 基线（安全扫描 / 邮箱脱敏 / git 血缘） |
-| P1 | 占位 id 语义化（56 member-N → slug，11 团，三向校验） |
-| P2 | 共享人设裁决（TF-IDF 指纹 + 人工裁决；_shared 规范层 + 引用校验） |
-| P3 | 指纹索引（expert-fingerprint：字符 3-gram TF-IDF cosine + 停用词归一化） |
-| P4 | 域归组（domain-map.json：13 categoryId → 10 组，40 团全覆盖）+ _domain 域入口 |
-| P5 | 路由治理（expert-matcher --domain 域限域召回） |
-| P6 | 生命周期（merge-history 血缘 + git revert 回滚 SOP） |
-| P7 | eval 门禁（eval-gate：22 样例基线 72.7%，合并后下降 >5% 即撤销） |
-
-### 6. 决策脚本体系（21 个 .py，纯 stdlib）
-- **前端**：task-decomposer（复杂度/派数）/ expert-matcher（团队召回，--domain 限域）/ dispatch-planner（派工+立场推导）/ asset-resolver（技能路由）/ expert-fingerprint（相似度）
-- **审判庭后端**：trial-court-orchestrator（案卷/归档/自学习）/ cross-validator（A3 硬键+交叉验证）/ checkpoint_manager / token_budget / concurrency_check / cycle_detector / auto-decider / self_heal / health-monitor / self_learning / check_agent_completeness / check_team_consistency / check-shared-refs / eval-gate / skill-registry-agent / detect-runtime + self-evolution 三件套
-- Windows GBK 控制台防护全覆盖（stdout UTF-8 reconfigure）；原子写（tmp+rename）；路径白名单防穿越
-
-### 7. 安全边界
-- 敏感技能准入（disable-model-invocation + 准入须知：对外发布/凭据/登录态动作须用户逐项确认）
-- 远程注册表 schema 校验（防提示注入）；命令注入面为零（subprocess 全列表传参）
-- 案卷隔离（deliverables 不入带 remote 的 git 仓库）
-
----
-
-## 快速开始
-
-```bash
-# 安装（任选其一）
-# 1. 拷贝到技能根
-cp -r team-orchestration ~/.agents/skills/
-# 2. 或直接 clone 本仓库到技能根
-git clone https://github.com/edisonzerolam/team-orchestration-skill ~/.agents/skills/team-orchestration
-
-# 首次运行自动适配当前客户端
-python scripts/detect-runtime.py
-
-# 立案资产路由（技能候选注入子代理）
-python scripts/asset-resolver.py --task "做一次竞品分析"
-python scripts/asset-resolver.py --snapshot
-
-# 团队匹配
-python scripts/expert-matcher.py --task "审一份劳动合同" --domain legal --top-k 3
+```
+任务 → 立案(复杂度/分工/并发判定) → 并行举证(N子代理) → 质证(回灌修正)
+     → 一审(裁决+回灌修订1轮) → 二审终审(不回灌) → 交付+归档
 ```
 
-触发词：组建团队、团队协作、需要团队、build a team、找合伙人、组成专家小组。
+## 核心特性（v3.9.0-dsh）
 
-## 版本历史
-- **v3.10.3**（2026-08-16）：技能路由（双多根+触发词）、跨机器注册表、跨客户端自动适配、专家合并 P0-P7 全案、完整功能测试与代码审计（3 阻断 + 12 严重修复）、安全边界（browser-cdp 下架/邮箱脱敏/案卷隔离）
-- **v3.9.0-dsh**：动态派数（TC-20260816-6）、数据来源矩阵、任务级 Skill 封装（skills-pack）
-- **v3.5.0-dsh**：DSH 适配基线、加权投票、回退重审契约、检查点续审
+### ⚖️ 五阶段对抗协议（二审终审制）
+立案（5W2H 澄清 + 争点拆解）→ 并行举证（2-6 子代理独立取证）→ 质证（回灌他方产物逐条修正，默认 1 轮、最多 2 轮）→ 一审（裁决 + 回灌修订固定 1 轮）→ **二审终审**（终局裁断，禁止引入新论点）。含**终审前置门禁**（子代理回声收齐才可终审）、BATNA 降级、独立复审（§7.3，优先调度通才批判团）。
 
-## 许可证
-MIT（见 LICENSE）。专家人设资产（references/workbuddy-experts/）来源标注见各 plugin.json `_source` 字段。
+### 🧭 聚合域路由
+40 专家团归入 **8 大聚合域**（投资分析/资本服务/法律服务/内容全链路/营销增长/工程保障/数据智能/产品设计），定域后**跨团队按需组队**（agent 超网思想：257 agents 组件池按任务组合激活，目录物理保留零破坏）。脚本级支持：`expert-matcher.py --domain 投资分析 --task "..."` 限域召回。
+
+### 📦 任务级 Skill 封装（Agent Skills 思想）
+5 大高频任务封装为可复用 skill（触发词 + 团队组合 + 流程 + 输出契约）：**投资分析 / 法律咨询 / 内容生产 / 技术审查 / 深度研究**（`references/skills-pack.md`）——比工具高一层、比完整 agent 低一层的任务能力单元。
+
+### 🧠 通才批判团（general-critics）
+`general-critic`（对抗审查主理人：假设检验/偏见检测/五维 rubric）+ `devil-advocate`（魔鬼代言人：最强反论/极端场景/共识压力测试）——平衡垂直专家的盲点，服务于质证与终审质量门禁。
+
+### 🎛 动态派数机制
+派数不再拍脑袋：`task-decomposer --concurrency N` 输出 `suggested_subagents{value, range, rationale}`——**N = 复杂度基数 × 分工加成 × 模型并发截断 × 预算硬约束 C(N,q)=N×(2+q)**。L1 直行 / L2 直行信号 / L3+ clamp[2, min(并发, 档位)]；推荐值非强制，main 可覆写留痕。
+
+### 🗄 数据治理
+- **并发参考数据保鲜**（`concurrency-data.json`）：模型并发查官方文档（DeepSeek v4-flash=2500，账号粒度），**14 天保鲜期**，过期先派子代理更新，失败用 `max_spawned+1` 渐进试探；每次实际派出强制记录（B 举证 spawn 后 `record --n N`）
+- **数据来源查证纪律**（`references/data-provenance.md` + SKILL.md §9.5）：能查官方查官方 → 能再生成就保鲜 → 查不到就如实标注，禁止把推断值当事实
+
+### 🛡 质量防线
+- **40/40 测试全绿**（run_smoke：脚本冒烟/引用完整性/编码健康/专家池一致性/动态派数/并发数据）
+- **编码门禁**：全包 UTF-8 严格扫描 + C5.2 `?` 替字检测（46 个历史损坏文件根治）
+- 双编码回归（GBK 控制台 + UTF-8）
+
+## 专家池（40 团队 / 257 agents）
+
+### 8 大聚合域
+
+| 聚合域 | 团队 | 触发场景 |
+|---|---|---|
+| 投资分析 | investment-masters + trading-agent + stock-partner + a-share-analysis + equity-research | 股票/估值/多空/买入建议 |
+| 资本服务 | pe-vc-investment + investment-banking + wealth-management | 融资/IPO/家族办公室 |
+| 法律服务 | chatlaw-team + cn-litigation + enterprise-legal-team + tax-compliance-team | 合同/诉讼/合规/税务 |
+| 内容全链路 | ai-content-creator + content-distribution + content-monetization + promo-creator | 视频/文案/分发/变现 |
+| 营销增长 | marketing-campaign + sales-battle + seo-content + social-engagement | 投放/线索/SEO/社媒 |
+| 工程保障 | engineering-assurance + gstack + devtools-engineering + rum-fullstack + alicloud-engineering + software-company | 架构评审/代码审查/QA/云 |
+| 数据智能 | ai-data-copilot + huashu-data-pro | SQL/数据分析 |
+| 产品设计 | product-strategy + design-engine + product-design-suite | PRD/UX/设计系统 |
+
+### 通用对抗层
+- `gpt-researcher-team`（深度研究兜底）
+- `general-critics`（通才批判团：对抗审查 + 魔鬼代言人）
+
+> 完整索引见 `references/workbuddy-experts/_index.md`（40 团队 257 agents，磁盘与声明一致）。
+
+## 安装（DSH）
+
+```powershell
+# 拷贝到用户级技能根（DSH skill 机制扫描 ~/.agents/skills/，即装即用、零构建）
+$src = "C:\path\to\team-orchestration"
+$dst = "$env:USERPROFILE\.agents\skills\team-orchestration"
+if (Test-Path $dst) { Remove-Item $dst -Recurse -Force }
+Copy-Item $src $dst -Recurse
+
+# 冒烟
+python "$dst\scripts\task-decomposer.py" --task "帮我分析宁德时代" --json
+python "$dst\scripts\expert-matcher.py" --domain 投资分析 --task "帮我分析宁德时代" --json
+```
+
+> 本技能为**提示词级编排方法论 + 纯 stdlib Python 决策脚本**，DSH 已内置全部运行时原语（`subagent`/`send_message` 并行与回灌、`ask_user_question` 澄清、`goal`/`todo` 检查点、`pwsh` 执行脚本），详见 `references/dsh-adaptation.md`。
+
+## 快速上手
+
+```bash
+# 1. 立案：拆解任务 + 动态派数（复杂度×分工×并发）
+python scripts/task-decomposer.py --task "帮我分析宁德时代的基本面" --concurrency 6 --json
+#    → complexity: L3-复杂, suggested_subagents: {value:4, range:[2,6], rationale:...}
+
+# 2. 限域召回专家（聚合域路由）
+python scripts/expert-matcher.py --domain 投资分析 --task "帮我分析宁德时代" --top-k 3 --json
+
+# 3. 并发参考数据检查（14 天保鲜，过期自动提示更新）
+python scripts/concurrency_check.py check
+
+# 4. 按五阶段协议组织对抗（见 SKILL.md §3）
+```
+
+## 测试与验证
+
+```bash
+python tests/run_smoke.py              # 40/40 全量冒烟
+python tests/check_references.py       # 引用完整性（零死链）
+python tests/test_file_health.py       # UTF-8 健康 + C5.2 ? 替字门禁
+python scripts/check_team_consistency.py   # 专家池声明==资产一致
+python scripts/check_agent_completeness.py # agent 模板完整性
+```
+
+## 文件结构
+
+```
+team-orchestration/
+├── SKILL.md                           # 主契约 (v3.9.0-dsh)
+├── references/
+│   ├── skills-pack.md                 # 任务级 Skill 封装（5 大 skill）
+│   ├── data-provenance.md             # 数据来源可靠性矩阵（查证纪律）
+│   ├── concurrency-data.json          # 模型并发参考数据（14 天保鲜）
+│   ├── trial-court-protocol.md        # 审判庭五阶段详细规范
+│   ├── dsh-adaptation.md              # DSH 适配指南
+│   ├── workbuddy-experts/             # 40 个移植专家团
+│   │   ├── _index.md                  # 分类索引（8 聚合域 + 通用层）
+│   │   ├── general-critics/           # 通才批判团（v3.9 自建）
+│   │   └── {team}/                    # 每团：plugin.json + agents/*.md
+│   ├── knowledge/                     # 42 个领域知识文件
+│   └── team-templates/                # 团队模板
+├── scripts/                           # 19 个 .py（顶层 16 + self-evolution 3）
+│   ├── task-decomposer.py             # 拆解 + 动态派数（--concurrency）
+│   ├── expert-matcher.py              # 聚合域路由匹配（--domain）
+│   ├── concurrency_check.py           # 并发参考数据检查（check/record/update）
+│   ├── trial-court-orchestrator.py    # 案卷/归档/自学习后端
+│   └── self-evolution/                # 自进化三件套
+├── tests/                             # 40 个测试用例
+└── README.md
+```
+
+## 专家池来源
+
+本 skill 的 40 个专家团**借鉴了包括 WorkBuddy、QoderWork 的专家功能**，并在 DSH 环境完成适配（脚本路径相对化、plugin.json 双语元数据保留、五阶段对抗协议整合）。
+
+## 协议
+
+MIT License
