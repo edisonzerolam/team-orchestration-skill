@@ -2,6 +2,8 @@
 
 > 专家池借鉴了包括 WorkBuddy、QoderWork 的专家功能
 
+> [English README](./README.en.md)
+
 ## 概述
 
 这是一个 DSH（DeepSeek Harness）Skill，提供**多智能体对抗编排**能力——核心是**五阶段对抗协议（二审终审制）**：对复杂议题组织多视角专家子代理，经举证 → 质证 → 一审 → 二审终审的对抗流程收敛出高质量结论。
