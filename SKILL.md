@@ -1,7 +1,7 @@
 ---
 name: team-orchestration
-version: 3.9.0-dsh
-description: "多智能体团队编排引擎 — 五阶段对抗协议(二审终审制) + A3契约 + 降级路径 + 视觉识别路由(实测验证) + 后台送达契约 + 依赖感知任务图/成员persona(吸收dsh-agent-teams) + 提问中转协议(防子代理死锁)。触发词：组建团队、团队协作、需要团队、build a team、找合伙人、组成专家小组"
+version: 3.9.2-dsh
+description: "多智能体团队编排引擎 — 五阶段对抗协议(二审终审制) + A3契约 + 降级路径 + 主理人同步领活(非协议派发不空等) + 视觉识别路由(实测验证) + 后台送达契约 + 依赖感知任务图/成员persona(吸收dsh-agent-teams) + 提问中转协议(防子代理死锁)。触发词：组建团队、团队协作、需要团队、build a team、找合伙人、组成专家小组"
 tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task-graph, question-relay]
 ---
 
@@ -30,7 +30,7 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 
 - **L1-L2**（单维度/低争议/子任务≤3）：直行，单 agent + 自我批判。
 - **L3+**（多维/高争议/跨领域）：五阶段对抗协议（二审终审制）。
-- **降级**：若无法确定合适的 2+ 差异化视角，降为单 agent + 自我批判（不硬凑团队）。
+- **降级**：若无法确定合适的 2+ 差异化视角，降为单 agent + 自我批判（不硬凑团队）。降级后仍派子代理时，main 同步领活不空等（§4.6）。
 - **升级**：L2 涉及 ≥3 领域 → 升为 L3。
 
 **Effort 分级预算（v3.5 增强 · P1-1）**：规模门判定后按档分配 tool-call / token / 子代理数上限。**注意：此为预算档，非规模门档位**——规模门只有 L1/L2/L3+ 三档、无 L4 档（见 `references/test-workflow.md` B2），L4 在此仅作预算上限参考，避免与 B2 混淆。
@@ -144,6 +144,10 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 - **兜底约定**：子代理 prompt 不传图片路径，只传「图片的文本化内容」；无法文本化时向用户说明。
 - **若视觉信息与文字冲突**：以直接观察/主证据为准，裁决注明依据。
 
+> **案卷元状态写权限（TC-20260816-10）**：子代理可落盘自己的 A3 产物（evidence 文件）；但 tasks.json / resume_from / cross_exam / status 等案卷元状态仅 main 统一写入。成员如需券变，经 agent_message 向 main 请求。
+
+
+
 ### 4.2 后台子代理送达契约 + 看门狗（ZCode 2026-08-09 适配）
 
 > **ZCode 实测口径**：无收件箱机制。子代理产物 = `task` 调用返回值（同步）或后台任务完成通知 + `agent_*/task.output` 产物文件；主环境 SendMessage(to: agentId) 可与已 spawn agent 通信（agent 间直连受限）。
@@ -164,6 +168,16 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 - **persist 纪律**：同一案卷内落盘操作**串行 + 原子写**（先临时文件再 rename）；读产物遇畸形段→降级低可信警告不崩溃；读 `案卷信息.json`/`tasks.json` 前做结构校验，失败即判不可续。
 - **一主理人一团队**：主理人同时只主持一个进行中案卷；成员以 `list_agents`/activity 实时监控。
 - **viewer-scoped**：质证成员在回灌前只见己方产物（天然隐藏他方论点，防对抗泄漏）。
+
+### 4.6 主理人同步领活纪律（非协议派发不空等 · v3.9.1 · TC-20260902）
+
+> 适用范围：**非五阶段对抗协议**的子代理派发场景——§1 直行中的并行派发、§2 降级路径、并行任务派发、常规编排。协议内 B 举证/C 质证阶段 main 须保持中立裁决位（§4.4 ③ 不预流露倾向），**不适用本条**（main 领举证工作会污染裁决）。
+
+- **不空等原则**：main 派出子代理后不得进入等待态——在同一消息内自领一份与子代理**无依赖冲突**的工作，与子代理并行推进；子代理运行期间 main 的工作照常进行，完成后才进入收集/汇总。
+- **领活优先级**：① 无依赖的独立子任务（自己专业视角最能出活的那份）② 案卷/汇总骨架准备 ③ 上下文与资产核查。有依赖的裁决/汇总工作须等收齐后再做，不得用它替代并行领活。
+- **并发适配（ZCode 实测 · 与 §4.2 并行契约互洽）**：同消息最多 spawn 2，被拒减 1 重派；剩余并发额度由 main 自身份额补足——常态即"spawn N + main 领 1 份"。
+- **份额入账**：main 自领工作写入案卷 `tasks.json`（`assignee=main`），与子代理任务同一状态机管理；main 不代写子代理已认领的份额（领活≠越俎代庖），也不因领活豁免自己的裁决/验收职责。
+- **禁止反例**：spawn 后 sleep/轮询等待（§4.2 已禁）；领活后只挂名不产出；领的活与某子代理任务重叠造成重复劳动。
 
 ## 5 合并策略
 
@@ -225,112 +239,24 @@ tags: [orchestration, team, multi-agent, trial-court, two-instance, vision, task
 
 任一子争点置信度 <0.3（cross-validation 判定"不可信"）或整体重审 >2 次 → **不得直接交付**，走独立复审（**全新上下文复核子代理**，看全案卷、不看一审已给结论）或升级用户人工仲裁；留痕入案卷 `06-资产使用记录`/`07-反馈记录`。**独立复审优先调度 `general-critics` 通才批判团**（general-critic 对抗审查 + devil-advocate 反论压力测试，v3.9 · TC-20260816-5）——平衡垂直专家盲点，产出五维 rubric 独立打分。
 
-## 8 参考文件（按需读取）
 
-| 文件 | 用途 |
-|------|------|
-| `references/trial-court.md` | 完整审判庭协议细节（现行补充协议） |
-| `references/agent-teams-absorption.md` | **dsh-agent-teams 优秀设计吸收（v3.6）：依赖感知任务图 + durable 邮箱 + 成员 persona + 工具级越权防护 + 磁盘即真相 + 归档化删除 + fail-loud 纪律（§4.0/§4.2.1/A5 的详版模板）** |
-| `references/trial-court-protocol.md` | 审判庭五阶段详细执行规范（二审终审制：一审裁决/回灌修订/二审终审，含案卷归档/自学习S1/S2/终审七段式） |
-| `references/workbuddy-experts/_index.md` | 40 专家团索引 |
-| `references/workbuddy-adaptation.md` | WorkBuddy 移植历史参考（压缩版；现行事实源=`workbuddy-experts/_index.md` + `dsh-adaptation.md`） |
-| `references/skills-pack.md` | **任务级 Skill 封装（v3.9 · TC-20260816-5）：触发词 + 团队组合 + 流程 + 输出契约（Agent Skills 思想落地）** |
-| `references/data-provenance.md` | **数据来源可靠性矩阵（v3.9 · TC-20260816-6）：记录/外部数据的来源分层与查证方式** |
-| `references/zcode-adaptation.md` | **ZCode 适配指南（实测：task 调度、mini-vision 视觉路由、产物收集、TRIAL_BASE、路径映射）** |
-| `references/dsh-adaptation.md` | **DSH 适配指南（实测映射：subagent/send_message 调度、视觉路由、检查点/续审、脚本调用、安装落点与可见性）** |
-| `references/opencode-adaptation.md` | OpenCode 适配历史（v3.2.0-opencode，存档参考） |
-| `references/cross-validation.md` | 交叉验证规则 |
-| `references/test-workflow.md` | **改本技能逻辑/契约/脚本前必先读，作为回归门禁（触发守则见该文件 §3.1/§4）** |
+> **门禁语义边界（TC-20260816-10）**：eval-gate 通过表示“评估集内技能召回未退化”；token_budget 达标表示“未超预算”；两者均不表示方案正确或交付达标。质量达标由 §7.2 五维 rubric + §7.3 终审独立裁断。
 
-## 8.1 加载决策（分域路由）· Phase 0
 
-> **守卫（三行，必读）**：① 非白名单团队仍可**追加读取**（懒加载，不阻断）；② 冲突时以 `expert-matcher` 检索结果 + lead 判断为准；③ 通用对抗兜底（`gpt-researcher-team`）**始终可选**。
-> **定位**：本文是**文档级判断纪律工具**（省 lead 定域判断成本 + 有界读取），**不承诺 token 百分比节省**；"默认跳过 ≠ 禁止读取"。
+> **执行核心改动门禁（TC-20260816-10）**：SKILL.md §1-§7.3 为执行核心。改前须：① git tag 快照 ② merge-history.md 记录改动意图。改后须：③ eval-gate.py 验证技能召回未退化。改进优先走 references/ 增量文件。
 
-**定域流程**：立案用下方触发词 → 定 `domain` → 加载该域 T1 团队头寸 + knowledge 最小集 → 进队 agent 人设按需（T2 惰性，`read_agent_md` 已内置）。
 
-**聚合域路由（v3.9 · TC-20260816-5；v3.10.3 · TC-20260816-9 补全）**：40 团队归入 10 组（8 业务域 + 通用对抗 + 通用兜底），完整归组见 **`references/domain-map.json`**（40 团全覆盖，categoryId 13 类归并），域入口文件 `references/workbuddy-experts/_domain/<domain>.md`（立案定域只读该入口）。定域后**跨团队按需组队**（agent 超网思想：257 agents 为组件池，按任务组合激活，不物理合并目录）。团队目录/plugin.json 保留，expert-scores/脚本引用零破坏：
+## 8 路由与脚本参考（按需读取 · TC-20260816-9 瘦身）
 
-| 聚合域 | 团队（目录保留） | 触发词补充 |
-|---|---|---|
-| 投资分析 | investment-masters + trading-agent + stock-partner + a-share-analysis + equity-research | 买入/卖出/估值/多空 |
-| 资本服务 | pe-vc-investment + investment-banking + wealth-management | 融资/IPO/家族办公室 |
-| 法律服务 | chatlaw-team + cn-litigation + enterprise-legal-team + tax-compliance-team | 起诉/合同审查/合规 |
-| 内容全链路 | ai-content-creator + content-distribution + content-monetization + promo-creator | 视频/文案/分发/变现 |
-| 营销增长 | marketing-campaign + sales-battle + seo-content + social-engagement | 投放/线索/SEO/社媒 |
-| 工程保障 | engineering-assurance + gstack + devtools-engineering + rum-fullstack + alicloud-engineering + software-company | 架构评审/代码审查/QA/云 |
-| 数据智能 | ai-data-copilot + huashu-data-pro | SQL/数据分析（gpt-researcher 独立=通用对抗兜底） |
-| 产品设计 | product-strategy + design-engine + product-design-suite | PRD/UX/设计系统 |
+> 路由/脚本明细已外移 references/，本节为**路由句**——何时读哪个文件：
 
-> 任务级 skill 封装（触发词 + 团队组合 + 流程）见 `references/skills-pack.md`。
+- **定域 / 团队匹配**（立案步骤 3）：`references/routing-tables.md` §8.1 聚合域表 + `scripts/expert-matcher.py`；40 团归 10 组见 `references/domain-map.json`（域入口 `workbuddy-experts/_domain/<domain>.md`）。
+- **技能路由**（立案步骤 4 / 子代理技能候选）：`references/routing-tables.md` §8.2 技能路由表（asset-resolver 不可用时的静态兜底）。
+- **脚本调用**（各阶段工具/参数）：`references/scripts-index.md`（21 脚本 + 用法）。
+- **外部数据查证**：`references/scripts-index.md` §9.5 / `references/data-provenance.md`（来源分层 + 保鲜）。
+- **参考文件完整索引**：`references/routing-tables.md` §8。
 
-## 8.2 技能路由表（v3.10 · TC-20260816-7）
-
-> 任务域 → 当前机器技能候选（多客户端根）。**优先实时召回**：`asset-resolver.py --task "<任务>" [--project-dir <工作区>]` 按触发词匹配（2-gram 中英）；本表为**静态兜底**（asset-resolver 不可用时）。子代理 prompt 按 §4-3 注入技能候选（≤5），候选外技能不注入。敏感技能（disable-model-invocation）已被 asset-resolver 自动排除。
-
-| 任务域 | 技能候选（agents 源优先） | 触发例 |
-|--------|--------------------------|--------|
-| product | create-prd / product-strategy / user-stories / prioritize-features / lean-canvas / wwas | PRD/路线图/需求拆解/排优先级 |
-| marketing | marketing-plan / copywriting / ad-creative / ads / cro / aso / customer-research / competitor-analysis / competitor-profiling / competitors / cold-email / pricing | 营销方案/文案/投放/转化/ASO/竞品/冷邮/定价 |
-| content | story-studio（故事族编排器）/ wewrite（公众号）/ baoyu-image-gen / baoyu-comic / baoyu-translate / baoyu-slide-deck / bili-daily / stop-slop | 公众号/网文/配图/漫画/翻译/PPT/字幕 |
-| taste/design | design-taste-frontend / frontend-ui-engineering / high-end-visual-design / baoyu-diagram / image-to-code | 前端/视觉/图表/设计系统 |
-| security | skillspector / intended-vs-implemented / security-and-hardening / auditor | 技能安全扫描/代码审计/合规 |
-| tool | firecrawl（族）/ sql-queries / graphify / browser-cdp / firecrawl-parse | 抓取/查询/知识图谱/浏览器/解析 |
-| data | analytics / cohort-analysis / sentiment-analysis / metrics-dashboard | 埋点/留存/反馈/指标 |
-
-> 域冲突时以 asset-resolver 触发词得分 + main 判断为准；未命中任何域 → 不注入技能候选（子代理仅凭 available_skills 自动面）。
-
-**兜底（表外/跨界/新团队）**：触发词未命中静态表时，交语义判断 —— `python scripts/expert-matcher.py --task "<任务原文>" --top-k 4 --json`，按其得分高的团队为准；仍无高分(score<0.25)则回退通用对抗（gpt-researcher-team）。优先级：静态表(快) → LLM语义(matcher) → 通用兜底。冲突以 matcher 语义得分为准。
-
-| 任务域 | 触发词例 | T1 expert 团队（完整目录名） | T1 knowledge（最小） | 默认跳过（启发式） |
-|--------|---------|---------------------------|---------------------|------------------|
-| 投资/金融 | 股票/基金/A股/港股/PE/VC/估值 | investment-masters-team, trading-agent, stock-partner-team, a-share-analysis, equity-research, wealth-management, pe-vc-investment, investment-banking | stock-analyst, hk-stock-analysis, macro-analyst, valuation-expert, money-flow-tracker | content / marketing / product / engineering / legal |
-| 法律/财税 | 合同/诉讼/合规/知产/税务/仲裁 | cn-litigation, chatlaw-team, enterprise-legal-team, tax-compliance-team | contract-reviewer, legal-researcher, litigation-strategist, ip-specialist, privacy, regulatory, tax-compliance, precedent | investment / content / product / engineering |
-| 内容创作 | 视频/脚本/文案/视觉/宣传/分发 | ai-content-creator-team, content-distribution-team, content-monetization-team, promo-creator-team | content-director, scriptwriter, video-editor, visual-artist, synthesis-writer | legal / investment / engineering |
-| 营销增长 | 营销/SEO/销售/社媒/增长 | marketing-campaign-team, sales-battle-team, seo-content-team, social-engagement-team | prompt-patterns, platform-analyst | legal / investment / engineering |
-| 产品设计 | PRD/UX/竞品/设计系统 | product-strategy-team, design-engine, product-design-suite | prompt-patterns | marketing / legal / investment |
-| 技术工程 | 开发/架构/云/测试/审查 | software-company, engineering-assurance-team, gstack, rum-fullstack-team, alicloud-engineering, devtools-engineering | platform-adapter, platform-analyst, ai-data-copilot | investment / legal / content |
-| **通用多agent对抗** | 无法归类 / 跨 3+ 域 L3 | gpt-researcher-team + general-critics（通才批判团）+ 通用 agent 池 | 不预载，仅 T0 | 无（降级不硬选） |
-
-> 完整版与命名对照见 `references/expert-matching.md`「分域加载决策表（Phase 0）」。
-
-## 9 可选辅助脚本（非主流程必须）
-
-以下脚本可辅助决策但**不阻塞**主流程，main 可跳过直接思考：
-> scripts/ 下共 **21 个 .py（顶层 18 + self-evolution/ 下 3）**。审判庭后端（trial-court-orchestrator / asset-resolver / cross-validator）+ 前端（task-decomposer/expert-matcher/dispatch-planner）互补，按需运行。
-> **案卷隔离（v3.10.3 · TC-20260816-9）**：`deliverables/trial/` 为真实任务数据（含路径/内容），**禁止进入带 remote 的 git 仓库**——归档位置默认工作区根 `deliverables/trial/`，若工作区 git 仓库有 remote，用 TRIAL_BASE 环境变量指向仓库外目录（如 `~/.dsh/trial-archive`）。
-
-**前端（决策参考）**：
-- `python scripts/task-decomposer.py --task "..." --json`（复杂度参考）
-- `python scripts/expert-matcher.py --task "..." --json`（专家团召回参考）
-- `python scripts/dispatch-planner.py --task "..." --top-k 2`（派工方案草稿）
-
-**审判庭后端（案卷/归档/自学习，现行）**：
-- `python scripts/trial-court-orchestrator.py docket ...`（案卷/归档/自学习后端）
-- `python scripts/asset-resolver.py --snapshot`（资产快照生成）；`--task "<任务>"`（技能触发词路由召回，v3.10 · TC-20260816-7）
-- **多机技能注册表（v3.10.1 · TC-20260816-7）**：`python scripts/skill-registry-agent.py`（远程技能枚举——部署到目标机运行，输出本机技能 JSON）；主控侧 `asset-resolver.py --registry-merge <json> --host-alias <别名>`（合并进 `references/skill-registry.json`）/ `--registry-check`（保鲜检查，7 天）/ `--registry-list`（列出远程技能）。**定期更新**：立案 `--registry-check` 驱动刷新；也可在 DSH GUI 注册轮询任务（如每周日 3 点：ssh_exec 各目标机跑 skill-registry-agent → 取回合并）实现无人值守
-- `python scripts/cross-validator.py ...`（举证交叉验证，接入 A3 evidence 校验）
-
-**激活资产（v3.5 增强 · P0-3 索引补齐）**：
-- `python scripts/token_budget.py --limits '{"举证":12000,...}'`（分阶段 token 预算，**WARN 80% / BLOCK 100%**，接入 §3 各阶段入口）
-- `python scripts/checkpoint_manager.py --root <检查点目录> --action save|load|next|plan ...`（步骤检查点/断点续传，配合 §3 检查点协议）
-- `python scripts/self_heal.py`（错误分类与恢复，已集成 orchestrator `self-heal` 子命令）
-- `python scripts/auto-decider.py`（错误自动决策 retry/skip/abort，已集成 orchestrator `auto-decide` 子命令）
-- `python scripts/cycle_detector.py --edges edges.json`（spawn 调用环检测，阻断 A→B→A→B 死循环；orchestrator 内部已接线）
-
-**其余脚本**（兜底索引，均可在 scripts/ 目录内直接查看与运行）：`concurrency_check.py`（模型并发参考数据检查：fresh/stale + max_spawned+1 试探，立案时用）、`health-monitor.py`（运行态健康监控）、`self_learning.py`（自学习统计）、`check_team_consistency.py` / `check_agent_completeness.py`（v3.3 校验）、`self-evolution/knowledge-merger.py` / `post-task-evolve.py` / `proactive-search.py`（自进化三件套）。完整调用方式见 `references/zcode-adaptation.md` §2。
-
-## 9.5 外部数据查证纪律（v3.9 · TC-20260816-6 补强）
-
-技能依赖的记录与外部数据，按来源分层管理（详见 `references/data-provenance.md`）：
-
-1. **自身执行记录**（docket-*/trial-count/expert-scores/自学习）：来源=本技能运行产物，可靠性高；查证=案卷重放对照，无需外部验证。
-2. **官方文档来源**（concurrency-data.json）：模型并发查模型提供方官网 rate limit 页（如 DeepSeek: api-docs.deepseek.com/quick_start/rate_limit/）；**保鲜期 14 天**，过期先派子代理更新，失败用 max_spawned+1 试探（见 §3A 立案步骤 3）。
-3. **本机扫描数据**（last-asset-snapshot.json / asset-issue-map.md）：资产快照，**即过期即失真**——使用时核对 `snapshot_at`，>30 天提示重新 `--snapshot` 再生成。
-4. **市场导入数据**（workbuddy-experts/）：provenance 字段（`_source`/`_enhancedWith`）保留来源；上游损坏不可复核时**如实标注**，不虚构对照。
-5. **推断/补全数据**（knowledge/*.md 中修复推断值）：分两类——可查证类（法条/税率/行业标准）经 web_search 核实后使用；**不可查证类（原始字节丢失的上下文推断）必须标注"推断值"**，使用时不作为权威依据。
-
-> 原则：**能查官方查官方，能再生成就保鲜，查不到就如实标注**——禁止把推断值当事实使用。
+> **案卷隔离（v3.10.3）**：`deliverables/trial/` 禁入带 remote 的 git 仓库——TRIAL_BASE 指向仓库外（如 `~/.dsh/trial-archive`）。
 
 ## 10 When NOT to Use（v3.5 增强 · P2-3）以下场景**不建议**走五阶段对抗协议，直接降级/直行更合适：
 - **纯确定性问题**（单一正确解、无需多视角）：直行单 agent。

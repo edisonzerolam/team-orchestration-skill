@@ -26,3 +26,16 @@
 
 - P2 若老板裁决 competitive 对共享
 - 任何未来合并动作
+
+## TC-20260816-10 prime-agent absorption (A/B/C)
+
+action: A=§7.3改动门禁 B=§7门禁语义 C=§4.0状态写权限 source=prime-agent+same-class
+
+## 2026-09-02 主理人同步领活（v3.9.0-dsh → v3.9.1-dsh · 用户指令）
+
+| 项 | 内容 |
+|----|------|
+| 意图 | 非五阶段协议派发子代理时，main 不得空等，须同步自领一份无依赖冲突的工作（spawn N + main 领 1 份常态；ZCode 并行上限实测=2） |
+| 改动 | SKILL.md 新增 §4.6（适用范围/领活优先级/份额入账/禁止反例，协议内 B/C 阶段中立位不适用）；§2 降级条目加指针；frontmatter version+description 同步 |
+| 快照 | tag `team-orchestration-pre-main-workshare-20260902` |
+| gate | eval-gate.py 改后跑（结果见 commit 信息） |

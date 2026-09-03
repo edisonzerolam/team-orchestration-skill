@@ -13,10 +13,8 @@ references/learning-data/docket-*.json
 references/learning-data/trial-count.json
 references/learning-data/learning-init.json
 references/learning-data/expert_scores.json
+# scripts/ 子层同规则（expert_scores.json 曾经此层级逃逸入库，TC-20260831-2）
+scripts/references/learning-data/
 
-team-orchestration/references/last-asset-snapshot.json
-team-orchestration/references/asset-issue-map.md
-team-orchestration/references/skill-registry.json
-team-orchestration/references/remote-skills/
-__pycache__/
-
+# 本机 hook 运行态（不入库）
+.mimosa/
