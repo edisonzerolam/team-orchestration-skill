@@ -13,7 +13,11 @@
      → 一审(裁决+回灌修订1轮) → 二审终审(不回灌) → 交付+归档
 ```
 
-## 核心特性（v3.9.0-dsh）
+## 核心特性（v3.13.0-dsh）
+
+### 🧩 结构化契约 + 两阶段生命周期（v3.13 · 反向吸收 agent-teams 插件）
+
+把 **agent-teams 插件（dsh-agent-teams v0.1.17 @nanmicoder）** 的结构化契约反向吸收进本技能：7 类 `kind` ↔ 五阶段映射、contract 字段集（`objective`/`inScope`/`outOfScope`/`acceptance`/`verify`/`deliverables`/`changedPaths`…）、`verdict` 三态 + `findings[]` + 五维 rubric→`severity` 确定性映射、`attempt`/`attemptId`/`handoffId` 执行代次、三层质量门（创建/完成/交付）、`reviewPolicy` 配置表 → `references/structured-contract.md`；以及 `phase=staged` 审批 / `halted` / `resume(reason)` / `escalated` 两阶段生命周期语义 → `references/web-staged-lifecycle.md`。**五阶段对抗协议与二审终审制本体语义未变**（仅新增结构化落点）。
 
 ### ⚖️ 五阶段对抗协议（二审终审制）
 立案（5W2H 澄清 + 争点拆解）→ 并行举证（2-6 子代理独立取证）→ 质证（回灌他方产物逐条修正，默认 1 轮、最多 2 轮）→ 一审（裁决 + 回灌修订固定 1 轮）→ **二审终审**（终局裁断，禁止引入新论点）。含**终审前置门禁**（子代理回声收齐才可终审）、BATNA 降级、独立复审（§7.3，优先调度通才批判团）。
@@ -106,7 +110,7 @@ python scripts/check_agent_completeness.py # agent 模板完整性
 
 ```
 team-orchestration/
-├── SKILL.md                           # 主契约 (v3.9.0-dsh)
+├── SKILL.md                           # 主契约 (v3.13.0-dsh)
 ├── references/
 │   ├── skills-pack.md                 # 任务级 Skill 封装（5 大 skill）
 │   ├── data-provenance.md             # 数据来源可靠性矩阵（查证纪律）

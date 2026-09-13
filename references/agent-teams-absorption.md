@@ -4,6 +4,8 @@
 > **本文件**：把外部优秀设计吸收进 team-orchestration 技能的**可落地规则**。与既有契约（A3 / 五阶段对抗 / 二审终审制 /
 > 加权投票 / 预算门禁）**融合而非替换**。变化量级：新增依赖感知任务模型 + durable 邮箱 + 成员 persona + 工具级越权防护 +
 > 磁盘即真相 + 归档化删除 + fail-loud 纪律。
+> **版本追溯（v3.13 · 2026-09-13）**：本文件为 **v3.6 吸收主文档**；**v3.13 增量**（结构化契约 `references/structured-contract.md`、
+> 两阶段生命周期 `references/web-staged-lifecycle.md`、以及本文件 §8 边界句修订）为**反向吸收第二批**，见 `references/merge-history.md` 2026-09-13 条目。
 > **吸收策略**：本技能是**提示词级编排方法论 + 纯 stdlib Python 决策脚本**，不引入前端 UI / cordis plugin 工程层；
 > 仅吸收与编排协议正交的**数据模型、状态机、成员边界、持久化纪律**。
 
@@ -147,8 +149,10 @@
 本吸收**不改五阶段对抗协议主流程**，是增强层：
 - **默认生效**：依赖任务模型、persona 块、磁盘即真相、归档化删除、fail-loud 纪律——直接融入既有流程。
 - **可选增强**：durable 邮箱整体落地需较高工程投入（本技能为提示词级，故以**落盘案卷 + 状态文件**体现，不依赖插件）。
-- **不吸收**：Web UI 活动面板 / 小鲸鱼形象（编排方法论不需要前端）；插件工程层（cordis/tsdown/client bundle）；
+- **不吸收前端实现**：Web UI 活动面板 / 小鲸鱼形象（编排方法论不需要前端）；插件工程层（cordis/tsdown/client bundle）；
   与 DSH 结构强绑定的实现细节。
+- **吸收其生命周期语义（v3.13 · 2026-09-13 修订）**：`phase=staged` 审批、`planReviewState=awaiting_feedback`（先问要改什么再改 draft）、
+  `halted`/`resume(reason)`、`escalated`（不是 halt）——语义与 DSH 落地形态见 `references/web-staged-lifecycle.md`。
 
 ---
 

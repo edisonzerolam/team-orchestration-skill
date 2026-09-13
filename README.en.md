@@ -13,7 +13,11 @@ Task → Case Filing (complexity/division/concurrency) → Parallel Evidence (N 
      → First Instance (verdict + 1 fixed revision round) → Second-Instance Final (no re-feed) → Delivery + Archive
 ```
 
-## Core Features (v3.9.0-dsh)
+## Core Features (v3.13.0-dsh)
+
+### 🧩 Structured Contract + Two-Phase Lifecycle (v3.13 · reverse absorption from the agent-teams plugin)
+
+The structured contract of the **agent-teams plugin (dsh-agent-teams v0.1.17 @nanmicoder)** is absorbed back into this skill: 7 task `kind`s ↔ five-phase mapping, the contract field set (`objective`/`inScope`/`outOfScope`/`acceptance`/`verify`/`deliverables`/`changedPaths`…), `verdict` tri-state + `findings[]` + a deterministic five-dimension rubric→`severity` mapping, `attempt`/`attemptId`/`handoffId` execution generations, three-layer quality gates (create/complete/delivery), and the `reviewPolicy` config table → `references/structured-contract.md`; plus the `phase=staged` approval / `halted` / `resume(reason)` / `escalated` two-phase lifecycle semantics → `references/web-staged-lifecycle.md`. **The five-phase adversarial protocol and the two-instance final adjudication semantics are unchanged** (structured landing points only).
 
 ### ⚖️ Five-Phase Adversarial Protocol (Two-Instance Final Adjudication)
 Case filing (5W2H clarification + issue decomposition) → parallel evidence (2-6 subagents independently gather evidence) → cross-examination (feed other parties' output, revise item by item; 1 round default, max 2) → first instance (verdict + 1 fixed revision round) → **second-instance final adjudication** (final ruling, no new arguments allowed). Includes **final-adjudication pre-gate** (echoes from all subagents must be collected), BATNA degradation, and independent review (§7.3, prefers the General Critics team).
@@ -106,7 +110,7 @@ python scripts/check_agent_completeness.py # agent template completeness
 
 ```
 team-orchestration/
-├── SKILL.md                           # Main contract (v3.9.0-dsh)
+├── SKILL.md                           # Main contract (v3.13.0-dsh)
 ├── references/
 │   ├── skills-pack.md                 # Task-level Skill packaging (5 skills)
 │   ├── data-provenance.md             # Data provenance matrix (verification discipline)

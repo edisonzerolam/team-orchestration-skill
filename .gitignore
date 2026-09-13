@@ -5,6 +5,8 @@ __pycache__/
 .pytest_cache/
 .phase0-backup/
 SKILL.md.bak-to-test
+# v3.13（2026-09-13）：核心区改动三前置的「改前快照」产物，不得随发布包推送
+SKILL.md.bak-*
 deliverables/
 references/last-asset-snapshot.json
 
@@ -15,6 +17,3 @@ references/learning-data/learning-init.json
 references/learning-data/expert_scores.json
 # scripts/ 子层同规则（expert_scores.json 曾经此层级逃逸入库，TC-20260831-2）
 scripts/references/learning-data/
-
-# 本机 hook 运行态（不入库）
-.mimosa/

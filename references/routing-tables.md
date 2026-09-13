@@ -8,6 +8,8 @@
 |------|------|
 | `references/trial-court.md` | 完整审判庭协议细节（现行补充协议） |
 | `references/agent-teams-absorption.md` | **dsh-agent-teams 优秀设计吸收（v3.6）：依赖感知任务图 + durable 邮箱 + 成员 persona + 工具级越权防护 + 磁盘即真相 + 归档化删除 + fail-loud 纪律（§4.0/§4.2.1/A5 的详版模板）** |
+| `references/structured-contract.md` | **结构化契约（v3.13 · 反向吸收 dsh-agent-teams 插件 v0.1.17）：kind↔五阶段映射、contract 字段集、verdict+findings+severity+rubricScores、attempt/attemptId/handoffId、三层质量门（创建/完成/交付）、ReviewPolicy 配置表、术语中英对照——结构化契约的单一事实源** |
+| `references/web-staged-lifecycle.md` | **两阶段生命周期（v3.13 · 反向吸收 dsh-agent-teams 插件 v0.1.17）：`phase=staged→running` 审批、`planReviewState=awaiting_feedback`、`halted`/`resume(reason)`、`escalated`（不是 halt）——仅吸收语义、不含前端实现** |
 | `references/trial-court-protocol.md` | 审判庭五阶段详细执行规范（二审终审制：一审裁决/回灌修订/二审终审，含案卷归档/自学习S1/S2/终审七段式） |
 | `references/workbuddy-experts/_index.md` | 40 专家团索引 |
 | `references/workbuddy-adaptation.md` | WorkBuddy 移植历史参考（压缩版；现行事实源=`workbuddy-experts/_index.md` + `dsh-adaptation.md`） |
