@@ -133,6 +133,11 @@ team-orchestration/
 └── README.md                          # Chinese README
 ```
 
+## Branches
+
+- **`master` (primary · active)**: all version releases push to master + annotated tag. Current latest `v3.13.0-dsh` (2026-09-13).
+- **`main` (legacy · frozen)**: early branch, stopped at v3.9.x. Kept for backward compatibility of old references; **no longer synced** — master is the source of truth.
+
 ## Expert Pool Origin
 
 The 40 expert teams in this skill **draw on expert capabilities from WorkBuddy and QoderWork**, adapted for the DSH environment (relative script paths, bilingual plugin.json metadata preserved, integrated with the five-phase adversarial protocol).

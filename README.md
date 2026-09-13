@@ -133,6 +133,11 @@ team-orchestration/
 └── README.md
 ```
 
+## 分支说明
+
+- **`master`（主分支 · 活跃）**：所有版本发布直推 master + annotated tag。当前最新 `v3.13.0-dsh`（2026-09-13）。
+- **`main`（历史并存 · 不更新）**：早期分支，停 v3.9.x。保留以兼容旧引用，**不再同步**；以 master 为准。
+
 ## 专家池来源
 
 本 skill 的 40 个专家团**借鉴了包括 WorkBuddy、QoderWork 的专家功能**，并在 DSH 环境完成适配（脚本路径相对化、plugin.json 双语元数据保留、五阶段对抗协议整合）。
